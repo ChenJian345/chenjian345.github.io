@@ -3,17 +3,32 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Mark C.J. Blog</title>
+  <title>Protobuf初探 | Mark C.J. Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Mark C.J. Blog">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="文 · Mark
+
+对于软件开发者，尤其是移动端（Android &amp;amp; iOS）开发者来说，XML和JSON两种文件传输格式并不陌生，尤其是JSON，仅在上述两种开发领域中就广泛应用。随之而来的，是各种JSON的解析库，此文中，笔者不想介绍各个平台丰富多彩的JSON解析库，而是想和大家分享发现的一种新的文件传输格式，Protobuf。
+
+Protobuf是什么鬼初次相遇Protobuf，这是">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Protobuf初探">
+<meta property="og:url" content="http://yoursite.com/2016/07/16/Protobuf初探/index.html">
 <meta property="og:site_name" content="Mark C.J. Blog">
-<meta property="og:description">
+<meta property="og:description" content="文 · Mark
+
+对于软件开发者，尤其是移动端（Android &amp;amp; iOS）开发者来说，XML和JSON两种文件传输格式并不陌生，尤其是JSON，仅在上述两种开发领域中就广泛应用。随之而来的，是各种JSON的解析库，此文中，笔者不想介绍各个平台丰富多彩的JSON解析库，而是想和大家分享发现的一种新的文件传输格式，Protobuf。
+
+Protobuf是什么鬼初次相遇Protobuf，这是">
+<meta property="og:image" content="https://camo.githubusercontent.com/75941272e9741d49d04f00337c367b78cdac4e80/68747470733a2f2f63686172742e676f6f676c65617069732e636f6d2f63686172743f6368743d626873266368733d36303078333734266368643d743a3234382c3433332c3433322c3530312c3532362c3635302c3539372c3732332c3739362c3733322c313137332c3931332c313238302c3838382c313431372c313435352c3838372c313035387c3339352c3633342c3638342c3637342c3830362c3639352c3735382c313038322c313035322c313134372c3731382c313137352c3830382c313233382c3735382c3733312c313332392c31323431266368636f3d3564393966392c346438396639266368646c703d7426636862683d313526636864733d302c3232393926636878723d312c302c3232393926636878743d792c78266368786c3d303a7c6a736f6e253246666173746a736f6e2532466461746162696e647c6a736f6e2d636f6c2532466a61636b736f6e2532466461746162696e647c7468726966747c666c6174627566666572737c63626f722532466a61636b736f6e25324261667465726275726e65722532466461746162696e647c7468726966742d636f6d706163747c736d696c652532466a61636b736f6e25324261667465726275726e65722532466461746162696e647c70726f746f6275667c63626f722d636f6c2532466a61636b736f6e2532466461746162696e647c6d73677061636b2532466461746162696e647c736d696c652d636f6c2532466a61636b736f6e2532466461746162696e647c6b72796f2d666c61742d7072657c6a736f6e2d6172726179253246666173746a736f6e2532466461746162696e647c6a736f6e25324664736c2d706c6174666f726d7c6673742d666c61742d7072657c6d696e69666965642d6a736f6e25324664736c2d706c6174666f726d7c70726f746f73747566667c636f6c666572">
+<meta property="og:image" content="https://camo.githubusercontent.com/8e204e325f4d882d420e5ba4399f1b10da4c23ad/68747470733a2f2f63686172742e676f6f676c65617069732e636f6d2f63686172743f6368743d626873266368733d36303078333734266368643d743a3133322c3134362c3134382c3135302c3134392c3134382c3136352c3136352c3136352c3134372c3136332c3137382c3332372c3234312c3139372c3235322c3139372c3234367c38302c38372c39302c38392c39302c39322c38362c38362c38372c3130382c3131382c3131352c31302c39372c3135322c3130302c3135362c313531266368636f3d3564393966392c346438396639266368646c703d7426636862683d313526636864733d302c33393726636878723d312c302c33393726636878743d792c78266368786c3d303a7c63626f722532466a61636b736f6e25324261667465726275726e65722532466461746162696e647c6d696e69666965642d6a736f6e25324664736c2d706c6174666f726d7c736d696c652532466a61636b736f6e25324261667465726275726e65722532466461746162696e647c7468726966747c736d696c652532466a61636b736f6e2532466461746162696e647c786d6c2532466578692d6d616e75616c7c6a736f6e2d636f6c2532466a61636b736f6e2532466461746162696e647c6a736f6e2d6172726179253246666173746a736f6e2532466461746162696e647c7363616c612532467362696e6172797c736d696c652d636f6c2532466a61636b736f6e2532466461746162696e647c63626f722d636f6c2532466a61636b736f6e2532466461746162696e647c6673742d666c61742d7072657c7468726966742d636f6d706163747c70726f746f6275667c70726f746f73747566667c636f6c6665727c6d73677061636b2532466461746162696e647c6b72796f2d666c61742d707265">
+<meta property="og:updated_time" content="2016-07-16T08:10:18.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Mark C.J. Blog">
-<meta name="twitter:description">
+<meta name="twitter:title" content="Protobuf初探">
+<meta name="twitter:description" content="文 · Mark
+
+对于软件开发者，尤其是移动端（Android &amp;amp; iOS）开发者来说，XML和JSON两种文件传输格式并不陌生，尤其是JSON，仅在上述两种开发领域中就广泛应用。随之而来的，是各种JSON的解析库，此文中，笔者不想介绍各个平台丰富多彩的JSON解析库，而是想和大家分享发现的一种新的文件传输格式，Protobuf。
+
+Protobuf是什么鬼初次相遇Protobuf，这是">
   
     <link rel="alternative" href="/atom.xml" title="Mark C.J. Blog" type="application/atom+xml">
   
@@ -29,17 +44,15 @@
   <div id="container">
     <div id="wrap">
       <div class="outer">
-        <section id="main">
-  
-    <article id="post-Protobuf初探" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-Protobuf初探" class="article article-type-post" itemscope itemprop="blogPost">
   
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/07/16/Protobuf初探/">Protobuf初探</a>
+    <h1 class="article-title" itemprop="name">
+      Protobuf初探
     </h1>
   
 
@@ -94,64 +107,20 @@
     </div>
   </div>
   
-</article>
-
-
-  
-    <article id="post-Homebrew常用Cheatsheet" class="article article-type-post" itemscope itemprop="blogPost">
-  
-  <div class="article-inner">
     
-      <header class="article-header">
-        
+<nav id="article-nav">
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/07/09/Homebrew常用Cheatsheet/">Homebrew常用Cheatsheet</a>
-    </h1>
   
+    <a href="/2016/07/09/Homebrew常用Cheatsheet/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Homebrew常用Cheatsheet</div>
+    </a>
+  
+</nav>
 
-      </header>
-    
-    <div class="article-meta">
-      <a href="/2016/07/09/Homebrew常用Cheatsheet/" class="article-date">
-  <time datetime="2016-07-09T10:57:59.000Z" itemprop="datePublished">2016-07-09</time>
-</a>
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Author: Mark C.J.    2016.6.15</p>
-<p>Flight <strong>HU7711</strong>. From Beijing to Shenzhen.</p>
-<hr>
-<h3 id="安装Homebrew">安装Homebrew</h3><pre><code>ruby <span class="operator">-e</span> <span class="string">"<span class="variable">$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)</span>"</span>
-</code></pre><h3 id="搜索">搜索</h3><pre><code>brew <span class="keyword">search</span> &lt;target-name&gt;
-
-<span class="keyword">e</span>.<span class="keyword">g</span>. brew <span class="keyword">search</span> mysql
-</code></pre><h3 id="查询软件列表">查询软件列表</h3><pre><code>brew <span class="built_in">list</span>        <span class="comment">// 可列出可安装的软件列表, 可结合管道使用，查找需要的软件</span>
-</code></pre><h3 id="安装软件">安装软件</h3><pre><code>brew install &lt;<span class="type">target</span>-<span class="keyword">name</span>&gt;
-</code></pre><h3 id="删除软件">删除软件</h3><pre><code>brew uninstall &lt;<span class="type">target</span>-<span class="keyword">name</span>&gt;
-</code></pre><h3 id="查询">查询</h3><pre><code><span class="keyword">brew </span><span class="preprocessor">info</span> &lt;target-name&gt;
-
-<span class="label">e.g.</span> <span class="keyword">brew </span>search mysql
-</code></pre><h3 id="更新Homebrew信息">更新Homebrew信息</h3><pre><code>brew <span class="keyword">update</span>        <span class="comment">// 更新Homebrew信息，包括Homebrew自身以及包信息等；</span>
-</code></pre><h3 id="Homebrew体检">Homebrew体检</h3><pre><code>brew doctor        <span class="comment">// 会详细列出过期或者废弃的信息</span>
-</code></pre><h3 id="升级软件">升级软件</h3><pre><code>brew upgrade    <span class="comment">// 通过Homebrew升级所有可以升级的软件们</span>
-</code></pre><h3 id="清理">清理</h3><pre><code>brew cleanup    <span class="comment">// 清理不需要的版本、安装包、缓存等内容</span>
-</code></pre><h3 id="查看升级信息">查看升级信息</h3><pre><code>brew outdated    <span class="comment">// 查看所有可升级的软件，aka. 知道哪些软件有新版本啦</span>
-</code></pre><h3 id="软件定向升级">软件定向升级</h3><pre><code>brew upgrade &lt;<span class="keyword">target</span>-name&gt;        <span class="comment">// 对某一软件进行针对性升级</span>
-</code></pre>
-      
-
-      
-        
-    </div>
-  </div>
   
 </article>
 
-
-  
-  
 </section>
         <aside id="sidebar">
   <nav class="menus">
