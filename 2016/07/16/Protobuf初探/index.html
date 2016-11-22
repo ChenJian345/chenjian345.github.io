@@ -7,28 +7,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="文 · Mark
 
-对于软件开发者，尤其是移动端（Android &amp;amp; iOS）开发者来说，XML和JSON两种文件传输格式并不陌生，尤其是JSON，仅在上述两种开发领域中就广泛应用。随之而来的，是各种JSON的解析库，此文中，笔者不想介绍各个平台丰富多彩的JSON解析库，而是想和大家分享发现的一种新的文件传输格式，Protobuf。
-
-Protobuf是什么鬼初次相遇Protobuf，这是">
+对于软件开发者，尤其是移动端（Android &amp;amp; iOS）开发者来说，XML和JSON两种文件传输格式并不陌生，尤其是JSON，仅在上述两种开发领域中就广泛应用。随之而来的，是各种JSON的解析库，此文中，笔者不想介绍各个平台丰富多彩的JSON解析库，而是想和大家分享发现的一种新的文件传输格式，Protobuf。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Protobuf初探">
 <meta property="og:url" content="http://yoursite.com/2016/07/16/Protobuf初探/index.html">
 <meta property="og:site_name" content="Mark C.J. Blog">
 <meta property="og:description" content="文 · Mark
 
-对于软件开发者，尤其是移动端（Android &amp;amp; iOS）开发者来说，XML和JSON两种文件传输格式并不陌生，尤其是JSON，仅在上述两种开发领域中就广泛应用。随之而来的，是各种JSON的解析库，此文中，笔者不想介绍各个平台丰富多彩的JSON解析库，而是想和大家分享发现的一种新的文件传输格式，Protobuf。
-
-Protobuf是什么鬼初次相遇Protobuf，这是">
+对于软件开发者，尤其是移动端（Android &amp;amp; iOS）开发者来说，XML和JSON两种文件传输格式并不陌生，尤其是JSON，仅在上述两种开发领域中就广泛应用。随之而来的，是各种JSON的解析库，此文中，笔者不想介绍各个平台丰富多彩的JSON解析库，而是想和大家分享发现的一种新的文件传输格式，Protobuf。">
 <meta property="og:image" content="https://camo.githubusercontent.com/75941272e9741d49d04f00337c367b78cdac4e80/68747470733a2f2f63686172742e676f6f676c65617069732e636f6d2f63686172743f6368743d626873266368733d36303078333734266368643d743a3234382c3433332c3433322c3530312c3532362c3635302c3539372c3732332c3739362c3733322c313137332c3931332c313238302c3838382c313431372c313435352c3838372c313035387c3339352c3633342c3638342c3637342c3830362c3639352c3735382c313038322c313035322c313134372c3731382c313137352c3830382c313233382c3735382c3733312c313332392c31323431266368636f3d3564393966392c346438396639266368646c703d7426636862683d313526636864733d302c3232393926636878723d312c302c3232393926636878743d792c78266368786c3d303a7c6a736f6e253246666173746a736f6e2532466461746162696e647c6a736f6e2d636f6c2532466a61636b736f6e2532466461746162696e647c7468726966747c666c6174627566666572737c63626f722532466a61636b736f6e25324261667465726275726e65722532466461746162696e647c7468726966742d636f6d706163747c736d696c652532466a61636b736f6e25324261667465726275726e65722532466461746162696e647c70726f746f6275667c63626f722d636f6c2532466a61636b736f6e2532466461746162696e647c6d73677061636b2532466461746162696e647c736d696c652d636f6c2532466a61636b736f6e2532466461746162696e647c6b72796f2d666c61742d7072657c6a736f6e2d6172726179253246666173746a736f6e2532466461746162696e647c6a736f6e25324664736c2d706c6174666f726d7c6673742d666c61742d7072657c6d696e69666965642d6a736f6e25324664736c2d706c6174666f726d7c70726f746f73747566667c636f6c666572">
 <meta property="og:image" content="https://camo.githubusercontent.com/8e204e325f4d882d420e5ba4399f1b10da4c23ad/68747470733a2f2f63686172742e676f6f676c65617069732e636f6d2f63686172743f6368743d626873266368733d36303078333734266368643d743a3133322c3134362c3134382c3135302c3134392c3134382c3136352c3136352c3136352c3134372c3136332c3137382c3332372c3234312c3139372c3235322c3139372c3234367c38302c38372c39302c38392c39302c39322c38362c38362c38372c3130382c3131382c3131352c31302c39372c3135322c3130302c3135362c313531266368636f3d3564393966392c346438396639266368646c703d7426636862683d313526636864733d302c33393726636878723d312c302c33393726636878743d792c78266368786c3d303a7c63626f722532466a61636b736f6e25324261667465726275726e65722532466461746162696e647c6d696e69666965642d6a736f6e25324664736c2d706c6174666f726d7c736d696c652532466a61636b736f6e25324261667465726275726e65722532466461746162696e647c7468726966747c736d696c652532466a61636b736f6e2532466461746162696e647c786d6c2532466578692d6d616e75616c7c6a736f6e2d636f6c2532466a61636b736f6e2532466461746162696e647c6a736f6e2d6172726179253246666173746a736f6e2532466461746162696e647c7363616c612532467362696e6172797c736d696c652d636f6c2532466a61636b736f6e2532466461746162696e647c63626f722d636f6c2532466a61636b736f6e2532466461746162696e647c6673742d666c61742d7072657c7468726966742d636f6d706163747c70726f746f6275667c70726f746f73747566667c636f6c6665727c6d73677061636b2532466461746162696e647c6b72796f2d666c61742d707265">
-<meta property="og:updated_time" content="2016-07-16T08:48:44.000Z">
+<meta property="og:updated_time" content="2016-11-22T13:04:24.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Protobuf初探">
 <meta name="twitter:description" content="文 · Mark
 
-对于软件开发者，尤其是移动端（Android &amp;amp; iOS）开发者来说，XML和JSON两种文件传输格式并不陌生，尤其是JSON，仅在上述两种开发领域中就广泛应用。随之而来的，是各种JSON的解析库，此文中，笔者不想介绍各个平台丰富多彩的JSON解析库，而是想和大家分享发现的一种新的文件传输格式，Protobuf。
-
-Protobuf是什么鬼初次相遇Protobuf，这是">
+对于软件开发者，尤其是移动端（Android &amp;amp; iOS）开发者来说，XML和JSON两种文件传输格式并不陌生，尤其是JSON，仅在上述两种开发领域中就广泛应用。随之而来的，是各种JSON的解析库，此文中，笔者不想介绍各个平台丰富多彩的JSON解析库，而是想和大家分享发现的一种新的文件传输格式，Protobuf。">
   
     <link rel="alternative" href="/atom.xml" title="Mark C.J. Blog" type="application/atom+xml">
   
@@ -70,6 +64,7 @@ Protobuf是什么鬼初次相遇Protobuf，这是">
 <blockquote>
 <p>对于软件开发者，尤其是移动端（Android &amp; iOS）开发者来说，XML和JSON两种文件传输格式并不陌生，尤其是JSON，仅在上述两种开发领域中就广泛应用。随之而来的，是各种JSON的解析库，此文中，笔者不想介绍各个平台丰富多彩的JSON解析库，而是想和大家分享发现的一种新的文件传输格式，Protobuf。</p>
 </blockquote>
+<a id="more"></a>
 <h3 id="Protobuf是什么鬼">Protobuf是什么鬼</h3><p>初次相遇Protobuf，这是我的第一反应。那么Protobuf到底是什么鬼？<br>Protobuf是一种灵活高效的、用于跨平台数据通信的数据传输格式，全称Protocol Buffers，类似XML和JSON。下面，我们先看一个protobuf的简单例子，如下：</p>
 <figure class="highlight protobuf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">message</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">  <span class="keyword">required</span> <span class="built_in">string</span> name = <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">required</span> <span class="built_in">int32</span> id = <span class="number">2</span>;</span><br><span class="line">  <span class="keyword">optional</span> <span class="built_in">string</span> email = <span class="number">3</span>;</span><br><span class="line"></span><br><span class="line">  <span class="class"><span class="keyword">enum</span> <span class="title">PhoneType</span> </span>&#123;</span><br><span class="line"><span class="constant">    MOBILE</span> = <span class="number">0</span>;</span><br><span class="line"><span class="constant">    HOME</span> = <span class="number">1</span>;</span><br><span class="line"><span class="constant">    WORK</span> = <span class="number">2</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="class"><span class="keyword">message</span> <span class="title">PhoneNumber</span> </span>&#123;</span><br><span class="line">    <span class="keyword">required</span> <span class="built_in">string</span> number = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">optional</span> PhoneType type = <span class="number">2</span> [default = HOME];</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">repeated</span> PhoneNumber phone = <span class="number">4</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>其实，Protobuf出身名门Google，采用C++实现，在Google内部已应用多年，并有与平台无关，与语言无关，可高效序列化传输等特点，当前最新的Protobuf版本为3.0。</p>
