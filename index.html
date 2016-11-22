@@ -57,6 +57,7 @@
 <blockquote>
 <p>对于软件开发者，尤其是移动端（Android &amp; iOS）开发者来说，XML和JSON两种文件传输格式并不陌生，尤其是JSON，仅在上述两种开发领域中就广泛应用。随之而来的，是各种JSON的解析库，此文中，笔者不想介绍各个平台丰富多彩的JSON解析库，而是想和大家分享发现的一种新的文件传输格式，Protobuf。</p>
 </blockquote>
+<h3 id="Protobuf是什么鬼">Protobuf是什么鬼</h3><p>初次相遇Protobuf，这是我的第一反应。那么Protobuf到底是什么鬼？</p>
         
           <p class="article-more-link">
             <a href="/2016/07/16/Protobuf初探/#more">More...</a>
@@ -99,22 +100,12 @@
 <p>Flight <strong>HU7711</strong>. From Beijing to Shenzhen.</p>
 <hr>
 <h3 id="安装Homebrew">安装Homebrew</h3><pre><code>ruby <span class="operator">-e</span> <span class="string">"<span class="variable">$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)</span>"</span>
-</code></pre><h3 id="搜索">搜索</h3><pre><code>brew <span class="keyword">search</span> &lt;target-name&gt;
-
-<span class="keyword">e</span>.<span class="keyword">g</span>. brew <span class="keyword">search</span> mysql
-</code></pre><h3 id="查询软件列表">查询软件列表</h3><pre><code>brew <span class="built_in">list</span>        <span class="comment">// 可列出可安装的软件列表, 可结合管道使用，查找需要的软件</span>
-</code></pre><h3 id="安装软件">安装软件</h3><pre><code>brew install &lt;<span class="type">target</span>-<span class="keyword">name</span>&gt;
-</code></pre><h3 id="删除软件">删除软件</h3><pre><code>brew uninstall &lt;<span class="type">target</span>-<span class="keyword">name</span>&gt;
-</code></pre><h3 id="查询">查询</h3><pre><code><span class="keyword">brew </span><span class="preprocessor">info</span> &lt;target-name&gt;
-
-<span class="label">e.g.</span> <span class="keyword">brew </span>search mysql
-</code></pre><h3 id="更新Homebrew信息">更新Homebrew信息</h3><pre><code>brew <span class="keyword">update</span>        <span class="comment">// 更新Homebrew信息，包括Homebrew自身以及包信息等；</span>
-</code></pre><h3 id="Homebrew体检">Homebrew体检</h3><pre><code>brew doctor        <span class="comment">// 会详细列出过期或者废弃的信息</span>
-</code></pre><h3 id="升级软件">升级软件</h3><pre><code>brew upgrade    <span class="comment">// 通过Homebrew升级所有可以升级的软件们</span>
-</code></pre><h3 id="清理">清理</h3><pre><code>brew cleanup    <span class="comment">// 清理不需要的版本、安装包、缓存等内容</span>
-</code></pre><h3 id="查看升级信息">查看升级信息</h3><pre><code>brew outdated    <span class="comment">// 查看所有可升级的软件，aka. 知道哪些软件有新版本啦</span>
-</code></pre><h3 id="软件定向升级">软件定向升级</h3><pre><code>brew upgrade &lt;<span class="keyword">target</span>-name&gt;        <span class="comment">// 对某一软件进行针对性升级</span>
-</code></pre>
+</code></pre><h3 id="搜索">搜索</h3>
+        
+          <p class="article-more-link">
+            <a href="/2016/07/09/Homebrew常用Cheatsheet/#more">More...</a>
+          </p>
+        
       
 
       
