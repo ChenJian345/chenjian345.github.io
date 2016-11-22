@@ -395,7 +395,9 @@ a.article-title:hover {
   border-left: 4px solid #991a1a;
 }
 .article-entry blockquote p {
-  margin: 0;
+  margin: 10px 0;
+  text-align: justify;
+  word-break: break-word;
 }
 .article-entry blockquote footer {
   font-size: 14px;
