@@ -1,4 +1,176 @@
-<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" version="2.0"><channel><title>Crazy Mark</title><description>Thoughts &amp; Ideas.</description><link>http://localhost:2368/</link><generator>Ghost 0.11</generator><lastBuildDate>Thu, 08 Dec 2016 07:24:25 GMT</lastBuildDate><atom:link href="http://localhost:2368/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title>Protobuf初探</title><description>&lt;p&gt;文 · Mark&lt;/p&gt;
+<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" version="2.0"><channel><title>Crazy Mark</title><description>Thoughts &amp; Ideas.</description><link>http://localhost:2368/</link><generator>Ghost 0.11</generator><lastBuildDate>Thu, 08 Dec 2016 07:29:10 GMT</lastBuildDate><atom:link href="http://localhost:2368/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title>地图导航SDK调研</title><description>&lt;p&gt;文 · Mark&lt;/p&gt;
+
+&lt;p&gt;百度地图SDK &lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;免费&lt;/li&gt;
+&lt;li&gt;国内地图SDK，国内使用普遍&lt;/li&gt;
+&lt;li&gt;支持路线规划，不支持Turn-by-Turn导航 Pass&lt;/li&gt;
+&lt;li&gt;国际化很难(据悉在扩展海外国际化，时间不可预估) Pass&lt;/li&gt;
+&lt;li&gt;支持iOS/Android/Web;&lt;/li&gt;
+&lt;li&gt;提供离线地图;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;百度导航SDK&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;免费&lt;/li&gt;
+&lt;li&gt;国内地图SDK，国内使用普遍&lt;/li&gt;
+&lt;li&gt;支持路线规划，支持Turn-by-Turn导航，但没有实时导航回调接口 Pass&lt;/li&gt;
+&lt;li&gt;国内使用普遍，国际化很难(据悉在扩展海外国际化，时间不可预估) Pass&lt;/li&gt;
+&lt;li&gt;支持iOS/Android/Web;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;百度导航HUD SDK&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;免费&lt;/li&gt;
+&lt;li&gt;国内地图SDK，国内使用普遍&lt;/li&gt;
+&lt;li&gt;支持路线规划，支持Turn-by-Turn导航，但没有实时导航回调接口 Pass&lt;/li&gt;
+&lt;li&gt;国际化很难(据悉在扩展海外国际化，时间不可预估) Pass&lt;/li&gt;
+&lt;li&gt;必须依赖 百度导航（非 百度地图）&lt;/li&gt;&lt;/ul&gt;</description><link>http://localhost:2368/untitled/</link><guid isPermaLink="false">7f00fd70-9dd5-442c-b603-d3da8935ccdd</guid><dc:creator>Mark Chen</dc:creator><pubDate>Thu, 08 Dec 2016 07:26:52 GMT</pubDate><content:encoded>&lt;p&gt;文 · Mark&lt;/p&gt;
+
+&lt;p&gt;百度地图SDK &lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;免费&lt;/li&gt;
+&lt;li&gt;国内地图SDK，国内使用普遍&lt;/li&gt;
+&lt;li&gt;支持路线规划，不支持Turn-by-Turn导航 Pass&lt;/li&gt;
+&lt;li&gt;国际化很难(据悉在扩展海外国际化，时间不可预估) Pass&lt;/li&gt;
+&lt;li&gt;支持iOS/Android/Web;&lt;/li&gt;
+&lt;li&gt;提供离线地图;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;百度导航SDK&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;免费&lt;/li&gt;
+&lt;li&gt;国内地图SDK，国内使用普遍&lt;/li&gt;
+&lt;li&gt;支持路线规划，支持Turn-by-Turn导航，但没有实时导航回调接口 Pass&lt;/li&gt;
+&lt;li&gt;国内使用普遍，国际化很难(据悉在扩展海外国际化，时间不可预估) Pass&lt;/li&gt;
+&lt;li&gt;支持iOS/Android/Web;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;百度导航HUD SDK&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;免费&lt;/li&gt;
+&lt;li&gt;国内地图SDK，国内使用普遍&lt;/li&gt;
+&lt;li&gt;支持路线规划，支持Turn-by-Turn导航，但没有实时导航回调接口 Pass&lt;/li&gt;
+&lt;li&gt;国际化很难(据悉在扩展海外国际化，时间不可预估) Pass&lt;/li&gt;
+&lt;li&gt;必须依赖 百度导航（非 百度地图）App Pass&lt;/li&gt;
+&lt;li&gt;支持iOS/Android/Web;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;高德地图SDK&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;免费&lt;/li&gt;
+&lt;li&gt;国内地图SDK，国内使用普遍&lt;/li&gt;
+&lt;li&gt;支持路线规划，不支持Turn-by-Turn导航 Pass&lt;/li&gt;
+&lt;li&gt;使用国际化很难 Pass&lt;/li&gt;
+&lt;li&gt;支持iOS/Android/Web;&lt;/li&gt;
+&lt;li&gt;提供离线地图;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;高德导航SDK&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;免费&lt;/li&gt;
+&lt;li&gt;国内地图SDK，国内使用普遍&lt;/li&gt;
+&lt;li&gt;支持路线规划，支持Turn-by-Turn导航，但没有实时导航回调接口 Pass&lt;/li&gt;
+&lt;li&gt;使用国际化很难(据悉在扩展海外国际化，时间不可预估) Pass&lt;/li&gt;
+&lt;li&gt;支持iOS/Android/Web;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;腾讯地图SDK&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;不想多说，考虑其他的吧&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;360地图SDK&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;更不想多说，竟然没有iOS SDK，考虑其他的吧&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Scout&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;收费，试用免费，收费计划；&lt;/li&gt;
+&lt;li&gt;提供路线规划，支持Turn-by-Turn导航 很慢，且非毕现不成功&lt;/li&gt;
+&lt;li&gt;使用厂商Strava、Smart等Showcase;&lt;/li&gt;
+&lt;li&gt;支持iOS/Android/Web;&lt;/li&gt;
+&lt;li&gt;提供离线地图;&lt;/li&gt;
+&lt;li&gt;海外产品，国际化支持，skobbler&lt;/li&gt;
+&lt;li&gt;提供路线规划；&lt;/li&gt;
+&lt;li&gt;提供Turn-by-Turn导航功能（但国内不好用）; Pass&lt;/li&gt;
+&lt;li&gt;国内加载速度慢，真的是奇慢！&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Here&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;收费，支持试用&lt;/li&gt;
+&lt;li&gt;前Nokia旗下企业&lt;/li&gt;
+&lt;li&gt;提供离线地图&lt;/li&gt;
+&lt;li&gt;提供路线规划功能, 提供Turn-by-Turn导航功能&lt;/li&gt;
+&lt;li&gt;支持Android/iOS/Web&lt;/li&gt;
+&lt;li&gt;国际化支持&lt;/li&gt;
+&lt;li&gt;海外SDK&lt;/li&gt;
+&lt;li&gt;只支持Walking和Driving导航，不提供骑行导航&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Mapbox&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;收费，支持试用&lt;/li&gt;
+&lt;li&gt;移动端导航申请页面&lt;/li&gt;
+&lt;li&gt;提供离线地图&lt;/li&gt;
+&lt;li&gt;国际化支持&lt;/li&gt;
+&lt;li&gt;支持Android/iOS/Web等&lt;/li&gt;
+&lt;li&gt;海外SDK&lt;/li&gt;
+&lt;li&gt;提供路线规划，不支持Turn-by-Turn导航功能Pass（据悉尚在开发过程中）&lt;/li&gt;
+&lt;li&gt;国内加载速度慢，且路线规划非毕现不成功；&lt;/li&gt;
+&lt;li&gt;支持骑行路线规划&lt;/li&gt;
+&lt;li&gt;Showcases&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Apple MapKit&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;免费&lt;/li&gt;
+&lt;li&gt;不提供离线地图&lt;/li&gt;
+&lt;li&gt;可提供国际化支持&lt;/li&gt;
+&lt;li&gt;支持iOS，不支Android Pass&lt;/li&gt;
+&lt;li&gt;不提供离线地图&lt;/li&gt;
+&lt;li&gt;提供路线规划，不支持Turn-by-Turn导航功能;&lt;/li&gt;
+&lt;li&gt;国内加载速度快&lt;/li&gt;
+&lt;li&gt;不支持骑行路线规划&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;GoogleMap&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;一定数量内免费，频繁请求后存在限制&lt;/li&gt;
+&lt;li&gt;国际化支持良好&lt;/li&gt;
+&lt;li&gt;Android/iOS SDK不提供路线规划及导航支持，需通过网络请求来获取；&lt;/li&gt;
+&lt;li&gt;稳定&lt;/li&gt;
+&lt;li&gt;不提供离线地图&lt;/li&gt;
+&lt;li&gt;提供路线规划，不支持Turn-by-Turn导航功能;&lt;/li&gt;
+&lt;li&gt;支持骑行路线规划&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Q&amp;amp;A相关链接&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;getting-routes-and-turn-by-turn-navigation-in-an-iphone-app&lt;/li&gt;
+&lt;li&gt;turn-by-turn-navigation-for-our-driver-app&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://stackoverflow.com/questions/20905797/google-maps-ios-sdk-getting-directions-between-2-locations"&gt;google-maps-ios-sdk-getting-directions-between-2-locations&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;em&gt;2016-5-5 On the Train to Shanghai.&lt;/em&gt;&lt;/p&gt;</content:encoded></item><item><title>Protobuf初探</title><description>&lt;p&gt;文 · Mark&lt;/p&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;对于软件开发者，尤其是移动端（Android &amp;amp; iOS）开发者来说，XML和JSON两种文件传输格式并不陌生，尤其是JSON，仅在上述两种开发领域中就广泛应用。随之而来的，是各种JSON的解析库，此文中，笔者不想介绍各个平台丰富多彩的JSON解析库，而是想和大家分享发现的一种新的文件传输格式，Protobuf。&lt;/p&gt;
