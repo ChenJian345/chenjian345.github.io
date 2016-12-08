@@ -1,4 +1,284 @@
-<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" version="2.0"><channel><title>Crazy Mark</title><description>Thoughts &amp; Ideas.</description><link>http://localhost:2368/</link><generator>Ghost 0.11</generator><lastBuildDate>Thu, 08 Dec 2016 07:13:20 GMT</lastBuildDate><atom:link href="http://localhost:2368/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title>Homebrew常用Cheatsheet</title><description>&lt;h3 id="homebrew"&gt;安装Homebrew&lt;/h3&gt;
+<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" version="2.0"><channel><title>Crazy Mark</title><description>Thoughts &amp; Ideas.</description><link>http://localhost:2368/</link><generator>Ghost 0.11</generator><lastBuildDate>Thu, 08 Dec 2016 07:24:25 GMT</lastBuildDate><atom:link href="http://localhost:2368/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title>Protobuf初探</title><description>&lt;p&gt;文 · Mark&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;对于软件开发者，尤其是移动端（Android &amp;amp; iOS）开发者来说，XML和JSON两种文件传输格式并不陌生，尤其是JSON，仅在上述两种开发领域中就广泛应用。随之而来的，是各种JSON的解析库，此文中，笔者不想介绍各个平台丰富多彩的JSON解析库，而是想和大家分享发现的一种新的文件传输格式，Protobuf。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id="protobuf"&gt;Protobuf是什么鬼&lt;/h3&gt;
+
+&lt;p&gt;初次相遇Protobuf，这是我的第一反应。那么Protobuf到底是什么鬼？&lt;/p&gt;
+
+&lt;!-- more --&gt;
+
+&lt;p&gt;Protobuf是一种灵活高效的、用于跨平台数据通信的数据传输格式，全称Protocol Buffers，类似XML和JSON。下面，我们先看一个protobuf的简单例子，如下：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;message Person {  
+  required string name = 1;
+  required int32 id = 2;
+  optional string email = 3;
+
+  enum PhoneType {
+    MOBILE = 0;
+    HOME = 1;
+    WORK&lt;/code&gt;&lt;/pre&gt;</description><link>http://localhost:2368/protobufchu-tan/</link><guid isPermaLink="false">2c1bdcbb-d10f-4a98-b0d5-26574c7450bc</guid><dc:creator>Mark Chen</dc:creator><pubDate>Thu, 08 Dec 2016 07:23:20 GMT</pubDate><content:encoded>&lt;p&gt;文 · Mark&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;对于软件开发者，尤其是移动端（Android &amp;amp; iOS）开发者来说，XML和JSON两种文件传输格式并不陌生，尤其是JSON，仅在上述两种开发领域中就广泛应用。随之而来的，是各种JSON的解析库，此文中，笔者不想介绍各个平台丰富多彩的JSON解析库，而是想和大家分享发现的一种新的文件传输格式，Protobuf。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id="protobuf"&gt;Protobuf是什么鬼&lt;/h3&gt;
+
+&lt;p&gt;初次相遇Protobuf，这是我的第一反应。那么Protobuf到底是什么鬼？&lt;/p&gt;
+
+&lt;!-- more --&gt;
+
+&lt;p&gt;Protobuf是一种灵活高效的、用于跨平台数据通信的数据传输格式，全称Protocol Buffers，类似XML和JSON。下面，我们先看一个protobuf的简单例子，如下：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;message Person {  
+  required string name = 1;
+  required int32 id = 2;
+  optional string email = 3;
+
+  enum PhoneType {
+    MOBILE = 0;
+    HOME = 1;
+    WORK = 2;
+  }
+
+  message PhoneNumber {
+    required string number = 1;
+    optional PhoneType type = 2 [default = HOME];
+  }
+
+  repeated PhoneNumber phone = 4;
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;其实，Protobuf出身名门Google，采用C++实现，在Google内部已应用多年，并有与平台无关，与语言无关，可高效序列化传输等特点，当前最新的Protobuf版本为3.0。&lt;/p&gt;
+
+&lt;h3 id=""&gt;发展现状&lt;/h3&gt;
+
+&lt;p&gt;Google最初为了解决统一内部传输问题，自己制定了一套高效的数据传输格式定义协议，即Protobuf，并逐步在Google内部项目中使用。随着Protobuf在Google内部被越来越多的项目所采用，本身性能也在逐步被改良提高。 &lt;br&gt;
+在2008年7月7日，将Protobuf贡献给开源社区进行了开源，目前，Github上可以找到相应源码。
+目前Protobuf不仅在Google内部广泛使用，在RPC通信中广泛使用，在国外，Facebook在部分项目中采用了Protobuf作为通信的编解码工具。在国内，Protobuf在百度，腾讯TDW平台，阿里巴巴部分项目中，也被作为基础库充分利用。除此之外，还有一些其他公司也在使用Protobuf左右数据通信的基础类库。
+但是，在移动平台开发中，应用还不是很广泛。&lt;/p&gt;
+
+&lt;h3 id=""&gt;支持的语言&lt;/h3&gt;
+
+&lt;p&gt;Google官方对Protobuf提供C++、Java、Python三种语言提供官方支持。对于proto3，还支持Go、JavaNano、Ruby和C#。当然，几乎所有当前的编程语言，都有相应的Protobuf支持库，所以，对于Protobuf的支持的语言还是很全面的。&lt;/p&gt;
+
+&lt;h3 id=""&gt;工作原理&lt;/h3&gt;
+
+&lt;p&gt;使用Protobuf，只需要根据Protobuf的语法规范，定义需要传输的数据内容格式，定义Protobuf的文件为.proto文件，例如，定义一个具有name和email字段的Person信息对象时，.proto文件内容如下：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;message Person {  
+    required string name = 1;
+    optional string email = 2;
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;定义好数据格式之后，我们只需要使用我们需要的语言的Protobuf编译器对.proto文件进行编译即可，输出我们需要的对应语言的Model定义类源码文件，在该文件中会自动生成序列化方法，getter和setter方法等，例如对于C++语言，上述.proto文件编译命令为：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;protoc --cpp_out=cpp_dir person.proto  
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;protobuf编译器根据.proto文件对Message Person定义，编译生成对应的源码文件，包含.h、.cpp文件，其中.h文件如下，下面我们就看一下具体生成了哪些内容。&lt;/p&gt;
+
+&lt;p&gt;基本Person类框架，包括Person对象的构建函数，析构函数，等于运算符重载，Descriptor函数等；&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;  class Person;
+...
+  class Person : public ::google::protobuf::Message {
+  public:
+    Person();
+    virtual ~Person();
+
+    Person(const Person&amp;amp; from);
+
+    inline Person&amp;amp; operator=(const Person&amp;amp; from) {
+      CopyFrom(from);
+      return *this;
+    }
+
+    inline const ::google::protobuf::UnknownFieldSet&amp;amp; unknown_fields() const {
+      return _unknown_fields_;
+    }
+
+    inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+      return &amp;amp;_unknown_fields_;
+    }
+
+    static const ::google::protobuf::Descriptor* descriptor();
+    static const Person&amp;amp; default_instance();
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;由剩余部分代码可以清晰的看出，Protobuf编译器已经帮我们生成好了Model构建的方法，各属性的getter、setter方法、以及序列化方法，在后续过程中，我们只需要调用相关方法即可；&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;    // required string name = 1;
+    inline bool has_name() const;
+    inline void clear_name();
+    static const int kNameFieldNumber = 1;
+    inline const ::std::string&amp;amp; name() const;
+    inline void set_name(const ::std::string&amp;amp; value);
+    inline void set_name(const char* value);
+    inline void set_name(const char* value, size_t size);
+    inline ::std::string* mutable_name();
+    inline ::std::string* release_name();
+    inline void set_allocated_name(::std::string* name);
+
+    // optional string email = 2;
+    inline bool has_email() const;
+    inline void clear_email();
+    static const int kEmailFieldNumber = 2;
+    inline const ::std::string&amp;amp; email() const;
+    inline void set_email(const ::std::string&amp;amp; value);
+    inline void set_email(const char* value);
+    inline void set_email(const char* value, size_t size);
+    inline ::std::string* mutable_email();
+    inline ::std::string* release_email();
+    inline void set_allocated_email(::std::string* email);
+
+    // @@protoc_insertion_point(class_scope:Person)
+  private:
+    inline void set_has_name();
+    inline void clear_has_name();
+    inline void set_has_email();
+    inline void clear_has_email();
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;那么，我们通过protobuf编译器protoc编译出了我们需要的Model定义类Person.h和Person.cpp，剩下的工作只需要调用进行使用了。下面我们简单调用一下我们生成的相应Person Model代码。
+调用代码如下：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;#include &amp;lt;iostream&amp;gt;
+#include &amp;lt;fstream&amp;gt;
+#include &amp;lt;string&amp;gt;
+
+#include "person.pb.h"
+
+using namespace std;
+
+
+// Main function:  Reads the entire person info. from a file,
+//   adds one person based on user input, then writes it back out to the same
+//   file.
+int main(int argc, char* argv[]) {  
+  // Verify that the version of the library that we linked against is
+  // compatible with the version of the headers we compiled against.
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  ...
+
+  Person *person = new Person();
+  person-&amp;gt;set_name("Mark CJ");
+  person-&amp;gt;set_email("markcjemail@google.com");
+
+  cout &amp;lt;&amp;lt; "Person Info : name " &amp;lt;&amp;lt; person.name() &amp;lt;&amp;lt; ", email : " &amp;lt;&amp;lt; person.email() &amp;lt;&amp;lt; endl;
+
+  {
+    // Read the existing person object.
+    fstream input(argv[1], ios::in | ios::binary);
+    if (!input) {
+      cout &amp;lt;&amp;lt; argv[1] &amp;lt;&amp;lt; ": File not found.  Creating a new file." &amp;lt;&amp;lt; endl;
+    } else if (!person.ParseFromIstream(&amp;amp;input)) {
+      cerr &amp;lt;&amp;lt; "Failed to parse person object." &amp;lt;&amp;lt; endl;
+      return -1;
+    }
+  }
+
+ ...
+
+  {
+    // Write the new person object back to disk.
+    fstream output(argv[1], ios::out | ios::trunc | ios::binary);
+    if (!person.SerializeToOstream(&amp;amp;output)) {
+      cerr &amp;lt;&amp;lt; "Failed to write person object." &amp;lt;&amp;lt; endl;
+      return -1;
+    }
+  }
+
+  // Optional:  Delete all global objects allocated by libprotobuf.
+  google::protobuf::ShutdownProtobufLibrary();
+
+  return 0;
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id="protobuf"&gt;Protobuf优势&lt;/h3&gt;
+
+&lt;p&gt;Protobuf是用于结构化数据串行化的灵活、高效、自动的方法，类似XML，不过它比XML更小、更快、也更简单。你可以定义自己的数据结构，然后使用代码生成器生成的代码来读写这个数据结构。你甚至可以在无需重新部署程序的情况下更新数据结构。&lt;/p&gt;
+
+&lt;h3 id=""&gt;体积更小、速度更快&lt;/h3&gt;
+
+&lt;p&gt;相对于XML，Protobuf只有XML文件的1/10到1/3大小。
+例如，当需要传输一个带有&lt;code&gt;name&lt;/code&gt;和&lt;code&gt;email&lt;/code&gt;字段的&lt;code&gt;Person&lt;/code&gt;对象信息时，使用XML格式如下&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;person&amp;gt;  
+    &amp;lt;name&amp;gt;John Doe&amp;lt;/name&amp;gt;
+    &amp;lt;email&amp;gt;jdoe@example.com&amp;lt;/email&amp;gt;
+&amp;lt;/person&amp;gt;  
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;如果剔除空格，该XML体积为69字节，会大概话费5000-10000 nm解析上述数据。
+而使用Protobuf的message形式，转为人类可读内容如下：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# Textual representation of a protocol buffer.
+# This is *not* the binary format used on the wire.
+person {  
+    name: "John Doe"
+    email: "jdoe@example.com"
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;但当上述Protobuf的Person信息转为二进制形式（Protobuf传输时使用二进制）时，约28字节，大概话费100-200nm解析使用。&lt;/p&gt;
+
+&lt;p&gt;以下是针对于Protobuf及相关竞品做的一份性能测试&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;浅蓝色为序列化时间，深蓝色为反序列化时间&lt;/strong&gt;
+&lt;img src="https://camo.githubusercontent.com/75941272e9741d49d04f00337c367b78cdac4e80/68747470733a2f2f63686172742e676f6f676c65617069732e636f6d2f63686172743f6368743d626873266368733d36303078333734266368643d743a3234382c3433332c3433322c3530312c3532362c3635302c3539372c3732332c3739362c3733322c313137332c3931332c313238302c3838382c313431372c313435352c3838372c313035387c3339352c3633342c3638342c3637342c3830362c3639352c3735382c313038322c313035322c313134372c3731382c313137352c3830382c313233382c3735382c3733312c313332392c31323431266368636f3d3564393966392c346438396639266368646c703d7426636862683d313526636864733d302c3232393926636878723d312c302c3232393926636878743d792c78266368786c3d303a7c6a736f6e253246666173746a736f6e2532466461746162696e647c6a736f6e2d636f6c2532466a61636b736f6e2532466461746162696e647c7468726966747c666c6174627566666572737c63626f722532466a61636b736f6e25324261667465726275726e65722532466461746162696e647c7468726966742d636f6d706163747c736d696c652532466a61636b736f6e25324261667465726275726e65722532466461746162696e647c70726f746f6275667c63626f722d636f6c2532466a61636b736f6e2532466461746162696e647c6d73677061636b2532466461746162696e647c736d696c652d636f6c2532466a61636b736f6e2532466461746162696e647c6b72796f2d666c61742d7072657c6a736f6e2d6172726179253246666173746a736f6e2532466461746162696e647c6a736f6e25324664736c2d706c6174666f726d7c6673742d666c61742d7072657c6d696e69666965642d6a736f6e25324664736c2d706c6174666f726d7c70726f746f73747566667c636f6c666572" alt="序列号反序列化对比"&gt;&lt;/p&gt;
+
+&lt;p&gt;内存占用情况对比
+&lt;img src="https://camo.githubusercontent.com/8e204e325f4d882d420e5ba4399f1b10da4c23ad/68747470733a2f2f63686172742e676f6f676c65617069732e636f6d2f63686172743f6368743d626873266368733d36303078333734266368643d743a3133322c3134362c3134382c3135302c3134392c3134382c3136352c3136352c3136352c3134372c3136332c3137382c3332372c3234312c3139372c3235322c3139372c3234367c38302c38372c39302c38392c39302c39322c38362c38362c38372c3130382c3131382c3131352c31302c39372c3135322c3130302c3135362c313531266368636f3d3564393966392c346438396639266368646c703d7426636862683d313526636864733d302c33393726636878723d312c302c33393726636878743d792c78266368786c3d303a7c63626f722532466a61636b736f6e25324261667465726275726e65722532466461746162696e647c6d696e69666965642d6a736f6e25324664736c2d706c6174666f726d7c736d696c652532466a61636b736f6e25324261667465726275726e65722532466461746162696e647c7468726966747c736d696c652532466a61636b736f6e2532466461746162696e647c786d6c2532466578692d6d616e75616c7c6a736f6e2d636f6c2532466a61636b736f6e2532466461746162696e647c6a736f6e2d6172726179253246666173746a736f6e2532466461746162696e647c7363616c612532467362696e6172797c736d696c652d636f6c2532466a61636b736f6e2532466461746162696e647c63626f722d636f6c2532466a61636b736f6e2532466461746162696e647c6673742d666c61742d7072657c7468726966742d636f6d706163747c70726f746f6275667c70726f746f73747566667c636f6c6665727c6d73677061636b2532466461746162696e647c6b72796f2d666c61742d707265" alt="内存占用对比"&gt;&lt;/p&gt;
+
+&lt;h3 id=""&gt;书写简单、更少歧义&lt;/h3&gt;
+
+&lt;p&gt;当编程输出Model内容时，采用C++，代码如下：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;cout &amp;lt;&amp;lt; "Name: " &amp;lt;&amp;lt; person.name() &amp;lt;&amp;lt; endl;  
+cout &amp;lt;&amp;lt; "E-mail: " &amp;lt;&amp;lt; person.email() &amp;lt;&amp;lt; endl;  
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;但当采用XML，对获取到的Person信息进行解析时，代码如下：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;cout &amp;lt;&amp;lt; "Name: "  
+       &amp;lt;&amp;lt; person.getElementsByTagName("name")-&amp;gt;item(0)-&amp;gt;innerText()
+       &amp;lt;&amp;lt; endl;
+cout &amp;lt;&amp;lt; "E-mail: "  
+       &amp;lt;&amp;lt; person.getElementsByTagName("email")-&amp;gt;item(0)-&amp;gt;innerText()
+       &amp;lt;&amp;lt; endl;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;相比于JSON，除了语义更简单之外，Protobuf中被编号的字段可以排除所谓的版本检查，保证无偿的向后兼容。
+由上面所述可见，我们也可以使用Protobuf中的&lt;code&gt;@required&lt;/code&gt;、&lt;code&gt;@optional&lt;/code&gt;、&lt;code&gt;@repeated&lt;/code&gt;等属性，将一些常识性的调试操作，转换为正式的拓展，比如将原来&lt;code&gt;@optional&lt;/code&gt;的字段内容转换为
+&lt;code&gt;@required&lt;/code&gt;的字段。&lt;/p&gt;
+
+&lt;h3 id="protobuf"&gt;Protobuf劣势&lt;/h3&gt;
+
+&lt;p&gt;虽然Protobuf的效率以及体积控制很出色，但是万物都有优点，也有缺点，当然Protobuf也不例外。&lt;/p&gt;
+
+&lt;p&gt;相对于XML， Protobuf的功能略显简单，无法表达较为复杂的概念定义，所以，对于复杂的定义需求，无法有效的实现。&lt;/p&gt;
+
+&lt;p&gt;由于XML在多行业中被广泛、长期的使用，所以，使用XML已经成为了部分行业的标准工具，而Protobuf只在Google内部使用较多，所以对于被更广泛的其他行业所使用，还有很长的路要走。
+为了缩减Protobuf的传输数据文件大小，也为了加快解析速度，Protobuf采用二进制格式进行存储，所以导致存储后或传输过程中的数据，对人类可读性差，不利于中间代码数据调试。&lt;/p&gt;
+
+&lt;p&gt;和XML相比，Protobuf也适用描述标记语言的传输，比较适用于描述数据结构，而XML在这两方面，均可适用。&lt;/p&gt;
+
+&lt;p&gt;而相对于JSON，Protobuf在序列化速度和反序列化速度方面还略有差距，这一点也是Protobuf需要补强的一部分。同时，在服务端和Web端数据通信中，JSON的使用广泛性还是要高于Protobuf，这也源于前端原生库及第三方库对JSON的有效支持，而Protobuf在Web端，还没有如此广泛的支持。&lt;/p&gt;
+
+&lt;h3 id=""&gt;小结&lt;/h3&gt;
+
+&lt;p&gt;以上只是对Protobuf的初探内容，本想找到一种可以替代JSON的解决方案，但是并不是完全没有收获，虽然现在Protobuf没有在移动端广泛应用，因为当前JSON的各项性能均与其类似，但是Protobuf有些设计思想还是可以供大家借鉴的。如果有朋友想深入了解，可以访问Google官网及查看相关源码，笔者文笔较差，欢迎批评指正，多多交流。&lt;/p&gt;
+
+&lt;p&gt;在学习Protobuf的过程中，发现了一个名叫Protostuff的好东西，protostuff针对protobuf进行了部分优化，包括可选免去预编译等操作，初探比XML及JSON效率都要高效，有兴趣的朋友也可以深入了解一下。&lt;/p&gt;</content:encoded></item><item><title>Homebrew常用Cheatsheet</title><description>&lt;h3 id="homebrew"&gt;安装Homebrew&lt;/h3&gt;
 
 &lt;pre&gt;&lt;code&gt;ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"  
 &lt;/code&gt;&lt;/pre&gt;
