@@ -1,1 +1,5 @@
-<html><body>You are being <a href="https://github.com/paladini/ghost-on-github-pages/blob/master/update_website.sh">redirected</a>.</body></html>
+#!/bin/sh
+buster generate
+git add -A
+git commit -m "Update on the website at $(date)"
+git push origin master
