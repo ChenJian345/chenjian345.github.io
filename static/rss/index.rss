@@ -1,30 +1,10 @@
-<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" version="2.0"><channel><title>Crazy Mark</title><description>Thoughts &amp; Ideas.</description><link>http://localhost:2368/</link><generator>Ghost 0.11</generator><lastBuildDate>Wed, 21 Dec 2016 03:22:36 GMT</lastBuildDate><atom:link href="http://localhost:2368/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title>测试文章</title><description>&lt;h3 id=""&gt;测试内容&lt;/h3&gt;
-
-&lt;p&gt;巴拉巴拉。。。。&lt;/p&gt;
-
-&lt;p&gt;if dicUserInfo == nil { &lt;br&gt;
-                dicUserInfo = &lt;a href="http://localhost:2368/ce-shi-wen-zhang/"&gt;String: Any&lt;/a&gt;
-            }&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;        dicUserInfo?["lastCheckTime"] = Date()
-        UserDefaults.standard.set(dicUserInfo, forKey: updateInfoKey)
-&lt;/code&gt;&lt;/pre&gt;</description><link>http://localhost:2368/ce-shi-wen-zhang/</link><guid isPermaLink="false">dd8b9dab-f154-4fef-976a-58a089bed64a</guid><dc:creator>Mark Chen</dc:creator><pubDate>Wed, 21 Dec 2016 02:28:40 GMT</pubDate><content:encoded>&lt;h3 id=""&gt;测试内容&lt;/h3&gt;
-
-&lt;p&gt;巴拉巴拉。。。。&lt;/p&gt;
-
-&lt;p&gt;if dicUserInfo == nil { &lt;br&gt;
-                dicUserInfo = &lt;a href="http://localhost:2368/ce-shi-wen-zhang/"&gt;String: Any&lt;/a&gt;
-            }&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;        dicUserInfo?["lastCheckTime"] = Date()
-        UserDefaults.standard.set(dicUserInfo, forKey: updateInfoKey)
-&lt;/code&gt;&lt;/pre&gt;</content:encoded></item><item><title>iOS-LZMA类压缩算法使用</title><description>&lt;blockquote&gt;
+<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" version="2.0"><channel><title>Crazy Mark</title><description>Thoughts &amp; Ideas.</description><link>http://localhost:2368/</link><generator>Ghost 0.11</generator><lastBuildDate>Wed, 21 Dec 2016 03:48:30 GMT</lastBuildDate><atom:link href="http://localhost:2368/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title>iOS-LZMA类压缩算法使用</title><description>&lt;blockquote&gt;
   &lt;p&gt;&lt;strong&gt;LZMA&lt;/strong&gt;（&lt;a href="https://zh.wikipedia.org/w/index.php?title=Abraham_Lempel&amp;amp;action=edit&amp;amp;redlink=1"&gt;Lempel&lt;/a&gt;-&lt;a href="https://zh.wikipedia.org/w/index.php?title=Jacob_Ziv&amp;amp;action=edit&amp;amp;redlink=1"&gt;Ziv&lt;/a&gt;-&lt;a href="https://zh.wikipedia.org/wiki/%E9%A9%AC%E5%B0%94%E5%8F%AF%E5%A4%AB%E9%93%BE"&gt;Markov chain&lt;/a&gt;-&lt;a href="https://zh.wikipedia.org/wiki/%E7%AE%97%E6%B3%95"&gt;Algorithm&lt;/a&gt;的缩写）是2001年以来得到发展的一个&lt;a href="https://zh.wikipedia.org/wiki/%E6%95%B0%E6%8D%AE%E5%8E%8B%E7%BC%A9"&gt;数据压缩&lt;/a&gt;算法，它用于&lt;a href="https://zh.wikipedia.org/wiki/7-Zip"&gt;7-Zip&lt;/a&gt;归档工具中的&lt;a href="https://zh.wikipedia.org/wiki/7z"&gt;7z&lt;/a&gt;格式和 &lt;a href="https://zh.wikipedia.org/wiki/Unix-like"&gt;Unix-like&lt;/a&gt; 下的 &lt;a href="https://zh.wikipedia.org/wiki/Xz"&gt;xz&lt;/a&gt; 格式。它使用类似于&lt;a href="https://zh.wikipedia.org/wiki/LZ77%E4%B8%8ELZ78"&gt;LZ77&lt;/a&gt;的&lt;a href="https://zh.wikipedia.org/w/index.php?title=%E5%AD%97%E5%85%B8%E7%BC%96%E7%A0%81&amp;amp;action=edit&amp;amp;redlink=1"&gt;字典编码&lt;/a&gt;机制，在一般的情况下压缩率比&lt;a href="https://zh.wikipedia.org/wiki/Bzip2"&gt;bzip2&lt;/a&gt;为高，用于压缩的字典文件大小可达4GB。&lt;/p&gt;
   
   &lt;p&gt;&lt;a href="https://zh.wikipedia.org/wiki/C%2B%2B"&gt;C++&lt;/a&gt;语言写成的LZMA&lt;a href="https://zh.wikipedia.org/wiki/%E5%BC%80%E6%94%BE%E6%BA%90%E7%A0%81"&gt;开放源码&lt;/a&gt;压缩库使用了&lt;a href="https://zh.wikipedia.org/wiki/%E5%8C%BA%E9%97%B4%E7%BC%96%E7%A0%81"&gt;区间编码&lt;/a&gt;支持的&lt;a href="https://zh.wikipedia.org/wiki/LZ77%E4%B8%8ELZ78"&gt;LZ77&lt;/a&gt;改进压缩算法以及特殊的用于二进制的预处理程序。LZMA 对数据流、重复序列大小以及重续序列位置单独进行了压缩。LZMA支持几种&lt;a href="https://zh.wikipedia.org/w/index.php?title=%E6%95%A3%E5%88%97%E9%93%BE&amp;amp;action=edit&amp;amp;redlink=1"&gt;散列链&lt;/a&gt;变体、&lt;a href="https://zh.wikipedia.org/wiki/%E4%BA%8C%E5%8F%89%E6%A0%91"&gt;二叉树&lt;/a&gt;以及&lt;a href="https://zh.wikipedia.org/wiki/%E5%9F%BA%E6%95%B0%E6%A0%91"&gt;基数树&lt;/a&gt;作为它的字典查找算法基础。&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;h2 id="lzma"&gt;LZMA算法引入&lt;/h2&gt;</description><link>http://localhost:2368/ios-lzmalei-ya-suo-suan-fa-shi-yong/</link><guid isPermaLink="false">4581497a-50e2-45b9-ad89-30419418e553</guid><category>getting-started</category><dc:creator>Mark Chen</dc:creator><pubDate>Sun, 18 Dec 2016 04:49:33 GMT</pubDate><content:encoded>&lt;blockquote&gt;
+&lt;h2 id="lzma"&gt;LZMA算法引入&lt;/h2&gt;</description><link>http://localhost:2368/ios-lzmalei-ya-suo-suan-fa-shi-yong/</link><guid isPermaLink="false">4581497a-50e2-45b9-ad89-30419418e553</guid><category>Android</category><dc:creator>Mark Chen</dc:creator><pubDate>Sun, 18 Dec 2016 04:49:33 GMT</pubDate><content:encoded>&lt;blockquote&gt;
   &lt;p&gt;&lt;strong&gt;LZMA&lt;/strong&gt;（&lt;a href="https://zh.wikipedia.org/w/index.php?title=Abraham_Lempel&amp;amp;action=edit&amp;amp;redlink=1"&gt;Lempel&lt;/a&gt;-&lt;a href="https://zh.wikipedia.org/w/index.php?title=Jacob_Ziv&amp;amp;action=edit&amp;amp;redlink=1"&gt;Ziv&lt;/a&gt;-&lt;a href="https://zh.wikipedia.org/wiki/%E9%A9%AC%E5%B0%94%E5%8F%AF%E5%A4%AB%E9%93%BE"&gt;Markov chain&lt;/a&gt;-&lt;a href="https://zh.wikipedia.org/wiki/%E7%AE%97%E6%B3%95"&gt;Algorithm&lt;/a&gt;的缩写）是2001年以来得到发展的一个&lt;a href="https://zh.wikipedia.org/wiki/%E6%95%B0%E6%8D%AE%E5%8E%8B%E7%BC%A9"&gt;数据压缩&lt;/a&gt;算法，它用于&lt;a href="https://zh.wikipedia.org/wiki/7-Zip"&gt;7-Zip&lt;/a&gt;归档工具中的&lt;a href="https://zh.wikipedia.org/wiki/7z"&gt;7z&lt;/a&gt;格式和 &lt;a href="https://zh.wikipedia.org/wiki/Unix-like"&gt;Unix-like&lt;/a&gt; 下的 &lt;a href="https://zh.wikipedia.org/wiki/Xz"&gt;xz&lt;/a&gt; 格式。它使用类似于&lt;a href="https://zh.wikipedia.org/wiki/LZ77%E4%B8%8ELZ78"&gt;LZ77&lt;/a&gt;的&lt;a href="https://zh.wikipedia.org/w/index.php?title=%E5%AD%97%E5%85%B8%E7%BC%96%E7%A0%81&amp;amp;action=edit&amp;amp;redlink=1"&gt;字典编码&lt;/a&gt;机制，在一般的情况下压缩率比&lt;a href="https://zh.wikipedia.org/wiki/Bzip2"&gt;bzip2&lt;/a&gt;为高，用于压缩的字典文件大小可达4GB。&lt;/p&gt;
   
   &lt;p&gt;&lt;a href="https://zh.wikipedia.org/wiki/C%2B%2B"&gt;C++&lt;/a&gt;语言写成的LZMA&lt;a href="https://zh.wikipedia.org/wiki/%E5%BC%80%E6%94%BE%E6%BA%90%E7%A0%81"&gt;开放源码&lt;/a&gt;压缩库使用了&lt;a href="https://zh.wikipedia.org/wiki/%E5%8C%BA%E9%97%B4%E7%BC%96%E7%A0%81"&gt;区间编码&lt;/a&gt;支持的&lt;a href="https://zh.wikipedia.org/wiki/LZ77%E4%B8%8ELZ78"&gt;LZ77&lt;/a&gt;改进压缩算法以及特殊的用于二进制的预处理程序。LZMA 对数据流、重复序列大小以及重续序列位置单独进行了压缩。LZMA支持几种&lt;a href="https://zh.wikipedia.org/w/index.php?title=%E6%95%A3%E5%88%97%E9%93%BE&amp;amp;action=edit&amp;amp;redlink=1"&gt;散列链&lt;/a&gt;变体、&lt;a href="https://zh.wikipedia.org/wiki/%E4%BA%8C%E5%8F%89%E6%A0%91"&gt;二叉树&lt;/a&gt;以及&lt;a href="https://zh.wikipedia.org/wiki/%E5%9F%BA%E6%95%B0%E6%A0%91"&gt;基数树&lt;/a&gt;作为它的字典查找算法基础。&lt;/p&gt;
@@ -232,7 +212,7 @@ Make sure you are using 'use_frameworks!' and/or dynamic linking ...
 &lt;li&gt;国内地图SDK，国内使用普遍&lt;/li&gt;
 &lt;li&gt;支持路线规划，支持Turn-by-Turn导航，但没有实时导航回调接口 Pass&lt;/li&gt;
 &lt;li&gt;国际化很难(据悉在扩展海外国际化，时间不可预估) Pass&lt;/li&gt;
-&lt;li&gt;必须依赖 百度导航（非 百度地图）&lt;/li&gt;&lt;/ul&gt;</description><link>http://localhost:2368/untitled/</link><guid isPermaLink="false">7f00fd70-9dd5-442c-b603-d3da8935ccdd</guid><category>getting-started</category><dc:creator>Mark Chen</dc:creator><pubDate>Thu, 08 Dec 2016 07:26:52 GMT</pubDate><content:encoded>&lt;p&gt;文 · Mark&lt;/p&gt;
+&lt;li&gt;必须依赖 百度导航（非 百度地图）&lt;/li&gt;&lt;/ul&gt;</description><link>http://localhost:2368/untitled/</link><guid isPermaLink="false">7f00fd70-9dd5-442c-b603-d3da8935ccdd</guid><category>Android</category><dc:creator>Mark Chen</dc:creator><pubDate>Thu, 08 Dec 2016 07:26:52 GMT</pubDate><content:encoded>&lt;p&gt;文 · Mark&lt;/p&gt;
 
 &lt;p&gt;百度地图SDK &lt;/p&gt;
 
@@ -396,7 +376,7 @@ Make sure you are using 'use_frameworks!' and/or dynamic linking ...
   enum PhoneType {
     MOBILE = 0;
     HOME = 1;
-    WORK&lt;/code&gt;&lt;/pre&gt;</description><link>http://localhost:2368/protobufchu-tan/</link><guid isPermaLink="false">2c1bdcbb-d10f-4a98-b0d5-26574c7450bc</guid><category>getting-started</category><dc:creator>Mark Chen</dc:creator><pubDate>Thu, 08 Dec 2016 07:23:20 GMT</pubDate><content:encoded>&lt;p&gt;文 · Mark&lt;/p&gt;
+    WORK&lt;/code&gt;&lt;/pre&gt;</description><link>http://localhost:2368/protobufchu-tan/</link><guid isPermaLink="false">2c1bdcbb-d10f-4a98-b0d5-26574c7450bc</guid><category>Android</category><dc:creator>Mark Chen</dc:creator><pubDate>Thu, 08 Dec 2016 07:23:20 GMT</pubDate><content:encoded>&lt;p&gt;文 · Mark&lt;/p&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;对于软件开发者，尤其是移动端（Android &amp;amp; iOS）开发者来说，XML和JSON两种文件传输格式并不陌生，尤其是JSON，仅在上述两种开发领域中就广泛应用。随之而来的，是各种JSON的解析库，此文中，笔者不想介绍各个平台丰富多彩的JSON解析库，而是想和大家分享发现的一种新的文件传输格式，Protobuf。&lt;/p&gt;
@@ -687,7 +667,7 @@ cout &amp;lt;&amp;lt; "E-mail: "
 &lt;pre&gt;&lt;code&gt;brew info &amp;lt;target-name&amp;gt;  
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;pre&gt;&lt;code&gt;e.g.&lt;/code&gt;&lt;/pre&gt;</description><link>http://localhost:2368/welcome-to-ghost/</link><guid isPermaLink="false">59f0d0ea-cab8-400e-aca8-b737de388cf7</guid><category>getting-started</category><dc:creator>Mark Chen</dc:creator><pubDate>Thu, 08 Dec 2016 06:55:59 GMT</pubDate><content:encoded>&lt;h3 id="homebrew"&gt;安装Homebrew&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;e.g.&lt;/code&gt;&lt;/pre&gt;</description><link>http://localhost:2368/welcome-to-ghost/</link><guid isPermaLink="false">59f0d0ea-cab8-400e-aca8-b737de388cf7</guid><category>Android</category><dc:creator>Mark Chen</dc:creator><pubDate>Thu, 08 Dec 2016 06:55:59 GMT</pubDate><content:encoded>&lt;h3 id="homebrew"&gt;安装Homebrew&lt;/h3&gt;
 
 &lt;pre&gt;&lt;code&gt;ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"  
 &lt;/code&gt;&lt;/pre&gt;
