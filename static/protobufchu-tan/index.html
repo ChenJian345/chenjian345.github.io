@@ -1,3 +1,4 @@
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,7 +11,7 @@
 
     <link rel="shortcut icon" href="../favicon.ico">
 
-    <link rel="stylesheet" type="text/css" href="../assets/css/screen.css?v=3dc0e275ba">
+    <link rel="stylesheet" type="text/css" href="../assets/css/screen.css?v=49cf8bfec2">
     <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic%7COpen+Sans:700,400">
 
     <link rel="canonical" href="index.html">
@@ -23,13 +24,17 @@
     <meta property="og:description" content="文 · Mark   对于软件开发者，尤其是移动端（Android &amp;amp; iOS）开发者来说，XML和JSON两种文件传输格式并不陌生，尤其是JSON，仅在上述两种开发领域中就广泛应用。随之而来的，是各种JSON的解析库，此文中，笔者不想介绍各个平台丰富多彩的JSON解析库，而是想和大家分享发现的一种新的文件传输格式，Protobuf。 Protobuf是什么鬼 初次相遇Protobuf，这是我的第一反应。那么Protobuf到底是什么鬼？ Protobuf是一种灵活高效的、用于跨平台数据通信的数据传输格式，全称Protocol Buffers，类似XML和JSON。下面，我们先看一个protobuf的简单例子，如下： message Person {     required string name = 1;   required int32 id = 2;   optional string email = 3;   enum PhoneType {     MOBILE = 0;     HOME = 1;     WORK">
     <meta property="og:url" content="http://localhost:2368/protobufchu-tan/">
     <meta property="article:published_time" content="2016-12-08T07:23:20.000Z">
-    <meta property="article:modified_time" content="2016-12-08T07:23:20.000Z">
+    <meta property="article:modified_time" content="2016-12-18T05:52:40.000Z">
+    <meta property="article:tag" content="getting-started">
+    
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="Protobuf初探">
     <meta name="twitter:description" content="文 · Mark   对于软件开发者，尤其是移动端（Android &amp;amp; iOS）开发者来说，XML和JSON两种文件传输格式并不陌生，尤其是JSON，仅在上述两种开发领域中就广泛应用。随之而来的，是各种JSON的解析库，此文中，笔者不想介绍各个平台丰富多彩的JSON解析库，而是想和大家分享发现的一种新的文件传输格式，Protobuf。 Protobuf是什么鬼 初次相遇Protobuf，这是我的第一反应。那么Protobuf到底是什么鬼？ Protobuf是一种灵活高效的、用于跨平台数据通信的数据传输格式，全称Protocol Buffers，类似XML和JSON。下面，我们先看一个protobuf的简单例子，如下： message Person {     required string name = 1;   required int32 id = 2;   optional string email = 3;   enum PhoneType {     MOBILE = 0;     HOME = 1;     WORK">
     <meta name="twitter:url" content="http://localhost:2368/protobufchu-tan/">
     <meta name="twitter:label1" content="Written by">
     <meta name="twitter:data1" content="Mark Chen">
+    <meta name="twitter:label2" content="Filed under">
+    <meta name="twitter:data2" content="getting-started">
     
     <script type="application/ld+json">
 {
@@ -55,7 +60,8 @@
     "headline": "Protobuf初探",
     "url": "http://localhost:2368/protobufchu-tan/",
     "datePublished": "2016-12-08T07:23:20.000Z",
-    "dateModified": "2016-12-08T07:23:20.000Z",
+    "dateModified": "2016-12-18T05:52:40.000Z",
+    "keywords": "getting-started",
     "description": "文 · Mark   对于软件开发者，尤其是移动端（Android &amp;amp; iOS）开发者来说，XML和JSON两种文件传输格式并不陌生，尤其是JSON，仅在上述两种开发领域中就广泛应用。随之而来的，是各种JSON的解析库，此文中，笔者不想介绍各个平台丰富多彩的JSON解析库，而是想和大家分享发现的一种新的文件传输格式，Protobuf。 Protobuf是什么鬼 初次相遇Protobuf，这是我的第一反应。那么Protobuf到底是什么鬼？ Protobuf是一种灵活高效的、用于跨平台数据通信的数据传输格式，全称Protocol Buffers，类似XML和JSON。下面，我们先看一个protobuf的简单例子，如下： message Person {     required string name &#x3D; 1;   required int32 id &#x3D; 2;   optional string email &#x3D; 3;   enum PhoneType {     MOBILE &#x3D; 0;     HOME &#x3D; 1;     WORK",
     "mainEntityOfPage": {
         "@type": "WebPage",
@@ -67,7 +73,7 @@
     <meta name="generator" content="Ghost 0.11">
     <link rel="alternate" type="application/rss+xml" title="Crazy Mark" href="../rss/index.html">
 </head>
-<body class="post-template nav-closed">
+<body class="post-template tag-getting-started nav-closed">
 
     <div class="nav">
     <h3 class="nav-title">Menu</h3>
@@ -76,6 +82,7 @@
     </a>
     <ul>
             <li class="nav-home" role="presentation"><a href="../">Home</a></li>
+            <li class="nav-ios" role="presentation"><a href="http://localhost:2368/iOS/">iOS</a></li>
     </ul>
         <a class="subscribe-button icon-feed" href="../rss/index.rss">Subscribe</a>
 </div>
@@ -95,12 +102,12 @@
 </header>
 
 <main class="content" role="main">
-    <article class="post">
+    <article class="post tag-getting-started">
 
         <header class="post-header">
             <h1 class="post-title">Protobuf初探</h1>
             <section class="post-meta">
-                <time class="post-date" datetime="2016-12-08">08 December 2016</time> 
+                <time class="post-date" datetime="2016-12-08">08 December 2016</time>  on <a href="../tag/getting-started/">getting-started</a>
             </section>
         </header>
 
@@ -429,7 +436,7 @@ cout &lt;&lt; "E-mail: "
 
     <script type="text/javascript" src="http://code.jquery.com/jquery-1.12.0.min.js"></script>
     
-    <script type="text/javascript" src="../assets/js/jquery.fitvids.js?v=3dc0e275ba"></script>
-    <script type="text/javascript" src="../assets/js/index.js?v=3dc0e275ba"></script>
+    <script type="text/javascript" src="../assets/js/jquery.fitvids.js?v=49cf8bfec2"></script>
+    <script type="text/javascript" src="../assets/js/index.js?v=49cf8bfec2"></script>
 
 </body>

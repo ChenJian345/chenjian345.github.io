@@ -1,4 +1,208 @@
-<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" version="2.0"><channel><title>Crazy Mark</title><description>Thoughts &amp; Ideas.</description><link>http://localhost:2368/</link><generator>Ghost 0.11</generator><lastBuildDate>Thu, 08 Dec 2016 07:29:10 GMT</lastBuildDate><atom:link href="http://localhost:2368/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title>地图导航SDK调研</title><description>&lt;p&gt;文 · Mark&lt;/p&gt;
+<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" version="2.0"><channel><title>Crazy Mark</title><description>Thoughts &amp; Ideas.</description><link>http://localhost:2368/</link><generator>Ghost 0.11</generator><lastBuildDate>Wed, 21 Dec 2016 03:22:36 GMT</lastBuildDate><atom:link href="http://localhost:2368/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title>测试文章</title><description>&lt;h3 id=""&gt;测试内容&lt;/h3&gt;
+
+&lt;p&gt;巴拉巴拉。。。。&lt;/p&gt;
+
+&lt;p&gt;if dicUserInfo == nil { &lt;br&gt;
+                dicUserInfo = &lt;a href="http://localhost:2368/ce-shi-wen-zhang/"&gt;String: Any&lt;/a&gt;
+            }&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;        dicUserInfo?["lastCheckTime"] = Date()
+        UserDefaults.standard.set(dicUserInfo, forKey: updateInfoKey)
+&lt;/code&gt;&lt;/pre&gt;</description><link>http://localhost:2368/ce-shi-wen-zhang/</link><guid isPermaLink="false">dd8b9dab-f154-4fef-976a-58a089bed64a</guid><dc:creator>Mark Chen</dc:creator><pubDate>Wed, 21 Dec 2016 02:28:40 GMT</pubDate><content:encoded>&lt;h3 id=""&gt;测试内容&lt;/h3&gt;
+
+&lt;p&gt;巴拉巴拉。。。。&lt;/p&gt;
+
+&lt;p&gt;if dicUserInfo == nil { &lt;br&gt;
+                dicUserInfo = &lt;a href="http://localhost:2368/ce-shi-wen-zhang/"&gt;String: Any&lt;/a&gt;
+            }&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;        dicUserInfo?["lastCheckTime"] = Date()
+        UserDefaults.standard.set(dicUserInfo, forKey: updateInfoKey)
+&lt;/code&gt;&lt;/pre&gt;</content:encoded></item><item><title>iOS-LZMA类压缩算法使用</title><description>&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;LZMA&lt;/strong&gt;（&lt;a href="https://zh.wikipedia.org/w/index.php?title=Abraham_Lempel&amp;amp;action=edit&amp;amp;redlink=1"&gt;Lempel&lt;/a&gt;-&lt;a href="https://zh.wikipedia.org/w/index.php?title=Jacob_Ziv&amp;amp;action=edit&amp;amp;redlink=1"&gt;Ziv&lt;/a&gt;-&lt;a href="https://zh.wikipedia.org/wiki/%E9%A9%AC%E5%B0%94%E5%8F%AF%E5%A4%AB%E9%93%BE"&gt;Markov chain&lt;/a&gt;-&lt;a href="https://zh.wikipedia.org/wiki/%E7%AE%97%E6%B3%95"&gt;Algorithm&lt;/a&gt;的缩写）是2001年以来得到发展的一个&lt;a href="https://zh.wikipedia.org/wiki/%E6%95%B0%E6%8D%AE%E5%8E%8B%E7%BC%A9"&gt;数据压缩&lt;/a&gt;算法，它用于&lt;a href="https://zh.wikipedia.org/wiki/7-Zip"&gt;7-Zip&lt;/a&gt;归档工具中的&lt;a href="https://zh.wikipedia.org/wiki/7z"&gt;7z&lt;/a&gt;格式和 &lt;a href="https://zh.wikipedia.org/wiki/Unix-like"&gt;Unix-like&lt;/a&gt; 下的 &lt;a href="https://zh.wikipedia.org/wiki/Xz"&gt;xz&lt;/a&gt; 格式。它使用类似于&lt;a href="https://zh.wikipedia.org/wiki/LZ77%E4%B8%8ELZ78"&gt;LZ77&lt;/a&gt;的&lt;a href="https://zh.wikipedia.org/w/index.php?title=%E5%AD%97%E5%85%B8%E7%BC%96%E7%A0%81&amp;amp;action=edit&amp;amp;redlink=1"&gt;字典编码&lt;/a&gt;机制，在一般的情况下压缩率比&lt;a href="https://zh.wikipedia.org/wiki/Bzip2"&gt;bzip2&lt;/a&gt;为高，用于压缩的字典文件大小可达4GB。&lt;/p&gt;
+  
+  &lt;p&gt;&lt;a href="https://zh.wikipedia.org/wiki/C%2B%2B"&gt;C++&lt;/a&gt;语言写成的LZMA&lt;a href="https://zh.wikipedia.org/wiki/%E5%BC%80%E6%94%BE%E6%BA%90%E7%A0%81"&gt;开放源码&lt;/a&gt;压缩库使用了&lt;a href="https://zh.wikipedia.org/wiki/%E5%8C%BA%E9%97%B4%E7%BC%96%E7%A0%81"&gt;区间编码&lt;/a&gt;支持的&lt;a href="https://zh.wikipedia.org/wiki/LZ77%E4%B8%8ELZ78"&gt;LZ77&lt;/a&gt;改进压缩算法以及特殊的用于二进制的预处理程序。LZMA 对数据流、重复序列大小以及重续序列位置单独进行了压缩。LZMA支持几种&lt;a href="https://zh.wikipedia.org/w/index.php?title=%E6%95%A3%E5%88%97%E9%93%BE&amp;amp;action=edit&amp;amp;redlink=1"&gt;散列链&lt;/a&gt;变体、&lt;a href="https://zh.wikipedia.org/wiki/%E4%BA%8C%E5%8F%89%E6%A0%91"&gt;二叉树&lt;/a&gt;以及&lt;a href="https://zh.wikipedia.org/wiki/%E5%9F%BA%E6%95%B0%E6%A0%91"&gt;基数树&lt;/a&gt;作为它的字典查找算法基础。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id="lzma"&gt;LZMA算法引入&lt;/h2&gt;</description><link>http://localhost:2368/ios-lzmalei-ya-suo-suan-fa-shi-yong/</link><guid isPermaLink="false">4581497a-50e2-45b9-ad89-30419418e553</guid><category>getting-started</category><dc:creator>Mark Chen</dc:creator><pubDate>Sun, 18 Dec 2016 04:49:33 GMT</pubDate><content:encoded>&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;LZMA&lt;/strong&gt;（&lt;a href="https://zh.wikipedia.org/w/index.php?title=Abraham_Lempel&amp;amp;action=edit&amp;amp;redlink=1"&gt;Lempel&lt;/a&gt;-&lt;a href="https://zh.wikipedia.org/w/index.php?title=Jacob_Ziv&amp;amp;action=edit&amp;amp;redlink=1"&gt;Ziv&lt;/a&gt;-&lt;a href="https://zh.wikipedia.org/wiki/%E9%A9%AC%E5%B0%94%E5%8F%AF%E5%A4%AB%E9%93%BE"&gt;Markov chain&lt;/a&gt;-&lt;a href="https://zh.wikipedia.org/wiki/%E7%AE%97%E6%B3%95"&gt;Algorithm&lt;/a&gt;的缩写）是2001年以来得到发展的一个&lt;a href="https://zh.wikipedia.org/wiki/%E6%95%B0%E6%8D%AE%E5%8E%8B%E7%BC%A9"&gt;数据压缩&lt;/a&gt;算法，它用于&lt;a href="https://zh.wikipedia.org/wiki/7-Zip"&gt;7-Zip&lt;/a&gt;归档工具中的&lt;a href="https://zh.wikipedia.org/wiki/7z"&gt;7z&lt;/a&gt;格式和 &lt;a href="https://zh.wikipedia.org/wiki/Unix-like"&gt;Unix-like&lt;/a&gt; 下的 &lt;a href="https://zh.wikipedia.org/wiki/Xz"&gt;xz&lt;/a&gt; 格式。它使用类似于&lt;a href="https://zh.wikipedia.org/wiki/LZ77%E4%B8%8ELZ78"&gt;LZ77&lt;/a&gt;的&lt;a href="https://zh.wikipedia.org/w/index.php?title=%E5%AD%97%E5%85%B8%E7%BC%96%E7%A0%81&amp;amp;action=edit&amp;amp;redlink=1"&gt;字典编码&lt;/a&gt;机制，在一般的情况下压缩率比&lt;a href="https://zh.wikipedia.org/wiki/Bzip2"&gt;bzip2&lt;/a&gt;为高，用于压缩的字典文件大小可达4GB。&lt;/p&gt;
+  
+  &lt;p&gt;&lt;a href="https://zh.wikipedia.org/wiki/C%2B%2B"&gt;C++&lt;/a&gt;语言写成的LZMA&lt;a href="https://zh.wikipedia.org/wiki/%E5%BC%80%E6%94%BE%E6%BA%90%E7%A0%81"&gt;开放源码&lt;/a&gt;压缩库使用了&lt;a href="https://zh.wikipedia.org/wiki/%E5%8C%BA%E9%97%B4%E7%BC%96%E7%A0%81"&gt;区间编码&lt;/a&gt;支持的&lt;a href="https://zh.wikipedia.org/wiki/LZ77%E4%B8%8ELZ78"&gt;LZ77&lt;/a&gt;改进压缩算法以及特殊的用于二进制的预处理程序。LZMA 对数据流、重复序列大小以及重续序列位置单独进行了压缩。LZMA支持几种&lt;a href="https://zh.wikipedia.org/w/index.php?title=%E6%95%A3%E5%88%97%E9%93%BE&amp;amp;action=edit&amp;amp;redlink=1"&gt;散列链&lt;/a&gt;变体、&lt;a href="https://zh.wikipedia.org/wiki/%E4%BA%8C%E5%8F%89%E6%A0%91"&gt;二叉树&lt;/a&gt;以及&lt;a href="https://zh.wikipedia.org/wiki/%E5%9F%BA%E6%95%B0%E6%A0%91"&gt;基数树&lt;/a&gt;作为它的字典查找算法基础。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id="lzma"&gt;LZMA算法引入&lt;/h2&gt;
+
+&lt;p&gt;对于数据传输，传输时间和传输质量是主要的两个参考维度。对于传输时间的压缩，数据压缩又是一个很好地可选项。目前正在处理蓝牙BLE（&lt;strong&gt;Bluetooth low energy&lt;/strong&gt; (&lt;strong&gt;Bluetooth LE&lt;/strong&gt;, &lt;strong&gt;BLE&lt;/strong&gt;, marketed as &lt;strong&gt;Bluetooth Smart&lt;/strong&gt;[&lt;a href="https://en.wikipedia.org/wiki/Bluetooth_low_energy#cite_note-1"&gt;1]&lt;/a&gt;)）调试，其中数据传输过程中，发现由于速度限制，传输时间较长，为了缩短传输时间，想利用压缩算法对所要传输的数据进行压缩处理后再进行传输，压缩完成之后再进行传输，以提高传输效率及节省传输时间。经过查阅各种资料，初步使用LZMA压缩算法进行压缩。&lt;/p&gt;
+
+&lt;p&gt;之所以选择&lt;a href="https://zh.wikipedia.org/wiki/LZMA"&gt;LZMA&lt;/a&gt;算法进行压缩处理，原因有以下几点：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;开源&lt;/li&gt;
+&lt;li&gt;iOS &amp;amp; Android平台均支持，可夸平台使用&lt;/li&gt;
+&lt;li&gt;使用广泛稳定，7zip即采用该算法及衍生算法&lt;/li&gt;
+&lt;li&gt;压缩效率较高&lt;/li&gt;
+&lt;li&gt;多线程支持&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id="ioslzma"&gt;iOS引入使用LZMA压缩算法方法&lt;/h2&gt;
+
+&lt;h4 id="1lzma"&gt;选项1. 利用系统默认支持的LZMA压缩算法&lt;/h4&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;The libcompression library provides an API for two styles of data compression:&lt;/p&gt;
+  
+  &lt;ul&gt;
+  &lt;li&gt;Block compression, where all of the input data is compressed or decompressed by one call to the compression or decompression function.&lt;/li&gt;
+  &lt;li&gt;Streaming compression, where the compression or decompression function is called repeatedly to compress or decompress data from a source buffer to a destination buffer. Between calls, processed data is moved out of the destination buffer and new data is loaded into the source buffer.&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Apple提供了一套通用的无损压缩算法，其中就支持LZMA、LZMA2压缩.&lt;/p&gt;
+
+&lt;h5 id=""&gt;支持的压缩类型&lt;/h5&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Block Compression&lt;/li&gt;
+&lt;li&gt;Stream Compression&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=""&gt;支持的平台如下：&lt;/h5&gt;
+
+&lt;ul&gt;
+&lt;li&gt;iOS 9.0+&lt;/li&gt;
+&lt;li&gt;macOS 10.11+&lt;/li&gt;
+&lt;li&gt;tvOS 9.0+&lt;/li&gt;
+&lt;li&gt;watchOS 2.0+&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=""&gt;支持的压缩算法&lt;/h5&gt;
+
+&lt;ul&gt;
+&lt;li&gt;COMPRESSION_LZ4&lt;/li&gt;
+&lt;li&gt;COMPRESSION_ZLIB&lt;/li&gt;
+&lt;li&gt;COMPRESSION_LZMA&lt;/li&gt;
+&lt;li&gt;COMPRESSION_LZFSE&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;提供的代码调用很简单，我根据我的需要，所使用的方法如下：&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="https://developer.apple.com/reference/compression/1480986-compression_encode_buffer"&gt;压缩算法&lt;/a&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-c"&gt;size_t compression_encode_buffer(uint8_t *restrict dst_buffer, size_t dst_size, const uint8_t *restrict src_buffer, size_t src_size, void *restrict scratch_buffer, compression_algorithm algorithm);  
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;a href="https://developer.apple.com/reference/compression/1481000-compression_decode_buffer?language=objc"&gt;解压方法&lt;/a&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-c"&gt;size_t compression_decode_buffer(uint8_t *restrict dst_buffer, size_t dst_size, const uint8_t *restrict src_buffer, size_t src_size, void *restrict scratch_buffer, compression_algorithm algorithm);  
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;详细的调用代码如下&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-objective-c"&gt;- (void)testLZMA {
+    // Data source file path.
+    NSString *sourceFilePath = [NSString stringWithFormat:@"%@/source_data.txt", SYSTEM_DOCUMENT_PATH];
+    // Compressed file path.
+    NSString *zipFilePath = [NSString stringWithFormat:@"%@/compressed_data.7z", SYSTEM_DOCUMENT_PATH];
+
+    NSData *fileData = [NSData dataWithContentsOfFile:sourceFilePath];
+    DDLogDebug(@"Before compress: %ld bytes", fileData.length);
+
+    uint8_t dstBuffer[fileData.length];
+    memset(dstBuffer, 0, fileData.length);
+
+    size_t compressResultLength = compression_encode_buffer(dstBuffer, fileData.length, [fileData bytes], fileData.length, NULL, COMPRESSION_LZMA);
+    if(compressResultLength &amp;gt; 0) {
+        NSData *dataAfterCompress = [NSData dataWithBytes:dstBuffer length:compressResultLength];
+        DDLogDebug(@"Compress successfully. After compress：%ld bytes", dataAfterCompress.length;
+        // Write compressed data into file.
+        [dataAfterCompress writeToFile:zipFilePath atomically:YES];
+    } else {
+        DDLogError(@"Compress FAILED!!!");
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;该方法集成使用起来非常简单，对于基本的压缩需求足够可以满足，且不会对App的大小造成太大影响，不会很大增加，如果没有特殊需求，该方法是首选。&lt;/p&gt;
+
+&lt;h4 id="2lzmasdkojbcframeworkhttpsgithubcomchenjian345lzmasdkojbcframework"&gt;选项2. 集成第三方库&lt;a href="https://github.com/ChenJian345/LzmaSDKOjbcFramework"&gt;LzmaSDKOjbcFramework&lt;/a&gt;&lt;/h4&gt;
+
+&lt;p&gt;这是我最先走的一条路，通过查阅相关资料，引入相关的开源库，自己实现了一个支持LZMA压缩算法的iOS工程用于Build Framework，现已开源到Github上，即&lt;a href="https://github.com/ChenJian345/LzmaSDKOjbcFramework"&gt;LzmaSDKOjbcFramework&lt;/a&gt;。&lt;/p&gt;
+
+&lt;p&gt;虽然最终采用的方案一，但在制作&lt;a href="https://github.com/ChenJian345/LzmaSDKOjbcFramework"&gt;LzmaSDKOjbcFramework&lt;/a&gt;过程中，也有一些收获，现分享给大家，愿对大家有些帮助。&lt;/p&gt;
+
+&lt;p&gt;最初找到的LZMA的iOS支持库是 &lt;a href="https://github.com/OlehKulykov/LzmaSDKObjC"&gt;LzmaSDKObjC&lt;/a&gt;，但是这个库在引入开发工程中过程中，由于使用的cocoaPods， 必须使用&lt;code&gt;use_frameworks!&lt;/code&gt; 才可以使用，但是由于podfile中存在其他引入的第三方库，这些库不适用&lt;code&gt;use_frameworks!&lt;/code&gt;限制。&lt;/p&gt;
+
+&lt;p&gt;此时陷入两难境地，使用&lt;code&gt;use_frameworks!&lt;/code&gt;导致其他不支持framework的库不可用，如果不使用，LzmaSDKObjC则会报如下错误:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Codec was not compiled in or stripped by static linking.  
+Make sure you are using 'use_frameworks!' and/or dynamic linking ...  
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;而CocoaPods又不支持针对某一第三方库来规定使用&lt;code&gt;use_frameworks!&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;既然这样，我打算自己创建一个iOS Framework工程开源，供团队内部及所有人方便使用。&lt;/p&gt;
+
+&lt;h4 id=""&gt;使用步骤&lt;/h4&gt;
+
+&lt;h5 id="step1"&gt;Step1&lt;/h5&gt;
+
+&lt;p&gt;在&lt;a href="https://github.com/ChenJian345/LzmaSDKOjbcFramework"&gt;LzmaSDKOjbcFramework&lt;/a&gt;工程目录下，由于工程需要&lt;code&gt;Inlineobjc&lt;/code&gt;库，所以使用CocoaPods进行安装，命令行执行如下命令：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ pod install
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h5 id="step2"&gt;Step2&lt;/h5&gt;
+
+&lt;p&gt;打开workspace工程文件，xCode中看到的内容如下：&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="https://camo.githubusercontent.com/184a2b2cee82d0a9ccb5e542ad7d7c2ab131e25c/687474703a2f2f7777312e73696e61696d672e636e2f6c617267652f303036744e6337396a773166613135326c626d316e6a333069653074716163702e6a7067"&gt;&lt;img src="https://camo.githubusercontent.com/184a2b2cee82d0a9ccb5e542ad7d7c2ab131e25c/687474703a2f2f7777312e73696e61696d672e636e2f6c617267652f303036744e6337396a773166613135326c626d316e6a333069653074716163702e6a7067" alt="img" title=""&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h5 id="step3"&gt;Step3&lt;/h5&gt;
+
+&lt;p&gt;Archive工程并导出&lt;code&gt;LzmaSDKObjC.framework&lt;/code&gt;文件到所需的工程路径下使用，使用如下：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-objc"&gt;- (void)testLZMA {
+    NSString *sourceFilePath = [NSString stringWithFormat:@"%@/source_data.txt", SYSTEM_DOCUMENT_PATH];
+    NSString *zipFilePath = [NSString stringWithFormat:@"%@/compressed_data.7z", SYSTEM_DOCUMENT_PATH];
+    DDLogDebug(@"\n\n ********** LZMA ********** \nSrc File: %@\n7Zip File:%@\n\n", sourceFilePath, zipFilePath);
+    // Create writer
+    LzmaSDKObjCWriter * writer = [[LzmaSDKObjCWriter alloc] initWithFileURL:[NSURL fileURLWithPath:zipFilePath]];
+
+    // Add file data's or paths
+//    [writer addData:[NSData ...] forPath:@"MyArchiveFileName.txt"]; // Add file data
+    [writer addPath:sourceFilePath forPath:@"."]; // Add file at path
+//    [writer addPath:@"/Path/SomeDirectory" forPath:@"SomeDirectory"]; // Recursively add directory with all contents
+
+    // Setup writer
+    writer.delegate = self; // Track progress
+//    writer.passwordGetter = ^NSString*(void) { // Password getter
+//        return @"1234";
+//    };
+
+    // Optional settings
+    writer.method = LzmaSDKObjCMethodLZMA; // or LzmaSDKObjCMethodLZMA
+    writer.solid = YES;
+    writer.compressionLevel = 7;
+    writer.encodeContent = YES;
+    writer.encodeHeader = YES;
+    writer.compressHeader = YES;
+    writer.compressHeaderFull = YES;
+    writer.writeModificationTime = NO;
+    writer.writeCreationTime = NO;
+    writer.writeAccessTime = NO;
+
+    // Open archive file
+    NSError * error = nil;
+    [writer open:&amp;amp;error];
+
+    // Write archive within current thread
+    [writer write];
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;该方式的优点是支持的可选项较广，可以广泛的定制各种参数，但缺点是导入库后会导致应用包的体积变大，所以需要根据自身需求来选择。&lt;/p&gt;
+
+&lt;p&gt;ENJOY.&lt;/p&gt;</content:encoded></item><item><title>地图导航SDK调研</title><description>&lt;p&gt;文 · Mark&lt;/p&gt;
 
 &lt;p&gt;百度地图SDK &lt;/p&gt;
 
@@ -28,7 +232,7 @@
 &lt;li&gt;国内地图SDK，国内使用普遍&lt;/li&gt;
 &lt;li&gt;支持路线规划，支持Turn-by-Turn导航，但没有实时导航回调接口 Pass&lt;/li&gt;
 &lt;li&gt;国际化很难(据悉在扩展海外国际化，时间不可预估) Pass&lt;/li&gt;
-&lt;li&gt;必须依赖 百度导航（非 百度地图）&lt;/li&gt;&lt;/ul&gt;</description><link>http://localhost:2368/untitled/</link><guid isPermaLink="false">7f00fd70-9dd5-442c-b603-d3da8935ccdd</guid><dc:creator>Mark Chen</dc:creator><pubDate>Thu, 08 Dec 2016 07:26:52 GMT</pubDate><content:encoded>&lt;p&gt;文 · Mark&lt;/p&gt;
+&lt;li&gt;必须依赖 百度导航（非 百度地图）&lt;/li&gt;&lt;/ul&gt;</description><link>http://localhost:2368/untitled/</link><guid isPermaLink="false">7f00fd70-9dd5-442c-b603-d3da8935ccdd</guid><category>getting-started</category><dc:creator>Mark Chen</dc:creator><pubDate>Thu, 08 Dec 2016 07:26:52 GMT</pubDate><content:encoded>&lt;p&gt;文 · Mark&lt;/p&gt;
 
 &lt;p&gt;百度地图SDK &lt;/p&gt;
 
@@ -192,7 +396,7 @@
   enum PhoneType {
     MOBILE = 0;
     HOME = 1;
-    WORK&lt;/code&gt;&lt;/pre&gt;</description><link>http://localhost:2368/protobufchu-tan/</link><guid isPermaLink="false">2c1bdcbb-d10f-4a98-b0d5-26574c7450bc</guid><dc:creator>Mark Chen</dc:creator><pubDate>Thu, 08 Dec 2016 07:23:20 GMT</pubDate><content:encoded>&lt;p&gt;文 · Mark&lt;/p&gt;
+    WORK&lt;/code&gt;&lt;/pre&gt;</description><link>http://localhost:2368/protobufchu-tan/</link><guid isPermaLink="false">2c1bdcbb-d10f-4a98-b0d5-26574c7450bc</guid><category>getting-started</category><dc:creator>Mark Chen</dc:creator><pubDate>Thu, 08 Dec 2016 07:23:20 GMT</pubDate><content:encoded>&lt;p&gt;文 · Mark&lt;/p&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;对于软件开发者，尤其是移动端（Android &amp;amp; iOS）开发者来说，XML和JSON两种文件传输格式并不陌生，尤其是JSON，仅在上述两种开发领域中就广泛应用。随之而来的，是各种JSON的解析库，此文中，笔者不想介绍各个平台丰富多彩的JSON解析库，而是想和大家分享发现的一种新的文件传输格式，Protobuf。&lt;/p&gt;
@@ -483,7 +687,7 @@ cout &amp;lt;&amp;lt; "E-mail: "
 &lt;pre&gt;&lt;code&gt;brew info &amp;lt;target-name&amp;gt;  
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;pre&gt;&lt;code&gt;e.g.&lt;/code&gt;&lt;/pre&gt;</description><link>http://localhost:2368/welcome-to-ghost/</link><guid isPermaLink="false">59f0d0ea-cab8-400e-aca8-b737de388cf7</guid><category>Getting Started</category><dc:creator>Mark Chen</dc:creator><pubDate>Thu, 08 Dec 2016 06:55:59 GMT</pubDate><content:encoded>&lt;h3 id="homebrew"&gt;安装Homebrew&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;e.g.&lt;/code&gt;&lt;/pre&gt;</description><link>http://localhost:2368/welcome-to-ghost/</link><guid isPermaLink="false">59f0d0ea-cab8-400e-aca8-b737de388cf7</guid><category>getting-started</category><dc:creator>Mark Chen</dc:creator><pubDate>Thu, 08 Dec 2016 06:55:59 GMT</pubDate><content:encoded>&lt;h3 id="homebrew"&gt;安装Homebrew&lt;/h3&gt;
 
 &lt;pre&gt;&lt;code&gt;ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"  
 &lt;/code&gt;&lt;/pre&gt;
