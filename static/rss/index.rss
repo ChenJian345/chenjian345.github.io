@@ -1,4 +1,149 @@
-<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" version="2.0"><channel><title>Crazy Mark</title><description>Thoughts &amp; Ideas.</description><link>http://localhost:2368/</link><generator>Ghost 0.11</generator><lastBuildDate>Tue, 07 Feb 2017 03:06:10 GMT</lastBuildDate><atom:link href="http://localhost:2368/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title>XCode中iOS工程文件布局规范</title><description>&lt;p&gt;以下是iOS工程中关于文件的布局规范参考链接，仅供备忘参考.&lt;/p&gt;
+<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" version="2.0"><channel><title>Crazy Mark</title><description>Thoughts &amp; Ideas.</description><link>http://localhost:2368/</link><generator>Ghost 0.11</generator><lastBuildDate>Tue, 07 Feb 2017 03:45:49 GMT</lastBuildDate><atom:link href="http://localhost:2368/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title>Apple Watch产品设计经验--去哪网</title><description>&lt;blockquote&gt;
+  &lt;p&gt;在参与2016WWDC过程中，听取了【去哪网】某位从业人员的关于Apple Watch产品设计技术相关的分享，将要点整理如下，作为学习提纲之用，供参考&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;文中Apple WatchOS应该是基于WatchOS 2.0版本，但某些设计和产品经验同样适用于Apple WatchOS 3.0.&lt;/p&gt;
+
+&lt;h5 id=""&gt;初识 &amp;amp; 迷惘&lt;/h5&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Watch OS Glance？问题：状态展示？如何更新？有无用户交互？
+&lt;ul&gt;&lt;li&gt;只适合进行时间相关的内容展现&lt;/li&gt;
+&lt;li&gt;运营相关的内容意义不大，手表是效率工具&lt;/li&gt;
+&lt;li&gt;使用类似健身记录的圆环展示方式并不适用于第三方App,最大的Lower也只有XXX像素&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;色彩略单调，watch lib;&lt;/li&gt;
+&lt;li&gt;人们不会一直使用某个App;&lt;/li&gt;
+&lt;li&gt;操作要简单，10-30s完成;&lt;/li&gt;
+&lt;li&gt;推送展现，只有watch在手上才会推送到watch上;&lt;/li&gt;
+&lt;li&gt;app group是什么鬼？现在常用于进行非实时简单数据通讯！&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=""&gt;产品层面&lt;/h5&gt;
+
+&lt;ul&gt;
+&lt;li&gt;明亮色彩提升产品感受;&lt;/li&gt;
+&lt;li&gt;尽量减少滚动，一屏展示所表现的内容;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=""&gt;技术层面&lt;/h5&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Phone &amp;amp; Watch￼&lt;/li&gt;&lt;/ul&gt;</description><link>http://localhost:2368/guan-yu-apple-watchchan-pin-qu-na-wang-da-shen-fen-xiang/</link><guid isPermaLink="false">b44d30e6-b5da-475f-bc2c-bc1bb65b9588</guid><dc:creator>Mark Chen</dc:creator><pubDate>Tue, 07 Feb 2017 03:39:31 GMT</pubDate><content:encoded>&lt;blockquote&gt;
+  &lt;p&gt;在参与2016WWDC过程中，听取了【去哪网】某位从业人员的关于Apple Watch产品设计技术相关的分享，将要点整理如下，作为学习提纲之用，供参考&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;文中Apple WatchOS应该是基于WatchOS 2.0版本，但某些设计和产品经验同样适用于Apple WatchOS 3.0.&lt;/p&gt;
+
+&lt;h5 id=""&gt;初识 &amp;amp; 迷惘&lt;/h5&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Watch OS Glance？问题：状态展示？如何更新？有无用户交互？
+&lt;ul&gt;&lt;li&gt;只适合进行时间相关的内容展现&lt;/li&gt;
+&lt;li&gt;运营相关的内容意义不大，手表是效率工具&lt;/li&gt;
+&lt;li&gt;使用类似健身记录的圆环展示方式并不适用于第三方App,最大的Lower也只有XXX像素&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;色彩略单调，watch lib;&lt;/li&gt;
+&lt;li&gt;人们不会一直使用某个App;&lt;/li&gt;
+&lt;li&gt;操作要简单，10-30s完成;&lt;/li&gt;
+&lt;li&gt;推送展现，只有watch在手上才会推送到watch上;&lt;/li&gt;
+&lt;li&gt;app group是什么鬼？现在常用于进行非实时简单数据通讯！&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=""&gt;产品层面&lt;/h5&gt;
+
+&lt;ul&gt;
+&lt;li&gt;明亮色彩提升产品感受;&lt;/li&gt;
+&lt;li&gt;尽量减少滚动，一屏展示所表现的内容;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=""&gt;技术层面&lt;/h5&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Phone &amp;amp; Watch￼代码复用￼￼￼&lt;/li&gt;
+&lt;li&gt;URL Schema做跳转协议，使用Extension和App的交互接口相统一；&lt;/li&gt;
+&lt;li&gt;与iPhone App同步，使用MMWormhole触发，如退出登录等；&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id="applewatchos20changes"&gt;Apple Watch OS 2.0 Changes&lt;/h5&gt;
+
+&lt;ul&gt;
+&lt;li&gt;App无法与Watch Extension共享Framework；&lt;/li&gt;
+&lt;li&gt;不在要求运行Watch App时必须与手机处于联通状态；&lt;/li&gt;
+&lt;li&gt;MMWormhole仍然可用，但也可以使用WatchConnectivity替换（WatchConnectivity更推荐使用）；&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=""&gt;性能 &amp;amp; 优化&lt;/h5&gt;
+
+&lt;p&gt;&lt;strong&gt;Network优化点&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;使用压缩协议优化减少Request &amp;amp; Response&lt;/li&gt;
+&lt;li&gt;隐藏不必要的JSON，需要什么给什么，不多不少&lt;/li&gt;
+&lt;li&gt;发送对应的Watch大小的图片，38" or 42"&lt;/li&gt;
+&lt;li&gt;对于List，针对Watch设定每一页的大小（经验值：5）&lt;/li&gt;
+&lt;li&gt;对于UI团队提供的图片资源，图片尺寸要恰好适配Watch
+&lt;ul&gt;&lt;li&gt;App中使用setImageNamed&lt;/li&gt;
+&lt;li&gt;Watch中使用setImageData &lt;code&gt;性能考虑&lt;/code&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;UI性能&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;减少UI复杂度，大简至美&lt;/li&gt;
+&lt;li&gt;WKInterfaceTable第一次加载的行数不要太多&lt;/li&gt;
+&lt;li&gt;在RowController的willActivate方法中使用dispatch来请求图片&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;WatchOS 2.0 New Features&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Digital Crown&lt;/li&gt;
+&lt;li&gt;ClockKit&lt;/li&gt;
+&lt;li&gt;Animation (还有很多局限)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;WatchOS 3.0 New Features&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;The Dock&lt;/li&gt;
+&lt;li&gt;Stickiness&lt;/li&gt;
+&lt;li&gt;Gesture support&lt;/li&gt;
+&lt;li&gt;Direct access to the Digital Crown&lt;/li&gt;
+&lt;li&gt;Improved notification support&lt;/li&gt;
+&lt;li&gt;Extra large complications&lt;/li&gt;
+&lt;li&gt;Workout app improvements&lt;/li&gt;
+&lt;li&gt;Background App Refresh&lt;/li&gt;
+&lt;li&gt;Faster interactions&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id="watchos"&gt;WatchOS开发中遇到的坑&lt;/h5&gt;
+
+&lt;ul&gt;
+&lt;li&gt;证书签名： WatchApp没有Build Setting
+&lt;ul&gt;&lt;li&gt;解决办法： 手动修改project文件&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;WKInterfaceMap在1.0版本中内存泄露
+&lt;ul&gt;&lt;li&gt;最终在第一版本中暂时去掉了Map&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;XCode 6.2 中的CI（xcodebuild）不支持导出带有Watch的archive
+&lt;ul&gt;&lt;li&gt;XCode7解决了这个问题&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;code&gt;建议使用XCode自动去管理证书&lt;/code&gt;&lt;/p&gt;
+
+&lt;h5 id="watchos"&gt;Watch OS开发的优势&lt;/h5&gt;
+
+&lt;ul&gt;
+&lt;li&gt;了解新技术，Watch会逼着你用StoryBoard&lt;/li&gt;
+&lt;li&gt;Share Framework使用；&lt;/li&gt;
+&lt;li&gt;Watch的一些新技术和架构，可以看出苹果对新技术的一些态度及思考
+&lt;ul&gt;&lt;li&gt;如WKInterfaceTable vs UITableView&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=""&gt;参考链接&lt;/h5&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://developer.apple.com/watchos/human-interface-guidelines/overview/"&gt;watchOS Human Interface Guidelines&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;ENJOY~&lt;/p&gt;</content:encoded></item><item><title>XCode中iOS工程文件布局规范</title><description>&lt;p&gt;以下是iOS工程中关于文件的布局规范参考链接，仅供备忘参考.&lt;/p&gt;
 
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="http://limboy.me/ios/2013/09/23/build-ios-application.html"&gt;Limboy - iOS项目的目录结构和开发流程&lt;/a&gt;&lt;/li&gt;
