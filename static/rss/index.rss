@@ -1,4 +1,4 @@
-<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" version="2.0"><channel><title>Crazy Mark</title><description>Thoughts &amp; Ideas.</description><link>http://localhost:2368/</link><generator>Ghost 0.11</generator><lastBuildDate>Tue, 07 Feb 2017 06:51:24 GMT</lastBuildDate><atom:link href="http://localhost:2368/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title>Apple Siri接入开发（一）</title><description>&lt;blockquote&gt;
+<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" version="2.0"><channel><title>Crazy Mark</title><description>Thoughts &amp; Ideas.</description><link>http://localhost:2368/</link><generator>Ghost 0.11</generator><lastBuildDate>Tue, 07 Feb 2017 07:23:43 GMT</lastBuildDate><atom:link href="http://localhost:2368/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title>Apple Siri接入开发（一）</title><description>&lt;blockquote&gt;
   &lt;p&gt;随着iOS10.0发布脚步的临近，作为开发者，相信很多人也和我一样，可以提前体验一些新系统的新功能，也更关注新版iOS系统带来的技术开发方面的新特性。&lt;/p&gt;
 &lt;/blockquote&gt;
 
@@ -19,7 +19,7 @@
 
 &lt;p&gt;和Android的语音接入Service类似，SiriKit中，将不同的类型的需求统一汇总为若干个Domain，然后在每个Domain中再次细分为不同的Intent。系统通过语音识别获取到的Domain信息以及Intent信息，下发到已注册的Domain中进行处理，然后用户解析处理不同的Intent，来实现自定义的操作。&lt;/p&gt;
 
-&lt;p&gt;SiriKit的接入方式和Watch OS的接入有相似之处，都是以Extension形式存在，该Extension会声明本应用所能处理的Domain内容及Intent种类，告知Siri该应用所能处理的功能范畴.&lt;/p&gt;</description><link>http://localhost:2368/apple-sirijie-ru-kai-fa-yi/</link><guid isPermaLink="false">8de39ad9-1994-457e-8381-789e3b9cb458</guid><category>iOS</category><category>技术</category><category>Siri</category><category>技术调研</category><dc:creator>Mark Chen</dc:creator><pubDate>Tue, 07 Feb 2017 06:34:23 GMT</pubDate><content:encoded>&lt;blockquote&gt;
+&lt;p&gt;SiriKit的接入方式和Watch OS的接入有相似之处，都是以Extension形式存在，该Extension会声明本应用所能处理的Domain内容及Intent种类，告知Siri该应用所能处理的功能范畴.&lt;/p&gt;</description><link>http://localhost:2368/apple-sirijie-ru-kai-fa-yi/</link><guid isPermaLink="false">8de39ad9-1994-457e-8381-789e3b9cb458</guid><category>iOS</category><category>技术</category><category>技术调研</category><category>Siri</category><dc:creator>Mark Chen</dc:creator><pubDate>Tue, 07 Feb 2017 06:34:23 GMT</pubDate><content:encoded>&lt;blockquote&gt;
   &lt;p&gt;随着iOS10.0发布脚步的临近，作为开发者，相信很多人也和我一样，可以提前体验一些新系统的新功能，也更关注新版iOS系统带来的技术开发方面的新特性。&lt;/p&gt;
 &lt;/blockquote&gt;
 
@@ -62,41 +62,47 @@
 &lt;ul&gt;&lt;li&gt;Start an audio call -开始语音通话&lt;/li&gt;
 &lt;li&gt;Start a video call - 开始视频通话&lt;/li&gt;
 &lt;li&gt;Search the user’s call history -搜寻通话历史&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Messaging&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;Send a message&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Messaging&lt;/p&gt;
+
+&lt;ul&gt;&lt;li&gt;Send a message&lt;/li&gt;
 &lt;li&gt;Search for messages&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Set attributes on a message&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;Set attributes on a message&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;Photos&lt;/p&gt;
 
 &lt;ul&gt;&lt;li&gt;Search for photos&lt;/li&gt;
 &lt;li&gt;Play a photo slideshow&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Payments&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Send a payment to another user&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Request a payment from another user&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Workouts&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Start a workout&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Payments&lt;/p&gt;
+
+&lt;ul&gt;&lt;li&gt;Send a payment to another user&lt;/li&gt;
+&lt;li&gt;Request a payment from another user&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Workouts&lt;/p&gt;
+
+&lt;ul&gt;&lt;li&gt;Start a workout&lt;/li&gt;
 &lt;li&gt;Pause a workout&lt;/li&gt;
 &lt;li&gt;Resume a workout&lt;/li&gt;
 &lt;li&gt;End a workout&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Cancel a workout&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Ride Booking&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Get a list of available rides (Maps only)&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;Cancel a workout&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Ride Booking&lt;/p&gt;
+
+&lt;ul&gt;&lt;li&gt;Get a list of available rides (Maps only)&lt;/li&gt;
 &lt;li&gt;Book a ride&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Get the status of a booked ride&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;CarPlay&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Change the audio source&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;Get the status of a booked ride&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;CarPlay&lt;/p&gt;
+
+&lt;ul&gt;&lt;li&gt;Change the audio source&lt;/li&gt;
 &lt;li&gt;Change the climate control settings&lt;/li&gt;
 &lt;li&gt;Change the defroster settings&lt;/li&gt;
 &lt;li&gt;Saving vehicle settings to a profile&lt;/li&gt;
 &lt;li&gt;Restoring vehicle settings from a profile&lt;/li&gt;
 &lt;li&gt;Change the seat temperature&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Change the radio station&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Restaurant Reservations&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Get the user’s current restaurant reservations&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;Change the radio station&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Restaurant Reservations&lt;/p&gt;
+
+&lt;ul&gt;&lt;li&gt;Get the user’s current restaurant reservations&lt;/li&gt;
 &lt;li&gt;Get information about the user to associate with a booking.&lt;/li&gt;
 &lt;li&gt;Get default values to use when requesting reservation times.&lt;/li&gt;
 &lt;li&gt;Get the reservation times that are currently available.&lt;/li&gt;
-&lt;li&gt;Book a reservation for the user.&lt;/li&gt;
+&lt;li&gt;Book a reservation for the user.&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;注意，经过开发实践，每种Domain及Intents都有固定或相似的语法形式，为增加识别度，可以参考官网说明，按照说明中自然语言语法形式唤起相应的Siri功能，例如：”用XXX开始跑步“ 要比仅仅说 “XXX开始跑步”能更好的识别出应用XXX。&lt;/p&gt;
