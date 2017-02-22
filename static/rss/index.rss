@@ -1,4 +1,99 @@
-<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" version="2.0"><channel><title>Crazy Mark</title><description>Thoughts &amp; Ideas.</description><link>http://localhost:2368/</link><generator>Ghost 0.11</generator><lastBuildDate>Tue, 07 Feb 2017 07:23:43 GMT</lastBuildDate><atom:link href="http://localhost:2368/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title>Apple Siri接入开发（一）</title><description>&lt;blockquote&gt;
+<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" version="2.0"><channel><title>Crazy Mark</title><description>Thoughts &amp; Ideas.</description><link>http://localhost:2368/</link><generator>Ghost 0.11</generator><lastBuildDate>Wed, 22 Feb 2017 04:44:32 GMT</lastBuildDate><atom:link href="http://localhost:2368/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title>近期遇到的奇葩Bug之解决从入门到懵逼</title><description>&lt;p&gt;文• Mark&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;此事发生在2016年10月，后与朋友分享过，朋友希望能写下来分享。因当时较忙，暂未整理，一直拖到现在。清晨早醒，整理之，以飨读者。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;所谓Bug即软件中存在的小错误导致异常。奇葩Bug则是那些遇到时让人无所适从，解决时狂挠头发而不知所以，解决后又能仰天大笑，悲喜交加。&lt;/p&gt;
+
+&lt;p&gt;以前知乎上搜到过一个朋友分享硬件开发中，把脚放在桌子上，Bug出现，把脚拿下来的就没事的奇葩Bug分享，当时也只是开心一笑。没想到，最近，我与我的同事们也遇到了一个奇葩Bug。&lt;/p&gt;
+
+&lt;p&gt;此Bug，时间和空间因素都是诱因，但小勿入。&lt;/p&gt;
+
+&lt;p&gt;硬件固件和App版本初发布，热心用户反馈无法同步数据，在此再次感谢🙏 这些用户。但我们相关开发同事都清楚，数据同步部分都没有动过，怎么之前是好的，现在突然有问题了? Review版本修改，数据同步模块也没有做过任何修改，怪！但这种问题绝不能忍，遂与同事两人尝试模拟复现，这也是这次奇葩Bug之旅的主角。&lt;/p&gt;
+
+&lt;h1 id=""&gt;历程🐳🐳🐳&lt;/h1&gt;
+
+&lt;h3 id=""&gt;第一天🐢&lt;/h3&gt;
+
+&lt;p&gt;复测一天均为复现，查找log也并无异常，茫然一天即将过去，晚上还在思考问题可能出在哪，不得解，第二天继续吧。此时下班时，&lt;/p&gt;</description><link>http://localhost:2368/jin-qi-yu-dao-de-qi-pa-bugzhi-jie-jue-cong-ru-men-dao-meng-bi/</link><guid isPermaLink="false">a4830604-78dd-479e-9d6d-c22d8ca8f860</guid><dc:creator>Mark Chen</dc:creator><pubDate>Wed, 22 Feb 2017 04:42:50 GMT</pubDate><content:encoded>&lt;p&gt;文• Mark&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;此事发生在2016年10月，后与朋友分享过，朋友希望能写下来分享。因当时较忙，暂未整理，一直拖到现在。清晨早醒，整理之，以飨读者。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;所谓Bug即软件中存在的小错误导致异常。奇葩Bug则是那些遇到时让人无所适从，解决时狂挠头发而不知所以，解决后又能仰天大笑，悲喜交加。&lt;/p&gt;
+
+&lt;p&gt;以前知乎上搜到过一个朋友分享硬件开发中，把脚放在桌子上，Bug出现，把脚拿下来的就没事的奇葩Bug分享，当时也只是开心一笑。没想到，最近，我与我的同事们也遇到了一个奇葩Bug。&lt;/p&gt;
+
+&lt;p&gt;此Bug，时间和空间因素都是诱因，但小勿入。&lt;/p&gt;
+
+&lt;p&gt;硬件固件和App版本初发布，热心用户反馈无法同步数据，在此再次感谢🙏 这些用户。但我们相关开发同事都清楚，数据同步部分都没有动过，怎么之前是好的，现在突然有问题了? Review版本修改，数据同步模块也没有做过任何修改，怪！但这种问题绝不能忍，遂与同事两人尝试模拟复现，这也是这次奇葩Bug之旅的主角。&lt;/p&gt;
+
+&lt;h1 id=""&gt;历程🐳🐳🐳&lt;/h1&gt;
+
+&lt;h3 id=""&gt;第一天🐢&lt;/h3&gt;
+
+&lt;p&gt;复测一天均为复现，查找log也并无异常，茫然一天即将过去，晚上还在思考问题可能出在哪，不得解，第二天继续吧。此时下班时，测试设备一直开着…说实话是忘关了。&lt;/p&gt;
+
+&lt;h3 id=""&gt;第二天🦀️&lt;/h3&gt;
+
+&lt;p&gt;早晨上班，一个同事说不能同步了，但再次尝试开启新纪录又可以同步数据，只好继续留意观察。晩上下班我们有意把测试设备保持昨晩的状态，跑一晚明天再看是不是还能复现&lt;/p&gt;
+
+&lt;h3 id=""&gt;第三天🐚&lt;/h3&gt;
+
+&lt;p&gt;早晨上班，还是这个同事，突然触电般跳起来说：擦，不能数据同步了，什么鬼？！👹 顿时神经紧绷，召集硬件同事保持信息同步，但硬件同事也百思不得姐。&lt;/p&gt;
+
+&lt;p&gt;会不会是因为模拟跑一晚，距离很长，点数太多就会复现？但测一次要一晚，太久不能忍😁，机智的我们🤓 🤔 打算改造 它，在保证硬件性能可以Hold住的情况下， 提高数据采集频率10倍，提高速度10倍， 保证每两次数据采集距离相同，点数相同，但 所花的时间缩小十倍，以快速排除上述怀疑。 &lt;/p&gt;
+
+&lt;p&gt;改造完成，但Bug并未复现.&lt;/p&gt;
+
+&lt;p&gt;茫然...🤕 🤒 🤥&lt;/p&gt;
+
+&lt;h5 id=""&gt;下午&lt;/h5&gt;
+
+&lt;p&gt;硬件同事告诉我们，他好像发现了什么，室外貌似可以模拟复现。赶快试一下，果然。但晚上室内复现的那两次又如何解释呢？激动不已，内取满面！&lt;/p&gt;
+
+&lt;p&gt;那么，现在这个Bug不仅和时间维度相关， 还和空间维度相关了！😓 🔯 ⏱&lt;/p&gt;
+
+&lt;p&gt;一口老血 💣 💣 💣&lt;/p&gt;
+
+&lt;p&gt;室内和室外的差别就是室外可以接收到并处理GPS信号，看看GPS处理模块在搞什么鬼， 果然．有个地方出问题了。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src="https://ww1.sinaimg.cn/large/006tKfTcly1fcz593e6bcj30gs037q3b.jpg" alt=""&gt;&lt;/p&gt;
+
+&lt;p&gt;这也解释了为什么这个Bug只在10月出现👩🏼‍🚒&lt;/p&gt;
+
+&lt;p&gt;那两个晚上测试出现的结果如何解释呢？🌶&lt;/p&gt;
+
+&lt;p&gt;👉 办公室白天人多，干扰多，GPS信号飘不进来，模拟测试设备接收不到GPS信号，所以Bug不出现！
+👉 办公室晚上人少，干扰少，GPS信号可以飘进来，模拟测试设备可以接收到GPS信号，Bug出现！&lt;/p&gt;
+
+&lt;h3 id="bug"&gt;Bug亮点🌋🌋🌋&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;室内夜深人静时出现&lt;/li&gt;
+&lt;li&gt;只在10月出现&lt;/li&gt;
+&lt;li&gt;空旷室外可出现&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;搞定！又可以出去浪啦！🏔🗽⛲️🗼🗻🏜&lt;/p&gt;
+
+&lt;h3 id=""&gt;感受💡&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;硬件相关要注意其物理环境因素&lt;/li&gt;
+&lt;li&gt;感谢勇于面对和解决问题的同事，向你们致敬！ &lt;/li&gt;
+&lt;li&gt;鄙视遇到问题退缩没有担当的菜鸡&lt;/li&gt;
+&lt;li&gt;时间和空间维度因素都可能是诱因&lt;/li&gt;
+&lt;li&gt;测试很重要，感谢测试同事 &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;总有一些曾经让你感到痛苦的事情，会在若干时间后，笑着讲出来！&lt;/p&gt;
+
+&lt;p&gt;文笔不好，多指正！ &lt;/p&gt;
+
+&lt;p&gt;ENJOY~&lt;/p&gt;</content:encoded></item><item><title>Apple Siri接入开发（一）</title><description>&lt;blockquote&gt;
   &lt;p&gt;随着iOS10.0发布脚步的临近，作为开发者，相信很多人也和我一样，可以提前体验一些新系统的新功能，也更关注新版iOS系统带来的技术开发方面的新特性。&lt;/p&gt;
 &lt;/blockquote&gt;
 
