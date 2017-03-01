@@ -1,4 +1,90 @@
-<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" version="2.0"><channel><title>Crazy Mark</title><description>Thoughts &amp; Ideas.</description><link>http://localhost:2368/</link><generator>Ghost 0.11</generator><lastBuildDate>Wed, 22 Feb 2017 04:44:32 GMT</lastBuildDate><atom:link href="http://localhost:2368/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title>近期遇到的奇葩Bug之解决从入门到懵逼</title><description>&lt;p&gt;文• Mark&lt;/p&gt;
+<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" version="2.0"><channel><title>Crazy Mark</title><description>Thoughts &amp; Ideas.</description><link>http://localhost:2368/</link><generator>Ghost 0.11</generator><lastBuildDate>Wed, 01 Mar 2017 12:41:46 GMT</lastBuildDate><atom:link href="http://localhost:2368/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title>骑行运动卡路里计算方法</title><description>Email: chenjian345@gmail.com</description><link>http://localhost:2368/qi-xing-yun-dong-qia-lu-li-ji-suan-fang-fa/</link><guid isPermaLink="false">919403a7-2030-40af-ba47-4026288de16a</guid><dc:creator>Mark Chen</dc:creator><pubDate>Wed, 01 Mar 2017 11:48:42 GMT</pubDate><content:encoded>&lt;h1 id=""&gt;骑行运动卡路里计算方法&lt;/h1&gt;
+
+&lt;p&gt;文 · Mark&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;a href="http://baike.baidu.com/view/14058.htm"&gt;卡路里&lt;/a&gt;（简称卡，缩写为cal），由英文Calorie音译而来，其定义为在1个大气压下，将1克水提升1摄氏度所需要的&lt;a href="http://baike.baidu.com/view/62743.htm"&gt;热量&lt;/a&gt;；&lt;/p&gt;
+  
+  &lt;p&gt;卡路里（calorie）是&lt;a href="http://baike.baidu.com/view/14394.htm"&gt;能量&lt;/a&gt;单位，现在仍被广泛使用在营养计量和健身手册上，国际标准的能量单位是&lt;a href="http://baike.baidu.com/view/4336.htm"&gt;焦耳&lt;/a&gt;（joule）。&lt;/p&gt;
+  
+  &lt;p&gt;作为食物热量的法定单位，在欧洲普遍使用焦耳，美国则采用卡路里。虽然焦耳是&lt;a href="http://baike.baidu.com/view/61891.htm"&gt;中国&lt;/a&gt;大陆与&lt;a href="http://baike.baidu.com/view/2200.htm"&gt;台湾&lt;/a&gt;地区的法定单位，然而由于沿袭传统，卡路里在中国大陆与台湾地区仍然被广泛的使用。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=""&gt;计量单位&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;小卡，记做cal, 1卡路里的能量或热量可将1克水在一个大气压下的温度升高1摄氏度;&lt;/li&gt;
+&lt;li&gt;大卡，记作Cal, 1大卡相当于1000小卡&lt;/li&gt;
+&lt;li&gt;焦耳
+&lt;ul&gt;&lt;li&gt;詹姆斯·普雷斯科特·焦耳（James Prescott Joule，1818年12月24日－1889年10月11日），出生于&lt;a href="http://baike.baidu.com/view/127481.htm"&gt;曼彻斯特&lt;/a&gt;近郊的沙弗特，英国皇家学会会员，英国物理学家。&lt;/li&gt;
+&lt;li&gt;由于他在&lt;a href="http://baike.baidu.com/view/78151.htm"&gt;热学&lt;/a&gt;、&lt;a href="http://baike.baidu.com/view/78147.htm"&gt;热力学&lt;/a&gt;和&lt;a href="http://baike.baidu.com/view/14957.htm"&gt;电&lt;/a&gt;方面的贡献，&lt;a href="http://baike.baidu.com/view/1339035.htm"&gt;皇家学会&lt;/a&gt;授予他最高荣誉的&lt;a href="http://baike.baidu.com/view/23595.htm"&gt;科普利奖章&lt;/a&gt;（Copley Medal）。后人为了纪念他，把能量或&lt;a href="http://baike.baidu.com/view/14447.htm"&gt;功&lt;/a&gt;的单位命名为“&lt;a href="http://baike.baidu.com/view/4336.htm"&gt;焦耳&lt;/a&gt;”，简称“焦”；并用焦耳姓氏的第一个字母“J”来标记热量以及“功”的物理量。&lt;/li&gt;
+&lt;li&gt;焦耳在研究热的本质时，发现了热和功之间的转换关系，并由此得到了能量守恒定律，最终发展出热力学第一定律。国际单位制导出单位中，能量的单位——焦耳，就是以他的名字命名。他和开尔文合作发展了温度的绝对尺度。他还观测过磁致伸缩效应，发现了导体电阻、通过导体电流及其产生热能之间的关系，也就是常称的焦耳定律。&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;BMR
+&lt;ul&gt;&lt;li&gt;Basal Metabolism Rate 基础代谢率&lt;/li&gt;
+&lt;li&gt;基础代谢(basal metabolism,BM)是指人体在清醒而又极端安静的状态下，不受肌肉活动、&lt;a href="http://baike.baidu.com/view/1461402.htm"&gt;环境温度&lt;/a&gt;、食物及精神紧张等影响时的&lt;a href="http://baike.baidu.com/view/1696565.htm"&gt;能量代谢率&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://baike.baidu.com/view/264238.htm"&gt;基础代谢率&lt;/a&gt;随着性别、年龄等不同而有生理变动。男子的基础代谢率平均比女子高，&lt;a href="http://baike.baidu.com/view/1254775.htm"&gt;幼年&lt;/a&gt;比成年高；年龄越大，&lt;a href="http://baike.baidu.com/subview/434238/434238.htm"&gt;代谢率&lt;/a&gt;越低。一般来说，基础代谢率的实际数值与正常的平均值相差10%－15%之内都属于正常。超过正常值20%时，才能算病理状态。甲状腺机能减退时，基础代谢率比正常标准低20－40%；甲状腺功能亢进时，基础代谢率比正常标准高出25-80%。其他如&lt;a href="http://baike.baidu.com/subview/1197005/1197005.htm"&gt;肾上腺皮质&lt;/a&gt;和脑下垂体机能低下时，基础代谢率也要降低。&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;METs
+&lt;ul&gt;&lt;li&gt;Metabolic Equivalent of Task (MET)，某项活动的代谢当量，不同运动类型，代谢当量不同；&lt;/li&gt;
+&lt;li&gt;A MET is the ratio of the work metabolic rate to the resting metabolic rate. One MET is defined as 1 kcal/kg/hour and is roughly equivalent to the energy cost of sitting quietly. For example: the energy cost of playing rugby is 8.3 METS, which means you use 8.3 times more energy than if you were to sit quietly and rest.&lt;/li&gt;
+&lt;li&gt;代谢当量是以安静且坐位时的能量消耗为基础，表达各种活动时相对能量代谢水平的常用指标。可以用来评估心肺功能。1MET=耗氧量3.5ml/(kg·min)。例如人在静坐时MET约为1.0，速度为9.6km/h的跑步MET约为10.0等。右图为某些体育运动和日常活动。&lt;/li&gt;
+&lt;li&gt;A MET can also defined as oxygen uptake in ml/kg/min with one MET equal to the oxygen cost of sitting quietly, equivalent to 3.5 ml/kg/min.&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=""&gt;换算关系&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;1000 cal(小卡) = 1 Cal(大卡) = 1.0 kcal(千卡)  
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;1 kcal = 4.184 kJ  
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;1 KJ = 0.239 kcal  
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=""&gt;计算公式&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;卡路里计算公式&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Calories(kcal) = BMR * METs/24 * Hour  
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;BMR计算公式&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Women: BMR = 655.1 + (9.563 × weight in kg) + (1.850 × height in cm) – (4.676 × age in years)
+
+Men: BMR = 66.5 + (13.75 × weight in kg) + (5.003 × height in cm) – (6.755 × age in years)  
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;METs表&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;参考2011 Compendium&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;| METs |            Type Of Bicycling             |
+| :--: | :--------------------------------------: |
+| 7.5  |            Bicycling, General            |
+| 3.5  |       bicycling, leisure, 5.5 mph        |
+| 5.8  |       bicycling, leisure, 9.4 mph        |
+| 6.8  | bicycling, 10-11.9 mph, leisure, slow, light effort |
+| 8.0  | bicycling, 12-13.9 mph, leisure, moderate effort |
+| 10.0 | bicycling, 14-15.9 mph, racing or leisure, fast, vigorous effort |
+| 12.0 | bicycling, 16-19 mph, racing/not drafting or &gt; 19 mph drafting, very fast, racing general |
+| 15.8 | bicycling, &gt; 20 mph, racing, not drafting |&lt;/p&gt;
+
+&lt;p&gt;欢迎交流指正！&lt;/p&gt;
+
+&lt;p&gt;ENJOY~&lt;/p&gt;
+
+&lt;p&gt;2017.3.1&lt;/p&gt;
+
+&lt;h2 id=""&gt;参考链接&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://keisan.casio.com/exec/system/1350958587"&gt;Bicycling Calorie Calculator&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://sites.google.com/site/compendiumofphysicalactivities/Activity-Categories/bicycling"&gt;2011 Compendium categories&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://calcuworld.com/health-calculators/calories-burnt-whilst-cycling-calculator/"&gt;Calories Burnt Whilst Cycling Calculator&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://baike.baidu.com/item/%E5%8D%A1%E8%B7%AF%E9%87%8C"&gt;百度百科 - 卡路里&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://www.mapmyride.com/improve/calorie_calculator/"&gt;MapMyRide - CALORIE CALCULATOR&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content:encoded></item><item><title>近期遇到的奇葩Bug之解决从入门到懵逼</title><description>&lt;p&gt;文• Mark&lt;/p&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;此事发生在2016年10月，后与朋友分享过，朋友希望能写下来分享。因当时较忙，暂未整理，一直拖到现在。清晨早醒，整理之，以飨读者。&lt;/p&gt;
