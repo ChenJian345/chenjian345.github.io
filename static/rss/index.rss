@@ -1,4 +1,4 @@
-<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" version="2.0"><channel><title>Crazy Mark</title><description>Thoughts &amp; Ideas.</description><link>http://localhost:2368/</link><generator>Ghost 0.11</generator><lastBuildDate>Thu, 06 Apr 2017 13:04:38 GMT</lastBuildDate><atom:link href="http://localhost:2368/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title>Bluetooth Low Energy Introduction</title><description>&lt;p&gt;文 · Mark&lt;/p&gt;
+<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" version="2.0"><channel><title>Crazy Mark</title><description>Thoughts &amp; Ideas.</description><link>http://localhost:2368/</link><generator>Ghost 0.11</generator><lastBuildDate>Sat, 27 May 2017 06:11:17 GMT</lastBuildDate><atom:link href="http://localhost:2368/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title>Bluetooth Low Energy Introduction</title><description>&lt;p&gt;文 · Mark&lt;/p&gt;
 
 &lt;h2 id="ble"&gt;关于BLE&lt;/h2&gt;
 
@@ -172,9 +172,7 @@
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="https://learn.adafruit.com/introduction-to-bluetooth-low-energy?view=all"&gt;BLE Introduction&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://developer.android.com/guide/topics/connectivity/bluetooth-le.html"&gt;Android BLE Guide&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content:encoded></item><item><title>骑行运动卡路里计算方法</title><description>Email: chenjian345@gmail.com</description><link>http://localhost:2368/qi-xing-yun-dong-qia-lu-li-ji-suan-fang-fa/</link><guid isPermaLink="false">919403a7-2030-40af-ba47-4026288de16a</guid><dc:creator>Mark Chen</dc:creator><pubDate>Wed, 01 Mar 2017 11:48:42 GMT</pubDate><content:encoded>&lt;h1 id=""&gt;骑行运动卡路里计算方法&lt;/h1&gt;
-
-&lt;p&gt;文 · Mark&lt;/p&gt;
+&lt;/ul&gt;</content:encoded></item><item><title>骑行运动卡路里计算方法</title><description>Email: chenjian345@gmail.com</description><link>http://localhost:2368/qi-xing-yun-dong-qia-lu-li-ji-suan-fang-fa/</link><guid isPermaLink="false">919403a7-2030-40af-ba47-4026288de16a</guid><dc:creator>Mark Chen</dc:creator><pubDate>Wed, 01 Mar 2017 11:48:42 GMT</pubDate><content:encoded>&lt;p&gt;文 · Mark&lt;/p&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;&lt;a href="http://baike.baidu.com/view/14058.htm"&gt;卡路里&lt;/a&gt;（简称卡，缩写为cal），由英文Calorie音译而来，其定义为在1个大气压下，将1克水提升1摄氏度所需要的&lt;a href="http://baike.baidu.com/view/62743.htm"&gt;热量&lt;/a&gt;；&lt;/p&gt;
