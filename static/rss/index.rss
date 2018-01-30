@@ -1,33 +1,19 @@
-<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" version="2.0"><channel><title>Crazy Mark</title><description>Thoughts &amp; Ideas.</description><link>http://localhost:2368/</link><generator>Ghost 0.11</generator><lastBuildDate>Fri, 01 Dec 2017 09:22:49 GMT</lastBuildDate><atom:link href="http://localhost:2368/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title>Bluetooth Low Energy Introduction</title><description>&lt;p&gt;文 · Mark&lt;/p&gt;
-
+<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" version="2.0"><channel><title>Crazy Mark</title><description>Thoughts &amp; Ideas.</description><link>http://localhost:2368/</link><image><url>http://localhost:2368/favicon.png</url><title>Crazy Mark</title><link>http://localhost:2368/</link></image><generator>Ghost 1.20</generator><lastBuildDate>Tue, 30 Jan 2018 08:34:15 GMT</lastBuildDate><atom:link href="http://localhost:2368/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title>Bluetooth Low Energy Introduction</title><description>&lt;div class="kg-card-markdown"&gt;&lt;p&gt;文 · Mark&lt;/p&gt;
 &lt;h2 id="ble"&gt;关于BLE&lt;/h2&gt;
-
 &lt;p&gt;BLE，即Bluetooth Low Energy，也被称作Bluetooth Smart。相对于传统经典蓝牙，BLE是一个轻量级子集，在标准蓝牙协议4.0版本被引入。虽然和经典蓝牙协议有很多相似之处，但是实际上BLE和经典蓝牙的血统完全不同，BLE由Nokia进行研发，研发代号“Wibree”，而后来才被Bluetooth SIG所接受认可。&lt;/p&gt;
-
 &lt;p&gt;目前，有很多无线通信协议供工程师和产品设计师选择，但是能够轻松与众多移动平台（包括iOS、Android、Windows Phone等）连接并相互通信，才是BLE这么有趣的真正原因。尤其是你不用大费周折，申请各种认证，使你的产品支持苹果设备。&lt;/p&gt;
-
 &lt;p&gt;以下说明文档会快速为大家提供关于BLE的速览，例如低功耗蓝牙通信数据结构，蓝牙设备如何广播当前连接状态，以供连接并开始数据通信。&lt;/p&gt;
-
 &lt;h2 id="ble"&gt;BLE平台支持&lt;/h2&gt;
-
 &lt;p&gt;以下主流平台支持Bluetooth 4.0以及BLE：&lt;/p&gt;
-
 &lt;ul&gt;
 &lt;li&gt;iOS 5+ （iOS7.0以上版本是首选版本）&lt;/li&gt;
-&lt;li&gt;Android 4.3+ （相对来说Android 4.4会更稳定，&lt;/li&gt;&lt;/ul&gt;</description><link>http://localhost:2368/bluetooth-low-energy-introduction/</link><guid isPermaLink="false">97181ba9-fde4-4a76-b6b9-dfd31ce0c8a0</guid><dc:creator>Mark Chen</dc:creator><pubDate>Thu, 06 Apr 2017 13:03:57 GMT</pubDate><content:encoded>&lt;p&gt;文 · Mark&lt;/p&gt;
-
+&lt;li&gt;Android 4.3+ （相对来说Android 4.4会更稳定，&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;</description><link>http://localhost:2368/bluetooth-low-energy-introduction/</link><guid isPermaLink="false">5a702c40f2c769befd9f2f32</guid><dc:creator>Mark Chen</dc:creator><pubDate>Thu, 06 Apr 2017 13:03:57 GMT</pubDate><content:encoded>&lt;div class="kg-card-markdown"&gt;&lt;p&gt;文 · Mark&lt;/p&gt;
 &lt;h2 id="ble"&gt;关于BLE&lt;/h2&gt;
-
 &lt;p&gt;BLE，即Bluetooth Low Energy，也被称作Bluetooth Smart。相对于传统经典蓝牙，BLE是一个轻量级子集，在标准蓝牙协议4.0版本被引入。虽然和经典蓝牙协议有很多相似之处，但是实际上BLE和经典蓝牙的血统完全不同，BLE由Nokia进行研发，研发代号“Wibree”，而后来才被Bluetooth SIG所接受认可。&lt;/p&gt;
-
 &lt;p&gt;目前，有很多无线通信协议供工程师和产品设计师选择，但是能够轻松与众多移动平台（包括iOS、Android、Windows Phone等）连接并相互通信，才是BLE这么有趣的真正原因。尤其是你不用大费周折，申请各种认证，使你的产品支持苹果设备。&lt;/p&gt;
-
 &lt;p&gt;以下说明文档会快速为大家提供关于BLE的速览，例如低功耗蓝牙通信数据结构，蓝牙设备如何广播当前连接状态，以供连接并开始数据通信。&lt;/p&gt;
-
 &lt;h2 id="ble"&gt;BLE平台支持&lt;/h2&gt;
-
 &lt;p&gt;以下主流平台支持Bluetooth 4.0以及BLE：&lt;/p&gt;
-
 &lt;ul&gt;
 &lt;li&gt;iOS 5+ （iOS7.0以上版本是首选版本）&lt;/li&gt;
 &lt;li&gt;Android 4.3+ （相对来说Android 4.4会更稳定，所以首选4.4）&lt;/li&gt;
@@ -35,368 +21,283 @@
 &lt;li&gt;Windows 8 (&lt;em&gt;XP, Vista, Windows 7只支持蓝牙2.1协议，注意！&lt;/em&gt;)&lt;/li&gt;
 &lt;li&gt;GNU / Linux Vanilla BlueZ 4.93+&lt;/li&gt;
 &lt;/ul&gt;
-
 &lt;h2 id="gap"&gt;GAP&lt;/h2&gt;
-
 &lt;p&gt;这不是你经常买的那个衣服牌子。&lt;/p&gt;
-
 &lt;p&gt;GAP是Generic Access Profile协议，它用来控制BLE设备广播和连接。GAP让你的设备被外界可见，也就是可以被搜索到，也决定连接后的两个设备如何进行交互，同时也定义了设备的角色。例如，iBeacon设备只进行信息广播，是不能进行连接的，而野兽智能设备可以为外界所知，可以被手机平台连接。&lt;/p&gt;
-
 &lt;h3 id=""&gt;设备角色&lt;/h3&gt;
-
 &lt;p&gt;GAP定义了很多种设备角色，关键两个是Central和Peripheral&lt;/p&gt;
-
 &lt;ul&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Central&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;中心设备，通常是移动设备，包括手机、平板等，中心设备可以连接附属设备，内存及处理能力也比附属设备强大的多。&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Peripheral&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;从属设备，一般常见的都体积较小，低功耗，自由比较有限（内存，处理能力等），这个角色的设备可以被其他一些处理能力更强大的设备所连接。&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Central&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;中心设备，通常是移动设备，包括手机、平板等，中心设备可以连接附属设备，内存及处理能力也比附属设备强大的多。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Peripheral&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;从属设备，一般常见的都体积较小，低功耗，自由比较有限（内存，处理能力等），这个角色的设备可以被其他一些处理能力更强大的设备所连接。&lt;/p&gt;
+&lt;/li&gt;
 &lt;/ul&gt;
-
 &lt;h2 id=""&gt;广播与扫描数据&lt;/h2&gt;
-
 &lt;p&gt;通过GAP可以使用两种方式将广播数据广播出来，一种是广播数据&lt;em&gt;Advertising Data Payload&lt;/em&gt;，另一种是扫描应答数据&lt;em&gt;Scan Response Payload&lt;/em&gt;；&lt;/p&gt;
-
 &lt;p&gt;两种方式最大可携带数据量为31字节，但是广播数据是必选的，因为无论如何，你必须让外界知道你的设备的存在。扫描应答数据是可选的，这部分应答数据一般用于需要在广播、扫描阶段进行简短的数据通信，例如，中心设备需要从属设备应答一部分设备信息，例如设备名、ID、验证码等信息。&lt;/p&gt;
-
 &lt;h2 id=""&gt;广播流程&lt;/h2&gt;
-
 &lt;p&gt;下面图片可以很好的说明设备广播的流程，以及广播中的两种Payload，即&lt;em&gt;Advertising Data Payload&lt;/em&gt;和&lt;em&gt;Scan Response Payload&lt;/em&gt;是如何工作的。&lt;/p&gt;
-
 &lt;p&gt;&lt;img src="http://okzqhpqwj.bkt.clouddn.com/2017040660712microcontrollers_Advertising2.png" alt="2017040660712microcontrollers_Advertising2.png"&gt;&lt;/p&gt;
-
 &lt;p&gt;广播数据可以设置发送间隔，即ADVERTISING INTERVAL，间隔越长越省电，越短被发现的越慢。&lt;/p&gt;
-
 &lt;p&gt;如果扫描设备需要Scan Response Payload，那该设备可以请求SCAN RESPONSE Data，即发送Scan Response Request，从属设备会将Scan Response Payload数据回复给监听设备。&lt;/p&gt;
-
 &lt;h2 id="ble"&gt;BLE广播拓扑模型&lt;/h2&gt;
-
 &lt;p&gt;一旦从属设备发起广播，并允许连接时，从属设备与中心设备会建立连接，广播拓扑模型如下：&lt;/p&gt;
-
 &lt;p&gt;&lt;img src="http://okzqhpqwj.bkt.clouddn.com/201704066897microcontrollers_BroadcastTopology.png" alt="201704066897microcontrollers_BroadcastTopology.png"&gt;&lt;/p&gt;
-
 &lt;p&gt;这里的广播是BLE中的一对多数据传输，Apple的iBeacon原理与此类似。一旦Peripheral和Central设备建立连接，广播数据就会停止。&lt;/p&gt;
-
 &lt;p&gt;注意，此时GATT开始要登场了。&lt;/p&gt;
-
 &lt;h2 id="gatt"&gt;GATT&lt;/h2&gt;
-
 &lt;p&gt;BLE蓝牙连接都建立在GATT（Generic Attribute Profile）协议栈之上。关于GATT，官方的介绍如下：&lt;/p&gt;
-
 &lt;blockquote&gt;
-  &lt;p&gt;GATT is an acronym for the Generic Attribute Profile, and it defines the way that two Bluetooth Low Energy devices transfer data back and forth using concepts called &lt;strong&gt;Services&lt;/strong&gt; and &lt;strong&gt;Characteristics&lt;/strong&gt;. It makes use of a generic data protocol called the &lt;strong&gt;Attribute Protocol (ATT)&lt;/strong&gt;, which is used to store Services, Characteristics and related data in a simple lookup table using 16-bit IDs for each entry in the table.&lt;/p&gt;
+&lt;p&gt;GATT is an acronym for the Generic Attribute Profile, and it defines the way that two Bluetooth Low Energy devices transfer data back and forth using concepts called &lt;strong&gt;Services&lt;/strong&gt; and &lt;strong&gt;Characteristics&lt;/strong&gt;. It makes use of a generic data protocol called the &lt;strong&gt;Attribute Protocol (ATT)&lt;/strong&gt;, which is used to store Services, Characteristics and related data in a simple lookup table using 16-bit IDs for each entry in the table.&lt;/p&gt;
 &lt;/blockquote&gt;
-
 &lt;h3 id="gatt"&gt;GATT连接拓扑模型&lt;/h3&gt;
-
 &lt;p&gt;一个从属设备同时只能连接一个中心设备，中心设备可以同时连接多个从属设备。&lt;/p&gt;
-
 &lt;p&gt;&lt;img src="http://okzqhpqwj.bkt.clouddn.com/2017040628845microcontrollers_ConnectedTopology.png" alt="2017040628845microcontrollers_ConnectedTopology.png"&gt;&lt;/p&gt;
-
 &lt;p&gt;如果两个从属设备之间需要通信，通用的做法是Central设备用来做Mailbox系统，所有信息都会通过Central设备来进行中转。&lt;/p&gt;
-
 &lt;p&gt;一旦建立了连接，通信就变成双向的了，注意，广播数据是单向的数据通信。&lt;/p&gt;
-
 &lt;h3 id="gatt"&gt;GATT通信事务&lt;/h3&gt;
-
 &lt;p&gt;一旦两个设备建立起了连接，GATT 就开始起作用了，这也意味着，你已经完成了履行前面的 GAP 协议。这里需要说明的是，GATT 连接，必需先经过 GAP 协议。实际上，我们在 Android 开发中，可以直接使用设备的 MAC 地址，发起连接，可以不经过扫描的步骤。这并不意味不需要经过 GAP，实际上在芯片级别已经给你做好了，蓝牙芯片发起连接，总是先扫描设备，扫描到了才会发起连接。&lt;/p&gt;
-
-&lt;p&gt;当连接简历完成之后，从属设备会主动发起确认一个&lt;strong&gt;连接间隔‘Connection Interval’&lt;/strong&gt;的东西，这是一个GATT通信的连接间隔，这个间隔由从属设备建议，传输到中心设备，中心设备会按照这个时间不断查看从属设备中是否有新数据。当然，这个时间间隔由从属设备发起建议，中心设备可能也不会理会，会继续用自己的连接间隔做数据通信。&lt;/p&gt;
-
+&lt;p&gt;当连接简历完成之后，从属设备会主动发起确认一个**连接间隔‘Connection Interval’**的东西，这是一个GATT通信的连接间隔，这个间隔由从属设备建议，传输到中心设备，中心设备会按照这个时间不断查看从属设备中是否有新数据。当然，这个时间间隔由从属设备发起建议，中心设备可能也不会理会，会继续用自己的连接间隔做数据通信。&lt;/p&gt;
 &lt;p&gt;&lt;img src="http://okzqhpqwj.bkt.clouddn.com/2017040615489microcontrollers_GattMasterSlaveTransactions.png" alt="2017040615489microcontrollers_GattMasterSlaveTransactions.png"&gt;&lt;/p&gt;
-
 &lt;p&gt;可以看到所有的数据通信请求每次都是由中心设备发起，从属设备进行应答。&lt;/p&gt;
-
 &lt;h3 id="gatt"&gt;GATT结构&lt;/h3&gt;
-
 &lt;p&gt;GATT结构中主要有三个概念，如下&lt;/p&gt;
-
 &lt;p&gt;&lt;img src="http://okzqhpqwj.bkt.clouddn.com/2017040689874microcontrollers_GattStructure.png" alt="2017040689874microcontrollers_GattStructure.png"&gt;&lt;/p&gt;
-
 &lt;ul&gt;
-&lt;li&gt;&lt;p&gt;Profile&lt;/p&gt;
-
+&lt;li&gt;
+&lt;p&gt;Profile&lt;/p&gt;
 &lt;p&gt;Profile 并不是实际存在于 BLE 外设上的，它只是一个被 Bluetooth SIG 或者外设设计者预先定义的 Service 的集合。例如&lt;a href="https://developer.bluetooth.org/TechnologyOverview/Pages/HRP.aspx"&gt;心率Profile（Heart Rate Profile）&lt;/a&gt;就是结合了 Heart Rate Service 和 Device Information Service。所有官方通过 GATT Profile 的列表可以从&lt;a href="http://developer.bluetooth.org/TechnologyOverview/Pages/Profiles.aspx#GATT"&gt;这里&lt;/a&gt;找到；&lt;/p&gt;
-
-&lt;p&gt;一个设备中可以包含多个Profile；&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Service&lt;/p&gt;
-
+&lt;p&gt;一个设备中可以包含多个Profile；&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Service&lt;/p&gt;
 &lt;p&gt;Service把数据分成一个个的独立逻辑项，它包含一个或者多个 Characteristic。每个 Service 有一个 UUID 唯一标识。 UUID 有 16 bit 的，或者 128 bit 的。16 bit 的 UUID 是官方通过认证的，需要花钱购买，128 bit 是自定义的，这个就可以自己随便设置。&lt;/p&gt;
-
-&lt;p&gt;&lt;a href="https://www.bluetooth.com/specifications/gatt/services"&gt;官方预置的Service列表&lt;/a&gt;中，可以看到心率Service的UUID为0x180D，&lt;a href="https://www.bluetooth.com/specifications/gatt/viewer?attributeXmlFile=org.bluetooth.service.cycling_speed_and_cadence.xml"&gt;Cycling Speed and Cadence&lt;/a&gt;的UUID为0x1816，其他类似。&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Characteristic&lt;/p&gt;
-
+&lt;p&gt;&lt;a href="https://www.bluetooth.com/specifications/gatt/services"&gt;官方预置的Service列表&lt;/a&gt;中，可以看到心率Service的UUID为0x180D，&lt;a href="https://www.bluetooth.com/specifications/gatt/viewer?attributeXmlFile=org.bluetooth.service.cycling_speed_and_cadence.xml"&gt;Cycling Speed and Cadence&lt;/a&gt;的UUID为0x1816，其他类似。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Characteristic&lt;/p&gt;
 &lt;p&gt;Characteristic是GATT事务划分中最底层的逻辑单元，属于叶子节点。Characteristic从属于Service，一个Service可以包含多个Characteristic。每个Characteristic都有一个唯一的UUID作为标识符，16bit是Bluetooth SIG预置的（&lt;a href="https://developer.bluetooth.org/gatt/characteristics/Pages/CharacteristicsHome.aspx"&gt;standard characteristics defined by the Bluetooth SIG&lt;/a&gt;），128bit可自定义.&lt;/p&gt;
-
 &lt;p&gt;例如，心率Service中的&lt;a href="https://developer.bluetooth.org/gatt/characteristics/Pages/CharacteristicViewer.aspx?u=org.bluetooth.characteristic.heart_rate_measurement.xml"&gt;Heart Rate Measurement characteristic&lt;/a&gt;是该Service强制要求必须要有的，UUID是0x2A37，其中的数据字段参考具体说明。&lt;/p&gt;
-
 &lt;p&gt;&lt;a href="https://www.bluetooth.com/specifications/gatt/viewer?attributeXmlFile=org.bluetooth.service.cycling_speed_and_cadence.xml"&gt;骑行踏频及速度Characteristic官方说明&lt;/a&gt;供参考。&lt;/p&gt;
-
-&lt;p&gt;我们在做蓝牙数据通信时，Characteristic是最经常用到的一个概念。不论是Peripheral还是Central中，都会涉及到Characteristic，用来传输数据，你可以从Characteristic读数据，也可以向Characteristic中写数据。&lt;/p&gt;&lt;/li&gt;
+&lt;p&gt;我们在做蓝牙数据通信时，Characteristic是最经常用到的一个概念。不论是Peripheral还是Central中，都会涉及到Characteristic，用来传输数据，你可以从Characteristic读数据，也可以向Characteristic中写数据。&lt;/p&gt;
+&lt;/li&gt;
 &lt;/ul&gt;
-
 &lt;h2 id=""&gt;传输速度&lt;/h2&gt;
-
 &lt;p&gt;每个Characteristic中的数据包最大长度是20字节，根据蓝牙BLE协议， 物理层physical layer的传输速率是1Mbps，相当于每秒125K字节。事实上，其只是基准传输速率，协议规定BLE不能连续不断地传输数据包，否则就不能称为低功耗蓝牙了。连续传输自然会带来高功耗。所以，蓝牙的最高传输速率并不由物理层的工作频率决定的。&lt;/p&gt;
-
 &lt;p&gt;在实际的操作过程中，如果主机连线不断地发送数据包，要么丢包严重要么连接出现异常而断开。&lt;/p&gt;
-
 &lt;p&gt;在BLE里面，传输速度受其连接参数所影响。连接参数定义如下：&lt;/p&gt;
-
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;连接间隔&lt;/strong&gt;，蓝牙基带是跳频工作的，主机和从机会商定多长时间进行跳频连接，连接上才能进行数据传输。这个连接和广播状态和连接状态的连接不是一样的意思。主机在从机广播时进行连接是应用层的主动软件行为。而跳频过程中的连接是蓝牙基带协议的规定，完全由硬件控制，对应用层透明。明显，如果这个连接间隔时间越短，那么传输的速度就增大。连接上传完数据后，蓝牙基带即进入休眠状态，保证低功耗。其是1.25毫秒一个单位。&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;连接延迟&lt;/strong&gt; 其是为了低功耗考虑，允许从机在跳频过程中不理会主机的跳频指令，继续睡眠一段时间。而主机不能因为从机睡眠而认为其断开连接了。其是1.25毫秒一个单位。明显，这个数值越小，传输速度也高。&lt;/li&gt;
 &lt;/ul&gt;
-
 &lt;p&gt;蓝牙BLE协议规定连接参数最小是5，即7.25毫秒；而&lt;a href="http://lib.csdn.net/base/android"&gt;Android&lt;/a&gt;手机规定连接参数最小是8，即10毫秒。&lt;a href="http://lib.csdn.net/base/ios"&gt;iOS&lt;/a&gt;规定是16，即20毫秒。&lt;/p&gt;
-
 &lt;p&gt;连接参数完全由主机决定，但从机可以发出更新参数申请，主机可以接受也可以拒绝。Android手机一部接受，而ios比较严格，拒绝的概率比较高。&lt;/p&gt;
-
-&lt;p&gt;​    一般场景，连接参数设置16，即20毫秒，一般的传输速率是50* 20 = 1000字节/每秒。如果每个连接事件传输更多的包，可以获得更高的传输速率。&lt;/p&gt;
-
+&lt;p&gt;​	一般场景，连接参数设置16，即20毫秒，一般的传输速率是50* 20 = 1000字节/每秒。如果每个连接事件传输更多的包，可以获得更高的传输速率。&lt;/p&gt;
 &lt;h2 id=""&gt;参考文献&lt;/h2&gt;
-
 &lt;h3 id="bluetoothsigresources"&gt;Bluetooth SIG Resources&lt;/h3&gt;
-
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="https://www.bluetooth.com/specifications/gatt"&gt;Bluetooth GATT Specifications&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;官方通过的 &lt;a href="https://developer.bluetooth.org/TechnologyOverview/Pages/Profiles.aspx#GATT"&gt;BLE Profile&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;官方通过的 &lt;a href="https://developer.bluetooth.org/gatt/services/Pages/ServicesHome.aspx"&gt;BLE Service&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;官方通过的 &lt;a href="https://developer.bluetooth.org/gatt/characteristics/Pages/CharacteristicsHome.aspx"&gt;BLE Characteristic&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-
 &lt;h3 id="adafruitresources"&gt;Adafruit Resources&lt;/h3&gt;
-
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="https://learn.adafruit.com/introduction-to-bluetooth-low-energy?view=all"&gt;BLE Introduction&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://developer.android.com/guide/topics/connectivity/bluetooth-le.html"&gt;Android BLE Guide&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content:encoded></item><item><title>骑行运动卡路里计算方法</title><description>Email: chenjian345@gmail.com</description><link>http://localhost:2368/qi-xing-yun-dong-qia-lu-li-ji-suan-fang-fa/</link><guid isPermaLink="false">919403a7-2030-40af-ba47-4026288de16a</guid><dc:creator>Mark Chen</dc:creator><pubDate>Wed, 01 Mar 2017 11:48:42 GMT</pubDate><content:encoded>&lt;p&gt;文 · Mark&lt;/p&gt;
-
+&lt;/ul&gt;
+&lt;/div&gt;</content:encoded></item><item><title>骑行运动卡路里计算方法</title><description>Email: chenjian345@gmail.com</description><link>http://localhost:2368/qi-xing-yun-dong-qia-lu-li-ji-suan-fang-fa/</link><guid isPermaLink="false">5a702c40f2c769befd9f2f31</guid><dc:creator>Mark Chen</dc:creator><pubDate>Wed, 01 Mar 2017 11:48:42 GMT</pubDate><content:encoded>&lt;div class="kg-card-markdown"&gt;&lt;p&gt;文 · Mark&lt;/p&gt;
 &lt;blockquote&gt;
-  &lt;p&gt;&lt;a href="http://baike.baidu.com/view/14058.htm"&gt;卡路里&lt;/a&gt;（简称卡，缩写为cal），由英文Calorie音译而来，其定义为在1个大气压下，将1克水提升1摄氏度所需要的&lt;a href="http://baike.baidu.com/view/62743.htm"&gt;热量&lt;/a&gt;；&lt;/p&gt;
-  
-  &lt;p&gt;卡路里（calorie）是&lt;a href="http://baike.baidu.com/view/14394.htm"&gt;能量&lt;/a&gt;单位，现在仍被广泛使用在营养计量和健身手册上，国际标准的能量单位是&lt;a href="http://baike.baidu.com/view/4336.htm"&gt;焦耳&lt;/a&gt;（joule）。&lt;/p&gt;
-  
-  &lt;p&gt;作为食物热量的法定单位，在欧洲普遍使用焦耳，美国则采用卡路里。虽然焦耳是&lt;a href="http://baike.baidu.com/view/61891.htm"&gt;中国&lt;/a&gt;大陆与&lt;a href="http://baike.baidu.com/view/2200.htm"&gt;台湾&lt;/a&gt;地区的法定单位，然而由于沿袭传统，卡路里在中国大陆与台湾地区仍然被广泛的使用。&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://baike.baidu.com/view/14058.htm"&gt;卡路里&lt;/a&gt;（简称卡，缩写为cal），由英文Calorie音译而来，其定义为在1个大气压下，将1克水提升1摄氏度所需要的&lt;a href="http://baike.baidu.com/view/62743.htm"&gt;热量&lt;/a&gt;；&lt;/p&gt;
+&lt;p&gt;卡路里（calorie）是&lt;a href="http://baike.baidu.com/view/14394.htm"&gt;能量&lt;/a&gt;单位，现在仍被广泛使用在营养计量和健身手册上，国际标准的能量单位是&lt;a href="http://baike.baidu.com/view/4336.htm"&gt;焦耳&lt;/a&gt;（joule）。&lt;/p&gt;
+&lt;p&gt;作为食物热量的法定单位，在欧洲普遍使用焦耳，美国则采用卡路里。虽然焦耳是&lt;a href="http://baike.baidu.com/view/61891.htm"&gt;中国&lt;/a&gt;大陆与&lt;a href="http://baike.baidu.com/view/2200.htm"&gt;台湾&lt;/a&gt;地区的法定单位，然而由于沿袭传统，卡路里在中国大陆与台湾地区仍然被广泛的使用。&lt;/p&gt;
 &lt;/blockquote&gt;
-
 &lt;h3 id=""&gt;计量单位&lt;/h3&gt;
-
 &lt;ul&gt;
 &lt;li&gt;小卡，记做cal, 1卡路里的能量或热量可将1克水在一个大气压下的温度升高1摄氏度;&lt;/li&gt;
 &lt;li&gt;大卡，记作Cal, 1大卡相当于1000小卡&lt;/li&gt;
 &lt;li&gt;焦耳
-&lt;ul&gt;&lt;li&gt;詹姆斯·普雷斯科特·焦耳（James Prescott Joule，1818年12月24日－1889年10月11日），出生于&lt;a href="http://baike.baidu.com/view/127481.htm"&gt;曼彻斯特&lt;/a&gt;近郊的沙弗特，英国皇家学会会员，英国物理学家。&lt;/li&gt;
+&lt;ul&gt;
+&lt;li&gt;詹姆斯·普雷斯科特·焦耳（James Prescott Joule，1818年12月24日－1889年10月11日），出生于&lt;a href="http://baike.baidu.com/view/127481.htm"&gt;曼彻斯特&lt;/a&gt;近郊的沙弗特，英国皇家学会会员，英国物理学家。&lt;/li&gt;
 &lt;li&gt;由于他在&lt;a href="http://baike.baidu.com/view/78151.htm"&gt;热学&lt;/a&gt;、&lt;a href="http://baike.baidu.com/view/78147.htm"&gt;热力学&lt;/a&gt;和&lt;a href="http://baike.baidu.com/view/14957.htm"&gt;电&lt;/a&gt;方面的贡献，&lt;a href="http://baike.baidu.com/view/1339035.htm"&gt;皇家学会&lt;/a&gt;授予他最高荣誉的&lt;a href="http://baike.baidu.com/view/23595.htm"&gt;科普利奖章&lt;/a&gt;（Copley Medal）。后人为了纪念他，把能量或&lt;a href="http://baike.baidu.com/view/14447.htm"&gt;功&lt;/a&gt;的单位命名为“&lt;a href="http://baike.baidu.com/view/4336.htm"&gt;焦耳&lt;/a&gt;”，简称“焦”；并用焦耳姓氏的第一个字母“J”来标记热量以及“功”的物理量。&lt;/li&gt;
-&lt;li&gt;焦耳在研究热的本质时，发现了热和功之间的转换关系，并由此得到了能量守恒定律，最终发展出热力学第一定律。国际单位制导出单位中，能量的单位——焦耳，就是以他的名字命名。他和开尔文合作发展了温度的绝对尺度。他还观测过磁致伸缩效应，发现了导体电阻、通过导体电流及其产生热能之间的关系，也就是常称的焦耳定律。&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;焦耳在研究热的本质时，发现了热和功之间的转换关系，并由此得到了能量守恒定律，最终发展出热力学第一定律。国际单位制导出单位中，能量的单位——焦耳，就是以他的名字命名。他和开尔文合作发展了温度的绝对尺度。他还观测过磁致伸缩效应，发现了导体电阻、通过导体电流及其产生热能之间的关系，也就是常称的焦耳定律。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
 &lt;li&gt;BMR
-&lt;ul&gt;&lt;li&gt;Basal Metabolism Rate 基础代谢率&lt;/li&gt;
+&lt;ul&gt;
+&lt;li&gt;Basal Metabolism Rate 基础代谢率&lt;/li&gt;
 &lt;li&gt;基础代谢(basal metabolism,BM)是指人体在清醒而又极端安静的状态下，不受肌肉活动、&lt;a href="http://baike.baidu.com/view/1461402.htm"&gt;环境温度&lt;/a&gt;、食物及精神紧张等影响时的&lt;a href="http://baike.baidu.com/view/1696565.htm"&gt;能量代谢率&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="http://baike.baidu.com/view/264238.htm"&gt;基础代谢率&lt;/a&gt;随着性别、年龄等不同而有生理变动。男子的基础代谢率平均比女子高，&lt;a href="http://baike.baidu.com/view/1254775.htm"&gt;幼年&lt;/a&gt;比成年高；年龄越大，&lt;a href="http://baike.baidu.com/subview/434238/434238.htm"&gt;代谢率&lt;/a&gt;越低。一般来说，基础代谢率的实际数值与正常的平均值相差10%－15%之内都属于正常。超过正常值20%时，才能算病理状态。甲状腺机能减退时，基础代谢率比正常标准低20－40%；甲状腺功能亢进时，基础代谢率比正常标准高出25-80%。其他如&lt;a href="http://baike.baidu.com/subview/1197005/1197005.htm"&gt;肾上腺皮质&lt;/a&gt;和脑下垂体机能低下时，基础代谢率也要降低。&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://baike.baidu.com/view/264238.htm"&gt;基础代谢率&lt;/a&gt;随着性别、年龄等不同而有生理变动。男子的基础代谢率平均比女子高，&lt;a href="http://baike.baidu.com/view/1254775.htm"&gt;幼年&lt;/a&gt;比成年高；年龄越大，&lt;a href="http://baike.baidu.com/subview/434238/434238.htm"&gt;代谢率&lt;/a&gt;越低。一般来说，基础代谢率的实际数值与正常的平均值相差10%－15%之内都属于正常。超过正常值20%时，才能算病理状态。甲状腺机能减退时，基础代谢率比正常标准低20－40%；甲状腺功能亢进时，基础代谢率比正常标准高出25-80%。其他如&lt;a href="http://baike.baidu.com/subview/1197005/1197005.htm"&gt;肾上腺皮质&lt;/a&gt;和脑下垂体机能低下时，基础代谢率也要降低。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
 &lt;li&gt;METs
-&lt;ul&gt;&lt;li&gt;Metabolic Equivalent of Task (MET)，某项活动的代谢当量，不同运动类型，代谢当量不同；&lt;/li&gt;
+&lt;ul&gt;
+&lt;li&gt;Metabolic Equivalent of Task (MET)，某项活动的代谢当量，不同运动类型，代谢当量不同；&lt;/li&gt;
 &lt;li&gt;A MET is the ratio of the work metabolic rate to the resting metabolic rate. One MET is defined as 1 kcal/kg/hour and is roughly equivalent to the energy cost of sitting quietly. For example: the energy cost of playing rugby is 8.3 METS, which means you use 8.3 times more energy than if you were to sit quietly and rest.&lt;/li&gt;
 &lt;li&gt;代谢当量是以安静且坐位时的能量消耗为基础，表达各种活动时相对能量代谢水平的常用指标。可以用来评估心肺功能。1MET=耗氧量3.5ml/(kg·min)。例如人在静坐时MET约为1.0，速度为9.6km/h的跑步MET约为10.0等。右图为某些体育运动和日常活动。&lt;/li&gt;
-&lt;li&gt;A MET can also defined as oxygen uptake in ml/kg/min with one MET equal to the oxygen cost of sitting quietly, equivalent to 3.5 ml/kg/min.&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;A MET can also defined as oxygen uptake in ml/kg/min with one MET equal to the oxygen cost of sitting quietly, equivalent to 3.5 ml/kg/min.&lt;/li&gt;
 &lt;/ul&gt;
-
+&lt;/li&gt;
+&lt;/ul&gt;
 &lt;h3 id=""&gt;换算关系&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code&gt;1000 cal(小卡) = 1 Cal(大卡) = 1.0 kcal(千卡)  
+&lt;pre&gt;&lt;code&gt;1000 cal(小卡) = 1 Cal(大卡) = 1.0 kcal(千卡)
 &lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code&gt;1 kcal = 4.184 kJ  
+&lt;pre&gt;&lt;code&gt;1 kcal = 4.184 kJ
 &lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code&gt;1 KJ = 0.239 kcal  
+&lt;pre&gt;&lt;code&gt;1 KJ = 0.239 kcal
 &lt;/code&gt;&lt;/pre&gt;
-
 &lt;h3 id=""&gt;计算公式&lt;/h3&gt;
-
 &lt;p&gt;&lt;strong&gt;卡路里计算公式&lt;/strong&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;Calories(kcal) = BMR * METs/24 * Hour  
+&lt;pre&gt;&lt;code&gt;Calories(kcal) = BMR * METs/24 * Hour
 &lt;/code&gt;&lt;/pre&gt;
-
 &lt;p&gt;&lt;strong&gt;BMR计算公式&lt;/strong&gt;&lt;/p&gt;
-
 &lt;pre&gt;&lt;code&gt;Women: BMR = 655.1 + (9.563 × weight in kg) + (1.850 × height in cm) – (4.676 × age in years)
-
-Men: BMR = 66.5 + (13.75 × weight in kg) + (5.003 × height in cm) – (6.755 × age in years)  
+ 
+Men: BMR = 66.5 + (13.75 × weight in kg) + (5.003 × height in cm) – (6.755 × age in years)
 &lt;/code&gt;&lt;/pre&gt;
-
 &lt;p&gt;&lt;strong&gt;METs表&lt;/strong&gt;&lt;/p&gt;
-
 &lt;p&gt;&lt;em&gt;参考2011 Compendium&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;| METs |            Type Of Bicycling             |
-| :--: | :--------------------------------------: |
-| 7.5  |            Bicycling, General            |
-| 3.5  |       bicycling, leisure, 5.5 mph        |
-| 5.8  |       bicycling, leisure, 9.4 mph        |
-| 6.8  | bicycling, 10-11.9 mph, leisure, slow, light effort |
-| 8.0  | bicycling, 12-13.9 mph, leisure, moderate effort |
-| 10.0 | bicycling, 14-15.9 mph, racing or leisure, fast, vigorous effort |
-| 12.0 | bicycling, 16-19 mph, racing/not drafting or &gt; 19 mph drafting, very fast, racing general |
-| 15.8 | bicycling, &gt; 20 mph, racing, not drafting |&lt;/p&gt;
-
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style="text-align:center"&gt;METs&lt;/th&gt;
+&lt;th style="text-align:center"&gt;Type Of Bicycling&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style="text-align:center"&gt;7.5&lt;/td&gt;
+&lt;td style="text-align:center"&gt;Bicycling, General&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align:center"&gt;3.5&lt;/td&gt;
+&lt;td style="text-align:center"&gt;bicycling, leisure, 5.5 mph&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align:center"&gt;5.8&lt;/td&gt;
+&lt;td style="text-align:center"&gt;bicycling, leisure, 9.4 mph&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align:center"&gt;6.8&lt;/td&gt;
+&lt;td style="text-align:center"&gt;bicycling, 10-11.9 mph, leisure, slow, light effort&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align:center"&gt;8.0&lt;/td&gt;
+&lt;td style="text-align:center"&gt;bicycling, 12-13.9 mph, leisure, moderate effort&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align:center"&gt;10.0&lt;/td&gt;
+&lt;td style="text-align:center"&gt;bicycling, 14-15.9 mph, racing or leisure, fast, vigorous effort&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align:center"&gt;12.0&lt;/td&gt;
+&lt;td style="text-align:center"&gt;bicycling, 16-19 mph, racing/not drafting or &amp;gt; 19 mph drafting, very fast, racing general&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align:center"&gt;15.8&lt;/td&gt;
+&lt;td style="text-align:center"&gt;bicycling, &amp;gt; 20 mph, racing, not drafting&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
 &lt;p&gt;欢迎交流指正！&lt;/p&gt;
-
 &lt;p&gt;ENJOY~&lt;/p&gt;
-
 &lt;p&gt;2017.3.1&lt;/p&gt;
-
 &lt;h2 id=""&gt;参考链接&lt;/h2&gt;
-
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="http://keisan.casio.com/exec/system/1350958587"&gt;Bicycling Calorie Calculator&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://sites.google.com/site/compendiumofphysicalactivities/Activity-Categories/bicycling"&gt;2011 Compendium categories&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="http://calcuworld.com/health-calculators/calories-burnt-whilst-cycling-calculator/"&gt;Calories Burnt Whilst Cycling Calculator&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="http://baike.baidu.com/item/%E5%8D%A1%E8%B7%AF%E9%87%8C"&gt;百度百科 - 卡路里&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="http://www.mapmyride.com/improve/calorie_calculator/"&gt;MapMyRide - CALORIE CALCULATOR&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content:encoded></item><item><title>近期遇到的奇葩Bug之解决从入门到懵逼</title><description>&lt;p&gt;文• Mark&lt;/p&gt;
-
+&lt;/ul&gt;
+&lt;/div&gt;</content:encoded></item><item><title>近期遇到的奇葩Bug之解决从入门到懵逼</title><description>&lt;div class="kg-card-markdown"&gt;&lt;p&gt;文• Mark&lt;/p&gt;
 &lt;blockquote&gt;
-  &lt;p&gt;此事发生在2016年10月，后与朋友分享过，朋友希望能写下来分享。因当时较忙，暂未整理，一直拖到现在。清晨早醒，整理之，以飨读者。&lt;/p&gt;
+&lt;p&gt;此事发生在2016年10月，后与朋友分享过，朋友希望能写下来分享。因当时较忙，暂未整理，一直拖到现在。清晨早醒，整理之，以飨读者。&lt;/p&gt;
 &lt;/blockquote&gt;
-
 &lt;p&gt;所谓Bug即软件中存在的小错误导致异常。奇葩Bug则是那些遇到时让人无所适从，解决时狂挠头发而不知所以，解决后又能仰天大笑，悲喜交加。&lt;/p&gt;
-
 &lt;p&gt;以前知乎上搜到过一个朋友分享硬件开发中，把脚放在桌子上，Bug出现，把脚拿下来的就没事的奇葩Bug分享，当时也只是开心一笑。没想到，最近，我与我的同事们也遇到了一个奇葩Bug。&lt;/p&gt;
-
 &lt;p&gt;此Bug，时间和空间因素都是诱因，但小勿入。&lt;/p&gt;
-
 &lt;p&gt;硬件固件和App版本初发布，热心用户反馈无法同步数据，在此再次感谢🙏 这些用户。但我们相关开发同事都清楚，数据同步部分都没有动过，怎么之前是好的，现在突然有问题了? Review版本修改，数据同步模块也没有做过任何修改，怪！但这种问题绝不能忍，遂与同事两人尝试模拟复现，这也是这次奇葩Bug之旅的主角。&lt;/p&gt;
-
 &lt;h1 id=""&gt;历程🐳🐳🐳&lt;/h1&gt;
-
 &lt;h3 id=""&gt;第一天🐢&lt;/h3&gt;
-
-&lt;p&gt;复测一天均为复现，查找log也并无异常，茫然一天即将过去，晚上还在思考问题可能出在哪，不得解，第二天继续吧。此时下班时，&lt;/p&gt;</description><link>http://localhost:2368/jin-qi-yu-dao-de-qi-pa-bugzhi-jie-jue-cong-ru-men-dao-meng-bi/</link><guid isPermaLink="false">a4830604-78dd-479e-9d6d-c22d8ca8f860</guid><dc:creator>Mark Chen</dc:creator><pubDate>Wed, 22 Feb 2017 04:42:50 GMT</pubDate><content:encoded>&lt;p&gt;文• Mark&lt;/p&gt;
-
+&lt;p&gt;复测一天均为复现，查找log也并无异常，茫然一天即将过去，晚上还在思考问题可能出在哪，不得解，第二天继续吧。此时下班时，&lt;/p&gt;&lt;/div&gt;</description><link>http://localhost:2368/jin-qi-yu-dao-de-qi-pa-bugzhi-jie-jue-cong-ru-men-dao-meng-bi/</link><guid isPermaLink="false">5a702c40f2c769befd9f2f30</guid><dc:creator>Mark Chen</dc:creator><pubDate>Wed, 22 Feb 2017 04:42:50 GMT</pubDate><content:encoded>&lt;div class="kg-card-markdown"&gt;&lt;p&gt;文• Mark&lt;/p&gt;
 &lt;blockquote&gt;
-  &lt;p&gt;此事发生在2016年10月，后与朋友分享过，朋友希望能写下来分享。因当时较忙，暂未整理，一直拖到现在。清晨早醒，整理之，以飨读者。&lt;/p&gt;
+&lt;p&gt;此事发生在2016年10月，后与朋友分享过，朋友希望能写下来分享。因当时较忙，暂未整理，一直拖到现在。清晨早醒，整理之，以飨读者。&lt;/p&gt;
 &lt;/blockquote&gt;
-
 &lt;p&gt;所谓Bug即软件中存在的小错误导致异常。奇葩Bug则是那些遇到时让人无所适从，解决时狂挠头发而不知所以，解决后又能仰天大笑，悲喜交加。&lt;/p&gt;
-
 &lt;p&gt;以前知乎上搜到过一个朋友分享硬件开发中，把脚放在桌子上，Bug出现，把脚拿下来的就没事的奇葩Bug分享，当时也只是开心一笑。没想到，最近，我与我的同事们也遇到了一个奇葩Bug。&lt;/p&gt;
-
 &lt;p&gt;此Bug，时间和空间因素都是诱因，但小勿入。&lt;/p&gt;
-
 &lt;p&gt;硬件固件和App版本初发布，热心用户反馈无法同步数据，在此再次感谢🙏 这些用户。但我们相关开发同事都清楚，数据同步部分都没有动过，怎么之前是好的，现在突然有问题了? Review版本修改，数据同步模块也没有做过任何修改，怪！但这种问题绝不能忍，遂与同事两人尝试模拟复现，这也是这次奇葩Bug之旅的主角。&lt;/p&gt;
-
 &lt;h1 id=""&gt;历程🐳🐳🐳&lt;/h1&gt;
-
 &lt;h3 id=""&gt;第一天🐢&lt;/h3&gt;
-
 &lt;p&gt;复测一天均为复现，查找log也并无异常，茫然一天即将过去，晚上还在思考问题可能出在哪，不得解，第二天继续吧。此时下班时，测试设备一直开着…说实话是忘关了。&lt;/p&gt;
-
 &lt;h3 id=""&gt;第二天🦀️&lt;/h3&gt;
-
 &lt;p&gt;早晨上班，一个同事说不能同步了，但再次尝试开启新纪录又可以同步数据，只好继续留意观察。晩上下班我们有意把测试设备保持昨晩的状态，跑一晚明天再看是不是还能复现&lt;/p&gt;
-
 &lt;h3 id=""&gt;第三天🐚&lt;/h3&gt;
-
 &lt;p&gt;早晨上班，还是这个同事，突然触电般跳起来说：擦，不能数据同步了，什么鬼？！👹 顿时神经紧绷，召集硬件同事保持信息同步，但硬件同事也百思不得姐。&lt;/p&gt;
-
-&lt;p&gt;会不会是因为模拟跑一晚，距离很长，点数太多就会复现？但测一次要一晚，太久不能忍😁，机智的我们🤓 🤔 打算改造 它，在保证硬件性能可以Hold住的情况下， 提高数据采集频率10倍，提高速度10倍， 保证每两次数据采集距离相同，点数相同，但 所花的时间缩小十倍，以快速排除上述怀疑。 &lt;/p&gt;
-
+&lt;p&gt;会不会是因为模拟跑一晚，距离很长，点数太多就会复现？但测一次要一晚，太久不能忍😁，机智的我们🤓 🤔 打算改造 它，在保证硬件性能可以Hold住的情况下， 提高数据采集频率10倍，提高速度10倍， 保证每两次数据采集距离相同，点数相同，但 所花的时间缩小十倍，以快速排除上述怀疑。&lt;/p&gt;
 &lt;p&gt;改造完成，但Bug并未复现.&lt;/p&gt;
-
 &lt;p&gt;茫然...🤕 🤒 🤥&lt;/p&gt;
-
 &lt;h5 id=""&gt;下午&lt;/h5&gt;
-
 &lt;p&gt;硬件同事告诉我们，他好像发现了什么，室外貌似可以模拟复现。赶快试一下，果然。但晚上室内复现的那两次又如何解释呢？激动不已，内取满面！&lt;/p&gt;
-
 &lt;p&gt;那么，现在这个Bug不仅和时间维度相关， 还和空间维度相关了！😓 🔯 ⏱&lt;/p&gt;
-
 &lt;p&gt;一口老血 💣 💣 💣&lt;/p&gt;
-
 &lt;p&gt;室内和室外的差别就是室外可以接收到并处理GPS信号，看看GPS处理模块在搞什么鬼， 果然．有个地方出问题了。&lt;/p&gt;
-
 &lt;p&gt;&lt;img src="https://ww1.sinaimg.cn/large/006tKfTcly1fcz593e6bcj30gs037q3b.jpg" alt=""&gt;&lt;/p&gt;
-
 &lt;p&gt;这也解释了为什么这个Bug只在10月出现👩🏼‍🚒&lt;/p&gt;
-
 &lt;p&gt;那两个晚上测试出现的结果如何解释呢？🌶&lt;/p&gt;
-
-&lt;p&gt;👉 办公室白天人多，干扰多，GPS信号飘不进来，模拟测试设备接收不到GPS信号，所以Bug不出现！
+&lt;p&gt;👉 办公室白天人多，干扰多，GPS信号飘不进来，模拟测试设备接收不到GPS信号，所以Bug不出现！&lt;br&gt;
 👉 办公室晚上人少，干扰少，GPS信号可以飘进来，模拟测试设备可以接收到GPS信号，Bug出现！&lt;/p&gt;
-
 &lt;h3 id="bug"&gt;Bug亮点🌋🌋🌋&lt;/h3&gt;
-
 &lt;ul&gt;
 &lt;li&gt;室内夜深人静时出现&lt;/li&gt;
 &lt;li&gt;只在10月出现&lt;/li&gt;
 &lt;li&gt;空旷室外可出现&lt;/li&gt;
 &lt;/ul&gt;
-
 &lt;p&gt;搞定！又可以出去浪啦！🏔🗽⛲️🗼🗻🏜&lt;/p&gt;
-
 &lt;h3 id=""&gt;感受💡&lt;/h3&gt;
-
 &lt;ul&gt;
 &lt;li&gt;硬件相关要注意其物理环境因素&lt;/li&gt;
-&lt;li&gt;感谢勇于面对和解决问题的同事，向你们致敬！ &lt;/li&gt;
+&lt;li&gt;感谢勇于面对和解决问题的同事，向你们致敬！&lt;/li&gt;
 &lt;li&gt;鄙视遇到问题退缩没有担当的菜鸡&lt;/li&gt;
 &lt;li&gt;时间和空间维度因素都可能是诱因&lt;/li&gt;
-&lt;li&gt;测试很重要，感谢测试同事 &lt;/li&gt;
+&lt;li&gt;测试很重要，感谢测试同事&lt;/li&gt;
 &lt;/ul&gt;
-
 &lt;p&gt;总有一些曾经让你感到痛苦的事情，会在若干时间后，笑着讲出来！&lt;/p&gt;
-
-&lt;p&gt;文笔不好，多指正！ &lt;/p&gt;
-
-&lt;p&gt;ENJOY~&lt;/p&gt;</content:encoded></item><item><title>Apple Siri接入开发（一）</title><description>&lt;blockquote&gt;
-  &lt;p&gt;随着iOS10.0发布脚步的临近，作为开发者，相信很多人也和我一样，可以提前体验一些新系统的新功能，也更关注新版iOS系统带来的技术开发方面的新特性。&lt;/p&gt;
+&lt;p&gt;文笔不好，多指正！&lt;/p&gt;
+&lt;p&gt;ENJOY~&lt;/p&gt;
+&lt;/div&gt;</content:encoded></item><item><title>Apple Siri接入开发（一）</title><description>&lt;div class="kg-card-markdown"&gt;&lt;blockquote&gt;
+&lt;p&gt;随着iOS10.0发布脚步的临近，作为开发者，相信很多人也和我一样，可以提前体验一些新系统的新功能，也更关注新版iOS系统带来的技术开发方面的新特性。&lt;/p&gt;
 &lt;/blockquote&gt;
-
 &lt;p&gt;对新事物，尤其是软件开发新技术的好奇心驱使我最近尝试了一些iOS10.0推出的新特性的开发，其中就包括本次iOS系统更新开发的SiriKit接入。下面，我就详细讲述一下SiriKit接入的相关开发过程及注意事项，个人见解，如有错误，欢迎大家交流指正。&lt;/p&gt;
-
 &lt;h3 id="sirikit"&gt;关于SiriKit&lt;/h3&gt;
-
 &lt;p&gt;SiriKit是Apple历经4年时间，不断打磨优化，第一次开发给开发者的一份关于Siri功能的礼物。利用SiriKit，第三方开发者可以像一些系统应用一样，通过语音完成第三方应用希望完成的一些功能，比如用户可以直接通过语音直接告诉Siri打车、锻炼、寻找美食、寻找相册中的照片、甚至付给朋友AA的账单费用，以及控制家里智能家居等。&lt;/p&gt;
-
 &lt;h3 id=""&gt;概念概览&lt;/h3&gt;
-
 &lt;ul&gt;
 &lt;li&gt;Domain - 被苹果划分的不同业务领域，每个领域中可以执行不同的任务&lt;/li&gt;
 &lt;li&gt;Intent - 领域中的任务或意图指令&lt;/li&gt;
 &lt;/ul&gt;
-
 &lt;h3 id=""&gt;实现机制&lt;/h3&gt;
-
 &lt;p&gt;和Android的语音接入Service类似，SiriKit中，将不同的类型的需求统一汇总为若干个Domain，然后在每个Domain中再次细分为不同的Intent。系统通过语音识别获取到的Domain信息以及Intent信息，下发到已注册的Domain中进行处理，然后用户解析处理不同的Intent，来实现自定义的操作。&lt;/p&gt;
-
-&lt;p&gt;SiriKit的接入方式和Watch OS的接入有相似之处，都是以Extension形式存在，该Extension会声明本应用所能处理的Domain内容及Intent种类，告知Siri该应用所能处理的功能范畴.&lt;/p&gt;</description><link>http://localhost:2368/apple-sirijie-ru-kai-fa-yi/</link><guid isPermaLink="false">8de39ad9-1994-457e-8381-789e3b9cb458</guid><category>iOS</category><category>技术</category><category>技术调研</category><category>Siri</category><dc:creator>Mark Chen</dc:creator><pubDate>Tue, 07 Feb 2017 06:34:23 GMT</pubDate><content:encoded>&lt;blockquote&gt;
-  &lt;p&gt;随着iOS10.0发布脚步的临近，作为开发者，相信很多人也和我一样，可以提前体验一些新系统的新功能，也更关注新版iOS系统带来的技术开发方面的新特性。&lt;/p&gt;
+&lt;p&gt;SiriKit的接入方式和Watch OS的接入有相似之处，都是以Extension形式存在，该Extension会声明本应用所能处理的Domain内容及Intent种类，告知Siri该应用所能处理的功能范畴.&lt;/p&gt;&lt;/div&gt;</description><link>http://localhost:2368/apple-sirijie-ru-kai-fa-yi/</link><guid isPermaLink="false">5a702c40f2c769befd9f2f2b</guid><category>iOS</category><category>技术</category><category>技术调研</category><category>Siri</category><dc:creator>Mark Chen</dc:creator><pubDate>Tue, 07 Feb 2017 06:34:23 GMT</pubDate><content:encoded>&lt;div class="kg-card-markdown"&gt;&lt;blockquote&gt;
+&lt;p&gt;随着iOS10.0发布脚步的临近，作为开发者，相信很多人也和我一样，可以提前体验一些新系统的新功能，也更关注新版iOS系统带来的技术开发方面的新特性。&lt;/p&gt;
 &lt;/blockquote&gt;
-
 &lt;p&gt;对新事物，尤其是软件开发新技术的好奇心驱使我最近尝试了一些iOS10.0推出的新特性的开发，其中就包括本次iOS系统更新开发的SiriKit接入。下面，我就详细讲述一下SiriKit接入的相关开发过程及注意事项，个人见解，如有错误，欢迎大家交流指正。&lt;/p&gt;
-
 &lt;h3 id="sirikit"&gt;关于SiriKit&lt;/h3&gt;
-
 &lt;p&gt;SiriKit是Apple历经4年时间，不断打磨优化，第一次开发给开发者的一份关于Siri功能的礼物。利用SiriKit，第三方开发者可以像一些系统应用一样，通过语音完成第三方应用希望完成的一些功能，比如用户可以直接通过语音直接告诉Siri打车、锻炼、寻找美食、寻找相册中的照片、甚至付给朋友AA的账单费用，以及控制家里智能家居等。&lt;/p&gt;
-
 &lt;h3 id=""&gt;概念概览&lt;/h3&gt;
-
 &lt;ul&gt;
 &lt;li&gt;Domain - 被苹果划分的不同业务领域，每个领域中可以执行不同的任务&lt;/li&gt;
 &lt;li&gt;Intent - 领域中的任务或意图指令&lt;/li&gt;
 &lt;/ul&gt;
-
 &lt;h3 id=""&gt;实现机制&lt;/h3&gt;
-
 &lt;p&gt;和Android的语音接入Service类似，SiriKit中，将不同的类型的需求统一汇总为若干个Domain，然后在每个Domain中再次细分为不同的Intent。系统通过语音识别获取到的Domain信息以及Intent信息，下发到已注册的Domain中进行处理，然后用户解析处理不同的Intent，来实现自定义的操作。&lt;/p&gt;
-
 &lt;p&gt;SiriKit的接入方式和Watch OS的接入有相似之处，都是以Extension形式存在，该Extension会声明本应用所能处理的Domain内容及Intent种类，告知Siri该应用所能处理的功能范畴.这样，即便你的应用当前并没有打开或在后台运行，通过Siri也可以唤醒你的应用，处理相关逻辑。&lt;/p&gt;
-
 &lt;h4 id="domains"&gt;Domains&lt;/h4&gt;
-
 &lt;ul&gt;
 &lt;li&gt;VoIP Calling - 语音通信相关，如微信、Facebook Messager、Line等;&lt;/li&gt;
 &lt;li&gt;Payments - 适用于支付类应用，如PayPal、支付宝等；&lt;/li&gt;
@@ -406,146 +307,134 @@ Men: BMR = 66.5 + (13.75 × weight in kg) + (5.003 × height in cm) – (6.755 �
 &lt;li&gt;CarPlay（automotive vendors only）- 车载及自动驾驶相关，尚不明晰&lt;/li&gt;
 &lt;li&gt;Restarurant reservations(Requires addtional support from Apple) - 酒店服务类，具体需求上不明晰&lt;/li&gt;
 &lt;/ul&gt;
-
 &lt;h4 id="intents"&gt;Intents&lt;/h4&gt;
-
 &lt;ul&gt;
-&lt;li&gt;&lt;p&gt;VoIP Calling&lt;/p&gt;
-
-&lt;ul&gt;&lt;li&gt;Start an audio call -开始语音通话&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;VoIP Calling&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Start an audio call -开始语音通话&lt;/li&gt;
 &lt;li&gt;Start a video call - 开始视频通话&lt;/li&gt;
-&lt;li&gt;Search the user’s call history -搜寻通话历史&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Messaging&lt;/p&gt;
-
-&lt;ul&gt;&lt;li&gt;Send a message&lt;/li&gt;
+&lt;li&gt;Search the user’s call history -搜寻通话历史&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Messaging&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Send a message&lt;/li&gt;
 &lt;li&gt;Search for messages&lt;/li&gt;
-&lt;li&gt;Set attributes on a message&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Photos&lt;/p&gt;
-
-&lt;ul&gt;&lt;li&gt;Search for photos&lt;/li&gt;
-&lt;li&gt;Play a photo slideshow&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Payments&lt;/p&gt;
-
-&lt;ul&gt;&lt;li&gt;Send a payment to another user&lt;/li&gt;
-&lt;li&gt;Request a payment from another user&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Workouts&lt;/p&gt;
-
-&lt;ul&gt;&lt;li&gt;Start a workout&lt;/li&gt;
+&lt;li&gt;Set attributes on a message&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Photos&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Search for photos&lt;/li&gt;
+&lt;li&gt;Play a photo slideshow&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Payments&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Send a payment to another user&lt;/li&gt;
+&lt;li&gt;Request a payment from another user&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Workouts&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Start a workout&lt;/li&gt;
 &lt;li&gt;Pause a workout&lt;/li&gt;
 &lt;li&gt;Resume a workout&lt;/li&gt;
 &lt;li&gt;End a workout&lt;/li&gt;
-&lt;li&gt;Cancel a workout&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Ride Booking&lt;/p&gt;
-
-&lt;ul&gt;&lt;li&gt;Get a list of available rides (Maps only)&lt;/li&gt;
+&lt;li&gt;Cancel a workout&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Ride Booking&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Get a list of available rides (Maps only)&lt;/li&gt;
 &lt;li&gt;Book a ride&lt;/li&gt;
-&lt;li&gt;Get the status of a booked ride&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;CarPlay&lt;/p&gt;
-
-&lt;ul&gt;&lt;li&gt;Change the audio source&lt;/li&gt;
+&lt;li&gt;Get the status of a booked ride&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;CarPlay&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Change the audio source&lt;/li&gt;
 &lt;li&gt;Change the climate control settings&lt;/li&gt;
 &lt;li&gt;Change the defroster settings&lt;/li&gt;
 &lt;li&gt;Saving vehicle settings to a profile&lt;/li&gt;
 &lt;li&gt;Restoring vehicle settings from a profile&lt;/li&gt;
 &lt;li&gt;Change the seat temperature&lt;/li&gt;
-&lt;li&gt;Change the radio station&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Restaurant Reservations&lt;/p&gt;
-
-&lt;ul&gt;&lt;li&gt;Get the user’s current restaurant reservations&lt;/li&gt;
+&lt;li&gt;Change the radio station&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Restaurant Reservations&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Get the user’s current restaurant reservations&lt;/li&gt;
 &lt;li&gt;Get information about the user to associate with a booking.&lt;/li&gt;
 &lt;li&gt;Get default values to use when requesting reservation times.&lt;/li&gt;
 &lt;li&gt;Get the reservation times that are currently available.&lt;/li&gt;
-&lt;li&gt;Book a reservation for the user.&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Book a reservation for the user.&lt;/li&gt;
 &lt;/ul&gt;
-
+&lt;/li&gt;
+&lt;/ul&gt;
 &lt;p&gt;注意，经过开发实践，每种Domain及Intents都有固定或相似的语法形式，为增加识别度，可以参考官网说明，按照说明中自然语言语法形式唤起相应的Siri功能，例如：”用XXX开始跑步“ 要比仅仅说 “XXX开始跑步”能更好的识别出应用XXX。&lt;/p&gt;
-
 &lt;p&gt;由于Siri所使用的识别技术及语言模型是在云端训练并完成数据解析，可能还有些不完善。在我们刚开始开发时，就遇到了这样的问题，中文普通话的有些Intent会有支持不完整的情况，导致语音识别不出来，无法完成语义解析，相关回调方法不被调用等问题，如有大家也遇到了类似问题，建议使用英文进行测试。&lt;/p&gt;
-
 &lt;p&gt;对于此问题，也已经向Apple Siri开发团队反应，相关训练任务已经在进行中，很惊喜的是，在之后的开发中，有些之前不支持的Intent语义识别也已经可以使用了。&lt;/p&gt;
-
 &lt;h3 id=""&gt;开发流程&lt;/h3&gt;
-
 &lt;p&gt;上面简述了SiriKit的一些背景知识及实现机制，下面简单介绍一下我在接入SiriKit时使用的开发流程.&lt;/p&gt;
-
 &lt;h3 id=""&gt;开发环境&lt;/h3&gt;
-
 &lt;ul&gt;
 &lt;li&gt;MacbookPro. OSX EI Capitan 10.11.6&lt;/li&gt;
 &lt;li&gt;xCode 8.0 beta6(8S201h)&lt;/li&gt;
 &lt;li&gt;iPhone6 iOS10.0 beta6&lt;/li&gt;
 &lt;li&gt;iTerms2, git, etc.&lt;/li&gt;
 &lt;/ul&gt;
-
 &lt;h3 id=""&gt;支持类型&lt;/h3&gt;
-
 &lt;p&gt;对于向现有iOS应用中加入对Siri的支持有两种形式，一种是Intents Extension，另一种是Intents UI Extension，前者没有UI界面，类似一个后台逻辑处理服务，这项Extension是必选的。&lt;/p&gt;
-
 &lt;p&gt;而Siri UI Extensions是可选内容，用于展示一些确认信息等操作。经负责该功能的Apple SiriKit工程师确认，UI Siri Extensions的声明周期比较短，部分应用可根据实际需要采用，但Workout类应用目前试用范围较宅，本例中未采用。&lt;/p&gt;
-
 &lt;h3 id=""&gt;接入步骤&lt;/h3&gt;
-
 &lt;p&gt;本次接入SiriKit开发中，采用Workout类应用，此处Workout并不是Apple WatchOS 3.0中新增的Workout App, 而是指一类运动锻炼相关应用，例如，Strava, Nike Run一类。由于Apple SiriKit中限制了7类不同的Domain，如果需要接入其他类别的应用，如天气，支付等，可以参考官方接入指南进行相关开发。&lt;/p&gt;
-
 &lt;h4 id="step1siricapability"&gt;Step1. 打开应用的Siri Capability&lt;/h4&gt;
-
-&lt;p&gt;在Xcode8中，选中应用Target，选择Capability标签，打开Siri Capability打开，如图所示：
+&lt;p&gt;在Xcode8中，选中应用Target，选择Capability标签，打开Siri Capability打开，如图所示：&lt;br&gt;
 &lt;img src="http://okzqhpqwj.bkt.clouddn.com/201702072461357c303f4ab644135ea06285a.png" alt="201702072461357c303f4ab644135ea06285a.png"&gt;&lt;/p&gt;
-
-&lt;p&gt;打开该属性后，工程文件的Entitlements文件会增加如下内容：
+&lt;p&gt;打开该属性后，工程文件的Entitlements文件会增加如下内容：&lt;br&gt;
 &lt;img src="http://okzqhpqwj.bkt.clouddn.com/201702071729357c303f4ab644135ea06285b.png" alt="201702071729357c303f4ab644135ea06285b.png"&gt;&lt;/p&gt;
-
 &lt;h4 id="step2siriintentsextension"&gt;Step2:  创建支持Siri的Intents Extension&lt;/h4&gt;
-
-&lt;p&gt;首先选中App工程，为该App添加对Siri的Intents Extension支持的Target，如图：
+&lt;p&gt;首先选中App工程，为该App添加对Siri的Intents Extension支持的Target，如图：&lt;br&gt;
 &lt;img src="http://okzqhpqwj.bkt.clouddn.com/201702075782857c303f4ab644135ea062857.png" alt="201702075782857c303f4ab644135ea062857.png"&gt;&lt;/p&gt;
-
-&lt;p&gt;选择Intents Extension
+&lt;p&gt;选择Intents Extension&lt;br&gt;
 &lt;img src="http://okzqhpqwj.bkt.clouddn.com/201702076878357c303f4ab644135ea062858.png" alt="201702076878357c303f4ab644135ea062858.png"&gt;&lt;/p&gt;
-
-&lt;p&gt;命名并选择是否UI Extension，可根据自我业务需求确定，本例中，对UI Extension不进行支持。
+&lt;p&gt;命名并选择是否UI Extension，可根据自我业务需求确定，本例中，对UI Extension不进行支持。&lt;br&gt;
 &lt;img src="http://okzqhpqwj.bkt.clouddn.com/20170207372957c303f4ab644135ea062859.png" alt="20170207372957c303f4ab644135ea062859.png"&gt;&lt;/p&gt;
-
 &lt;p&gt;创建完成后，Siri Intents Extension的target会显示在Target列表中。&lt;/p&gt;
-
 &lt;h3 id="step3intent"&gt;Step3: 定义所支持的Intent&lt;/h3&gt;
-
-&lt;p&gt;该步骤相当于告诉Siri及iOS系统，本应用中所支持的Domain和Intents都有哪些，这样iOS系统及Siri就知道你的应用可以处理哪些请求，不能处理哪些请求。
-打开Siri Intents Extension工程中的Info.plist文件，选中NSExtension，修改所支持的Intent类型，具体类型字符串可以查询开发文档，添加后的内容如下：
+&lt;p&gt;该步骤相当于告诉Siri及iOS系统，本应用中所支持的Domain和Intents都有哪些，这样iOS系统及Siri就知道你的应用可以处理哪些请求，不能处理哪些请求。&lt;br&gt;
+打开Siri Intents Extension工程中的Info.plist文件，选中NSExtension，修改所支持的Intent类型，具体类型字符串可以查询开发文档，添加后的内容如下：&lt;br&gt;
 &lt;img src="http://okzqhpqwj.bkt.clouddn.com/201702076763357c30921ab644133ed0638de.png" alt="201702076763357c30921ab644133ed0638de.png"&gt;&lt;/p&gt;
-
 &lt;p&gt;IntentsRestrictedWhileLocked是可选项，用来控制锁屏状态下，对不同命令的响应行为。&lt;/p&gt;
-
 &lt;h4 id="step4siri"&gt;Step4：添加对主应用Siri权限支持&lt;/h4&gt;
-
 &lt;p&gt;在主应用Info.plist文件中添加NSSiriUsageDescription Key，该key用来标记应用与Extension所沟通的数据类型，用于告知用户，你的应用为何要支持Siri的描述信息，比如Workout类应用，我可以这么写：“健身锻炼的信息会发送到Siri，更快捷的记录健身数据”&lt;/p&gt;
-
 &lt;p&gt;仅仅添加NSSiriUsageDescription这个Key到Info.plist文件中是不够的，当应用第一次启动时，我们需要用户打开应用的Siri支持权限，默认情况下，这个权限是关闭的，所以，需要我们通过调用INPreferences的类方法equestSiriAuthorization: 来通知用户打开Siri权限支持。&lt;/p&gt;
-
 &lt;h4 id="step5"&gt;Step5. 添加逻辑&lt;/h4&gt;
-
-&lt;p&gt;OK，到此为止，我们已经把所有接入Siri Intents Extension的前期准备工作都已经完成，现在我们要进入正题，实现相应的逻辑处理代码编写工作。 &lt;br&gt;
+&lt;p&gt;OK，到此为止，我们已经把所有接入Siri Intents Extension的前期准备工作都已经完成，现在我们要进入正题，实现相应的逻辑处理代码编写工作。&lt;br&gt;
 修改IntentHandling.swift文件，根据需要，修改所需要实现的协议内容：&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class="language-objective-c"&gt;class  IntentHandler:INExtension,INStartWorkoutIntentHandling,INPauseWorkoutIntentHandling,INResumeWorkoutIntentHandling,INEndWorkoutIntentHandling{  
-    ...
+&lt;pre&gt;&lt;code class="language-objective-c"&gt;class  IntentHandler:INExtension,INStartWorkoutIntentHandling,INPauseWorkoutIntentHandling,INResumeWorkoutIntentHandling,INEndWorkoutIntentHandling{
+	...
 }
 &lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;OK，到此为止，我们已经把所有接入Siri Intents Extension的前期准备工作都已经完成，现在我们要进入正题，实现相应的逻辑处理代码编写工作。 &lt;br&gt;
+&lt;p&gt;OK，到此为止，我们已经把所有接入Siri Intents Extension的前期准备工作都已经完成，现在我们要进入正题，实现相应的逻辑处理代码编写工作。&lt;br&gt;
 修改IntentHandling.swift文件，根据需要，修改所需要实现的协议内容：&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class="language-objective-c"&gt;class IntentHandler:INExtension,INStartWorkoutIntentHandling  
+&lt;pre&gt;&lt;code class="language-objective-c"&gt;class IntentHandler:INExtension,INStartWorkoutIntentHandling
     ,INPauseWorkoutIntentHandling,INResumeWorkoutIntentHandling
     ,INEndWorkoutIntentHandling{
-    ...
+	...
 }
 &lt;/code&gt;&lt;/pre&gt;
-
 &lt;p&gt;修改所需要实现的﻿不同场景下的逻辑回调部分，调用所在iOS App的相关业务逻辑，满足产品需求，例如&lt;/p&gt;
-
 &lt;p&gt;开始锻炼&lt;/p&gt;
-
 &lt;pre&gt;&lt;code&gt;/*!
 @briefhandlingmethod
 @abstractExecutethetaskrepresentedbytheINStartWorkoutIntentthat
@@ -558,14 +447,12 @@ Men: BMR = 66.5 + (13.75 × weight in kg) + (5.003 × height in cm) – (6.755 �
     intent
 @seeINStartWorkoutIntentResponse
 */
-public func handle(startWorkoutintent:INStartWorkoutIntent,completion  
+public func handle(startWorkoutintent:INStartWorkoutIntent,completion
     :@escaping(INStartWorkoutIntentResponse)-&amp;gt;Swift.Void){
-    print("HereisStartworkoutcalledbySiri");
+	print(&amp;quot;HereisStartworkoutcalledbySiri&amp;quot;);
 }
 &lt;/code&gt;&lt;/pre&gt;
-
 &lt;p&gt;暂停锻炼&lt;/p&gt;
-
 &lt;pre&gt;&lt;code&gt;//MARK:-INPauseWorkoutIntentHandling
 /*!
 @briefhandlingmethod
@@ -579,14 +466,12 @@ public func handle(startWorkoutintent:INStartWorkoutIntent,completion
     intent
 @seeINPauseWorkoutIntentResponse
 */
-public func handle(pauseWorkoutintent:INPauseWorkoutIntent,completion  
+public func handle(pauseWorkoutintent:INPauseWorkoutIntent,completion
     :@escaping(INPauseWorkoutIntentResponse)-&amp;gt;Swift.Void){
-    print("HereisPauseworkoutcalledbySiri");
+	print(&amp;quot;HereisPauseworkoutcalledbySiri&amp;quot;);
 }
 &lt;/code&gt;&lt;/pre&gt;
-
 &lt;p&gt;恢复锻炼&lt;/p&gt;
-
 &lt;pre&gt;&lt;code&gt;//MARK:-INResumeWorkoutIntentHandling
 /*!
 @briefhandlingmethod
@@ -600,14 +485,12 @@ public func handle(pauseWorkoutintent:INPauseWorkoutIntent,completion
     eintent
 @seeINResumeWorkoutIntentResponse
 */
-public func handle(resumeWorkoutintent:INResumeWorkoutIntent  
+public func handle(resumeWorkoutintent:INResumeWorkoutIntent
     ,completion:@escaping(INResumeWorkoutIntentResponse)-&amp;gt;Swift.Void){
-    print("HereisResumeworkoutcalledbySiri");
+	print(&amp;quot;HereisResumeworkoutcalledbySiri&amp;quot;);
 }
 &lt;/code&gt;&lt;/pre&gt;
-
 &lt;p&gt;结束锻炼&lt;/p&gt;
-
 &lt;pre&gt;&lt;code&gt;//MARK:-INEndWorkoutIntentHandling
 /*!
 @briefhandlingmethod
@@ -621,134 +504,112 @@ public func handle(resumeWorkoutintent:INResumeWorkoutIntent
     ntent
 @seeINEndWorkoutIntentResponse
 */
-public func handle(endWorkoutintent:INEndWorkoutIntent,completion  
+public func handle(endWorkoutintent:INEndWorkoutIntent,completion
     :@escaping(INEndWorkoutIntentResponse)-&amp;gt;Swift.Void){
-    print("HereisEndworkoutcalledbySiri");
+	print(&amp;quot;HereisEndworkoutcalledbySiri&amp;quot;);
 }
 &lt;/code&gt;&lt;/pre&gt;
-
 &lt;h3 id=""&gt;总结&lt;/h3&gt;
-
 &lt;p&gt;以上就完成了所有接入SiriKit的工作，剩余的应用就是测试成果，此处有一些技巧，&lt;/p&gt;
-
 &lt;ul&gt;
 &lt;li&gt;技巧一：由于SiriKit首次发布，有些语言支持尚不完善，建议使用英文进行测试，这样可以避开一些Intent在不同语言中支持不完整的问题。&lt;/li&gt;
 &lt;li&gt;技巧二：iPhone6s及以后设备已经支持了通过“Hey, Siri”语音唤醒的特性，所以用iPhone6s可以方便的不用按住Home就可进行测试，很方便，对于iPhone6 &amp;amp; iPhone6P，插入数据线，连接电脑，也可以通过“Hey, Siri”唤醒，直接进行相应业务需求测试。&lt;/li&gt;
 &lt;/ul&gt;
-
 &lt;p&gt;以上就是接入SiriKit的背景知识点以及基本流程，在接入过程中，与Apple SiriKit开发团队接触过程中，发现了若干问题，也收获了许多知识，在后续文章中，我会单独抽出一篇来与大家分享。文章中间如有错误之处，欢迎大家批评指正，共同成长。&lt;/p&gt;
-
 &lt;p&gt;Enjoy your Siri trip.&lt;/p&gt;
-
 &lt;p&gt;参考文献&lt;/p&gt;
-
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="https://developer.apple.com/library/prerelease/content/documentation/Intents/Conceptual/SiriIntegrationGuide/"&gt;Apple SiriKit Programming Guide&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content:encoded></item><item><title>Apple Watch产品设计经验 FROM 去哪网</title><description>&lt;blockquote&gt;
-  &lt;p&gt;在参与2016WWDC过程中，听取了【去哪网】某位从业人员的关于Apple Watch产品设计技术相关的分享，将要点整理如下，作为学习提纲之用，供参考&lt;/p&gt;
+&lt;/ul&gt;
+&lt;/div&gt;</content:encoded></item><item><title>Apple Watch产品设计经验 FROM 去哪网</title><description>&lt;div class="kg-card-markdown"&gt;&lt;blockquote&gt;
+&lt;p&gt;在参与2016WWDC过程中，听取了【去哪网】某位从业人员的关于Apple Watch产品设计技术相关的分享，将要点整理如下，作为学习提纲之用，供参考&lt;/p&gt;
 &lt;/blockquote&gt;
-
 &lt;p&gt;文中Apple WatchOS应该是基于WatchOS 2.0版本，但某些设计和产品经验同样适用于Apple WatchOS 3.0.&lt;/p&gt;
-
 &lt;h5 id=""&gt;初识 &amp;amp; 迷惘&lt;/h5&gt;
-
 &lt;ul&gt;
 &lt;li&gt;Watch OS Glance？问题：状态展示？如何更新？有无用户交互？
-&lt;ul&gt;&lt;li&gt;只适合进行时间相关的内容展现&lt;/li&gt;
+&lt;ul&gt;
+&lt;li&gt;只适合进行时间相关的内容展现&lt;/li&gt;
 &lt;li&gt;运营相关的内容意义不大，手表是效率工具&lt;/li&gt;
-&lt;li&gt;使用类似健身记录的圆环展示方式并不适用于第三方App,最大的Lower也只有XXX像素&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;使用类似健身记录的圆环展示方式并不适用于第三方App,最大的Lower也只有XXX像素&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
 &lt;li&gt;色彩略单调，watch lib;&lt;/li&gt;
 &lt;li&gt;人们不会一直使用某个App;&lt;/li&gt;
 &lt;li&gt;操作要简单，10-30s完成;&lt;/li&gt;
 &lt;li&gt;推送展现，只有watch在手上才会推送到watch上;&lt;/li&gt;
 &lt;li&gt;app group是什么鬼？现在常用于进行非实时简单数据通讯！&lt;/li&gt;
 &lt;/ul&gt;
-
 &lt;h5 id=""&gt;产品层面&lt;/h5&gt;
-
 &lt;ul&gt;
 &lt;li&gt;明亮色彩提升产品感受;&lt;/li&gt;
 &lt;li&gt;尽量减少滚动，一屏展示所表现的内容;&lt;/li&gt;
 &lt;/ul&gt;
-
 &lt;h5 id=""&gt;技术层面&lt;/h5&gt;
-
 &lt;ul&gt;
-&lt;li&gt;Phone &amp;amp; Watch￼&lt;/li&gt;&lt;/ul&gt;</description><link>http://localhost:2368/guan-yu-apple-watchchan-pin-qu-na-wang-da-shen-fen-xiang/</link><guid isPermaLink="false">b44d30e6-b5da-475f-bc2c-bc1bb65b9588</guid><category>iOS</category><category>Apple watchOS</category><category>产品</category><category>设计</category><category>技术</category><dc:creator>Mark Chen</dc:creator><pubDate>Tue, 07 Feb 2017 03:39:31 GMT</pubDate><content:encoded>&lt;blockquote&gt;
-  &lt;p&gt;在参与2016WWDC过程中，听取了【去哪网】某位从业人员的关于Apple Watch产品设计技术相关的分享，将要点整理如下，作为学习提纲之用，供参考&lt;/p&gt;
+&lt;li&gt;Phone &amp;amp; Watch￼&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;</description><link>http://localhost:2368/guan-yu-apple-watchchan-pin-qu-na-wang-da-shen-fen-xiang/</link><guid isPermaLink="false">5a702c40f2c769befd9f2f25</guid><category>iOS</category><category>Apple watchOS</category><category>产品</category><category>设计</category><category>技术</category><dc:creator>Mark Chen</dc:creator><pubDate>Tue, 07 Feb 2017 03:39:31 GMT</pubDate><content:encoded>&lt;div class="kg-card-markdown"&gt;&lt;blockquote&gt;
+&lt;p&gt;在参与2016WWDC过程中，听取了【去哪网】某位从业人员的关于Apple Watch产品设计技术相关的分享，将要点整理如下，作为学习提纲之用，供参考&lt;/p&gt;
 &lt;/blockquote&gt;
-
 &lt;p&gt;文中Apple WatchOS应该是基于WatchOS 2.0版本，但某些设计和产品经验同样适用于Apple WatchOS 3.0.&lt;/p&gt;
-
 &lt;h5 id=""&gt;初识 &amp;amp; 迷惘&lt;/h5&gt;
-
 &lt;ul&gt;
 &lt;li&gt;Watch OS Glance？问题：状态展示？如何更新？有无用户交互？
-&lt;ul&gt;&lt;li&gt;只适合进行时间相关的内容展现&lt;/li&gt;
+&lt;ul&gt;
+&lt;li&gt;只适合进行时间相关的内容展现&lt;/li&gt;
 &lt;li&gt;运营相关的内容意义不大，手表是效率工具&lt;/li&gt;
-&lt;li&gt;使用类似健身记录的圆环展示方式并不适用于第三方App,最大的Lower也只有XXX像素&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;使用类似健身记录的圆环展示方式并不适用于第三方App,最大的Lower也只有XXX像素&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
 &lt;li&gt;色彩略单调，watch lib;&lt;/li&gt;
 &lt;li&gt;人们不会一直使用某个App;&lt;/li&gt;
 &lt;li&gt;操作要简单，10-30s完成;&lt;/li&gt;
 &lt;li&gt;推送展现，只有watch在手上才会推送到watch上;&lt;/li&gt;
 &lt;li&gt;app group是什么鬼？现在常用于进行非实时简单数据通讯！&lt;/li&gt;
 &lt;/ul&gt;
-
 &lt;h5 id=""&gt;产品层面&lt;/h5&gt;
-
 &lt;ul&gt;
 &lt;li&gt;明亮色彩提升产品感受;&lt;/li&gt;
 &lt;li&gt;尽量减少滚动，一屏展示所表现的内容;&lt;/li&gt;
 &lt;/ul&gt;
-
 &lt;h5 id=""&gt;技术层面&lt;/h5&gt;
-
 &lt;ul&gt;
 &lt;li&gt;Phone &amp;amp; Watch￼代码复用￼￼￼&lt;/li&gt;
 &lt;li&gt;URL Schema做跳转协议，使用Extension和App的交互接口相统一；&lt;/li&gt;
 &lt;li&gt;与iPhone App同步，使用MMWormhole触发，如退出登录等；&lt;/li&gt;
 &lt;/ul&gt;
-
 &lt;h5 id="applewatchos20changes"&gt;Apple Watch OS 2.0 Changes&lt;/h5&gt;
-
 &lt;ul&gt;
 &lt;li&gt;App无法与Watch Extension共享Framework；&lt;/li&gt;
 &lt;li&gt;不在要求运行Watch App时必须与手机处于联通状态；&lt;/li&gt;
 &lt;li&gt;MMWormhole仍然可用，但也可以使用WatchConnectivity替换（WatchConnectivity更推荐使用）；&lt;/li&gt;
 &lt;/ul&gt;
-
 &lt;h5 id=""&gt;性能 &amp;amp; 优化&lt;/h5&gt;
-
 &lt;p&gt;&lt;strong&gt;Network优化点&lt;/strong&gt;&lt;/p&gt;
-
 &lt;ul&gt;
 &lt;li&gt;使用压缩协议优化减少Request &amp;amp; Response&lt;/li&gt;
 &lt;li&gt;隐藏不必要的JSON，需要什么给什么，不多不少&lt;/li&gt;
-&lt;li&gt;发送对应的Watch大小的图片，38" or 42"&lt;/li&gt;
+&lt;li&gt;发送对应的Watch大小的图片，38&amp;quot; or 42&amp;quot;&lt;/li&gt;
 &lt;li&gt;对于List，针对Watch设定每一页的大小（经验值：5）&lt;/li&gt;
 &lt;li&gt;对于UI团队提供的图片资源，图片尺寸要恰好适配Watch
-&lt;ul&gt;&lt;li&gt;App中使用setImageNamed&lt;/li&gt;
-&lt;li&gt;Watch中使用setImageData &lt;code&gt;性能考虑&lt;/code&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;
+&lt;ul&gt;
+&lt;li&gt;App中使用setImageNamed&lt;/li&gt;
+&lt;li&gt;Watch中使用setImageData &lt;code&gt;性能考虑&lt;/code&gt;&lt;/li&gt;
 &lt;/ul&gt;
-
+&lt;/li&gt;
+&lt;/ul&gt;
 &lt;p&gt;&lt;strong&gt;UI性能&lt;/strong&gt;&lt;/p&gt;
-
 &lt;ul&gt;
 &lt;li&gt;减少UI复杂度，大简至美&lt;/li&gt;
 &lt;li&gt;WKInterfaceTable第一次加载的行数不要太多&lt;/li&gt;
 &lt;li&gt;在RowController的willActivate方法中使用dispatch来请求图片&lt;/li&gt;
 &lt;/ul&gt;
-
 &lt;p&gt;&lt;strong&gt;WatchOS 2.0 New Features&lt;/strong&gt;&lt;/p&gt;
-
 &lt;ul&gt;
 &lt;li&gt;Digital Crown&lt;/li&gt;
 &lt;li&gt;ClockKit&lt;/li&gt;
 &lt;li&gt;Animation (还有很多局限)&lt;/li&gt;
 &lt;/ul&gt;
-
 &lt;p&gt;&lt;strong&gt;WatchOS 3.0 New Features&lt;/strong&gt;&lt;/p&gt;
-
 &lt;ul&gt;
 &lt;li&gt;The Dock&lt;/li&gt;
 &lt;li&gt;Stickiness&lt;/li&gt;
@@ -760,37 +621,41 @@ public func handle(endWorkoutintent:INEndWorkoutIntent,completion
 &lt;li&gt;Background App Refresh&lt;/li&gt;
 &lt;li&gt;Faster interactions&lt;/li&gt;
 &lt;/ul&gt;
-
 &lt;h5 id="watchos"&gt;WatchOS开发中遇到的坑&lt;/h5&gt;
-
 &lt;ul&gt;
 &lt;li&gt;证书签名： WatchApp没有Build Setting
-&lt;ul&gt;&lt;li&gt;解决办法： 手动修改project文件&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;WKInterfaceMap在1.0版本中内存泄露
-&lt;ul&gt;&lt;li&gt;最终在第一版本中暂时去掉了Map&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;XCode 6.2 中的CI（xcodebuild）不支持导出带有Watch的archive
-&lt;ul&gt;&lt;li&gt;XCode7解决了这个问题&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;
+&lt;ul&gt;
+&lt;li&gt;解决办法： 手动修改project文件&lt;/li&gt;
 &lt;/ul&gt;
-
+&lt;/li&gt;
+&lt;li&gt;WKInterfaceMap在1.0版本中内存泄露
+&lt;ul&gt;
+&lt;li&gt;最终在第一版本中暂时去掉了Map&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;XCode 6.2 中的CI（xcodebuild）不支持导出带有Watch的archive
+&lt;ul&gt;
+&lt;li&gt;XCode7解决了这个问题&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
 &lt;p&gt;&lt;code&gt;建议使用XCode自动去管理证书&lt;/code&gt;&lt;/p&gt;
-
 &lt;h5 id="watchos"&gt;Watch OS开发的优势&lt;/h5&gt;
-
 &lt;ul&gt;
 &lt;li&gt;了解新技术，Watch会逼着你用StoryBoard&lt;/li&gt;
 &lt;li&gt;Share Framework使用；&lt;/li&gt;
 &lt;li&gt;Watch的一些新技术和架构，可以看出苹果对新技术的一些态度及思考
-&lt;ul&gt;&lt;li&gt;如WKInterfaceTable vs UITableView&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;
+&lt;ul&gt;
+&lt;li&gt;如WKInterfaceTable vs UITableView&lt;/li&gt;
 &lt;/ul&gt;
-
+&lt;/li&gt;
+&lt;/ul&gt;
 &lt;h5 id=""&gt;参考链接&lt;/h5&gt;
-
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="https://developer.apple.com/watchos/human-interface-guidelines/overview/"&gt;watchOS Human Interface Guidelines&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-
-&lt;p&gt;ENJOY~&lt;/p&gt;</content:encoded></item><item><title>XCode中iOS工程文件布局规范</title><description>&lt;p&gt;以下是iOS工程中关于文件的布局规范参考链接，仅供备忘参考.&lt;/p&gt;
-
+&lt;p&gt;ENJOY~&lt;/p&gt;
+&lt;/div&gt;</content:encoded></item><item><title>XCode中iOS工程文件布局规范</title><description>&lt;div class="kg-card-markdown"&gt;&lt;p&gt;以下是iOS工程中关于文件的布局规范参考链接，仅供备忘参考.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="http://limboy.me/ios/2013/09/23/build-ios-application.html"&gt;Limboy - iOS项目的目录结构和开发流程&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://developer.apple.com/library/ios/documentation/iPhone/Conceptual/iPhoneOSProgrammingGuide/TheAppLifeCycle/TheAppLifeCycle.html#//apple_ref/doc/uid/TP40007072-CH2-SW1"&gt;Apple iOS Dev Document - App Programming Guide for iOS&lt;/a&gt;&lt;/li&gt;
@@ -798,9 +663,8 @@ public func handle(endWorkoutintent:INEndWorkoutIntent,completion
 &lt;li&gt;&lt;a href="http://zh-google-styleguide.readthedocs.org/en/latest/google-objc-styleguide/contents/"&gt;Google开源项目风格指南 - Objective-C风格指南&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://github.com/raywenderlich/objective-c-style-guide"&gt;From Github Someone's project.&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-
-&lt;p&gt;ENJOY~&lt;/p&gt;</description><link>http://localhost:2368/xcodezhong-iosgong-cheng-wen-jian-bu-ju-gui-fan/</link><guid isPermaLink="false">80dadfc5-662c-4a6c-82f9-5c15fac921d0</guid><category>xCode</category><category>iOS</category><category>技术</category><dc:creator>Mark Chen</dc:creator><pubDate>Tue, 07 Feb 2017 03:04:46 GMT</pubDate><content:encoded>&lt;p&gt;以下是iOS工程中关于文件的布局规范参考链接，仅供备忘参考.&lt;/p&gt;
-
+&lt;p&gt;ENJOY~&lt;/p&gt;
+&lt;/div&gt;</description><link>http://localhost:2368/xcodezhong-iosgong-cheng-wen-jian-bu-ju-gui-fan/</link><guid isPermaLink="false">5a702c40f2c769befd9f2f21</guid><category>xCode</category><category>iOS</category><category>技术</category><dc:creator>Mark Chen</dc:creator><pubDate>Tue, 07 Feb 2017 03:04:46 GMT</pubDate><content:encoded>&lt;div class="kg-card-markdown"&gt;&lt;p&gt;以下是iOS工程中关于文件的布局规范参考链接，仅供备忘参考.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="http://limboy.me/ios/2013/09/23/build-ios-application.html"&gt;Limboy - iOS项目的目录结构和开发流程&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://developer.apple.com/library/ios/documentation/iPhone/Conceptual/iPhoneOSProgrammingGuide/TheAppLifeCycle/TheAppLifeCycle.html#//apple_ref/doc/uid/TP40007072-CH2-SW1"&gt;Apple iOS Dev Document - App Programming Guide for iOS&lt;/a&gt;&lt;/li&gt;
@@ -808,25 +672,18 @@ public func handle(endWorkoutintent:INEndWorkoutIntent,completion
 &lt;li&gt;&lt;a href="http://zh-google-styleguide.readthedocs.org/en/latest/google-objc-styleguide/contents/"&gt;Google开源项目风格指南 - Objective-C风格指南&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://github.com/raywenderlich/objective-c-style-guide"&gt;From Github Someone's project.&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-
-&lt;p&gt;ENJOY~&lt;/p&gt;</content:encoded></item><item><title>iOS-LZMA类压缩算法使用</title><description>&lt;blockquote&gt;
-  &lt;p&gt;&lt;strong&gt;LZMA&lt;/strong&gt;（&lt;a href="https://zh.wikipedia.org/w/index.php?title=Abraham_Lempel&amp;amp;action=edit&amp;amp;redlink=1"&gt;Lempel&lt;/a&gt;-&lt;a href="https://zh.wikipedia.org/w/index.php?title=Jacob_Ziv&amp;amp;action=edit&amp;amp;redlink=1"&gt;Ziv&lt;/a&gt;-&lt;a href="https://zh.wikipedia.org/wiki/%E9%A9%AC%E5%B0%94%E5%8F%AF%E5%A4%AB%E9%93%BE"&gt;Markov chain&lt;/a&gt;-&lt;a href="https://zh.wikipedia.org/wiki/%E7%AE%97%E6%B3%95"&gt;Algorithm&lt;/a&gt;的缩写）是2001年以来得到发展的一个&lt;a href="https://zh.wikipedia.org/wiki/%E6%95%B0%E6%8D%AE%E5%8E%8B%E7%BC%A9"&gt;数据压缩&lt;/a&gt;算法，它用于&lt;a href="https://zh.wikipedia.org/wiki/7-Zip"&gt;7-Zip&lt;/a&gt;归档工具中的&lt;a href="https://zh.wikipedia.org/wiki/7z"&gt;7z&lt;/a&gt;格式和 &lt;a href="https://zh.wikipedia.org/wiki/Unix-like"&gt;Unix-like&lt;/a&gt; 下的 &lt;a href="https://zh.wikipedia.org/wiki/Xz"&gt;xz&lt;/a&gt; 格式。它使用类似于&lt;a href="https://zh.wikipedia.org/wiki/LZ77%E4%B8%8ELZ78"&gt;LZ77&lt;/a&gt;的&lt;a href="https://zh.wikipedia.org/w/index.php?title=%E5%AD%97%E5%85%B8%E7%BC%96%E7%A0%81&amp;amp;action=edit&amp;amp;redlink=1"&gt;字典编码&lt;/a&gt;机制，在一般的情况下压缩率比&lt;a href="https://zh.wikipedia.org/wiki/Bzip2"&gt;bzip2&lt;/a&gt;为高，用于压缩的字典文件大小可达4GB。&lt;/p&gt;
-  
-  &lt;p&gt;&lt;a href="https://zh.wikipedia.org/wiki/C%2B%2B"&gt;C++&lt;/a&gt;语言写成的LZMA&lt;a href="https://zh.wikipedia.org/wiki/%E5%BC%80%E6%94%BE%E6%BA%90%E7%A0%81"&gt;开放源码&lt;/a&gt;压缩库使用了&lt;a href="https://zh.wikipedia.org/wiki/%E5%8C%BA%E9%97%B4%E7%BC%96%E7%A0%81"&gt;区间编码&lt;/a&gt;支持的&lt;a href="https://zh.wikipedia.org/wiki/LZ77%E4%B8%8ELZ78"&gt;LZ77&lt;/a&gt;改进压缩算法以及特殊的用于二进制的预处理程序。LZMA 对数据流、重复序列大小以及重续序列位置单独进行了压缩。LZMA支持几种&lt;a href="https://zh.wikipedia.org/w/index.php?title=%E6%95%A3%E5%88%97%E9%93%BE&amp;amp;action=edit&amp;amp;redlink=1"&gt;散列链&lt;/a&gt;变体、&lt;a href="https://zh.wikipedia.org/wiki/%E4%BA%8C%E5%8F%89%E6%A0%91"&gt;二叉树&lt;/a&gt;以及&lt;a href="https://zh.wikipedia.org/wiki/%E5%9F%BA%E6%95%B0%E6%A0%91"&gt;基数树&lt;/a&gt;作为它的字典查找算法基础。&lt;/p&gt;
+&lt;p&gt;ENJOY~&lt;/p&gt;
+&lt;/div&gt;</content:encoded></item><item><title>iOS-LZMA类压缩算法使用</title><description>&lt;div class="kg-card-markdown"&gt;&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;LZMA&lt;/strong&gt;（&lt;a href="https://zh.wikipedia.org/w/index.php?title=Abraham_Lempel&amp;amp;action=edit&amp;amp;redlink=1"&gt;Lempel&lt;/a&gt;-&lt;a href="https://zh.wikipedia.org/w/index.php?title=Jacob_Ziv&amp;amp;action=edit&amp;amp;redlink=1"&gt;Ziv&lt;/a&gt;-&lt;a href="https://zh.wikipedia.org/wiki/%E9%A9%AC%E5%B0%94%E5%8F%AF%E5%A4%AB%E9%93%BE"&gt;Markov chain&lt;/a&gt;-&lt;a href="https://zh.wikipedia.org/wiki/%E7%AE%97%E6%B3%95"&gt;Algorithm&lt;/a&gt;的缩写）是2001年以来得到发展的一个&lt;a href="https://zh.wikipedia.org/wiki/%E6%95%B0%E6%8D%AE%E5%8E%8B%E7%BC%A9"&gt;数据压缩&lt;/a&gt;算法，它用于&lt;a href="https://zh.wikipedia.org/wiki/7-Zip"&gt;7-Zip&lt;/a&gt;归档工具中的&lt;a href="https://zh.wikipedia.org/wiki/7z"&gt;7z&lt;/a&gt;格式和 &lt;a href="https://zh.wikipedia.org/wiki/Unix-like"&gt;Unix-like&lt;/a&gt; 下的 &lt;a href="https://zh.wikipedia.org/wiki/Xz"&gt;xz&lt;/a&gt; 格式。它使用类似于&lt;a href="https://zh.wikipedia.org/wiki/LZ77%E4%B8%8ELZ78"&gt;LZ77&lt;/a&gt;的&lt;a href="https://zh.wikipedia.org/w/index.php?title=%E5%AD%97%E5%85%B8%E7%BC%96%E7%A0%81&amp;amp;action=edit&amp;amp;redlink=1"&gt;字典编码&lt;/a&gt;机制，在一般的情况下压缩率比&lt;a href="https://zh.wikipedia.org/wiki/Bzip2"&gt;bzip2&lt;/a&gt;为高，用于压缩的字典文件大小可达4GB。&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://zh.wikipedia.org/wiki/C%2B%2B"&gt;C++&lt;/a&gt;语言写成的LZMA&lt;a href="https://zh.wikipedia.org/wiki/%E5%BC%80%E6%94%BE%E6%BA%90%E7%A0%81"&gt;开放源码&lt;/a&gt;压缩库使用了&lt;a href="https://zh.wikipedia.org/wiki/%E5%8C%BA%E9%97%B4%E7%BC%96%E7%A0%81"&gt;区间编码&lt;/a&gt;支持的&lt;a href="https://zh.wikipedia.org/wiki/LZ77%E4%B8%8ELZ78"&gt;LZ77&lt;/a&gt;改进压缩算法以及特殊的用于二进制的预处理程序。LZMA 对数据流、重复序列大小以及重续序列位置单独进行了压缩。LZMA支持几种&lt;a href="https://zh.wikipedia.org/w/index.php?title=%E6%95%A3%E5%88%97%E9%93%BE&amp;amp;action=edit&amp;amp;redlink=1"&gt;散列链&lt;/a&gt;变体、&lt;a href="https://zh.wikipedia.org/wiki/%E4%BA%8C%E5%8F%89%E6%A0%91"&gt;二叉树&lt;/a&gt;以及&lt;a href="https://zh.wikipedia.org/wiki/%E5%9F%BA%E6%95%B0%E6%A0%91"&gt;基数树&lt;/a&gt;作为它的字典查找算法基础。&lt;/p&gt;
 &lt;/blockquote&gt;
-
-&lt;h2 id="lzma"&gt;LZMA算法引入&lt;/h2&gt;</description><link>http://localhost:2368/ios-lzmalei-ya-suo-suan-fa-shi-yong/</link><guid isPermaLink="false">4581497a-50e2-45b9-ad89-30419418e553</guid><category>iOS</category><category>技术</category><category>技术调研</category><dc:creator>Mark Chen</dc:creator><pubDate>Sun, 18 Dec 2016 04:49:33 GMT</pubDate><content:encoded>&lt;blockquote&gt;
-  &lt;p&gt;&lt;strong&gt;LZMA&lt;/strong&gt;（&lt;a href="https://zh.wikipedia.org/w/index.php?title=Abraham_Lempel&amp;amp;action=edit&amp;amp;redlink=1"&gt;Lempel&lt;/a&gt;-&lt;a href="https://zh.wikipedia.org/w/index.php?title=Jacob_Ziv&amp;amp;action=edit&amp;amp;redlink=1"&gt;Ziv&lt;/a&gt;-&lt;a href="https://zh.wikipedia.org/wiki/%E9%A9%AC%E5%B0%94%E5%8F%AF%E5%A4%AB%E9%93%BE"&gt;Markov chain&lt;/a&gt;-&lt;a href="https://zh.wikipedia.org/wiki/%E7%AE%97%E6%B3%95"&gt;Algorithm&lt;/a&gt;的缩写）是2001年以来得到发展的一个&lt;a href="https://zh.wikipedia.org/wiki/%E6%95%B0%E6%8D%AE%E5%8E%8B%E7%BC%A9"&gt;数据压缩&lt;/a&gt;算法，它用于&lt;a href="https://zh.wikipedia.org/wiki/7-Zip"&gt;7-Zip&lt;/a&gt;归档工具中的&lt;a href="https://zh.wikipedia.org/wiki/7z"&gt;7z&lt;/a&gt;格式和 &lt;a href="https://zh.wikipedia.org/wiki/Unix-like"&gt;Unix-like&lt;/a&gt; 下的 &lt;a href="https://zh.wikipedia.org/wiki/Xz"&gt;xz&lt;/a&gt; 格式。它使用类似于&lt;a href="https://zh.wikipedia.org/wiki/LZ77%E4%B8%8ELZ78"&gt;LZ77&lt;/a&gt;的&lt;a href="https://zh.wikipedia.org/w/index.php?title=%E5%AD%97%E5%85%B8%E7%BC%96%E7%A0%81&amp;amp;action=edit&amp;amp;redlink=1"&gt;字典编码&lt;/a&gt;机制，在一般的情况下压缩率比&lt;a href="https://zh.wikipedia.org/wiki/Bzip2"&gt;bzip2&lt;/a&gt;为高，用于压缩的字典文件大小可达4GB。&lt;/p&gt;
-  
-  &lt;p&gt;&lt;a href="https://zh.wikipedia.org/wiki/C%2B%2B"&gt;C++&lt;/a&gt;语言写成的LZMA&lt;a href="https://zh.wikipedia.org/wiki/%E5%BC%80%E6%94%BE%E6%BA%90%E7%A0%81"&gt;开放源码&lt;/a&gt;压缩库使用了&lt;a href="https://zh.wikipedia.org/wiki/%E5%8C%BA%E9%97%B4%E7%BC%96%E7%A0%81"&gt;区间编码&lt;/a&gt;支持的&lt;a href="https://zh.wikipedia.org/wiki/LZ77%E4%B8%8ELZ78"&gt;LZ77&lt;/a&gt;改进压缩算法以及特殊的用于二进制的预处理程序。LZMA 对数据流、重复序列大小以及重续序列位置单独进行了压缩。LZMA支持几种&lt;a href="https://zh.wikipedia.org/w/index.php?title=%E6%95%A3%E5%88%97%E9%93%BE&amp;amp;action=edit&amp;amp;redlink=1"&gt;散列链&lt;/a&gt;变体、&lt;a href="https://zh.wikipedia.org/wiki/%E4%BA%8C%E5%8F%89%E6%A0%91"&gt;二叉树&lt;/a&gt;以及&lt;a href="https://zh.wikipedia.org/wiki/%E5%9F%BA%E6%95%B0%E6%A0%91"&gt;基数树&lt;/a&gt;作为它的字典查找算法基础。&lt;/p&gt;
+&lt;h2 id="lzma"&gt;LZMA算法引入&lt;/h2&gt;&lt;/div&gt;</description><link>http://localhost:2368/ios-lzmalei-ya-suo-suan-fa-shi-yong/</link><guid isPermaLink="false">5a702c40f2c769befd9f2f1d</guid><category>iOS</category><category>技术</category><category>技术调研</category><dc:creator>Mark Chen</dc:creator><pubDate>Sun, 18 Dec 2016 04:49:33 GMT</pubDate><content:encoded>&lt;div class="kg-card-markdown"&gt;&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;LZMA&lt;/strong&gt;（&lt;a href="https://zh.wikipedia.org/w/index.php?title=Abraham_Lempel&amp;amp;action=edit&amp;amp;redlink=1"&gt;Lempel&lt;/a&gt;-&lt;a href="https://zh.wikipedia.org/w/index.php?title=Jacob_Ziv&amp;amp;action=edit&amp;amp;redlink=1"&gt;Ziv&lt;/a&gt;-&lt;a href="https://zh.wikipedia.org/wiki/%E9%A9%AC%E5%B0%94%E5%8F%AF%E5%A4%AB%E9%93%BE"&gt;Markov chain&lt;/a&gt;-&lt;a href="https://zh.wikipedia.org/wiki/%E7%AE%97%E6%B3%95"&gt;Algorithm&lt;/a&gt;的缩写）是2001年以来得到发展的一个&lt;a href="https://zh.wikipedia.org/wiki/%E6%95%B0%E6%8D%AE%E5%8E%8B%E7%BC%A9"&gt;数据压缩&lt;/a&gt;算法，它用于&lt;a href="https://zh.wikipedia.org/wiki/7-Zip"&gt;7-Zip&lt;/a&gt;归档工具中的&lt;a href="https://zh.wikipedia.org/wiki/7z"&gt;7z&lt;/a&gt;格式和 &lt;a href="https://zh.wikipedia.org/wiki/Unix-like"&gt;Unix-like&lt;/a&gt; 下的 &lt;a href="https://zh.wikipedia.org/wiki/Xz"&gt;xz&lt;/a&gt; 格式。它使用类似于&lt;a href="https://zh.wikipedia.org/wiki/LZ77%E4%B8%8ELZ78"&gt;LZ77&lt;/a&gt;的&lt;a href="https://zh.wikipedia.org/w/index.php?title=%E5%AD%97%E5%85%B8%E7%BC%96%E7%A0%81&amp;amp;action=edit&amp;amp;redlink=1"&gt;字典编码&lt;/a&gt;机制，在一般的情况下压缩率比&lt;a href="https://zh.wikipedia.org/wiki/Bzip2"&gt;bzip2&lt;/a&gt;为高，用于压缩的字典文件大小可达4GB。&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://zh.wikipedia.org/wiki/C%2B%2B"&gt;C++&lt;/a&gt;语言写成的LZMA&lt;a href="https://zh.wikipedia.org/wiki/%E5%BC%80%E6%94%BE%E6%BA%90%E7%A0%81"&gt;开放源码&lt;/a&gt;压缩库使用了&lt;a href="https://zh.wikipedia.org/wiki/%E5%8C%BA%E9%97%B4%E7%BC%96%E7%A0%81"&gt;区间编码&lt;/a&gt;支持的&lt;a href="https://zh.wikipedia.org/wiki/LZ77%E4%B8%8ELZ78"&gt;LZ77&lt;/a&gt;改进压缩算法以及特殊的用于二进制的预处理程序。LZMA 对数据流、重复序列大小以及重续序列位置单独进行了压缩。LZMA支持几种&lt;a href="https://zh.wikipedia.org/w/index.php?title=%E6%95%A3%E5%88%97%E9%93%BE&amp;amp;action=edit&amp;amp;redlink=1"&gt;散列链&lt;/a&gt;变体、&lt;a href="https://zh.wikipedia.org/wiki/%E4%BA%8C%E5%8F%89%E6%A0%91"&gt;二叉树&lt;/a&gt;以及&lt;a href="https://zh.wikipedia.org/wiki/%E5%9F%BA%E6%95%B0%E6%A0%91"&gt;基数树&lt;/a&gt;作为它的字典查找算法基础。&lt;/p&gt;
 &lt;/blockquote&gt;
-
 &lt;h2 id="lzma"&gt;LZMA算法引入&lt;/h2&gt;
-
 &lt;p&gt;对于数据传输，传输时间和传输质量是主要的两个参考维度。对于传输时间的压缩，数据压缩又是一个很好地可选项。目前正在处理蓝牙BLE（&lt;strong&gt;Bluetooth low energy&lt;/strong&gt; (&lt;strong&gt;Bluetooth LE&lt;/strong&gt;, &lt;strong&gt;BLE&lt;/strong&gt;, marketed as &lt;strong&gt;Bluetooth Smart&lt;/strong&gt;[&lt;a href="https://en.wikipedia.org/wiki/Bluetooth_low_energy#cite_note-1"&gt;1]&lt;/a&gt;)）调试，其中数据传输过程中，发现由于速度限制，传输时间较长，为了缩短传输时间，想利用压缩算法对所要传输的数据进行压缩处理后再进行传输，压缩完成之后再进行传输，以提高传输效率及节省传输时间。经过查阅各种资料，初步使用LZMA压缩算法进行压缩。&lt;/p&gt;
-
 &lt;p&gt;之所以选择&lt;a href="https://zh.wikipedia.org/wiki/LZMA"&gt;LZMA&lt;/a&gt;算法进行压缩处理，原因有以下几点：&lt;/p&gt;
-
 &lt;ul&gt;
 &lt;li&gt;开源&lt;/li&gt;
 &lt;li&gt;iOS &amp;amp; Android平台均支持，可夸平台使用&lt;/li&gt;
@@ -834,142 +691,105 @@ public func handle(endWorkoutintent:INEndWorkoutIntent,completion
 &lt;li&gt;压缩效率较高&lt;/li&gt;
 &lt;li&gt;多线程支持&lt;/li&gt;
 &lt;/ul&gt;
-
 &lt;h2 id="ioslzma"&gt;iOS引入使用LZMA压缩算法方法&lt;/h2&gt;
-
 &lt;h4 id="1lzma"&gt;选项1. 利用系统默认支持的LZMA压缩算法&lt;/h4&gt;
-
 &lt;blockquote&gt;
-  &lt;p&gt;The libcompression library provides an API for two styles of data compression:&lt;/p&gt;
-  
-  &lt;ul&gt;
-  &lt;li&gt;Block compression, where all of the input data is compressed or decompressed by one call to the compression or decompression function.&lt;/li&gt;
-  &lt;li&gt;Streaming compression, where the compression or decompression function is called repeatedly to compress or decompress data from a source buffer to a destination buffer. Between calls, processed data is moved out of the destination buffer and new data is loaded into the source buffer.&lt;/li&gt;
-  &lt;/ul&gt;
+&lt;p&gt;The libcompression library provides an API for two styles of data compression:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Block compression, where all of the input data is compressed or decompressed by one call to the compression or decompression function.&lt;/li&gt;
+&lt;li&gt;Streaming compression, where the compression or decompression function is called repeatedly to compress or decompress data from a source buffer to a destination buffer. Between calls, processed data is moved out of the destination buffer and new data is loaded into the source buffer.&lt;/li&gt;
+&lt;/ul&gt;
 &lt;/blockquote&gt;
-
 &lt;p&gt;Apple提供了一套通用的无损压缩算法，其中就支持LZMA、LZMA2压缩.&lt;/p&gt;
-
 &lt;h5 id=""&gt;支持的压缩类型&lt;/h5&gt;
-
 &lt;ul&gt;
 &lt;li&gt;Block Compression&lt;/li&gt;
 &lt;li&gt;Stream Compression&lt;/li&gt;
 &lt;/ul&gt;
-
 &lt;h5 id=""&gt;支持的平台如下：&lt;/h5&gt;
-
 &lt;ul&gt;
 &lt;li&gt;iOS 9.0+&lt;/li&gt;
 &lt;li&gt;macOS 10.11+&lt;/li&gt;
 &lt;li&gt;tvOS 9.0+&lt;/li&gt;
 &lt;li&gt;watchOS 2.0+&lt;/li&gt;
 &lt;/ul&gt;
-
 &lt;h5 id=""&gt;支持的压缩算法&lt;/h5&gt;
-
 &lt;ul&gt;
 &lt;li&gt;COMPRESSION_LZ4&lt;/li&gt;
 &lt;li&gt;COMPRESSION_ZLIB&lt;/li&gt;
 &lt;li&gt;COMPRESSION_LZMA&lt;/li&gt;
 &lt;li&gt;COMPRESSION_LZFSE&lt;/li&gt;
 &lt;/ul&gt;
-
 &lt;p&gt;提供的代码调用很简单，我根据我的需要，所使用的方法如下：&lt;/p&gt;
-
 &lt;p&gt;&lt;a href="https://developer.apple.com/reference/compression/1480986-compression_encode_buffer"&gt;压缩算法&lt;/a&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class="language-c"&gt;size_t compression_encode_buffer(uint8_t *restrict dst_buffer, size_t dst_size, const uint8_t *restrict src_buffer, size_t src_size, void *restrict scratch_buffer, compression_algorithm algorithm);  
+&lt;pre&gt;&lt;code class="language-c"&gt;size_t compression_encode_buffer(uint8_t *restrict dst_buffer, size_t dst_size, const uint8_t *restrict src_buffer, size_t src_size, void *restrict scratch_buffer, compression_algorithm algorithm);
 &lt;/code&gt;&lt;/pre&gt;
-
 &lt;p&gt;&lt;a href="https://developer.apple.com/reference/compression/1481000-compression_decode_buffer?language=objc"&gt;解压方法&lt;/a&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class="language-c"&gt;size_t compression_decode_buffer(uint8_t *restrict dst_buffer, size_t dst_size, const uint8_t *restrict src_buffer, size_t src_size, void *restrict scratch_buffer, compression_algorithm algorithm);  
+&lt;pre&gt;&lt;code class="language-c"&gt;size_t compression_decode_buffer(uint8_t *restrict dst_buffer, size_t dst_size, const uint8_t *restrict src_buffer, size_t src_size, void *restrict scratch_buffer, compression_algorithm algorithm);
 &lt;/code&gt;&lt;/pre&gt;
-
 &lt;p&gt;详细的调用代码如下&lt;/p&gt;
-
 &lt;pre&gt;&lt;code class="language-objective-c"&gt;- (void)testLZMA {
-    // Data source file path.
-    NSString *sourceFilePath = [NSString stringWithFormat:@"%@/source_data.txt", SYSTEM_DOCUMENT_PATH];
-    // Compressed file path.
-    NSString *zipFilePath = [NSString stringWithFormat:@"%@/compressed_data.7z", SYSTEM_DOCUMENT_PATH];
-
+	// Data source file path.
+	NSString *sourceFilePath = [NSString stringWithFormat:@&amp;quot;%@/source_data.txt&amp;quot;, SYSTEM_DOCUMENT_PATH];
+	// Compressed file path.
+	NSString *zipFilePath = [NSString stringWithFormat:@&amp;quot;%@/compressed_data.7z&amp;quot;, SYSTEM_DOCUMENT_PATH];
+    
     NSData *fileData = [NSData dataWithContentsOfFile:sourceFilePath];
-    DDLogDebug(@"Before compress: %ld bytes", fileData.length);
-
+    DDLogDebug(@&amp;quot;Before compress: %ld bytes&amp;quot;, fileData.length);
+    
     uint8_t dstBuffer[fileData.length];
     memset(dstBuffer, 0, fileData.length);
-
+    
     size_t compressResultLength = compression_encode_buffer(dstBuffer, fileData.length, [fileData bytes], fileData.length, NULL, COMPRESSION_LZMA);
     if(compressResultLength &amp;gt; 0) {
         NSData *dataAfterCompress = [NSData dataWithBytes:dstBuffer length:compressResultLength];
-        DDLogDebug(@"Compress successfully. After compress：%ld bytes", dataAfterCompress.length;
+        DDLogDebug(@&amp;quot;Compress successfully. After compress：%ld bytes&amp;quot;, dataAfterCompress.length;
         // Write compressed data into file.
         [dataAfterCompress writeToFile:zipFilePath atomically:YES];
     } else {
-        DDLogError(@"Compress FAILED!!!");
+        DDLogError(@&amp;quot;Compress FAILED!!!&amp;quot;);
     }
 }
 &lt;/code&gt;&lt;/pre&gt;
-
 &lt;p&gt;该方法集成使用起来非常简单，对于基本的压缩需求足够可以满足，且不会对App的大小造成太大影响，不会很大增加，如果没有特殊需求，该方法是首选。&lt;/p&gt;
-
-&lt;h4 id="2lzmasdkojbcframeworkhttpsgithubcomchenjian345lzmasdkojbcframework"&gt;选项2. 集成第三方库&lt;a href="https://github.com/ChenJian345/LzmaSDKOjbcFramework"&gt;LzmaSDKOjbcFramework&lt;/a&gt;&lt;/h4&gt;
-
+&lt;h4 id="2lzmasdkojbcframework"&gt;选项2. 集成第三方库&lt;a href="https://github.com/ChenJian345/LzmaSDKOjbcFramework"&gt;LzmaSDKOjbcFramework&lt;/a&gt;&lt;/h4&gt;
 &lt;p&gt;这是我最先走的一条路，通过查阅相关资料，引入相关的开源库，自己实现了一个支持LZMA压缩算法的iOS工程用于Build Framework，现已开源到Github上，即&lt;a href="https://github.com/ChenJian345/LzmaSDKOjbcFramework"&gt;LzmaSDKOjbcFramework&lt;/a&gt;。&lt;/p&gt;
-
 &lt;p&gt;虽然最终采用的方案一，但在制作&lt;a href="https://github.com/ChenJian345/LzmaSDKOjbcFramework"&gt;LzmaSDKOjbcFramework&lt;/a&gt;过程中，也有一些收获，现分享给大家，愿对大家有些帮助。&lt;/p&gt;
-
 &lt;p&gt;最初找到的LZMA的iOS支持库是 &lt;a href="https://github.com/OlehKulykov/LzmaSDKObjC"&gt;LzmaSDKObjC&lt;/a&gt;，但是这个库在引入开发工程中过程中，由于使用的cocoaPods， 必须使用&lt;code&gt;use_frameworks!&lt;/code&gt; 才可以使用，但是由于podfile中存在其他引入的第三方库，这些库不适用&lt;code&gt;use_frameworks!&lt;/code&gt;限制。&lt;/p&gt;
-
 &lt;p&gt;此时陷入两难境地，使用&lt;code&gt;use_frameworks!&lt;/code&gt;导致其他不支持framework的库不可用，如果不使用，LzmaSDKObjC则会报如下错误:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;Codec was not compiled in or stripped by static linking.  
-Make sure you are using 'use_frameworks!' and/or dynamic linking ...  
+&lt;pre&gt;&lt;code&gt;Codec was not compiled in or stripped by static linking. 
+Make sure you are using 'use_frameworks!' and/or dynamic linking ...
 &lt;/code&gt;&lt;/pre&gt;
-
 &lt;p&gt;而CocoaPods又不支持针对某一第三方库来规定使用&lt;code&gt;use_frameworks!&lt;/code&gt;&lt;/p&gt;
-
 &lt;p&gt;既然这样，我打算自己创建一个iOS Framework工程开源，供团队内部及所有人方便使用。&lt;/p&gt;
-
 &lt;h4 id=""&gt;使用步骤&lt;/h4&gt;
-
 &lt;h5 id="step1"&gt;Step1&lt;/h5&gt;
-
 &lt;p&gt;在&lt;a href="https://github.com/ChenJian345/LzmaSDKOjbcFramework"&gt;LzmaSDKOjbcFramework&lt;/a&gt;工程目录下，由于工程需要&lt;code&gt;Inlineobjc&lt;/code&gt;库，所以使用CocoaPods进行安装，命令行执行如下命令：&lt;/p&gt;
-
 &lt;pre&gt;&lt;code&gt;$ pod install
 &lt;/code&gt;&lt;/pre&gt;
-
 &lt;h5 id="step2"&gt;Step2&lt;/h5&gt;
-
 &lt;p&gt;打开workspace工程文件，xCode中看到的内容如下：&lt;/p&gt;
-
-&lt;p&gt;&lt;a href="https://camo.githubusercontent.com/184a2b2cee82d0a9ccb5e542ad7d7c2ab131e25c/687474703a2f2f7777312e73696e61696d672e636e2f6c617267652f303036744e6337396a773166613135326c626d316e6a333069653074716163702e6a7067"&gt;&lt;img src="https://camo.githubusercontent.com/184a2b2cee82d0a9ccb5e542ad7d7c2ab131e25c/687474703a2f2f7777312e73696e61696d672e636e2f6c617267652f303036744e6337396a773166613135326c626d316e6a333069653074716163702e6a7067" alt="img" title=""&gt;&lt;/a&gt;&lt;/p&gt;
-
+&lt;p&gt;&lt;a href="https://camo.githubusercontent.com/184a2b2cee82d0a9ccb5e542ad7d7c2ab131e25c/687474703a2f2f7777312e73696e61696d672e636e2f6c617267652f303036744e6337396a773166613135326c626d316e6a333069653074716163702e6a7067"&gt;&lt;img src="https://camo.githubusercontent.com/184a2b2cee82d0a9ccb5e542ad7d7c2ab131e25c/687474703a2f2f7777312e73696e61696d672e636e2f6c617267652f303036744e6337396a773166613135326c626d316e6a333069653074716163702e6a7067" alt="img"&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;h5 id="step3"&gt;Step3&lt;/h5&gt;
-
 &lt;p&gt;Archive工程并导出&lt;code&gt;LzmaSDKObjC.framework&lt;/code&gt;文件到所需的工程路径下使用，使用如下：&lt;/p&gt;
-
 &lt;pre&gt;&lt;code class="language-objc"&gt;- (void)testLZMA {
-    NSString *sourceFilePath = [NSString stringWithFormat:@"%@/source_data.txt", SYSTEM_DOCUMENT_PATH];
-    NSString *zipFilePath = [NSString stringWithFormat:@"%@/compressed_data.7z", SYSTEM_DOCUMENT_PATH];
-    DDLogDebug(@"\n\n ********** LZMA ********** \nSrc File: %@\n7Zip File:%@\n\n", sourceFilePath, zipFilePath);
+	NSString *sourceFilePath = [NSString stringWithFormat:@&amp;quot;%@/source_data.txt&amp;quot;, SYSTEM_DOCUMENT_PATH];
+    NSString *zipFilePath = [NSString stringWithFormat:@&amp;quot;%@/compressed_data.7z&amp;quot;, SYSTEM_DOCUMENT_PATH];
+	DDLogDebug(@&amp;quot;\n\n ********** LZMA ********** \nSrc File: %@\n7Zip File:%@\n\n&amp;quot;, sourceFilePath, zipFilePath);
     // Create writer
     LzmaSDKObjCWriter * writer = [[LzmaSDKObjCWriter alloc] initWithFileURL:[NSURL fileURLWithPath:zipFilePath]];
-
+    
     // Add file data's or paths
-//    [writer addData:[NSData ...] forPath:@"MyArchiveFileName.txt"]; // Add file data
-    [writer addPath:sourceFilePath forPath:@"."]; // Add file at path
-//    [writer addPath:@"/Path/SomeDirectory" forPath:@"SomeDirectory"]; // Recursively add directory with all contents
-
+//    [writer addData:[NSData ...] forPath:@&amp;quot;MyArchiveFileName.txt&amp;quot;]; // Add file data
+    [writer addPath:sourceFilePath forPath:@&amp;quot;.&amp;quot;]; // Add file at path
+//    [writer addPath:@&amp;quot;/Path/SomeDirectory&amp;quot; forPath:@&amp;quot;SomeDirectory&amp;quot;]; // Recursively add directory with all contents
+    
     // Setup writer
     writer.delegate = self; // Track progress
 //    writer.passwordGetter = ^NSString*(void) { // Password getter
-//        return @"1234";
+//        return @&amp;quot;1234&amp;quot;;
 //    };
-
+    
     // Optional settings
     writer.method = LzmaSDKObjCMethodLZMA; // or LzmaSDKObjCMethodLZMA
     writer.solid = YES;
@@ -981,22 +801,19 @@ Make sure you are using 'use_frameworks!' and/or dynamic linking ...
     writer.writeModificationTime = NO;
     writer.writeCreationTime = NO;
     writer.writeAccessTime = NO;
-
+    
     // Open archive file
     NSError * error = nil;
     [writer open:&amp;amp;error];
-
+    
     // Write archive within current thread
     [writer write];
 }
 &lt;/code&gt;&lt;/pre&gt;
-
 &lt;p&gt;该方式的优点是支持的可选项较广，可以广泛的定制各种参数，但缺点是导入库后会导致应用包的体积变大，所以需要根据自身需求来选择。&lt;/p&gt;
-
-&lt;p&gt;ENJOY.&lt;/p&gt;</content:encoded></item><item><title>地图导航SDK调研</title><description>&lt;p&gt;文 · Mark&lt;/p&gt;
-
-&lt;p&gt;百度地图SDK &lt;/p&gt;
-
+&lt;p&gt;ENJOY.&lt;/p&gt;
+&lt;/div&gt;</content:encoded></item><item><title>地图导航SDK调研</title><description>&lt;div class="kg-card-markdown"&gt;&lt;p&gt;文 · Mark&lt;/p&gt;
+&lt;p&gt;百度地图SDK&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;免费&lt;/li&gt;
 &lt;li&gt;国内地图SDK，国内使用普遍&lt;/li&gt;
@@ -1005,9 +822,7 @@ Make sure you are using 'use_frameworks!' and/or dynamic linking ...
 &lt;li&gt;支持iOS/Android/Web;&lt;/li&gt;
 &lt;li&gt;提供离线地图;&lt;/li&gt;
 &lt;/ul&gt;
-
 &lt;p&gt;百度导航SDK&lt;/p&gt;
-
 &lt;ul&gt;
 &lt;li&gt;免费&lt;/li&gt;
 &lt;li&gt;国内地图SDK，国内使用普遍&lt;/li&gt;
@@ -1015,18 +830,14 @@ Make sure you are using 'use_frameworks!' and/or dynamic linking ...
 &lt;li&gt;国内使用普遍，国际化很难(据悉在扩展海外国际化，时间不可预估) Pass&lt;/li&gt;
 &lt;li&gt;支持iOS/Android/Web;&lt;/li&gt;
 &lt;/ul&gt;
-
 &lt;p&gt;百度导航HUD SDK&lt;/p&gt;
-
 &lt;ul&gt;
 &lt;li&gt;免费&lt;/li&gt;
 &lt;li&gt;国内地图SDK，国内使用普遍&lt;/li&gt;
 &lt;li&gt;支持路线规划，支持Turn-by-Turn导航，但没有实时导航回调接口 Pass&lt;/li&gt;
 &lt;li&gt;国际化很难(据悉在扩展海外国际化，时间不可预估) Pass&lt;/li&gt;
-&lt;li&gt;必须依赖 百度导航（非 百度地图）&lt;/li&gt;&lt;/ul&gt;</description><link>http://localhost:2368/untitled/</link><guid isPermaLink="false">7f00fd70-9dd5-442c-b603-d3da8935ccdd</guid><category>技术</category><category>技术调研</category><dc:creator>Mark Chen</dc:creator><pubDate>Thu, 08 Dec 2016 07:26:52 GMT</pubDate><content:encoded>&lt;p&gt;文 · Mark&lt;/p&gt;
-
-&lt;p&gt;百度地图SDK &lt;/p&gt;
-
+&lt;li&gt;必须依赖 百度导航（非 百度地图）&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;</description><link>http://localhost:2368/untitled/</link><guid isPermaLink="false">5a702c40f2c769befd9f2f1a</guid><category>技术</category><category>技术调研</category><dc:creator>Mark Chen</dc:creator><pubDate>Thu, 08 Dec 2016 07:26:52 GMT</pubDate><content:encoded>&lt;div class="kg-card-markdown"&gt;&lt;p&gt;文 · Mark&lt;/p&gt;
+&lt;p&gt;百度地图SDK&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;免费&lt;/li&gt;
 &lt;li&gt;国内地图SDK，国内使用普遍&lt;/li&gt;
@@ -1035,9 +846,7 @@ Make sure you are using 'use_frameworks!' and/or dynamic linking ...
 &lt;li&gt;支持iOS/Android/Web;&lt;/li&gt;
 &lt;li&gt;提供离线地图;&lt;/li&gt;
 &lt;/ul&gt;
-
 &lt;p&gt;百度导航SDK&lt;/p&gt;
-
 &lt;ul&gt;
 &lt;li&gt;免费&lt;/li&gt;
 &lt;li&gt;国内地图SDK，国内使用普遍&lt;/li&gt;
@@ -1045,9 +854,7 @@ Make sure you are using 'use_frameworks!' and/or dynamic linking ...
 &lt;li&gt;国内使用普遍，国际化很难(据悉在扩展海外国际化，时间不可预估) Pass&lt;/li&gt;
 &lt;li&gt;支持iOS/Android/Web;&lt;/li&gt;
 &lt;/ul&gt;
-
 &lt;p&gt;百度导航HUD SDK&lt;/p&gt;
-
 &lt;ul&gt;
 &lt;li&gt;免费&lt;/li&gt;
 &lt;li&gt;国内地图SDK，国内使用普遍&lt;/li&gt;
@@ -1056,9 +863,7 @@ Make sure you are using 'use_frameworks!' and/or dynamic linking ...
 &lt;li&gt;必须依赖 百度导航（非 百度地图）App Pass&lt;/li&gt;
 &lt;li&gt;支持iOS/Android/Web;&lt;/li&gt;
 &lt;/ul&gt;
-
 &lt;p&gt;高德地图SDK&lt;/p&gt;
-
 &lt;ul&gt;
 &lt;li&gt;免费&lt;/li&gt;
 &lt;li&gt;国内地图SDK，国内使用普遍&lt;/li&gt;
@@ -1067,9 +872,7 @@ Make sure you are using 'use_frameworks!' and/or dynamic linking ...
 &lt;li&gt;支持iOS/Android/Web;&lt;/li&gt;
 &lt;li&gt;提供离线地图;&lt;/li&gt;
 &lt;/ul&gt;
-
 &lt;p&gt;高德导航SDK&lt;/p&gt;
-
 &lt;ul&gt;
 &lt;li&gt;免费&lt;/li&gt;
 &lt;li&gt;国内地图SDK，国内使用普遍&lt;/li&gt;
@@ -1077,21 +880,15 @@ Make sure you are using 'use_frameworks!' and/or dynamic linking ...
 &lt;li&gt;使用国际化很难(据悉在扩展海外国际化，时间不可预估) Pass&lt;/li&gt;
 &lt;li&gt;支持iOS/Android/Web;&lt;/li&gt;
 &lt;/ul&gt;
-
 &lt;p&gt;腾讯地图SDK&lt;/p&gt;
-
 &lt;ul&gt;
 &lt;li&gt;不想多说，考虑其他的吧&lt;/li&gt;
 &lt;/ul&gt;
-
 &lt;p&gt;360地图SDK&lt;/p&gt;
-
 &lt;ul&gt;
 &lt;li&gt;更不想多说，竟然没有iOS SDK，考虑其他的吧&lt;/li&gt;
 &lt;/ul&gt;
-
 &lt;p&gt;Scout&lt;/p&gt;
-
 &lt;ul&gt;
 &lt;li&gt;收费，试用免费，收费计划；&lt;/li&gt;
 &lt;li&gt;提供路线规划，支持Turn-by-Turn导航 很慢，且非毕现不成功&lt;/li&gt;
@@ -1103,9 +900,7 @@ Make sure you are using 'use_frameworks!' and/or dynamic linking ...
 &lt;li&gt;提供Turn-by-Turn导航功能（但国内不好用）; Pass&lt;/li&gt;
 &lt;li&gt;国内加载速度慢，真的是奇慢！&lt;/li&gt;
 &lt;/ul&gt;
-
 &lt;p&gt;Here&lt;/p&gt;
-
 &lt;ul&gt;
 &lt;li&gt;收费，支持试用&lt;/li&gt;
 &lt;li&gt;前Nokia旗下企业&lt;/li&gt;
@@ -1116,9 +911,7 @@ Make sure you are using 'use_frameworks!' and/or dynamic linking ...
 &lt;li&gt;海外SDK&lt;/li&gt;
 &lt;li&gt;只支持Walking和Driving导航，不提供骑行导航&lt;/li&gt;
 &lt;/ul&gt;
-
 &lt;p&gt;Mapbox&lt;/p&gt;
-
 &lt;ul&gt;
 &lt;li&gt;收费，支持试用&lt;/li&gt;
 &lt;li&gt;移动端导航申请页面&lt;/li&gt;
@@ -1131,9 +924,7 @@ Make sure you are using 'use_frameworks!' and/or dynamic linking ...
 &lt;li&gt;支持骑行路线规划&lt;/li&gt;
 &lt;li&gt;Showcases&lt;/li&gt;
 &lt;/ul&gt;
-
 &lt;p&gt;Apple MapKit&lt;/p&gt;
-
 &lt;ul&gt;
 &lt;li&gt;免费&lt;/li&gt;
 &lt;li&gt;不提供离线地图&lt;/li&gt;
@@ -1144,9 +935,7 @@ Make sure you are using 'use_frameworks!' and/or dynamic linking ...
 &lt;li&gt;国内加载速度快&lt;/li&gt;
 &lt;li&gt;不支持骑行路线规划&lt;/li&gt;
 &lt;/ul&gt;
-
 &lt;p&gt;GoogleMap&lt;/p&gt;
-
 &lt;ul&gt;
 &lt;li&gt;一定数量内免费，频繁请求后存在限制&lt;/li&gt;
 &lt;li&gt;国际化支持良好&lt;/li&gt;
@@ -1156,30 +945,22 @@ Make sure you are using 'use_frameworks!' and/or dynamic linking ...
 &lt;li&gt;提供路线规划，不支持Turn-by-Turn导航功能;&lt;/li&gt;
 &lt;li&gt;支持骑行路线规划&lt;/li&gt;
 &lt;/ul&gt;
-
 &lt;p&gt;Q&amp;amp;A相关链接&lt;/p&gt;
-
 &lt;ul&gt;
 &lt;li&gt;getting-routes-and-turn-by-turn-navigation-in-an-iphone-app&lt;/li&gt;
 &lt;li&gt;turn-by-turn-navigation-for-our-driver-app&lt;/li&gt;
 &lt;li&gt;&lt;a href="http://stackoverflow.com/questions/20905797/google-maps-ios-sdk-getting-directions-between-2-locations"&gt;google-maps-ios-sdk-getting-directions-between-2-locations&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-
-&lt;p&gt;&lt;em&gt;2016-5-5 On the Train to Shanghai.&lt;/em&gt;&lt;/p&gt;</content:encoded></item><item><title>Protobuf初探</title><description>&lt;p&gt;文 · Mark&lt;/p&gt;
-
+&lt;p&gt;&lt;em&gt;2016-5-5 On the Train to Shanghai.&lt;/em&gt;&lt;/p&gt;
+&lt;/div&gt;</content:encoded></item><item><title>Protobuf初探</title><description>&lt;div class="kg-card-markdown"&gt;&lt;p&gt;文 · Mark&lt;/p&gt;
 &lt;blockquote&gt;
-  &lt;p&gt;对于软件开发者，尤其是移动端（Android &amp;amp; iOS）开发者来说，XML和JSON两种文件传输格式并不陌生，尤其是JSON，仅在上述两种开发领域中就广泛应用。随之而来的，是各种JSON的解析库，此文中，笔者不想介绍各个平台丰富多彩的JSON解析库，而是想和大家分享发现的一种新的文件传输格式，Protobuf。&lt;/p&gt;
+&lt;p&gt;对于软件开发者，尤其是移动端（Android &amp;amp; iOS）开发者来说，XML和JSON两种文件传输格式并不陌生，尤其是JSON，仅在上述两种开发领域中就广泛应用。随之而来的，是各种JSON的解析库，此文中，笔者不想介绍各个平台丰富多彩的JSON解析库，而是想和大家分享发现的一种新的文件传输格式，Protobuf。&lt;/p&gt;
 &lt;/blockquote&gt;
-
 &lt;h3 id="protobuf"&gt;Protobuf是什么鬼&lt;/h3&gt;
-
 &lt;p&gt;初次相遇Protobuf，这是我的第一反应。那么Protobuf到底是什么鬼？&lt;/p&gt;
-
 &lt;!-- more --&gt;
-
 &lt;p&gt;Protobuf是一种灵活高效的、用于跨平台数据通信的数据传输格式，全称Protocol Buffers，类似XML和JSON。下面，我们先看一个protobuf的简单例子，如下：&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;message Person {  
+&lt;pre&gt;&lt;code&gt;message Person {
   required string name = 1;
   required int32 id = 2;
   optional string email = 3;
@@ -1187,21 +968,15 @@ Make sure you are using 'use_frameworks!' and/or dynamic linking ...
   enum PhoneType {
     MOBILE = 0;
     HOME = 1;
-    WORK&lt;/code&gt;&lt;/pre&gt;</description><link>http://localhost:2368/protobufchu-tan/</link><guid isPermaLink="false">2c1bdcbb-d10f-4a98-b0d5-26574c7450bc</guid><category>Android</category><category>iOS</category><category>C++</category><category>技术调研</category><dc:creator>Mark Chen</dc:creator><pubDate>Thu, 08 Dec 2016 07:23:20 GMT</pubDate><content:encoded>&lt;p&gt;文 · Mark&lt;/p&gt;
-
+    WORK&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description><link>http://localhost:2368/protobufchu-tan/</link><guid isPermaLink="false">5a702c40f2c769befd9f2f15</guid><category>Android</category><category>iOS</category><category>C++</category><category>技术调研</category><dc:creator>Mark Chen</dc:creator><pubDate>Thu, 08 Dec 2016 07:23:20 GMT</pubDate><content:encoded>&lt;div class="kg-card-markdown"&gt;&lt;p&gt;文 · Mark&lt;/p&gt;
 &lt;blockquote&gt;
-  &lt;p&gt;对于软件开发者，尤其是移动端（Android &amp;amp; iOS）开发者来说，XML和JSON两种文件传输格式并不陌生，尤其是JSON，仅在上述两种开发领域中就广泛应用。随之而来的，是各种JSON的解析库，此文中，笔者不想介绍各个平台丰富多彩的JSON解析库，而是想和大家分享发现的一种新的文件传输格式，Protobuf。&lt;/p&gt;
+&lt;p&gt;对于软件开发者，尤其是移动端（Android &amp;amp; iOS）开发者来说，XML和JSON两种文件传输格式并不陌生，尤其是JSON，仅在上述两种开发领域中就广泛应用。随之而来的，是各种JSON的解析库，此文中，笔者不想介绍各个平台丰富多彩的JSON解析库，而是想和大家分享发现的一种新的文件传输格式，Protobuf。&lt;/p&gt;
 &lt;/blockquote&gt;
-
 &lt;h3 id="protobuf"&gt;Protobuf是什么鬼&lt;/h3&gt;
-
 &lt;p&gt;初次相遇Protobuf，这是我的第一反应。那么Protobuf到底是什么鬼？&lt;/p&gt;
-
 &lt;!-- more --&gt;
-
 &lt;p&gt;Protobuf是一种灵活高效的、用于跨平台数据通信的数据传输格式，全称Protocol Buffers，类似XML和JSON。下面，我们先看一个protobuf的简单例子，如下：&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;message Person {  
+&lt;pre&gt;&lt;code&gt;message Person {
   required string name = 1;
   required int32 id = 2;
   optional string email = 3;
@@ -1220,39 +995,26 @@ Make sure you are using 'use_frameworks!' and/or dynamic linking ...
   repeated PhoneNumber phone = 4;
 }
 &lt;/code&gt;&lt;/pre&gt;
-
 &lt;p&gt;其实，Protobuf出身名门Google，采用C++实现，在Google内部已应用多年，并有与平台无关，与语言无关，可高效序列化传输等特点，当前最新的Protobuf版本为3.0。&lt;/p&gt;
-
 &lt;h3 id=""&gt;发展现状&lt;/h3&gt;
-
-&lt;p&gt;Google最初为了解决统一内部传输问题，自己制定了一套高效的数据传输格式定义协议，即Protobuf，并逐步在Google内部项目中使用。随着Protobuf在Google内部被越来越多的项目所采用，本身性能也在逐步被改良提高。 &lt;br&gt;
-在2008年7月7日，将Protobuf贡献给开源社区进行了开源，目前，Github上可以找到相应源码。
-目前Protobuf不仅在Google内部广泛使用，在RPC通信中广泛使用，在国外，Facebook在部分项目中采用了Protobuf作为通信的编解码工具。在国内，Protobuf在百度，腾讯TDW平台，阿里巴巴部分项目中，也被作为基础库充分利用。除此之外，还有一些其他公司也在使用Protobuf左右数据通信的基础类库。
+&lt;p&gt;Google最初为了解决统一内部传输问题，自己制定了一套高效的数据传输格式定义协议，即Protobuf，并逐步在Google内部项目中使用。随着Protobuf在Google内部被越来越多的项目所采用，本身性能也在逐步被改良提高。&lt;br&gt;
+在2008年7月7日，将Protobuf贡献给开源社区进行了开源，目前，Github上可以找到相应源码。&lt;br&gt;
+目前Protobuf不仅在Google内部广泛使用，在RPC通信中广泛使用，在国外，Facebook在部分项目中采用了Protobuf作为通信的编解码工具。在国内，Protobuf在百度，腾讯TDW平台，阿里巴巴部分项目中，也被作为基础库充分利用。除此之外，还有一些其他公司也在使用Protobuf左右数据通信的基础类库。&lt;br&gt;
 但是，在移动平台开发中，应用还不是很广泛。&lt;/p&gt;
-
 &lt;h3 id=""&gt;支持的语言&lt;/h3&gt;
-
 &lt;p&gt;Google官方对Protobuf提供C++、Java、Python三种语言提供官方支持。对于proto3，还支持Go、JavaNano、Ruby和C#。当然，几乎所有当前的编程语言，都有相应的Protobuf支持库，所以，对于Protobuf的支持的语言还是很全面的。&lt;/p&gt;
-
 &lt;h3 id=""&gt;工作原理&lt;/h3&gt;
-
 &lt;p&gt;使用Protobuf，只需要根据Protobuf的语法规范，定义需要传输的数据内容格式，定义Protobuf的文件为.proto文件，例如，定义一个具有name和email字段的Person信息对象时，.proto文件内容如下：&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;message Person {  
+&lt;pre&gt;&lt;code&gt;message Person {
     required string name = 1;
     optional string email = 2;
 }
 &lt;/code&gt;&lt;/pre&gt;
-
 &lt;p&gt;定义好数据格式之后，我们只需要使用我们需要的语言的Protobuf编译器对.proto文件进行编译即可，输出我们需要的对应语言的Model定义类源码文件，在该文件中会自动生成序列化方法，getter和setter方法等，例如对于C++语言，上述.proto文件编译命令为：&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;protoc --cpp_out=cpp_dir person.proto  
+&lt;pre&gt;&lt;code&gt;protoc --cpp_out=cpp_dir person.proto
 &lt;/code&gt;&lt;/pre&gt;
-
 &lt;p&gt;protobuf编译器根据.proto文件对Message Person定义，编译生成对应的源码文件，包含.h、.cpp文件，其中.h文件如下，下面我们就看一下具体生成了哪些内容。&lt;/p&gt;
-
 &lt;p&gt;基本Person类框架，包括Person对象的构建函数，析构函数，等于运算符重载，Descriptor函数等；&lt;/p&gt;
-
 &lt;pre&gt;&lt;code&gt;  class Person;
 ...
   class Person : public ::google::protobuf::Message {
@@ -1278,9 +1040,7 @@ Make sure you are using 'use_frameworks!' and/or dynamic linking ...
     static const ::google::protobuf::Descriptor* descriptor();
     static const Person&amp;amp; default_instance();
 &lt;/code&gt;&lt;/pre&gt;
-
 &lt;p&gt;由剩余部分代码可以清晰的看出，Protobuf编译器已经帮我们生成好了Model构建的方法，各属性的getter、setter方法、以及序列化方法，在后续过程中，我们只需要调用相关方法即可；&lt;/p&gt;
-
 &lt;pre&gt;&lt;code&gt;    // required string name = 1;
     inline bool has_name() const;
     inline void clear_name();
@@ -1312,15 +1072,13 @@ Make sure you are using 'use_frameworks!' and/or dynamic linking ...
     inline void set_has_email();
     inline void clear_has_email();
 &lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;那么，我们通过protobuf编译器protoc编译出了我们需要的Model定义类Person.h和Person.cpp，剩下的工作只需要调用进行使用了。下面我们简单调用一下我们生成的相应Person Model代码。
+&lt;p&gt;那么，我们通过protobuf编译器protoc编译出了我们需要的Model定义类Person.h和Person.cpp，剩下的工作只需要调用进行使用了。下面我们简单调用一下我们生成的相应Person Model代码。&lt;br&gt;
 调用代码如下：&lt;/p&gt;
-
 &lt;pre&gt;&lt;code&gt;#include &amp;lt;iostream&amp;gt;
 #include &amp;lt;fstream&amp;gt;
 #include &amp;lt;string&amp;gt;
 
-#include "person.pb.h"
+#include &amp;quot;person.pb.h&amp;quot;
 
 using namespace std;
 
@@ -1328,7 +1086,7 @@ using namespace std;
 // Main function:  Reads the entire person info. from a file,
 //   adds one person based on user input, then writes it back out to the same
 //   file.
-int main(int argc, char* argv[]) {  
+int main(int argc, char* argv[]) {
   // Verify that the version of the library that we linked against is
   // compatible with the version of the headers we compiled against.
   GOOGLE_PROTOBUF_VERIFY_VERSION;
@@ -1336,18 +1094,18 @@ int main(int argc, char* argv[]) {
   ...
 
   Person *person = new Person();
-  person-&amp;gt;set_name("Mark CJ");
-  person-&amp;gt;set_email("markcjemail@google.com");
+  person-&amp;gt;set_name(&amp;quot;Mark CJ&amp;quot;);
+  person-&amp;gt;set_email(&amp;quot;markcjemail@google.com&amp;quot;);
 
-  cout &amp;lt;&amp;lt; "Person Info : name " &amp;lt;&amp;lt; person.name() &amp;lt;&amp;lt; ", email : " &amp;lt;&amp;lt; person.email() &amp;lt;&amp;lt; endl;
+  cout &amp;lt;&amp;lt; &amp;quot;Person Info : name &amp;quot; &amp;lt;&amp;lt; person.name() &amp;lt;&amp;lt; &amp;quot;, email : &amp;quot; &amp;lt;&amp;lt; person.email() &amp;lt;&amp;lt; endl;
 
   {
     // Read the existing person object.
     fstream input(argv[1], ios::in | ios::binary);
     if (!input) {
-      cout &amp;lt;&amp;lt; argv[1] &amp;lt;&amp;lt; ": File not found.  Creating a new file." &amp;lt;&amp;lt; endl;
+      cout &amp;lt;&amp;lt; argv[1] &amp;lt;&amp;lt; &amp;quot;: File not found.  Creating a new file.&amp;quot; &amp;lt;&amp;lt; endl;
     } else if (!person.ParseFromIstream(&amp;amp;input)) {
-      cerr &amp;lt;&amp;lt; "Failed to parse person object." &amp;lt;&amp;lt; endl;
+      cerr &amp;lt;&amp;lt; &amp;quot;Failed to parse person object.&amp;quot; &amp;lt;&amp;lt; endl;
       return -1;
     }
   }
@@ -1358,7 +1116,7 @@ int main(int argc, char* argv[]) {
     // Write the new person object back to disk.
     fstream output(argv[1], ios::out | ios::trunc | ios::binary);
     if (!person.SerializeToOstream(&amp;amp;output)) {
-      cerr &amp;lt;&amp;lt; "Failed to write person object." &amp;lt;&amp;lt; endl;
+      cerr &amp;lt;&amp;lt; &amp;quot;Failed to write person object.&amp;quot; &amp;lt;&amp;lt; endl;
       return -1;
     }
   }
@@ -1369,185 +1127,117 @@ int main(int argc, char* argv[]) {
   return 0;
 }
 &lt;/code&gt;&lt;/pre&gt;
-
 &lt;h3 id="protobuf"&gt;Protobuf优势&lt;/h3&gt;
-
 &lt;p&gt;Protobuf是用于结构化数据串行化的灵活、高效、自动的方法，类似XML，不过它比XML更小、更快、也更简单。你可以定义自己的数据结构，然后使用代码生成器生成的代码来读写这个数据结构。你甚至可以在无需重新部署程序的情况下更新数据结构。&lt;/p&gt;
-
 &lt;h3 id=""&gt;体积更小、速度更快&lt;/h3&gt;
-
-&lt;p&gt;相对于XML，Protobuf只有XML文件的1/10到1/3大小。
+&lt;p&gt;相对于XML，Protobuf只有XML文件的1/10到1/3大小。&lt;br&gt;
 例如，当需要传输一个带有&lt;code&gt;name&lt;/code&gt;和&lt;code&gt;email&lt;/code&gt;字段的&lt;code&gt;Person&lt;/code&gt;对象信息时，使用XML格式如下&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;&amp;lt;person&amp;gt;  
+&lt;pre&gt;&lt;code&gt;&amp;lt;person&amp;gt;
     &amp;lt;name&amp;gt;John Doe&amp;lt;/name&amp;gt;
     &amp;lt;email&amp;gt;jdoe@example.com&amp;lt;/email&amp;gt;
-&amp;lt;/person&amp;gt;  
+&amp;lt;/person&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;如果剔除空格，该XML体积为69字节，会大概话费5000-10000 nm解析上述数据。
+&lt;p&gt;如果剔除空格，该XML体积为69字节，会大概话费5000-10000 nm解析上述数据。&lt;br&gt;
 而使用Protobuf的message形式，转为人类可读内容如下：&lt;/p&gt;
-
 &lt;pre&gt;&lt;code&gt;# Textual representation of a protocol buffer.
 # This is *not* the binary format used on the wire.
-person {  
-    name: "John Doe"
-    email: "jdoe@example.com"
+person {
+    name: &amp;quot;John Doe&amp;quot;
+    email: &amp;quot;jdoe@example.com&amp;quot;
 }
 &lt;/code&gt;&lt;/pre&gt;
-
 &lt;p&gt;但当上述Protobuf的Person信息转为二进制形式（Protobuf传输时使用二进制）时，约28字节，大概话费100-200nm解析使用。&lt;/p&gt;
-
 &lt;p&gt;以下是针对于Protobuf及相关竞品做的一份性能测试&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;浅蓝色为序列化时间，深蓝色为反序列化时间&lt;/strong&gt;
+&lt;p&gt;&lt;strong&gt;浅蓝色为序列化时间，深蓝色为反序列化时间&lt;/strong&gt;&lt;br&gt;
 &lt;img src="https://camo.githubusercontent.com/75941272e9741d49d04f00337c367b78cdac4e80/68747470733a2f2f63686172742e676f6f676c65617069732e636f6d2f63686172743f6368743d626873266368733d36303078333734266368643d743a3234382c3433332c3433322c3530312c3532362c3635302c3539372c3732332c3739362c3733322c313137332c3931332c313238302c3838382c313431372c313435352c3838372c313035387c3339352c3633342c3638342c3637342c3830362c3639352c3735382c313038322c313035322c313134372c3731382c313137352c3830382c313233382c3735382c3733312c313332392c31323431266368636f3d3564393966392c346438396639266368646c703d7426636862683d313526636864733d302c3232393926636878723d312c302c3232393926636878743d792c78266368786c3d303a7c6a736f6e253246666173746a736f6e2532466461746162696e647c6a736f6e2d636f6c2532466a61636b736f6e2532466461746162696e647c7468726966747c666c6174627566666572737c63626f722532466a61636b736f6e25324261667465726275726e65722532466461746162696e647c7468726966742d636f6d706163747c736d696c652532466a61636b736f6e25324261667465726275726e65722532466461746162696e647c70726f746f6275667c63626f722d636f6c2532466a61636b736f6e2532466461746162696e647c6d73677061636b2532466461746162696e647c736d696c652d636f6c2532466a61636b736f6e2532466461746162696e647c6b72796f2d666c61742d7072657c6a736f6e2d6172726179253246666173746a736f6e2532466461746162696e647c6a736f6e25324664736c2d706c6174666f726d7c6673742d666c61742d7072657c6d696e69666965642d6a736f6e25324664736c2d706c6174666f726d7c70726f746f73747566667c636f6c666572" alt="序列号反序列化对比"&gt;&lt;/p&gt;
-
-&lt;p&gt;内存占用情况对比
+&lt;p&gt;内存占用情况对比&lt;br&gt;
 &lt;img src="https://camo.githubusercontent.com/8e204e325f4d882d420e5ba4399f1b10da4c23ad/68747470733a2f2f63686172742e676f6f676c65617069732e636f6d2f63686172743f6368743d626873266368733d36303078333734266368643d743a3133322c3134362c3134382c3135302c3134392c3134382c3136352c3136352c3136352c3134372c3136332c3137382c3332372c3234312c3139372c3235322c3139372c3234367c38302c38372c39302c38392c39302c39322c38362c38362c38372c3130382c3131382c3131352c31302c39372c3135322c3130302c3135362c313531266368636f3d3564393966392c346438396639266368646c703d7426636862683d313526636864733d302c33393726636878723d312c302c33393726636878743d792c78266368786c3d303a7c63626f722532466a61636b736f6e25324261667465726275726e65722532466461746162696e647c6d696e69666965642d6a736f6e25324664736c2d706c6174666f726d7c736d696c652532466a61636b736f6e25324261667465726275726e65722532466461746162696e647c7468726966747c736d696c652532466a61636b736f6e2532466461746162696e647c786d6c2532466578692d6d616e75616c7c6a736f6e2d636f6c2532466a61636b736f6e2532466461746162696e647c6a736f6e2d6172726179253246666173746a736f6e2532466461746162696e647c7363616c612532467362696e6172797c736d696c652d636f6c2532466a61636b736f6e2532466461746162696e647c63626f722d636f6c2532466a61636b736f6e2532466461746162696e647c6673742d666c61742d7072657c7468726966742d636f6d706163747c70726f746f6275667c70726f746f73747566667c636f6c6665727c6d73677061636b2532466461746162696e647c6b72796f2d666c61742d707265" alt="内存占用对比"&gt;&lt;/p&gt;
-
 &lt;h3 id=""&gt;书写简单、更少歧义&lt;/h3&gt;
-
 &lt;p&gt;当编程输出Model内容时，采用C++，代码如下：&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;cout &amp;lt;&amp;lt; "Name: " &amp;lt;&amp;lt; person.name() &amp;lt;&amp;lt; endl;  
-cout &amp;lt;&amp;lt; "E-mail: " &amp;lt;&amp;lt; person.email() &amp;lt;&amp;lt; endl;  
+&lt;pre&gt;&lt;code&gt;cout &amp;lt;&amp;lt; &amp;quot;Name: &amp;quot; &amp;lt;&amp;lt; person.name() &amp;lt;&amp;lt; endl;
+cout &amp;lt;&amp;lt; &amp;quot;E-mail: &amp;quot; &amp;lt;&amp;lt; person.email() &amp;lt;&amp;lt; endl;
 &lt;/code&gt;&lt;/pre&gt;
-
 &lt;p&gt;但当采用XML，对获取到的Person信息进行解析时，代码如下：&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;cout &amp;lt;&amp;lt; "Name: "  
-       &amp;lt;&amp;lt; person.getElementsByTagName("name")-&amp;gt;item(0)-&amp;gt;innerText()
+&lt;pre&gt;&lt;code&gt;cout &amp;lt;&amp;lt; &amp;quot;Name: &amp;quot;
+       &amp;lt;&amp;lt; person.getElementsByTagName(&amp;quot;name&amp;quot;)-&amp;gt;item(0)-&amp;gt;innerText()
        &amp;lt;&amp;lt; endl;
-cout &amp;lt;&amp;lt; "E-mail: "  
-       &amp;lt;&amp;lt; person.getElementsByTagName("email")-&amp;gt;item(0)-&amp;gt;innerText()
+cout &amp;lt;&amp;lt; &amp;quot;E-mail: &amp;quot;
+       &amp;lt;&amp;lt; person.getElementsByTagName(&amp;quot;email&amp;quot;)-&amp;gt;item(0)-&amp;gt;innerText()
        &amp;lt;&amp;lt; endl;
 &lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;相比于JSON，除了语义更简单之外，Protobuf中被编号的字段可以排除所谓的版本检查，保证无偿的向后兼容。
-由上面所述可见，我们也可以使用Protobuf中的&lt;code&gt;@required&lt;/code&gt;、&lt;code&gt;@optional&lt;/code&gt;、&lt;code&gt;@repeated&lt;/code&gt;等属性，将一些常识性的调试操作，转换为正式的拓展，比如将原来&lt;code&gt;@optional&lt;/code&gt;的字段内容转换为
+&lt;p&gt;相比于JSON，除了语义更简单之外，Protobuf中被编号的字段可以排除所谓的版本检查，保证无偿的向后兼容。&lt;br&gt;
+由上面所述可见，我们也可以使用Protobuf中的&lt;code&gt;@required&lt;/code&gt;、&lt;code&gt;@optional&lt;/code&gt;、&lt;code&gt;@repeated&lt;/code&gt;等属性，将一些常识性的调试操作，转换为正式的拓展，比如将原来&lt;code&gt;@optional&lt;/code&gt;的字段内容转换为&lt;br&gt;
 &lt;code&gt;@required&lt;/code&gt;的字段。&lt;/p&gt;
-
 &lt;h3 id="protobuf"&gt;Protobuf劣势&lt;/h3&gt;
-
 &lt;p&gt;虽然Protobuf的效率以及体积控制很出色，但是万物都有优点，也有缺点，当然Protobuf也不例外。&lt;/p&gt;
-
 &lt;p&gt;相对于XML， Protobuf的功能略显简单，无法表达较为复杂的概念定义，所以，对于复杂的定义需求，无法有效的实现。&lt;/p&gt;
-
-&lt;p&gt;由于XML在多行业中被广泛、长期的使用，所以，使用XML已经成为了部分行业的标准工具，而Protobuf只在Google内部使用较多，所以对于被更广泛的其他行业所使用，还有很长的路要走。
+&lt;p&gt;由于XML在多行业中被广泛、长期的使用，所以，使用XML已经成为了部分行业的标准工具，而Protobuf只在Google内部使用较多，所以对于被更广泛的其他行业所使用，还有很长的路要走。&lt;br&gt;
 为了缩减Protobuf的传输数据文件大小，也为了加快解析速度，Protobuf采用二进制格式进行存储，所以导致存储后或传输过程中的数据，对人类可读性差，不利于中间代码数据调试。&lt;/p&gt;
-
 &lt;p&gt;和XML相比，Protobuf也适用描述标记语言的传输，比较适用于描述数据结构，而XML在这两方面，均可适用。&lt;/p&gt;
-
 &lt;p&gt;而相对于JSON，Protobuf在序列化速度和反序列化速度方面还略有差距，这一点也是Protobuf需要补强的一部分。同时，在服务端和Web端数据通信中，JSON的使用广泛性还是要高于Protobuf，这也源于前端原生库及第三方库对JSON的有效支持，而Protobuf在Web端，还没有如此广泛的支持。&lt;/p&gt;
-
 &lt;h3 id=""&gt;小结&lt;/h3&gt;
-
 &lt;p&gt;以上只是对Protobuf的初探内容，本想找到一种可以替代JSON的解决方案，但是并不是完全没有收获，虽然现在Protobuf没有在移动端广泛应用，因为当前JSON的各项性能均与其类似，但是Protobuf有些设计思想还是可以供大家借鉴的。如果有朋友想深入了解，可以访问Google官网及查看相关源码，笔者文笔较差，欢迎批评指正，多多交流。&lt;/p&gt;
-
-&lt;p&gt;在学习Protobuf的过程中，发现了一个名叫Protostuff的好东西，protostuff针对protobuf进行了部分优化，包括可选免去预编译等操作，初探比XML及JSON效率都要高效，有兴趣的朋友也可以深入了解一下。&lt;/p&gt;</content:encoded></item><item><title>Homebrew常用Cheatsheet</title><description>&lt;h3 id="homebrew"&gt;安装Homebrew&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code&gt;ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"  
+&lt;p&gt;在学习Protobuf的过程中，发现了一个名叫Protostuff的好东西，protostuff针对protobuf进行了部分优化，包括可选免去预编译等操作，初探比XML及JSON效率都要高效，有兴趣的朋友也可以深入了解一下。&lt;/p&gt;
+&lt;/div&gt;</content:encoded></item><item><title>Homebrew常用Cheatsheet</title><description>&lt;div class="kg-card-markdown"&gt;&lt;h3 id="homebrew"&gt;安装Homebrew&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;ruby -e &amp;quot;$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)&amp;quot;
 &lt;/code&gt;&lt;/pre&gt;
-
 &lt;h3 id=""&gt;搜索&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code&gt;brew search &amp;lt;target-name&amp;gt;  
+&lt;pre&gt;&lt;code&gt;brew search &amp;lt;target-name&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code&gt;e.g. brew search mysql  
+&lt;pre&gt;&lt;code&gt;e.g. brew search mysql
 &lt;/code&gt;&lt;/pre&gt;
-
 &lt;h3 id=""&gt;查询软件列表&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code&gt;brew list        // 可列出可安装的软件列表, 可结合管道使用，查找需要的软件  
+&lt;pre&gt;&lt;code&gt;brew list		// 可列出可安装的软件列表, 可结合管道使用，查找需要的软件
 &lt;/code&gt;&lt;/pre&gt;
-
 &lt;h3 id=""&gt;安装软件&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code&gt;brew install &amp;lt;target-name&amp;gt;  
+&lt;pre&gt;&lt;code&gt;brew install &amp;lt;target-name&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;
-
 &lt;h3 id=""&gt;删除软件&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code&gt;brew uninstall &amp;lt;target-name&amp;gt;  
+&lt;pre&gt;&lt;code&gt;brew uninstall &amp;lt;target-name&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;
-
 &lt;h3 id=""&gt;查询&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code&gt;brew info &amp;lt;target-name&amp;gt;  
+&lt;pre&gt;&lt;code&gt;brew info &amp;lt;target-name&amp;gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description><link>http://localhost:2368/welcome-to-ghost/</link><guid isPermaLink="false">5a702c40f2c769befd9f2f12</guid><category>技术</category><category>工具</category><dc:creator>Mark Chen</dc:creator><pubDate>Thu, 08 Dec 2016 06:55:59 GMT</pubDate><content:encoded>&lt;div class="kg-card-markdown"&gt;&lt;h3 id="homebrew"&gt;安装Homebrew&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;ruby -e &amp;quot;$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)&amp;quot;
 &lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code&gt;e.g.&lt;/code&gt;&lt;/pre&gt;</description><link>http://localhost:2368/welcome-to-ghost/</link><guid isPermaLink="false">59f0d0ea-cab8-400e-aca8-b737de388cf7</guid><category>技术</category><category>工具</category><dc:creator>Mark Chen</dc:creator><pubDate>Thu, 08 Dec 2016 06:55:59 GMT</pubDate><content:encoded>&lt;h3 id="homebrew"&gt;安装Homebrew&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code&gt;ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"  
-&lt;/code&gt;&lt;/pre&gt;
-
 &lt;h3 id=""&gt;搜索&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code&gt;brew search &amp;lt;target-name&amp;gt;  
+&lt;pre&gt;&lt;code&gt;brew search &amp;lt;target-name&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code&gt;e.g. brew search mysql  
+&lt;pre&gt;&lt;code&gt;e.g. brew search mysql
 &lt;/code&gt;&lt;/pre&gt;
-
 &lt;h3 id=""&gt;查询软件列表&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code&gt;brew list        // 可列出可安装的软件列表, 可结合管道使用，查找需要的软件  
+&lt;pre&gt;&lt;code&gt;brew list		// 可列出可安装的软件列表, 可结合管道使用，查找需要的软件
 &lt;/code&gt;&lt;/pre&gt;
-
 &lt;h3 id=""&gt;安装软件&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code&gt;brew install &amp;lt;target-name&amp;gt;  
+&lt;pre&gt;&lt;code&gt;brew install &amp;lt;target-name&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;
-
 &lt;h3 id=""&gt;删除软件&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code&gt;brew uninstall &amp;lt;target-name&amp;gt;  
+&lt;pre&gt;&lt;code&gt;brew uninstall &amp;lt;target-name&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;
-
 &lt;h3 id=""&gt;查询&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code&gt;brew info &amp;lt;target-name&amp;gt;  
+&lt;pre&gt;&lt;code&gt;brew info &amp;lt;target-name&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code&gt;e.g. brew search mysql  
+&lt;pre&gt;&lt;code&gt;e.g. brew search mysql
 &lt;/code&gt;&lt;/pre&gt;
-
 &lt;h3 id="homebrew"&gt;更新Homebrew信息&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code&gt;brew update        // 更新Homebrew信息，包括Homebrew自身以及包信息等；  
+&lt;pre&gt;&lt;code&gt;brew update		// 更新Homebrew信息，包括Homebrew自身以及包信息等；
 &lt;/code&gt;&lt;/pre&gt;
-
 &lt;h3 id="homebrew"&gt;Homebrew体检&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code&gt;brew doctor        // 会详细列出过期或者废弃的信息  
+&lt;pre&gt;&lt;code&gt;brew doctor		// 会详细列出过期或者废弃的信息
 &lt;/code&gt;&lt;/pre&gt;
-
 &lt;h3 id=""&gt;升级软件&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code&gt;brew upgrade    // 通过Homebrew升级所有可以升级的软件们  
+&lt;pre&gt;&lt;code&gt;brew upgrade	// 通过Homebrew升级所有可以升级的软件们
 &lt;/code&gt;&lt;/pre&gt;
-
 &lt;h3 id=""&gt;清理&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code&gt;brew cleanup    // 清理不需要的版本、安装包、缓存等内容  
+&lt;pre&gt;&lt;code&gt;brew cleanup	// 清理不需要的版本、安装包、缓存等内容
 &lt;/code&gt;&lt;/pre&gt;
-
 &lt;h3 id=""&gt;查看升级信息&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code&gt;brew outdated    // 查看所有可升级的软件，aka. 知道哪些软件有新版本啦  
+&lt;pre&gt;&lt;code&gt;brew outdated	// 查看所有可升级的软件，aka. 知道哪些软件有新版本啦
 &lt;/code&gt;&lt;/pre&gt;
-
 &lt;h3 id=""&gt;软件定向升级&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code&gt;brew upgrade &amp;lt;target-name&amp;gt;        // 对某一软件进行针对性升级  
+&lt;pre&gt;&lt;code&gt;brew upgrade &amp;lt;target-name&amp;gt;		// 对某一软件进行针对性升级
 &lt;/code&gt;&lt;/pre&gt;
-
 &lt;p&gt;ENJOY.&lt;/p&gt;
-
 &lt;hr&gt;
-
-&lt;p&gt;Author: Mark C.J.    2016.6.15&lt;/p&gt;
-
-&lt;p&gt;Flight &lt;strong&gt;HU7711&lt;/strong&gt;. From Beijing to Shenzhen.&lt;/p&gt;</content:encoded></item></channel></rss>
+&lt;p&gt;Author: Mark C.J.	2016.6.15&lt;/p&gt;
+&lt;p&gt;Flight &lt;strong&gt;HU7711&lt;/strong&gt;. From Beijing to Shenzhen.&lt;/p&gt;
+&lt;/div&gt;</content:encoded></item></channel></rss>
