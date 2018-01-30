@@ -1,4 +1,4 @@
-<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" version="2.0"><channel><title>Crazy Mark</title><description>Thoughts &amp; Ideas.</description><link>http://localhost:2368/</link><image><url>http://localhost:2368/favicon.png</url><title>Crazy Mark</title><link>http://localhost:2368/</link></image><generator>Ghost 1.20</generator><lastBuildDate>Tue, 30 Jan 2018 09:30:48 GMT</lastBuildDate><atom:link href="http://localhost:2368/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title>Beacon初识</title><description>&lt;div class="kg-card-markdown"&gt;&lt;p&gt;文 · Mark&lt;/p&gt;
+<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" version="2.0"><channel><title>Crazy Mark</title><description>Thoughts &amp; Ideas.</description><link>http://localhost:2368/</link><image><url>http://localhost:2368/favicon.png</url><title>Crazy Mark</title><link>http://localhost:2368/</link></image><generator>Ghost 1.20</generator><lastBuildDate>Tue, 30 Jan 2018 09:35:17 GMT</lastBuildDate><atom:link href="http://localhost:2368/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title>Beacon初识</title><description>&lt;div class="kg-card-markdown"&gt;&lt;p&gt;文 · Mark&lt;/p&gt;
 &lt;h2 id="beacon"&gt;什么是Beacon&lt;/h2&gt;
 &lt;p&gt;Beacon  ['biːk(ə)n] 这个单词的中文意思是&lt;em&gt;信号浮标、灯塔&lt;/em&gt;，此文所说的Beacon其特点如下：&lt;/p&gt;
 &lt;ul&gt;
@@ -17,7 +17,7 @@
 &lt;h4 id="eddystone"&gt;&lt;a href="https://developers.google.com/beacons/"&gt;Eddystone&lt;/a&gt;&lt;/h4&gt;
 &lt;p&gt;2015年，Google推出的开源低功耗BLE平台项目，名字来源于英国Eddystone灯塔，在iOS、Android平台上均可使用。&lt;/p&gt;
 &lt;p&gt;该项目的目标在于试图创建一个鲁棒、可扩展的Beacon标准，平台应用范围比iBeacon要广；&lt;/p&gt;
-&lt;p&gt;苹果的iBeacon和谷歌的&lt;a href="https://google.github.io/physical-web/"&gt;&lt;/a&gt;&lt;/p&gt;&lt;/div&gt;</description><link>http://localhost:2368/beacon/</link><guid isPermaLink="false">5a703ab1e4699cc1ae3488d0</guid><dc:creator>Mark Chen</dc:creator><pubDate>Tue, 30 Jan 2018 09:30:38 GMT</pubDate><content:encoded>&lt;div class="kg-card-markdown"&gt;&lt;p&gt;文 · Mark&lt;/p&gt;
+&lt;p&gt;苹果的iBeacon和谷歌的&lt;a href="https://google.github.io/physical-web/"&gt;&lt;/a&gt;&lt;/p&gt;&lt;/div&gt;</description><link>http://localhost:2368/beacon/</link><guid isPermaLink="false">5a703ab1e4699cc1ae3488d0</guid><category>设计</category><category>Beacon</category><category>Ble</category><dc:creator>Mark Chen</dc:creator><pubDate>Tue, 30 Jan 2018 09:30:38 GMT</pubDate><content:encoded>&lt;div class="kg-card-markdown"&gt;&lt;p&gt;文 · Mark&lt;/p&gt;
 &lt;h2 id="beacon"&gt;什么是Beacon&lt;/h2&gt;
 &lt;p&gt;Beacon  ['biːk(ə)n] 这个单词的中文意思是&lt;em&gt;信号浮标、灯塔&lt;/em&gt;，此文所说的Beacon其特点如下：&lt;/p&gt;
 &lt;ul&gt;
@@ -73,7 +73,7 @@
 &lt;p&gt;以下主流平台支持Bluetooth 4.0以及BLE：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;iOS 5+ （iOS7.0以上版本是首选版本）&lt;/li&gt;
-&lt;li&gt;Android 4.3+ （相对来说Android 4.4会更稳定，&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;</description><link>http://localhost:2368/bluetooth-low-energy-introduction/</link><guid isPermaLink="false">5a702c40f2c769befd9f2f32</guid><dc:creator>Mark Chen</dc:creator><pubDate>Thu, 06 Apr 2017 13:03:57 GMT</pubDate><content:encoded>&lt;div class="kg-card-markdown"&gt;&lt;p&gt;文 · Mark&lt;/p&gt;
+&lt;li&gt;Android 4.3+ （相对来说Android 4.4会更稳定，&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;</description><link>http://localhost:2368/bluetooth-low-energy-introduction/</link><guid isPermaLink="false">5a702c40f2c769befd9f2f32</guid><category>Ble</category><dc:creator>Mark Chen</dc:creator><pubDate>Thu, 06 Apr 2017 13:03:57 GMT</pubDate><content:encoded>&lt;div class="kg-card-markdown"&gt;&lt;p&gt;文 · Mark&lt;/p&gt;
 &lt;h2 id="ble"&gt;关于BLE&lt;/h2&gt;
 &lt;p&gt;BLE，即Bluetooth Low Energy，也被称作Bluetooth Smart。相对于传统经典蓝牙，BLE是一个轻量级子集，在标准蓝牙协议4.0版本被引入。虽然和经典蓝牙协议有很多相似之处，但是实际上BLE和经典蓝牙的血统完全不同，BLE由Nokia进行研发，研发代号“Wibree”，而后来才被Bluetooth SIG所接受认可。&lt;/p&gt;
 &lt;p&gt;目前，有很多无线通信协议供工程师和产品设计师选择，但是能够轻松与众多移动平台（包括iOS、Android、Windows Phone等）连接并相互通信，才是BLE这么有趣的真正原因。尤其是你不用大费周折，申请各种认证，使你的产品支持苹果设备。&lt;/p&gt;
@@ -176,7 +176,7 @@
 &lt;li&gt;&lt;a href="https://learn.adafruit.com/introduction-to-bluetooth-low-energy?view=all"&gt;BLE Introduction&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://developer.android.com/guide/topics/connectivity/bluetooth-le.html"&gt;Android BLE Guide&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;/div&gt;</content:encoded></item><item><title>骑行运动卡路里计算方法</title><description>Email: chenjian345@gmail.com</description><link>http://localhost:2368/qi-xing-yun-dong-qia-lu-li-ji-suan-fang-fa/</link><guid isPermaLink="false">5a702c40f2c769befd9f2f31</guid><dc:creator>Mark Chen</dc:creator><pubDate>Wed, 01 Mar 2017 11:48:42 GMT</pubDate><content:encoded>&lt;div class="kg-card-markdown"&gt;&lt;p&gt;文 · Mark&lt;/p&gt;
+&lt;/div&gt;</content:encoded></item><item><title>骑行运动卡路里计算方法</title><description>Email: chenjian345@gmail.com</description><link>http://localhost:2368/qi-xing-yun-dong-qia-lu-li-ji-suan-fang-fa/</link><guid isPermaLink="false">5a702c40f2c769befd9f2f31</guid><category>工具</category><dc:creator>Mark Chen</dc:creator><pubDate>Wed, 01 Mar 2017 11:48:42 GMT</pubDate><content:encoded>&lt;div class="kg-card-markdown"&gt;&lt;p&gt;文 · Mark&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;&lt;a href="http://baike.baidu.com/view/14058.htm"&gt;卡路里&lt;/a&gt;（简称卡，缩写为cal），由英文Calorie音译而来，其定义为在1个大气压下，将1克水提升1摄氏度所需要的&lt;a href="http://baike.baidu.com/view/62743.htm"&gt;热量&lt;/a&gt;；&lt;/p&gt;
 &lt;p&gt;卡路里（calorie）是&lt;a href="http://baike.baidu.com/view/14394.htm"&gt;能量&lt;/a&gt;单位，现在仍被广泛使用在营养计量和健身手册上，国际标准的能量单位是&lt;a href="http://baike.baidu.com/view/4336.htm"&gt;焦耳&lt;/a&gt;（joule）。&lt;/p&gt;
