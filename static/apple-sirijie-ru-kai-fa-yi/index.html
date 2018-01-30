@@ -53,8 +53,16 @@
     "author": {
         "@type": "Person",
         "name": "Mark Chen",
+        "image": {
+            "@type": "ImageObject",
+            "url": "http://localhost:2368/content/images/2018/01/firemonkey.jpg",
+            "width": 2000,
+            "height": 2000
+        },
         "url": "http://localhost:2368/author/mark/",
-        "sameAs": []
+        "sameAs": [
+            "http://markcj.cc"
+        ]
     },
     "headline": "Apple Siri接入开发（一）",
     "url": "http://localhost:2368/apple-sirijie-ru-kai-fa-yi/",
@@ -93,7 +101,6 @@ ghost.init({
                 <a class="site-nav-logo" href="../"><img src="../content/images/2018/01/fire-monkey-1.png" alt="Crazy Mark"></a>
             <ul class="nav" role="menu">
     <li class="nav-home" role="menuitem"><a href="../">Home</a></li>
-    <li class="nav-ios" role="menuitem"><a href="http://localhost:2368/iOS/">iOS</a></li>
 </ul>
 
     </div>
@@ -368,6 +375,7 @@ public func handle(endWorkoutintent:INEndWorkoutIntent,completion
             <footer class="post-full-footer">
 
                 <section class="author-card">
+                        <img class="author-profile-image" src="../content/images/2018/01/firemonkey.jpg" alt="Mark Chen">
                     <section class="author-card-content">
                         <h4 class="author-card-name"><a href="../author/mark/">Mark Chen</a></h4>
                             <p>Read <a href="../author/mark/">more posts</a> by this author.</p>
@@ -388,7 +396,7 @@ public func handle(endWorkoutintent:INEndWorkoutIntent,completion
 <aside class="read-next outer">
     <div class="inner">
         <div class="read-next-feed">
-                <article class="read-next-card" style="background-image: url(http://localhost:2368/content/images/2016/12/1249179307166.jpeg)">
+                <article class="read-next-card" style="background-image: url(../content/images/2018/01/1249179307166.jpeg)">
                     <header class="read-next-card-header">
                         <small class="read-next-card-header-sitetitle">— Crazy Mark —</small>
                         <h3 class="read-next-card-header-title"><a href="../tag/ios/">iOS</a></h3>
@@ -418,6 +426,7 @@ public func handle(endWorkoutintent:INEndWorkoutIntent,completion
             </section>
         </a>
         <footer class="post-card-meta">
+                <img class="author-profile-image" src="../content/images/2018/01/firemonkey.jpg" alt="Mark Chen">
             <span class="post-card-author"><a href="../author/mark/">Mark Chen</a></span>
         </footer>
     </div>
@@ -435,6 +444,7 @@ public func handle(endWorkoutintent:INEndWorkoutIntent,completion
             </section>
         </a>
         <footer class="post-card-meta">
+                <img class="author-profile-image" src="../content/images/2018/01/firemonkey.jpg" alt="Mark Chen">
             <span class="post-card-author"><a href="../author/mark/">Mark Chen</a></span>
         </footer>
     </div>

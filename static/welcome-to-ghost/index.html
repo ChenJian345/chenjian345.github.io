@@ -51,8 +51,16 @@
     "author": {
         "@type": "Person",
         "name": "Mark Chen",
+        "image": {
+            "@type": "ImageObject",
+            "url": "http://localhost:2368/content/images/2018/01/firemonkey.jpg",
+            "width": 2000,
+            "height": 2000
+        },
         "url": "http://localhost:2368/author/mark/",
-        "sameAs": []
+        "sameAs": [
+            "http://markcj.cc"
+        ]
     },
     "headline": "Homebrew常用Cheatsheet",
     "url": "http://localhost:2368/welcome-to-ghost/",
@@ -91,7 +99,6 @@ ghost.init({
                 <a class="site-nav-logo" href="../"><img src="../content/images/2018/01/fire-monkey-1.png" alt="Crazy Mark"></a>
             <ul class="nav" role="menu">
     <li class="nav-home" role="menuitem"><a href="../">Home</a></li>
-    <li class="nav-ios" role="menuitem"><a href="http://localhost:2368/iOS/">iOS</a></li>
 </ul>
 
     </div>
@@ -172,6 +179,7 @@ ghost.init({
             <footer class="post-full-footer">
 
                 <section class="author-card">
+                        <img class="author-profile-image" src="../content/images/2018/01/firemonkey.jpg" alt="Mark Chen">
                     <section class="author-card-content">
                         <h4 class="author-card-name"><a href="../author/mark/">Mark Chen</a></h4>
                             <p>Read <a href="../author/mark/">more posts</a> by this author.</p>
@@ -192,7 +200,7 @@ ghost.init({
 <aside class="read-next outer">
     <div class="inner">
         <div class="read-next-feed">
-                <article class="read-next-card" style="background-image: url(http://localhost:2368/content/images/2016/12/1249179307166.jpeg)">
+                <article class="read-next-card" style="background-image: url(../content/images/2018/01/1249179307166.jpeg)">
                     <header class="read-next-card-header">
                         <small class="read-next-card-header-sitetitle">— Crazy Mark —</small>
                         <h3 class="read-next-card-header-title"><a href="../tag/ji-zhu/">技术</a></h3>
@@ -223,6 +231,7 @@ ghost.init({
             </section>
         </a>
         <footer class="post-card-meta">
+                <img class="author-profile-image" src="../content/images/2018/01/firemonkey.jpg" alt="Mark Chen">
             <span class="post-card-author"><a href="../author/mark/">Mark Chen</a></span>
         </footer>
     </div>
