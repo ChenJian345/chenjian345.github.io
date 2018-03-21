@@ -1,0 +1,367 @@
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>近期遇到的奇葩Bug之解决从入门到懵逼</title>
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" type="text/css" href="../../../../assets/built/screen.css?v=816d52cd8c">
+
+    <link rel="shortcut icon" href="../../../../favicon.png" type="image/png">
+    <link rel="canonical" href="index.html">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <link rel="amphtml" href="amp/index.html">
+    
+    <meta property="og:site_name" content="Crazy Mark">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="近期遇到的奇葩Bug之解决从入门到懵逼">
+    <meta property="og:description" content="文• Mark 此事发生在2016年10月，后与朋友分享过，朋友希望能写下来分享。因当时较忙，暂未整理，一直拖到现在。清晨早醒，整理之，以飨读者。 所谓Bug即软件中存在的小错误导致异常。奇葩Bug则是那些遇到时让人无所适从，解决时狂挠头发而不知所以，解决后又能仰天大笑，悲喜交加。 以前知乎上搜到过一个朋友分享硬件开发中，把脚放在桌子上，Bug出现，把脚拿下来的就没事的奇葩Bug分享，当时也只是开心一笑。没想到，最近，我与我的同事们也遇到了一个奇葩Bug。 此Bug，时间和空间因素都是诱因，但小勿入。 硬件固件和App版本初发布，热心用户反馈无法同步数据，在此再次感谢🙏 这些用户。但我们相关开发同事都清楚，数据同步部分都没有动过，怎么之前是好的，现在突然有问题了? Review版本修改，数据同步模块也没有做过任何修改，怪！但这种问题绝不能忍，遂与同事两人尝试模拟复现，这也是这次奇葩Bug之旅的主角。 历程🐳🐳🐳 第一天🐢 复测一天均为复现，查找log也并无异常，茫然一天即将过去，晚上还在思考问题可能出在哪，不得解，第二天继续吧。此时下班时，">
+    <meta property="og:url" content="http://localhost:2368/2017/02/22/jin-qi-yu-dao-de-qi-pa-bugzhi-jie-jue-cong-ru-men-dao-meng-bi/">
+    <meta property="article:published_time" content="2017-02-22T04:42:50.000Z">
+    <meta property="article:modified_time" content="2017-02-22T04:42:50.000Z">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="近期遇到的奇葩Bug之解决从入门到懵逼">
+    <meta name="twitter:description" content="文• Mark 此事发生在2016年10月，后与朋友分享过，朋友希望能写下来分享。因当时较忙，暂未整理，一直拖到现在。清晨早醒，整理之，以飨读者。 所谓Bug即软件中存在的小错误导致异常。奇葩Bug则是那些遇到时让人无所适从，解决时狂挠头发而不知所以，解决后又能仰天大笑，悲喜交加。 以前知乎上搜到过一个朋友分享硬件开发中，把脚放在桌子上，Bug出现，把脚拿下来的就没事的奇葩Bug分享，当时也只是开心一笑。没想到，最近，我与我的同事们也遇到了一个奇葩Bug。 此Bug，时间和空间因素都是诱因，但小勿入。 硬件固件和App版本初发布，热心用户反馈无法同步数据，在此再次感谢🙏 这些用户。但我们相关开发同事都清楚，数据同步部分都没有动过，怎么之前是好的，现在突然有问题了? Review版本修改，数据同步模块也没有做过任何修改，怪！但这种问题绝不能忍，遂与同事两人尝试模拟复现，这也是这次奇葩Bug之旅的主角。 历程🐳🐳🐳 第一天🐢 复测一天均为复现，查找log也并无异常，茫然一天即将过去，晚上还在思考问题可能出在哪，不得解，第二天继续吧。此时下班时，">
+    <meta name="twitter:url" content="http://localhost:2368/2017/02/22/jin-qi-yu-dao-de-qi-pa-bugzhi-jie-jue-cong-ru-men-dao-meng-bi/">
+    <meta name="twitter:label1" content="Written by">
+    <meta name="twitter:data1" content="Mark Chen">
+    
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "Crazy Mark",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "http://localhost:2368/favicon.png",
+            "width": 60,
+            "height": 60
+        }
+    },
+    "author": {
+        "@type": "Person",
+        "name": "Mark Chen",
+        "image": {
+            "@type": "ImageObject",
+            "url": "http://localhost:2368/content/images/2018/01/firemonkey.jpg",
+            "width": 2000,
+            "height": 2000
+        },
+        "url": "http://localhost:2368/author/mark/",
+        "sameAs": [
+            "http://markcj.cc"
+        ]
+    },
+    "headline": "近期遇到的奇葩Bug之解决从入门到懵逼",
+    "url": "http://localhost:2368/2017/02/22/jin-qi-yu-dao-de-qi-pa-bugzhi-jie-jue-cong-ru-men-dao-meng-bi/",
+    "datePublished": "2017-02-22T04:42:50.000Z",
+    "dateModified": "2017-02-22T04:42:50.000Z",
+    "description": "文• Mark 此事发生在2016年10月，后与朋友分享过，朋友希望能写下来分享。因当时较忙，暂未整理，一直拖到现在。清晨早醒，整理之，以飨读者。 所谓Bug即软件中存在的小错误导致异常。奇葩Bug则是那些遇到时让人无所适从，解决时狂挠头发而不知所以，解决后又能仰天大笑，悲喜交加。 以前知乎上搜到过一个朋友分享硬件开发中，把脚放在桌子上，Bug出现，把脚拿下来的就没事的奇葩Bug分享，当时也只是开心一笑。没想到，最近，我与我的同事们也遇到了一个奇葩Bug。 此Bug，时间和空间因素都是诱因，但小勿入。 硬件固件和App版本初发布，热心用户反馈无法同步数据，在此再次感谢🙏 这些用户。但我们相关开发同事都清楚，数据同步部分都没有动过，怎么之前是好的，现在突然有问题了? Review版本修改，数据同步模块也没有做过任何修改，怪！但这种问题绝不能忍，遂与同事两人尝试模拟复现，这也是这次奇葩Bug之旅的主角。 历程🐳🐳🐳 第一天🐢 复测一天均为复现，查找log也并无异常，茫然一天即将过去，晚上还在思考问题可能出在哪，不得解，第二天继续吧。此时下班时，",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:2368/"
+    }
+}
+    </script>
+
+    <script type="text/javascript" src="../../../../public/ghost-sdk.js?v=816d52cd8c"></script>
+<script type="text/javascript">
+ghost.init({
+	clientId: "ghost-frontend",
+	clientSecret: "1cf83f774456"
+});
+</script>
+    <meta name="generator" content="Ghost 1.20">
+    <link rel="alternate" type="application/rss+xml" title="Crazy Mark" href="../../../../rss/index.html">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-113294116-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-113294116-1');
+</script>
+
+</head>
+<body class="post-template">
+
+    <div class="site-wrapper">
+
+        
+
+<header class="site-header outer">
+    <div class="inner">
+        <nav class="site-nav">
+    <div class="site-nav-left">
+                <a class="site-nav-logo" href="../../../../">Crazy Mark</a>
+            <ul class="nav" role="menu">
+    <li class="nav-home" role="menuitem"><a href="../../../../">Home</a></li>
+    <li class="nav-about-me" role="menuitem"><a href="http://localhost:2368/about_me/">About me</a></li>
+</ul>
+
+    </div>
+    <div class="site-nav-right">
+        <div class="social-links">
+        </div>
+            <a class="rss-button" href="http://cloud.feedly.com/#subscription/feed/http://localhost:2368/rss/" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24"><circle cx="6.18" cy="17.82" r="2.18"></circle><path d="M4 4.44v2.83c7.03 0 12.73 5.7 12.73 12.73h2.83c0-8.59-6.97-15.56-15.56-15.56zm0 5.66v2.83c3.9 0 7.07 3.17 7.07 7.07h2.83c0-5.47-4.43-9.9-9.9-9.9z"></path></svg>
+</a>
+    </div>
+</nav>
+    </div>
+</header>
+
+
+<main id="site-main" class="site-main outer" role="main">
+    <div class="inner">
+
+        <article class="post-full post no-image">
+
+            <header class="post-full-header">
+                <section class="post-full-meta">
+                    <time class="post-full-meta-date" datetime="2017-02-22">22 February 2017</time>
+                </section>
+                <h1 class="post-full-title">近期遇到的奇葩Bug之解决从入门到懵逼</h1>
+            </header>
+
+
+            <section class="post-full-content">
+                <div class="kg-card-markdown"><p>文• Mark</p>
+<blockquote>
+<p>此事发生在2016年10月，后与朋友分享过，朋友希望能写下来分享。因当时较忙，暂未整理，一直拖到现在。清晨早醒，整理之，以飨读者。</p>
+</blockquote>
+<p>所谓Bug即软件中存在的小错误导致异常。奇葩Bug则是那些遇到时让人无所适从，解决时狂挠头发而不知所以，解决后又能仰天大笑，悲喜交加。</p>
+<p>以前知乎上搜到过一个朋友分享硬件开发中，把脚放在桌子上，Bug出现，把脚拿下来的就没事的奇葩Bug分享，当时也只是开心一笑。没想到，最近，我与我的同事们也遇到了一个奇葩Bug。</p>
+<p>此Bug，时间和空间因素都是诱因，但小勿入。</p>
+<p>硬件固件和App版本初发布，热心用户反馈无法同步数据，在此再次感谢🙏 这些用户。但我们相关开发同事都清楚，数据同步部分都没有动过，怎么之前是好的，现在突然有问题了? Review版本修改，数据同步模块也没有做过任何修改，怪！但这种问题绝不能忍，遂与同事两人尝试模拟复现，这也是这次奇葩Bug之旅的主角。</p>
+<h1 id="">历程🐳🐳🐳</h1>
+<h3 id="">第一天🐢</h3>
+<p>复测一天均为复现，查找log也并无异常，茫然一天即将过去，晚上还在思考问题可能出在哪，不得解，第二天继续吧。此时下班时，测试设备一直开着…说实话是忘关了。</p>
+<h3 id="">第二天🦀️</h3>
+<p>早晨上班，一个同事说不能同步了，但再次尝试开启新纪录又可以同步数据，只好继续留意观察。晩上下班我们有意把测试设备保持昨晩的状态，跑一晚明天再看是不是还能复现</p>
+<h3 id="">第三天🐚</h3>
+<p>早晨上班，还是这个同事，突然触电般跳起来说：擦，不能数据同步了，什么鬼？！👹 顿时神经紧绷，召集硬件同事保持信息同步，但硬件同事也百思不得姐。</p>
+<p>会不会是因为模拟跑一晚，距离很长，点数太多就会复现？但测一次要一晚，太久不能忍😁，机智的我们🤓 🤔 打算改造 它，在保证硬件性能可以Hold住的情况下， 提高数据采集频率10倍，提高速度10倍， 保证每两次数据采集距离相同，点数相同，但 所花的时间缩小十倍，以快速排除上述怀疑。</p>
+<p>改造完成，但Bug并未复现.</p>
+<p>茫然...🤕 🤒 🤥</p>
+<h5 id="">下午</h5>
+<p>硬件同事告诉我们，他好像发现了什么，室外貌似可以模拟复现。赶快试一下，果然。但晚上室内复现的那两次又如何解释呢？激动不已，内取满面！</p>
+<p>那么，现在这个Bug不仅和时间维度相关， 还和空间维度相关了！😓 🔯 ⏱</p>
+<p>一口老血 💣 💣 💣</p>
+<p>室内和室外的差别就是室外可以接收到并处理GPS信号，看看GPS处理模块在搞什么鬼， 果然．有个地方出问题了。</p>
+<p><img src="https://ww1.sinaimg.cn/large/006tKfTcly1fcz593e6bcj30gs037q3b.jpg" alt=""></p>
+<p>这也解释了为什么这个Bug只在10月出现👩🏼‍🚒</p>
+<p>那两个晚上测试出现的结果如何解释呢？🌶</p>
+<p>👉 办公室白天人多，干扰多，GPS信号飘不进来，模拟测试设备接收不到GPS信号，所以Bug不出现！<br>
+👉 办公室晚上人少，干扰少，GPS信号可以飘进来，模拟测试设备可以接收到GPS信号，Bug出现！</p>
+<h3 id="bug">Bug亮点🌋🌋🌋</h3>
+<ul>
+<li>室内夜深人静时出现</li>
+<li>只在10月出现</li>
+<li>空旷室外可出现</li>
+</ul>
+<p>搞定！又可以出去浪啦！🏔🗽⛲️🗼🗻🏜</p>
+<h3 id="">感受💡</h3>
+<ul>
+<li>硬件相关要注意其物理环境因素</li>
+<li>感谢勇于面对和解决问题的同事，向你们致敬！</li>
+<li>鄙视遇到问题退缩没有担当的菜鸡</li>
+<li>时间和空间维度因素都可能是诱因</li>
+<li>测试很重要，感谢测试同事</li>
+</ul>
+<p>总有一些曾经让你感到痛苦的事情，会在若干时间后，笑着讲出来！</p>
+<p>文笔不好，多指正！</p>
+<p>ENJOY~</p>
+</div>
+            </section>
+
+
+            <footer class="post-full-footer">
+
+                <section class="author-card">
+                        <img class="author-profile-image" src="../../../../content/images/2018/01/firemonkey.jpg" alt="Mark Chen">
+                    <section class="author-card-content">
+                        <h4 class="author-card-name"><a href="../../../../author/mark/">Mark Chen</a></h4>
+                            <p>Read <a href="../../../../author/mark/">more posts</a> by this author.</p>
+                    </section>
+                </section>
+                <div class="post-full-footer-right">
+                    <a class="author-card-button" href="../../../../author/mark/">Read More</a>
+                </div>
+
+            </footer>
+
+
+        </article>
+
+    </div>
+</main>
+
+<aside class="read-next outer">
+    <div class="inner">
+        <div class="read-next-feed">
+
+                <article class="post-card post tag-gong-ju no-image">
+    <div class="post-card-content">
+        <a class="post-card-content-link" href="../../../03/01/qi-xing-yun-dong-qia-lu-li-ji-suan-fang-fa/">
+            <header class="post-card-header">
+                    <span class="post-card-tags">工具</span>
+                <h2 class="post-card-title">骑行运动卡路里计算方法</h2>
+            </header>
+            <section class="post-card-excerpt">
+                <p>文 · Mark 卡路里（简称卡，缩写为cal），由英文Calorie音译而来，其定义为在1个大气压下，将1克水提升1摄氏度所需要的热量； 卡路里（calorie）是能量单位，现在仍被广泛使用在营养计量和健身手册上，国际标准的能量单位是焦耳（joule）。 作为食物热量的法定单位，在欧洲普遍使用焦耳，美国则采用卡路里。虽然焦耳是中国大陆与台湾地区的法定单位，然而由于沿袭传统，卡路里在中国大陆与台湾地区仍然被广泛的使用。 计量单位 小卡，记做cal, 1卡路里的能量或热量可将1克水在一个大气压下的温度升高1摄氏度; 大卡，记作Cal, 1大卡相当于1000小卡 焦耳 詹姆斯·普雷斯科特·焦耳（James Prescott</p>
+            </section>
+        </a>
+        <footer class="post-card-meta">
+                <img class="author-profile-image" src="../../../../content/images/2018/01/firemonkey.jpg" alt="Mark Chen">
+            <span class="post-card-author"><a href="../../../../author/mark/">Mark Chen</a></span>
+        </footer>
+    </div>
+</article>
+
+                <article class="post-card post tag-ios tag-ji-zhu tag-ji-zhu-diao-yan tag-siri no-image">
+    <div class="post-card-content">
+        <a class="post-card-content-link" href="../../07/apple-sirijie-ru-kai-fa-yi/">
+            <header class="post-card-header">
+                    <span class="post-card-tags">iOS</span>
+                <h2 class="post-card-title">Apple Siri接入开发（一）</h2>
+            </header>
+            <section class="post-card-excerpt">
+                <p>随着iOS10.0发布脚步的临近，作为开发者，相信很多人也和我一样，可以提前体验一些新系统的新功能，也更关注新版iOS系统带来的技术开发方面的新特性。 对新事物，尤其是软件开发新技术的好奇心驱使我最近尝试了一些iOS10.0推出的新特性的开发，其中就包括本次iOS系统更新开发的SiriKit接入。下面，我就详细讲述一下SiriKit接入的相关开发过程及注意事项，个人见解，如有错误，欢迎大家交流指正。 关于SiriKit SiriKit是Apple历经4年时间，不断打磨优化，第一次开发给开发者的一份关于Siri功能的礼物。利用SiriKit，第三方开发者可以像一些系统应用一样，通过语音完成第三方应用希望完成的一些功能，比如用户可以直接通过语音直接告诉Siri打车、锻炼、寻找美食、寻找相册中的照片、甚至付给朋友AA的账单费用，以及控制家里智能家居等。 概念概览 Domain - 被苹果划分的不同业务领域，每个领域中可以执行不同的任务</p>
+            </section>
+        </a>
+        <footer class="post-card-meta">
+                <img class="author-profile-image" src="../../../../content/images/2018/01/firemonkey.jpg" alt="Mark Chen">
+            <span class="post-card-author"><a href="../../../../author/mark/">Mark Chen</a></span>
+        </footer>
+    </div>
+</article>
+
+        </div>
+    </div>
+</aside>
+
+<div class="floating-header">
+    <div class="floating-header-logo">
+        <a href="../../../../">
+                <img src="../../../../content/images/2018/01/fire-monkey-2.png" alt="Crazy Mark icon">
+            <span>Crazy Mark</span>
+        </a>
+    </div>
+    <span class="floating-header-divider">—</span>
+    <div class="floating-header-title">近期遇到的奇葩Bug之解决从入门到懵逼</div>
+    <div class="floating-header-share">
+        <div class="floating-header-share-label">Share this <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24">
+    <path d="M7.5 15.5V4a1.5 1.5 0 1 1 3 0v4.5h2a1 1 0 0 1 1 1h2a1 1 0 0 1 1 1H18a1.5 1.5 0 0 1 1.5 1.5v3.099c0 .929-.13 1.854-.385 2.748L17.5 23.5h-9c-1.5-2-5.417-8.673-5.417-8.673a1.2 1.2 0 0 1 1.76-1.605L7.5 15.5zm6-6v2m-3-3.5v3.5m6-1v2"></path>
+</svg>
+</div>
+        <a class="floating-header-share-tw" href="https://twitter.com/share?text=%E8%BF%91%E6%9C%9F%E9%81%87%E5%88%B0%E7%9A%84%E5%A5%87%E8%91%A9Bug%E4%B9%8B%E8%A7%A3%E5%86%B3%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E6%87%B5%E9%80%BC&amp;url=http://localhost:2368/2017/02/22/jin-qi-yu-dao-de-qi-pa-bugzhi-jie-jue-cong-ru-men-dao-meng-bi/" onclick="window.open(this.href, 'share-twitter', 'width=550,height=235');return false;">
+            <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 32 32"><path d="M30.063 7.313c-.813 1.125-1.75 2.125-2.875 2.938v.75c0 1.563-.188 3.125-.688 4.625a15.088 15.088 0 0 1-2.063 4.438c-.875 1.438-2 2.688-3.25 3.813a15.015 15.015 0 0 1-4.625 2.563c-1.813.688-3.75 1-5.75 1-3.25 0-6.188-.875-8.875-2.625.438.063.875.125 1.375.125 2.688 0 5.063-.875 7.188-2.5-1.25 0-2.375-.375-3.375-1.125s-1.688-1.688-2.063-2.875c.438.063.813.125 1.125.125.5 0 1-.063 1.5-.25-1.313-.25-2.438-.938-3.313-1.938a5.673 5.673 0 0 1-1.313-3.688v-.063c.813.438 1.688.688 2.625.688a5.228 5.228 0 0 1-1.875-2c-.5-.875-.688-1.813-.688-2.75 0-1.063.25-2.063.75-2.938 1.438 1.75 3.188 3.188 5.25 4.25s4.313 1.688 6.688 1.813a5.579 5.579 0 0 1 1.5-5.438c1.125-1.125 2.5-1.688 4.125-1.688s3.063.625 4.188 1.813a11.48 11.48 0 0 0 3.688-1.375c-.438 1.375-1.313 2.438-2.563 3.188 1.125-.125 2.188-.438 3.313-.875z"></path></svg>
+        </a>
+        <a class="floating-header-share-fb" href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:2368/2017/02/22/jin-qi-yu-dao-de-qi-pa-bugzhi-jie-jue-cong-ru-men-dao-meng-bi/" onclick="window.open(this.href, 'share-facebook','width=580,height=296');return false;">
+            <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 32 32"><path d="M19 6h5V0h-5c-3.86 0-7 3.14-7 7v3H8v6h4v16h6V16h5l1-6h-6V7c0-.542.458-1 1-1z"></path></svg>
+        </a>
+    </div>
+    <progress class="progress" value="0">
+        <div class="progress-container">
+            <span class="progress-bar"></span>
+        </div>
+    </progress>
+</div>
+
+
+
+
+        <footer class="site-footer outer">
+            <div class="site-footer-content inner">
+                <section class="copyright"><a href="../../../../">Crazy Mark</a> © 2018</section>
+                <nav class="site-footer-nav">
+                    <a href="../../../../">Latest Posts</a>
+                    
+                    
+                    <a href="https://ghost.org" target="_blank" rel="noopener">Ghost</a>
+                </nav>
+            </div>
+        </footer>
+
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous">
+    </script>
+    <script type="text/javascript" src="../../../../assets/js/jquery.fitvids.js?v=816d52cd8c"></script>
+
+
+    <script>
+
+// NOTE: Scroll performance is poor in Safari
+// - this appears to be due to the events firing much more slowly in Safari.
+//   Dropping the scroll event and using only a raf loop results in smoother
+//   scrolling but continuous processing even when not scrolling
+$(document).ready(function () {
+    // Start fitVids
+    var $postContent = $(".post-full-content");
+    $postContent.fitVids();
+    // End fitVids
+
+    var progressBar = document.querySelector('progress');
+    var header = document.querySelector('.floating-header');
+    var title = document.querySelector('.post-full-title');
+
+    var lastScrollY = window.scrollY;
+    var lastWindowHeight = window.innerHeight;
+    var lastDocumentHeight = $(document).height();
+    var ticking = false;
+
+    function onScroll() {
+        lastScrollY = window.scrollY;
+        requestTick();
+    }
+
+    function onResize() {
+        lastWindowHeight = window.innerHeight;
+        lastDocumentHeight = $(document).height();
+        requestTick();
+    }
+
+    function requestTick() {
+        if (!ticking) {
+            requestAnimationFrame(update);
+        }
+        ticking = true;
+    }
+
+    function update() {
+        var trigger = title.getBoundingClientRect().top + window.scrollY;
+        var triggerOffset = title.offsetHeight + 35;
+        var progressMax = lastDocumentHeight - lastWindowHeight;
+
+        // show/hide floating header
+        if (lastScrollY >= trigger + triggerOffset) {
+            header.classList.add('floating-active');
+        } else {
+            header.classList.remove('floating-active');
+        }
+
+        progressBar.setAttribute('max', progressMax);
+        progressBar.setAttribute('value', lastScrollY);
+
+        ticking = false;
+    }
+
+    window.addEventListener('scroll', onScroll, {passive: true});
+    window.addEventListener('resize', onResize, false);
+
+    update();
+});
+</script>
+
+
+    
+
+</body>

@@ -1,0 +1,391 @@
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Beacon初识</title>
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" type="text/css" href="../../../../assets/built/screen.css?v=816d52cd8c">
+
+    <link rel="shortcut icon" href="../../../../favicon.png" type="image/png">
+    <link rel="canonical" href="index.html">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <link rel="amphtml" href="amp/index.html">
+    
+    <meta property="og:site_name" content="Crazy Mark">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Beacon初识">
+    <meta property="og:description" content="文 · Mark 什么是Beacon Beacon  ['biːk(ə)n] 这个单词的中文意思是信号浮标、灯塔，此文所说的Beacon其特点如下： 采用BLE技术发射信号的小设备 运算能力几乎为零，但功耗很低，续航持久 有效范围几十厘米到几米 信号为单向发射，只能发射小数据包，例如128bit UUID 一般将智能手机作为接收方 主流标准 目前，在市场上Beacon类解决方案有哪些？ iBeacon iBeacon由Apple在WWDC13推出，其设计初衷也可以联想到，目前主要用来做室内定位标志物（至少需要两个iBeacon信标） 原理是利用低功耗BLE蓝牙技术，不断广播自己的特有ID，广播范围是有一定的区域限制，进入该范围的手机设备可以感知此信标的存在。通过读取广播中的ID，经过加工，满足业务需求。 该标准闭源，而且只兼容苹果公司的“i系列”产品； Eddystone 2015年，Google推出的开源低功耗BLE平台项目，名字来源于英国Eddystone灯塔，在iOS、Android平台上均可使用。 该项目的目标在于试图创建一个鲁棒、可扩展的Beacon标准，平台应用范围比iBeacon要广； 苹果的iBeacon和谷歌的The Physical">
+    <meta property="og:url" content="http://localhost:2368/2018/01/30/beacon/">
+    <meta property="article:published_time" content="2018-01-30T09:30:38.000Z">
+    <meta property="article:modified_time" content="2018-01-30T09:34:35.000Z">
+    <meta property="article:tag" content="设计">
+    <meta property="article:tag" content="Beacon">
+    <meta property="article:tag" content="Ble">
+    
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Beacon初识">
+    <meta name="twitter:description" content="文 · Mark 什么是Beacon Beacon  ['biːk(ə)n] 这个单词的中文意思是信号浮标、灯塔，此文所说的Beacon其特点如下： 采用BLE技术发射信号的小设备 运算能力几乎为零，但功耗很低，续航持久 有效范围几十厘米到几米 信号为单向发射，只能发射小数据包，例如128bit UUID 一般将智能手机作为接收方 主流标准 目前，在市场上Beacon类解决方案有哪些？ iBeacon iBeacon由Apple在WWDC13推出，其设计初衷也可以联想到，目前主要用来做室内定位标志物（至少需要两个iBeacon信标） 原理是利用低功耗BLE蓝牙技术，不断广播自己的特有ID，广播范围是有一定的区域限制，进入该范围的手机设备可以感知此信标的存在。通过读取广播中的ID，经过加工，满足业务需求。 该标准闭源，而且只兼容苹果公司的“i系列”产品； Eddystone 2015年，Google推出的开源低功耗BLE平台项目，名字来源于英国Eddystone灯塔，在iOS、Android平台上均可使用。 该项目的目标在于试图创建一个鲁棒、可扩展的Beacon标准，平台应用范围比iBeacon要广； 苹果的iBeacon和谷歌的The Physical">
+    <meta name="twitter:url" content="http://localhost:2368/2018/01/30/beacon/">
+    <meta name="twitter:label1" content="Written by">
+    <meta name="twitter:data1" content="Mark Chen">
+    <meta name="twitter:label2" content="Filed under">
+    <meta name="twitter:data2" content="设计, Beacon, Ble">
+    
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "Crazy Mark",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "http://localhost:2368/favicon.png",
+            "width": 60,
+            "height": 60
+        }
+    },
+    "author": {
+        "@type": "Person",
+        "name": "Mark Chen",
+        "image": {
+            "@type": "ImageObject",
+            "url": "http://localhost:2368/content/images/2018/01/firemonkey.jpg",
+            "width": 2000,
+            "height": 2000
+        },
+        "url": "http://localhost:2368/author/mark/",
+        "sameAs": [
+            "http://markcj.cc"
+        ]
+    },
+    "headline": "Beacon初识",
+    "url": "http://localhost:2368/2018/01/30/beacon/",
+    "datePublished": "2018-01-30T09:30:38.000Z",
+    "dateModified": "2018-01-30T09:34:35.000Z",
+    "keywords": "设计, Beacon, Ble",
+    "description": "文 · Mark 什么是Beacon Beacon  [&#x27;biːk(ə)n] 这个单词的中文意思是信号浮标、灯塔，此文所说的Beacon其特点如下： 采用BLE技术发射信号的小设备 运算能力几乎为零，但功耗很低，续航持久 有效范围几十厘米到几米 信号为单向发射，只能发射小数据包，例如128bit UUID 一般将智能手机作为接收方 主流标准 目前，在市场上Beacon类解决方案有哪些？ iBeacon iBeacon由Apple在WWDC13推出，其设计初衷也可以联想到，目前主要用来做室内定位标志物（至少需要两个iBeacon信标） 原理是利用低功耗BLE蓝牙技术，不断广播自己的特有ID，广播范围是有一定的区域限制，进入该范围的手机设备可以感知此信标的存在。通过读取广播中的ID，经过加工，满足业务需求。 该标准闭源，而且只兼容苹果公司的“i系列”产品； Eddystone 2015年，Google推出的开源低功耗BLE平台项目，名字来源于英国Eddystone灯塔，在iOS、Android平台上均可使用。 该项目的目标在于试图创建一个鲁棒、可扩展的Beacon标准，平台应用范围比iBeacon要广； 苹果的iBeacon和谷歌的The Physical",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:2368/"
+    }
+}
+    </script>
+
+    <script type="text/javascript" src="../../../../public/ghost-sdk.js?v=816d52cd8c"></script>
+<script type="text/javascript">
+ghost.init({
+	clientId: "ghost-frontend",
+	clientSecret: "1cf83f774456"
+});
+</script>
+    <meta name="generator" content="Ghost 1.20">
+    <link rel="alternate" type="application/rss+xml" title="Crazy Mark" href="../../../../rss/index.html">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-113294116-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-113294116-1');
+</script>
+
+</head>
+<body class="post-template tag-she-ji tag-beacon tag-ble">
+
+    <div class="site-wrapper">
+
+        
+
+<header class="site-header outer">
+    <div class="inner">
+        <nav class="site-nav">
+    <div class="site-nav-left">
+                <a class="site-nav-logo" href="../../../../">Crazy Mark</a>
+            <ul class="nav" role="menu">
+    <li class="nav-home" role="menuitem"><a href="../../../../">Home</a></li>
+    <li class="nav-about-me" role="menuitem"><a href="http://localhost:2368/about_me/">About me</a></li>
+</ul>
+
+    </div>
+    <div class="site-nav-right">
+        <div class="social-links">
+        </div>
+            <a class="rss-button" href="http://cloud.feedly.com/#subscription/feed/http://localhost:2368/rss/" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24"><circle cx="6.18" cy="17.82" r="2.18"></circle><path d="M4 4.44v2.83c7.03 0 12.73 5.7 12.73 12.73h2.83c0-8.59-6.97-15.56-15.56-15.56zm0 5.66v2.83c3.9 0 7.07 3.17 7.07 7.07h2.83c0-5.47-4.43-9.9-9.9-9.9z"></path></svg>
+</a>
+    </div>
+</nav>
+    </div>
+</header>
+
+
+<main id="site-main" class="site-main outer" role="main">
+    <div class="inner">
+
+        <article class="post-full post tag-she-ji tag-beacon tag-ble no-image">
+
+            <header class="post-full-header">
+                <section class="post-full-meta">
+                    <time class="post-full-meta-date" datetime="2018-01-30">30 January 2018</time>
+                        <span class="date-divider">/</span> <a href="../../../../tag/she-ji/">设计</a>
+                </section>
+                <h1 class="post-full-title">Beacon初识</h1>
+            </header>
+
+
+            <section class="post-full-content">
+                <div class="kg-card-markdown"><p>文 · Mark</p>
+<h2 id="beacon">什么是Beacon</h2>
+<p>Beacon  ['biːk(ə)n] 这个单词的中文意思是<em>信号浮标、灯塔</em>，此文所说的Beacon其特点如下：</p>
+<ul>
+<li>采用BLE技术发射信号的小设备</li>
+<li>运算能力几乎为零，但功耗很低，续航持久</li>
+<li>有效范围几十厘米到几米</li>
+<li>信号为单向发射，只能发射小数据包，例如128bit UUID</li>
+<li>一般将智能手机作为接收方</li>
+</ul>
+<h2 id="">主流标准</h2>
+<p>目前，在市场上Beacon类解决方案有哪些？</p>
+<h4 id="ibeacon"><a href="https://developer.apple.com/ibeacon/">iBeacon</a></h4>
+<p>iBeacon由Apple在WWDC13推出，其设计初衷也可以联想到，目前主要用来做室内定位标志物（至少需要两个iBeacon信标）</p>
+<p>原理是利用低功耗BLE蓝牙技术，不断广播自己的特有ID，广播范围是有一定的区域限制，进入该范围的手机设备可以感知此信标的存在。通过读取广播中的ID，经过加工，满足业务需求。</p>
+<p>该标准闭源，而且只兼容苹果公司的“i系列”产品；</p>
+<h4 id="eddystone"><a href="https://developers.google.com/beacons/">Eddystone</a></h4>
+<p>2015年，Google推出的开源低功耗BLE平台项目，名字来源于英国Eddystone灯塔，在iOS、Android平台上均可使用。</p>
+<p>该项目的目标在于试图创建一个鲁棒、可扩展的Beacon标准，平台应用范围比iBeacon要广；</p>
+<p>苹果的iBeacon和谷歌的<a href="https://google.github.io/physical-web/">The Physical Web</a>都只支持一种框架。而Eddystone支持通用唯一识别码（Universally Unique Identifier，UUID）、<strong>URL链接</strong>、临时标识（Ephemeral Identifiers，EID）以及遥测数据等四种框架类型。</p>
+<p>当然，除了上述两种Beacon标准之外，还有一些开源标准，但目前还处于发展阶段，差异明显；</p>
+<h2 id="">解决方案</h2>
+<p>目前针对上述需求，可以满足的解决方案提供商有很多，但主流方向有以下几种：</p>
+<h4 id="sensoro"><a href="https://www.sensoro.com/zh/case.html">SENSORO</a>等</h4>
+<p>国内物联网解决方案提供商，初创公司，但已经为微软、Facebook提供过解决方案；</p>
+<p>该类型公司国内外有很多，确定方案后，可以再做商业调研；</p>
+<h4 id="vendor">Vendor合作</h4>
+<p>自有或者vendor研发有自由定制优势，而且可以自定义私有协议，安全性方面有一定优势。但同时存在设计和生产成本高的问题，同时，沟通成本有可能升高。</p>
+<h4 id="">自主研发</h4>
+<p>优势是可定制性强，对于满足需求十分灵活，但缺点是成本较高，对软硬件生产均有要求。</p>
+<h2 id="">无线测距</h2>
+<p>通过BLE硬件，可以实现无线测距功能，该功能有一定的误差，所以，适用于对误差宽容度比较高的业务场景。</p>
+<p>基本公式如下：</p>
+<pre><code>Distance =10^((abs(RSSI) - A) / (10*n)
+</code></pre>
+<p>其中：</p>
+<ul>
+<li>Distance是计算距离</li>
+<li>RSSI是信号强度，BLE设备均有此信息</li>
+<li>A为发射点与接收端相隔1m时的信号强度</li>
+<li>n是环境衰减银子，通常取经验值，该经验值需要调试确定</li>
+</ul>
+<h2 id="">参考文献</h2>
+<ul>
+<li><a href="https://developer.apple.com/ibeacon/Getting-Started-with-iBeacon.pdf">Apple - Getting Started with iBeacon</a></li>
+<li><a href="https://developers.google.com/beacons/eddystone#beacon_manufacturers">Google - Eddystone</a></li>
+</ul>
+</div>
+            </section>
+
+
+            <footer class="post-full-footer">
+
+                <section class="author-card">
+                        <img class="author-profile-image" src="../../../../content/images/2018/01/firemonkey.jpg" alt="Mark Chen">
+                    <section class="author-card-content">
+                        <h4 class="author-card-name"><a href="../../../../author/mark/">Mark Chen</a></h4>
+                            <p>Read <a href="../../../../author/mark/">more posts</a> by this author.</p>
+                    </section>
+                </section>
+                <div class="post-full-footer-right">
+                    <a class="author-card-button" href="../../../../author/mark/">Read More</a>
+                </div>
+
+            </footer>
+
+
+        </article>
+
+    </div>
+</main>
+
+<aside class="read-next outer">
+    <div class="inner">
+        <div class="read-next-feed">
+                <article class="read-next-card" style="background-image: url(../../../../content/images/2018/01/1249179307166.jpeg)">
+                    <header class="read-next-card-header">
+                        <small class="read-next-card-header-sitetitle">— Crazy Mark —</small>
+                        <h3 class="read-next-card-header-title"><a href="../../../../tag/she-ji/">设计</a></h3>
+                    </header>
+                    <div class="read-next-divider"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24"><path d="M13 14.5s2 3 5 3 5.5-2.463 5.5-5.5S21 6.5 18 6.5c-5 0-7 11-12 11C2.962 17.5.5 15.037.5 12S3 6.5 6 6.5s4.5 3.5 4.5 3.5"></path></svg>
+</div>
+                    <div class="read-next-card-content">
+                        <ul>
+                            <li><a href="../../../../2017/02/07/guan-yu-apple-watchchan-pin-qu-na-wang-da-shen-fen-xiang/">Apple Watch产品设计经验 FROM 去哪网</a></li>
+                        </ul>
+                    </div>
+                    <footer class="read-next-card-footer">
+                        <a href="../../../../tag/she-ji/">1 post →</a>
+                    </footer>
+                </article>
+
+                <article class="post-card post no-image">
+    <div class="post-card-content">
+        <a class="post-card-content-link" href="../../../03/21/iosduan-cha-kan-pdfwen-dang-shi-xian-fang-an/">
+            <header class="post-card-header">
+                <h2 class="post-card-title">iOS端查看PDF文档实现方案</h2>
+            </header>
+            <section class="post-card-excerpt">
+                <p>文 · Mark 在不同端查看一些文档时，往往会展现出千奇百怪的格式，呈现给用户的也是不同的展示效果。为了保持原始文稿的格式，保证展现效果的统一，PDF文稿可以很好解决格式在不同端文稿展现格式差异，保持原始文稿的展现效果。 对于移动端的开发工作中，查看PDF也是常见的需求，本文针对iOS端查看PDF文档给出实现方案，包括通过网络端读取和本地读取两种方式查看PDF文档。 读取方式 网络读取 本地读取 测试文稿样本 Accessory Design Guidelines for Apple Devices 作者：Apple Inc. 分辨率：612 * 792 px 大小： 22.1</p>
+            </section>
+        </a>
+        <footer class="post-card-meta">
+                <img class="author-profile-image" src="../../../../content/images/2018/01/firemonkey.jpg" alt="Mark Chen">
+            <span class="post-card-author"><a href="../../../../author/mark/">Mark Chen</a></span>
+        </footer>
+    </div>
+</article>
+
+                <article class="post-card post tag-ble no-image">
+    <div class="post-card-content">
+        <a class="post-card-content-link" href="../../../../2017/04/06/bluetooth-low-energy-introduction/">
+            <header class="post-card-header">
+                    <span class="post-card-tags">Ble</span>
+                <h2 class="post-card-title">Bluetooth Low Energy Introduction</h2>
+            </header>
+            <section class="post-card-excerpt">
+                <p>文 · Mark 关于BLE BLE，即Bluetooth Low Energy，也被称作Bluetooth Smart。相对于传统经典蓝牙，BLE是一个轻量级子集，在标准蓝牙协议4.0版本被引入。虽然和经典蓝牙协议有很多相似之处，但是实际上BLE和经典蓝牙的血统完全不同，BLE由Nokia进行研发，研发代号“Wibree”，而后来才被Bluetooth SIG所接受认可。 目前，有很多无线通信协议供工程师和产品设计师选择，但是能够轻松与众多移动平台（包括iOS、Android、Windows Phone等）连接并相互通信，才是BLE这么有趣的真正原因。尤其是你不用大费周折，申请各种认证，使你的产品支持苹果设备。 以下说明文档会快速为大家提供关于BLE的速览，</p>
+            </section>
+        </a>
+        <footer class="post-card-meta">
+                <img class="author-profile-image" src="../../../../content/images/2018/01/firemonkey.jpg" alt="Mark Chen">
+            <span class="post-card-author"><a href="../../../../author/mark/">Mark Chen</a></span>
+        </footer>
+    </div>
+</article>
+
+        </div>
+    </div>
+</aside>
+
+<div class="floating-header">
+    <div class="floating-header-logo">
+        <a href="../../../../">
+                <img src="../../../../content/images/2018/01/fire-monkey-2.png" alt="Crazy Mark icon">
+            <span>Crazy Mark</span>
+        </a>
+    </div>
+    <span class="floating-header-divider">—</span>
+    <div class="floating-header-title">Beacon初识</div>
+    <div class="floating-header-share">
+        <div class="floating-header-share-label">Share this <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24">
+    <path d="M7.5 15.5V4a1.5 1.5 0 1 1 3 0v4.5h2a1 1 0 0 1 1 1h2a1 1 0 0 1 1 1H18a1.5 1.5 0 0 1 1.5 1.5v3.099c0 .929-.13 1.854-.385 2.748L17.5 23.5h-9c-1.5-2-5.417-8.673-5.417-8.673a1.2 1.2 0 0 1 1.76-1.605L7.5 15.5zm6-6v2m-3-3.5v3.5m6-1v2"></path>
+</svg>
+</div>
+        <a class="floating-header-share-tw" href="https://twitter.com/share?text=Beacon%E5%88%9D%E8%AF%86&amp;url=http://localhost:2368/2018/01/30/beacon/" onclick="window.open(this.href, 'share-twitter', 'width=550,height=235');return false;">
+            <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 32 32"><path d="M30.063 7.313c-.813 1.125-1.75 2.125-2.875 2.938v.75c0 1.563-.188 3.125-.688 4.625a15.088 15.088 0 0 1-2.063 4.438c-.875 1.438-2 2.688-3.25 3.813a15.015 15.015 0 0 1-4.625 2.563c-1.813.688-3.75 1-5.75 1-3.25 0-6.188-.875-8.875-2.625.438.063.875.125 1.375.125 2.688 0 5.063-.875 7.188-2.5-1.25 0-2.375-.375-3.375-1.125s-1.688-1.688-2.063-2.875c.438.063.813.125 1.125.125.5 0 1-.063 1.5-.25-1.313-.25-2.438-.938-3.313-1.938a5.673 5.673 0 0 1-1.313-3.688v-.063c.813.438 1.688.688 2.625.688a5.228 5.228 0 0 1-1.875-2c-.5-.875-.688-1.813-.688-2.75 0-1.063.25-2.063.75-2.938 1.438 1.75 3.188 3.188 5.25 4.25s4.313 1.688 6.688 1.813a5.579 5.579 0 0 1 1.5-5.438c1.125-1.125 2.5-1.688 4.125-1.688s3.063.625 4.188 1.813a11.48 11.48 0 0 0 3.688-1.375c-.438 1.375-1.313 2.438-2.563 3.188 1.125-.125 2.188-.438 3.313-.875z"></path></svg>
+        </a>
+        <a class="floating-header-share-fb" href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:2368/2018/01/30/beacon/" onclick="window.open(this.href, 'share-facebook','width=580,height=296');return false;">
+            <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 32 32"><path d="M19 6h5V0h-5c-3.86 0-7 3.14-7 7v3H8v6h4v16h6V16h5l1-6h-6V7c0-.542.458-1 1-1z"></path></svg>
+        </a>
+    </div>
+    <progress class="progress" value="0">
+        <div class="progress-container">
+            <span class="progress-bar"></span>
+        </div>
+    </progress>
+</div>
+
+
+
+
+        <footer class="site-footer outer">
+            <div class="site-footer-content inner">
+                <section class="copyright"><a href="../../../../">Crazy Mark</a> © 2018</section>
+                <nav class="site-footer-nav">
+                    <a href="../../../../">Latest Posts</a>
+                    
+                    
+                    <a href="https://ghost.org" target="_blank" rel="noopener">Ghost</a>
+                </nav>
+            </div>
+        </footer>
+
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous">
+    </script>
+    <script type="text/javascript" src="../../../../assets/js/jquery.fitvids.js?v=816d52cd8c"></script>
+
+
+    <script>
+
+// NOTE: Scroll performance is poor in Safari
+// - this appears to be due to the events firing much more slowly in Safari.
+//   Dropping the scroll event and using only a raf loop results in smoother
+//   scrolling but continuous processing even when not scrolling
+$(document).ready(function () {
+    // Start fitVids
+    var $postContent = $(".post-full-content");
+    $postContent.fitVids();
+    // End fitVids
+
+    var progressBar = document.querySelector('progress');
+    var header = document.querySelector('.floating-header');
+    var title = document.querySelector('.post-full-title');
+
+    var lastScrollY = window.scrollY;
+    var lastWindowHeight = window.innerHeight;
+    var lastDocumentHeight = $(document).height();
+    var ticking = false;
+
+    function onScroll() {
+        lastScrollY = window.scrollY;
+        requestTick();
+    }
+
+    function onResize() {
+        lastWindowHeight = window.innerHeight;
+        lastDocumentHeight = $(document).height();
+        requestTick();
+    }
+
+    function requestTick() {
+        if (!ticking) {
+            requestAnimationFrame(update);
+        }
+        ticking = true;
+    }
+
+    function update() {
+        var trigger = title.getBoundingClientRect().top + window.scrollY;
+        var triggerOffset = title.offsetHeight + 35;
+        var progressMax = lastDocumentHeight - lastWindowHeight;
+
+        // show/hide floating header
+        if (lastScrollY >= trigger + triggerOffset) {
+            header.classList.add('floating-active');
+        } else {
+            header.classList.remove('floating-active');
+        }
+
+        progressBar.setAttribute('max', progressMax);
+        progressBar.setAttribute('value', lastScrollY);
+
+        ticking = false;
+    }
+
+    window.addEventListener('scroll', onScroll, {passive: true});
+    window.addEventListener('resize', onResize, false);
+
+    update();
+});
+</script>
+
+
+    
+
+</body>

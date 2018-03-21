@@ -1,0 +1,373 @@
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Homebrew常用Cheatsheet</title>
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" type="text/css" href="../../../../assets/built/screen.css?v=816d52cd8c">
+
+    <link rel="shortcut icon" href="../../../../favicon.png" type="image/png">
+    <link rel="canonical" href="index.html">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <link rel="amphtml" href="amp/index.html">
+    
+    <meta property="og:site_name" content="Crazy Mark">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Homebrew常用Cheatsheet">
+    <meta property="og:description" content="安装Homebrew ruby -e &amp;quot;$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)&amp;quot; 搜索 brew search &amp;lt;target-name&amp;gt; e.g. brew search mysql 查询软件列表 brew list		// 可列出可安装的软件列表, 可结合管道使用，查找需要的软件 安装软件 brew install &amp;lt;target-name&amp;gt; 删除软件 brew uninstall &amp;lt;target-name&amp;gt; 查询 brew info &amp;lt;target-name&amp;gt;">
+    <meta property="og:url" content="http://localhost:2368/2016/12/08/welcome-to-ghost/">
+    <meta property="article:published_time" content="2016-12-08T06:55:59.000Z">
+    <meta property="article:modified_time" content="2017-02-07T03:57:18.000Z">
+    <meta property="article:tag" content="技术">
+    <meta property="article:tag" content="工具">
+    
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Homebrew常用Cheatsheet">
+    <meta name="twitter:description" content="安装Homebrew ruby -e &amp;quot;$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)&amp;quot; 搜索 brew search &amp;lt;target-name&amp;gt; e.g. brew search mysql 查询软件列表 brew list		// 可列出可安装的软件列表, 可结合管道使用，查找需要的软件 安装软件 brew install &amp;lt;target-name&amp;gt; 删除软件 brew uninstall &amp;lt;target-name&amp;gt; 查询 brew info &amp;lt;target-name&amp;gt;">
+    <meta name="twitter:url" content="http://localhost:2368/2016/12/08/welcome-to-ghost/">
+    <meta name="twitter:label1" content="Written by">
+    <meta name="twitter:data1" content="Mark Chen">
+    <meta name="twitter:label2" content="Filed under">
+    <meta name="twitter:data2" content="技术, 工具">
+    
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "Crazy Mark",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "http://localhost:2368/favicon.png",
+            "width": 60,
+            "height": 60
+        }
+    },
+    "author": {
+        "@type": "Person",
+        "name": "Mark Chen",
+        "image": {
+            "@type": "ImageObject",
+            "url": "http://localhost:2368/content/images/2018/01/firemonkey.jpg",
+            "width": 2000,
+            "height": 2000
+        },
+        "url": "http://localhost:2368/author/mark/",
+        "sameAs": [
+            "http://markcj.cc"
+        ]
+    },
+    "headline": "Homebrew常用Cheatsheet",
+    "url": "http://localhost:2368/2016/12/08/welcome-to-ghost/",
+    "datePublished": "2016-12-08T06:55:59.000Z",
+    "dateModified": "2017-02-07T03:57:18.000Z",
+    "keywords": "技术, 工具",
+    "description": "安装Homebrew ruby -e &amp;quot;$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)&amp;quot; 搜索 brew search &amp;lt;target-name&amp;gt; e.g. brew search mysql 查询软件列表 brew list\t\t// 可列出可安装的软件列表, 可结合管道使用，查找需要的软件 安装软件 brew install &amp;lt;target-name&amp;gt; 删除软件 brew uninstall &amp;lt;target-name&amp;gt; 查询 brew info &amp;lt;target-name&amp;gt;",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:2368/"
+    }
+}
+    </script>
+
+    <script type="text/javascript" src="../../../../public/ghost-sdk.js?v=816d52cd8c"></script>
+<script type="text/javascript">
+ghost.init({
+	clientId: "ghost-frontend",
+	clientSecret: "1cf83f774456"
+});
+</script>
+    <meta name="generator" content="Ghost 1.20">
+    <link rel="alternate" type="application/rss+xml" title="Crazy Mark" href="../../../../rss/index.html">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-113294116-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-113294116-1');
+</script>
+
+</head>
+<body class="post-template tag-ji-zhu tag-gong-ju">
+
+    <div class="site-wrapper">
+
+        
+
+<header class="site-header outer">
+    <div class="inner">
+        <nav class="site-nav">
+    <div class="site-nav-left">
+                <a class="site-nav-logo" href="../../../../">Crazy Mark</a>
+            <ul class="nav" role="menu">
+    <li class="nav-home" role="menuitem"><a href="../../../../">Home</a></li>
+    <li class="nav-about-me" role="menuitem"><a href="http://localhost:2368/about_me/">About me</a></li>
+</ul>
+
+    </div>
+    <div class="site-nav-right">
+        <div class="social-links">
+        </div>
+            <a class="rss-button" href="http://cloud.feedly.com/#subscription/feed/http://localhost:2368/rss/" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24"><circle cx="6.18" cy="17.82" r="2.18"></circle><path d="M4 4.44v2.83c7.03 0 12.73 5.7 12.73 12.73h2.83c0-8.59-6.97-15.56-15.56-15.56zm0 5.66v2.83c3.9 0 7.07 3.17 7.07 7.07h2.83c0-5.47-4.43-9.9-9.9-9.9z"></path></svg>
+</a>
+    </div>
+</nav>
+    </div>
+</header>
+
+
+<main id="site-main" class="site-main outer" role="main">
+    <div class="inner">
+
+        <article class="post-full post tag-ji-zhu tag-gong-ju no-image">
+
+            <header class="post-full-header">
+                <section class="post-full-meta">
+                    <time class="post-full-meta-date" datetime="2016-12-08">8 December 2016</time>
+                        <span class="date-divider">/</span> <a href="../../../../tag/ji-zhu/">技术</a>
+                </section>
+                <h1 class="post-full-title">Homebrew常用Cheatsheet</h1>
+            </header>
+
+
+            <section class="post-full-content">
+                <div class="kg-card-markdown"><h3 id="homebrew">安装Homebrew</h3>
+<pre><code>ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
+</code></pre>
+<h3 id="">搜索</h3>
+<pre><code>brew search &lt;target-name&gt;
+</code></pre>
+<pre><code>e.g. brew search mysql
+</code></pre>
+<h3 id="">查询软件列表</h3>
+<pre><code>brew list		// 可列出可安装的软件列表, 可结合管道使用，查找需要的软件
+</code></pre>
+<h3 id="">安装软件</h3>
+<pre><code>brew install &lt;target-name&gt;
+</code></pre>
+<h3 id="">删除软件</h3>
+<pre><code>brew uninstall &lt;target-name&gt;
+</code></pre>
+<h3 id="">查询</h3>
+<pre><code>brew info &lt;target-name&gt;
+</code></pre>
+<pre><code>e.g. brew search mysql
+</code></pre>
+<h3 id="homebrew">更新Homebrew信息</h3>
+<pre><code>brew update		// 更新Homebrew信息，包括Homebrew自身以及包信息等；
+</code></pre>
+<h3 id="homebrew">Homebrew体检</h3>
+<pre><code>brew doctor		// 会详细列出过期或者废弃的信息
+</code></pre>
+<h3 id="">升级软件</h3>
+<pre><code>brew upgrade	// 通过Homebrew升级所有可以升级的软件们
+</code></pre>
+<h3 id="">清理</h3>
+<pre><code>brew cleanup	// 清理不需要的版本、安装包、缓存等内容
+</code></pre>
+<h3 id="">查看升级信息</h3>
+<pre><code>brew outdated	// 查看所有可升级的软件，aka. 知道哪些软件有新版本啦
+</code></pre>
+<h3 id="">软件定向升级</h3>
+<pre><code>brew upgrade &lt;target-name&gt;		// 对某一软件进行针对性升级
+</code></pre>
+<p>ENJOY.</p>
+<hr>
+<p>Author: Mark C.J.	2016.6.15</p>
+<p>Flight <strong>HU7711</strong>. From Beijing to Shenzhen.</p>
+</div>
+            </section>
+
+
+            <footer class="post-full-footer">
+
+                <section class="author-card">
+                        <img class="author-profile-image" src="../../../../content/images/2018/01/firemonkey.jpg" alt="Mark Chen">
+                    <section class="author-card-content">
+                        <h4 class="author-card-name"><a href="../../../../author/mark/">Mark Chen</a></h4>
+                            <p>Read <a href="../../../../author/mark/">more posts</a> by this author.</p>
+                    </section>
+                </section>
+                <div class="post-full-footer-right">
+                    <a class="author-card-button" href="../../../../author/mark/">Read More</a>
+                </div>
+
+            </footer>
+
+
+        </article>
+
+    </div>
+</main>
+
+<aside class="read-next outer">
+    <div class="inner">
+        <div class="read-next-feed">
+                <article class="read-next-card" style="background-image: url(../../../../content/images/2018/01/1249179307166.jpeg)">
+                    <header class="read-next-card-header">
+                        <small class="read-next-card-header-sitetitle">— Crazy Mark —</small>
+                        <h3 class="read-next-card-header-title"><a href="../../../../tag/ji-zhu/">技术</a></h3>
+                    </header>
+                    <div class="read-next-divider"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24"><path d="M13 14.5s2 3 5 3 5.5-2.463 5.5-5.5S21 6.5 18 6.5c-5 0-7 11-12 11C2.962 17.5.5 15.037.5 12S3 6.5 6 6.5s4.5 3.5 4.5 3.5"></path></svg>
+</div>
+                    <div class="read-next-card-content">
+                        <ul>
+                            <li><a href="../../../../2017/02/07/apple-sirijie-ru-kai-fa-yi/">Apple Siri接入开发（一）</a></li>
+                            <li><a href="../../../../2017/02/07/guan-yu-apple-watchchan-pin-qu-na-wang-da-shen-fen-xiang/">Apple Watch产品设计经验 FROM 去哪网</a></li>
+                            <li><a href="../../../../2017/02/07/xcodezhong-iosgong-cheng-wen-jian-bu-ju-gui-fan/">XCode中iOS工程文件布局规范</a></li>
+                        </ul>
+                    </div>
+                    <footer class="read-next-card-footer">
+                        <a href="../../../../tag/ji-zhu/">See all 5 posts →</a>
+                    </footer>
+                </article>
+
+                <article class="post-card post tag-android tag-ios tag-c tag-ji-zhu-diao-yan no-image">
+    <div class="post-card-content">
+        <a class="post-card-content-link" href="../protobufchu-tan/">
+            <header class="post-card-header">
+                    <span class="post-card-tags">Android</span>
+                <h2 class="post-card-title">Protobuf初探</h2>
+            </header>
+            <section class="post-card-excerpt">
+                <p>文 · Mark 对于软件开发者，尤其是移动端（Android &amp; iOS）开发者来说，XML和JSON两种文件传输格式并不陌生，尤其是JSON，仅在上述两种开发领域中就广泛应用。随之而来的，是各种JSON的解析库，此文中，笔者不想介绍各个平台丰富多彩的JSON解析库，而是想和大家分享发现的一种新的文件传输格式，Protobuf。 Protobuf是什么鬼 初次相遇Protobuf，这是我的第一反应。那么Protobuf到底是什么鬼？ Protobuf是一种灵活高效的、用于跨平台数据通信的数据传输格式，全称Protocol Buffers，类似XML和JSON。下面，我们先看一个protobuf的简单例子，如下： message Person {   required string</p>
+            </section>
+        </a>
+        <footer class="post-card-meta">
+                <img class="author-profile-image" src="../../../../content/images/2018/01/firemonkey.jpg" alt="Mark Chen">
+            <span class="post-card-author"><a href="../../../../author/mark/">Mark Chen</a></span>
+        </footer>
+    </div>
+</article>
+
+
+        </div>
+    </div>
+</aside>
+
+<div class="floating-header">
+    <div class="floating-header-logo">
+        <a href="../../../../">
+                <img src="../../../../content/images/2018/01/fire-monkey-2.png" alt="Crazy Mark icon">
+            <span>Crazy Mark</span>
+        </a>
+    </div>
+    <span class="floating-header-divider">—</span>
+    <div class="floating-header-title">Homebrew常用Cheatsheet</div>
+    <div class="floating-header-share">
+        <div class="floating-header-share-label">Share this <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24">
+    <path d="M7.5 15.5V4a1.5 1.5 0 1 1 3 0v4.5h2a1 1 0 0 1 1 1h2a1 1 0 0 1 1 1H18a1.5 1.5 0 0 1 1.5 1.5v3.099c0 .929-.13 1.854-.385 2.748L17.5 23.5h-9c-1.5-2-5.417-8.673-5.417-8.673a1.2 1.2 0 0 1 1.76-1.605L7.5 15.5zm6-6v2m-3-3.5v3.5m6-1v2"></path>
+</svg>
+</div>
+        <a class="floating-header-share-tw" href="https://twitter.com/share?text=Homebrew%E5%B8%B8%E7%94%A8Cheatsheet&amp;url=http://localhost:2368/2016/12/08/welcome-to-ghost/" onclick="window.open(this.href, 'share-twitter', 'width=550,height=235');return false;">
+            <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 32 32"><path d="M30.063 7.313c-.813 1.125-1.75 2.125-2.875 2.938v.75c0 1.563-.188 3.125-.688 4.625a15.088 15.088 0 0 1-2.063 4.438c-.875 1.438-2 2.688-3.25 3.813a15.015 15.015 0 0 1-4.625 2.563c-1.813.688-3.75 1-5.75 1-3.25 0-6.188-.875-8.875-2.625.438.063.875.125 1.375.125 2.688 0 5.063-.875 7.188-2.5-1.25 0-2.375-.375-3.375-1.125s-1.688-1.688-2.063-2.875c.438.063.813.125 1.125.125.5 0 1-.063 1.5-.25-1.313-.25-2.438-.938-3.313-1.938a5.673 5.673 0 0 1-1.313-3.688v-.063c.813.438 1.688.688 2.625.688a5.228 5.228 0 0 1-1.875-2c-.5-.875-.688-1.813-.688-2.75 0-1.063.25-2.063.75-2.938 1.438 1.75 3.188 3.188 5.25 4.25s4.313 1.688 6.688 1.813a5.579 5.579 0 0 1 1.5-5.438c1.125-1.125 2.5-1.688 4.125-1.688s3.063.625 4.188 1.813a11.48 11.48 0 0 0 3.688-1.375c-.438 1.375-1.313 2.438-2.563 3.188 1.125-.125 2.188-.438 3.313-.875z"></path></svg>
+        </a>
+        <a class="floating-header-share-fb" href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:2368/2016/12/08/welcome-to-ghost/" onclick="window.open(this.href, 'share-facebook','width=580,height=296');return false;">
+            <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 32 32"><path d="M19 6h5V0h-5c-3.86 0-7 3.14-7 7v3H8v6h4v16h6V16h5l1-6h-6V7c0-.542.458-1 1-1z"></path></svg>
+        </a>
+    </div>
+    <progress class="progress" value="0">
+        <div class="progress-container">
+            <span class="progress-bar"></span>
+        </div>
+    </progress>
+</div>
+
+
+
+
+        <footer class="site-footer outer">
+            <div class="site-footer-content inner">
+                <section class="copyright"><a href="../../../../">Crazy Mark</a> © 2018</section>
+                <nav class="site-footer-nav">
+                    <a href="../../../../">Latest Posts</a>
+                    
+                    
+                    <a href="https://ghost.org" target="_blank" rel="noopener">Ghost</a>
+                </nav>
+            </div>
+        </footer>
+
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous">
+    </script>
+    <script type="text/javascript" src="../../../../assets/js/jquery.fitvids.js?v=816d52cd8c"></script>
+
+
+    <script>
+
+// NOTE: Scroll performance is poor in Safari
+// - this appears to be due to the events firing much more slowly in Safari.
+//   Dropping the scroll event and using only a raf loop results in smoother
+//   scrolling but continuous processing even when not scrolling
+$(document).ready(function () {
+    // Start fitVids
+    var $postContent = $(".post-full-content");
+    $postContent.fitVids();
+    // End fitVids
+
+    var progressBar = document.querySelector('progress');
+    var header = document.querySelector('.floating-header');
+    var title = document.querySelector('.post-full-title');
+
+    var lastScrollY = window.scrollY;
+    var lastWindowHeight = window.innerHeight;
+    var lastDocumentHeight = $(document).height();
+    var ticking = false;
+
+    function onScroll() {
+        lastScrollY = window.scrollY;
+        requestTick();
+    }
+
+    function onResize() {
+        lastWindowHeight = window.innerHeight;
+        lastDocumentHeight = $(document).height();
+        requestTick();
+    }
+
+    function requestTick() {
+        if (!ticking) {
+            requestAnimationFrame(update);
+        }
+        ticking = true;
+    }
+
+    function update() {
+        var trigger = title.getBoundingClientRect().top + window.scrollY;
+        var triggerOffset = title.offsetHeight + 35;
+        var progressMax = lastDocumentHeight - lastWindowHeight;
+
+        // show/hide floating header
+        if (lastScrollY >= trigger + triggerOffset) {
+            header.classList.add('floating-active');
+        } else {
+            header.classList.remove('floating-active');
+        }
+
+        progressBar.setAttribute('max', progressMax);
+        progressBar.setAttribute('value', lastScrollY);
+
+        ticking = false;
+    }
+
+    window.addEventListener('scroll', onScroll, {passive: true});
+    window.addEventListener('resize', onResize, false);
+
+    update();
+});
+</script>
+
+
+    
+
+</body>
