@@ -1,4 +1,92 @@
-<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" version="2.0"><channel><title>Crazy Mark</title><description>Thoughts &amp; Ideas.</description><link>http://localhost:2368/</link><image><url>http://localhost:2368/favicon.png</url><title>Crazy Mark</title><link>http://localhost:2368/</link></image><generator>Ghost 1.20</generator><lastBuildDate>Tue, 30 Jan 2018 09:35:17 GMT</lastBuildDate><atom:link href="http://localhost:2368/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title>Beacon初识</title><description>&lt;div class="kg-card-markdown"&gt;&lt;p&gt;文 · Mark&lt;/p&gt;
+<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" version="2.0"><channel><title>Crazy Mark</title><description>Thoughts &amp; Ideas.</description><link>http://localhost:2368/</link><image><url>http://localhost:2368/favicon.png</url><title>Crazy Mark</title><link>http://localhost:2368/</link></image><generator>Ghost 1.20</generator><lastBuildDate>Wed, 21 Mar 2018 07:58:51 GMT</lastBuildDate><atom:link href="http://localhost:2368/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title>iOS端查看PDF文档实现方案</title><description>&lt;div class="kg-card-markdown"&gt;&lt;p&gt;文 · Mark&lt;/p&gt;
+&lt;p&gt;在不同端查看一些文档时，往往会展现出千奇百怪的格式，呈现给用户的也是不同的展示效果。为了保持原始文稿的格式，保证展现效果的统一，PDF文稿可以很好解决格式在不同端文稿展现格式差异，保持原始文稿的展现效果。&lt;/p&gt;
+&lt;p&gt;对于移动端的开发工作中，查看PDF也是常见的需求，本文针对iOS端查看PDF文档给出实现方案，包括通过网络端读取和本地读取两种方式查看PDF文档。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;读取方式&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;网络读取&lt;/li&gt;
+&lt;li&gt;本地读取&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;测试文稿样本&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://i.loli.net/2018/03/21/5ab1fe2b4e3e5.png"&gt;Accessory Design Guidelines for Apple Devices&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;作者：Apple Inc.&lt;/li&gt;
+&lt;li&gt;分辨率：612 * 792 px&lt;/li&gt;
+&lt;li&gt;大小： 22.1 MB&lt;/li&gt;
+&lt;li&gt;页数： 177&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=""&gt;实现方式&lt;/h3&gt;
+&lt;p&gt;经过调研，目前针对网络读取，可以使用UIWebView进行PDF文档加载及展示；针对本地PDF文档读取，可以通过QLPreviewController进行读取并展示。&lt;/p&gt;
+&lt;h4 id="uiwebview"&gt;UIWebView展现&lt;/h4&gt;
+&lt;p&gt;本方法用于在线展示云端PDF文档;&lt;/p&gt;
+&lt;p&gt;关键代码如下：&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-objective-c"&gt;self.webViewPDFViewer = [[UIWebView alloc] initWithFrame:&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description><link>http://localhost:2368/iosduan-cha-kan-pdfwen-dang-shi-xian-fang-an/</link><guid isPermaLink="false">5ab2104efd03b3d90a96fee1</guid><dc:creator>Mark Chen</dc:creator><pubDate>Wed, 21 Mar 2018 07:58:33 GMT</pubDate><content:encoded>&lt;div class="kg-card-markdown"&gt;&lt;p&gt;文 · Mark&lt;/p&gt;
+&lt;p&gt;在不同端查看一些文档时，往往会展现出千奇百怪的格式，呈现给用户的也是不同的展示效果。为了保持原始文稿的格式，保证展现效果的统一，PDF文稿可以很好解决格式在不同端文稿展现格式差异，保持原始文稿的展现效果。&lt;/p&gt;
+&lt;p&gt;对于移动端的开发工作中，查看PDF也是常见的需求，本文针对iOS端查看PDF文档给出实现方案，包括通过网络端读取和本地读取两种方式查看PDF文档。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;读取方式&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;网络读取&lt;/li&gt;
+&lt;li&gt;本地读取&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;测试文稿样本&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://i.loli.net/2018/03/21/5ab1fe2b4e3e5.png"&gt;Accessory Design Guidelines for Apple Devices&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;作者：Apple Inc.&lt;/li&gt;
+&lt;li&gt;分辨率：612 * 792 px&lt;/li&gt;
+&lt;li&gt;大小： 22.1 MB&lt;/li&gt;
+&lt;li&gt;页数： 177&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=""&gt;实现方式&lt;/h3&gt;
+&lt;p&gt;经过调研，目前针对网络读取，可以使用UIWebView进行PDF文档加载及展示；针对本地PDF文档读取，可以通过QLPreviewController进行读取并展示。&lt;/p&gt;
+&lt;h4 id="uiwebview"&gt;UIWebView展现&lt;/h4&gt;
+&lt;p&gt;本方法用于在线展示云端PDF文档;&lt;/p&gt;
+&lt;p&gt;关键代码如下：&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-objective-c"&gt;self.webViewPDFViewer = [[UIWebView alloc] initWithFrame:CGRectMake(0, NAVIGATION_BAR_AND_STATUS_BAR_HEIGHT, SCREEN_WIDTH, SCREEN_HEIGHT-NAVIGATION_BAR_AND_STATUS_BAR_HEIGHT)];
+self.webViewPDFViewer.delegate = self;
+[self.view addSubview:self.webViewPDFViewer];
+
+// Load the PDF document online
+NSURLRequest *urlRequest = [[NSURLRequest alloc] initWithURL:[NSURL URLWithString:PDF_FILE_URL]];
+[self.webViewPDFViewer loadRequest:urlRequest];
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;展现截图：&lt;/p&gt;
+&lt;img src="https://i.loli.net/2018/03/21/5ab1fe2b4e3e5.png" style="zoom:0.5"&gt;
+&lt;p&gt;&lt;em&gt;&lt;strong&gt;注意&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;通过WebView加载网络端过程中会有等待情况，建议增加Loading提示&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id="qlpreviewcontroller"&gt;QLPreviewController展现&lt;/h4&gt;
+&lt;p&gt;&lt;a href="https://developer.apple.com/documentation/quicklook/qlpreviewcontroller"&gt;该方式&lt;/a&gt;可查看多种文件类型，主要适用于本地文件读取展示，包括：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;iWork documents&lt;/li&gt;
+&lt;li&gt;Microsoft Office documents (Office ‘97 and newer)&lt;/li&gt;
+&lt;li&gt;Rich Text Format (RTF) documents&lt;/li&gt;
+&lt;li&gt;PDF files&lt;/li&gt;
+&lt;li&gt;Images&lt;/li&gt;
+&lt;li&gt;Text files whose uniform type identifier (UTI) conforms to the &lt;code&gt;public.text&lt;/code&gt; type (see &lt;a href="https://developer.apple.com/library/content/documentation/Miscellaneous/Reference/UTIRef/Introduction/Introduction.html#//apple_ref/doc/uid/TP40009257"&gt;Uniform Type Identifiers Reference&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Comma-separated value (csv) files&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;关键代码&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-objective-c"&gt;/*!
+ * @abstract Returns the item that the preview controller should preview.
+ * @param panel The Preview Controller.
+ * @param index The index of the item to preview.
+ * @result An item conforming to the QLPreviewItem protocol.
+ */
+- (id &amp;lt;QLPreviewItem&amp;gt;)previewController:(QLPreviewController *)controller previewItemAtIndex:(NSInteger)index {
+    NSString *pdfFilePath = [[NSBundle mainBundle] pathForResource:@&amp;quot;Accessory-Design-Guidelines&amp;quot; ofType:@&amp;quot;pdf&amp;quot;];
+    return [NSURL fileURLWithPath:pdfFilePath];
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;注意&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;在iOS11.2 系统上，查看云端PDF文档会出现如下错误：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;... : [default] Couldn't issue file extension for url: https://developer.apple.com/accessories/Accessory-Design-Guidelines.pdf #PreviewItem
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;a href="https://forums.developer.apple.com/thread/91835"&gt;相关链接及解决方法&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;若使用该方法查看PDF文档，建议先将文件进行下载，保存到App的Document某一目录，再进行文件展示。&lt;/p&gt;
+&lt;h4 id="pdfkit"&gt;PDFKit展现&lt;/h4&gt;
+&lt;p&gt;该方式是iOS11.0 SDK添加，支持PDF文件读取和写入。&lt;/p&gt;
+&lt;p&gt;考虑到此API版本需要的系统版本较高，本文暂不调研，后续会进行专门补充。&lt;/p&gt;
+&lt;/div&gt;</content:encoded></item><item><title>Beacon初识</title><description>&lt;div class="kg-card-markdown"&gt;&lt;p&gt;文 · Mark&lt;/p&gt;
 &lt;h2 id="beacon"&gt;什么是Beacon&lt;/h2&gt;
 &lt;p&gt;Beacon  ['biːk(ə)n] 这个单词的中文意思是&lt;em&gt;信号浮标、灯塔&lt;/em&gt;，此文所说的Beacon其特点如下：&lt;/p&gt;
 &lt;ul&gt;
