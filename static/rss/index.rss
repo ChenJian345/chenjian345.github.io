@@ -1,4 +1,2017 @@
-<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" version="2.0"><channel><title>Crazy Mark</title><description>Thoughts &amp; Ideas.</description><link>http://localhost:2368/</link><image><url>http://localhost:2368/favicon.png</url><title>Crazy Mark</title><link>http://localhost:2368/</link></image><generator>Ghost 1.20</generator><lastBuildDate>Tue, 09 Oct 2018 08:31:22 GMT</lastBuildDate><atom:link href="http://localhost:2368/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title>iOS端查看PDF文档实现方案</title><description>&lt;div class="kg-card-markdown"&gt;&lt;p&gt;文 · Mark&lt;/p&gt;
+<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" version="2.0"><channel><title>Crazy Mark</title><description>Thoughts &amp; Ideas.</description><link>http://localhost:2368/</link><image><url>http://localhost:2368/favicon.png</url><title>Crazy Mark</title><link>http://localhost:2368/</link></image><generator>Ghost 1.20</generator><lastBuildDate>Wed, 10 Oct 2018 02:01:18 GMT</lastBuildDate><atom:link href="http://localhost:2368/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title>Google Objective-C Style Guide [中英对照]</title><description>翻译者：Mark C.J. 
+
+警告：文章原始版权归Google所有，本文档翻译部分归作者Mark所有，只供学习使用，禁止以营利为目的或其他商业使用！</description><link>http://localhost:2368/2018/10/09/google-objective-c-style-guide/</link><guid isPermaLink="false">5bbc591c9e9f546e55266be0</guid><category>style guide</category><category>iOS</category><category>技术</category><dc:creator>Mark Chen</dc:creator><pubDate>Tue, 09 Oct 2018 12:00:00 GMT</pubDate><content:encoded>&lt;div class="kg-card-markdown"&gt;&lt;p&gt;&lt;strong&gt;注意：文章原始版权归Google所有，本文档翻译部分归作者Mark所有，只供学习使用，禁止以营利为目的或其他商业使用！&lt;/strong&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Objective-C is a dynamic, object-oriented extension of C. It's designed to be&lt;br&gt;
+easy to use and read, while enabling sophisticated object-oriented design. It&lt;br&gt;
+is the primary development language for applications on OS X and on iOS.&lt;/p&gt;
+&lt;p&gt;Objective-C是基于C语言的动态化、面向对象程序设计语言。它被设计的易读易使用，同时支持复杂的面向对象程序设计。Objective-C是OS X和iOS应用程序开发的首选语言。&lt;/p&gt;
+&lt;p&gt;Apple has already written a very good, and widely accepted, &lt;a href="https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/CodingGuidelines/CodingGuidelines.html"&gt;Cocoa Coding&lt;br&gt;
+Guidelines&lt;/a&gt;&lt;br&gt;
+for Objective-C. Please read it in addition to this guide.&lt;/p&gt;
+&lt;p&gt;苹果公司已经为Objective-C撰写了优秀且被广泛接受的 &lt;a href="https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/CodingGuidelines/CodingGuidelines.html"&gt;Cocoa开发代码规范&lt;/a&gt;，除本文档外，可以参考上述文档。&lt;/p&gt;
+&lt;p&gt;The purpose of this document is to describe the Objective-C (and&lt;br&gt;
+Objective-C++) coding guidelines and practices that should be used for iOS and&lt;br&gt;
+OS X code. These guidelines have evolved and been proven over time on other&lt;br&gt;
+projects and teams.&lt;br&gt;
+Open-source projects developed by Google conform to the requirements in this guide.&lt;/p&gt;
+&lt;p&gt;本文档用于描述在用于iOS和OS X程序开发时，Objective-C (Objective-C++)语言的代码规范和最佳实践。该规范已经被其他项目和团队广泛使用并被时间验证。Google的开源项目均采用该代码开发规范。&lt;/p&gt;
+&lt;p&gt;Note that this guide is not an Objective-C tutorial. We assume that the reader&lt;br&gt;
+is familiar with the language. If you are new to Objective-C or need a&lt;br&gt;
+refresher, please read &lt;a href="https://developer.apple.com/library/mac/#documentation/Cocoa/Conceptual/ProgrammingWithObjectiveC/Introduction/Introduction.html"&gt;Programming with&lt;br&gt;
+Objective-C&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;注意本文档不是Objective-C语言教程。我们假设读者已经熟知Objective-C开发语言。如果你是Objective-C新人或需要复习该语言，请阅读&lt;a href="https://developer.apple.com/library/mac/#documentation/Cocoa/Conceptual/ProgrammingWithObjectiveC/Introduction/Introduction.html"&gt;Programming with Objective-C&lt;/a&gt;。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id="principles"&gt;原则（Principles）&lt;/h2&gt;
+&lt;h3 id="optimizeforthereadernotthewriter"&gt;关注读者，而非作者（Optimize for the reader, not the writer）&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Codebases often have extended lifetimes and more time is spent reading the code&lt;br&gt;
+than writing it. We explicitly choose to optimize for the experience of our&lt;br&gt;
+average software engineer reading, maintaining, and debugging code in our&lt;br&gt;
+codebase rather than the ease of writing said code. For example, when something&lt;br&gt;
+surprising or unusual is happening in a snippet of code, leaving textual hints&lt;br&gt;
+for the reader is valuable.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;阅读代码库中的代码的时间往往远大于书写的时间。我们很明确的选择优化普通软件开发工程师对于代码阅读、维护和调试的体验，而不是写出简易（指简陋甚至）的代码。例如，当对于一小段代码会让人感到惊奇或不寻常时（不可奇技淫巧），给读者书写一段文本注释或说明是非常可贵的。&lt;/p&gt;
+&lt;h3 id="beconsistent"&gt;保持一致性 （Be consistent）&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;When the style guide allows multiple options it is preferable to pick one option&lt;br&gt;
+over mixed usage of multiple options. Using one style consistently throughout a&lt;br&gt;
+codebase lets engineers focus on other (more important) issues. Consistency also&lt;br&gt;
+enables better automation because consistent code allows more efficient&lt;br&gt;
+development and operation of tools that format or refactor code. In many cases,&lt;br&gt;
+rules that are attributed to &amp;quot;Be Consistent&amp;quot; boil down to &amp;quot;Just pick one and&lt;br&gt;
+stop worrying about it&amp;quot;; the potential value of allowing flexibility on these&lt;br&gt;
+points is outweighed by the cost of having people argue over them.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;当编码风格规范中提供规范供选择时，选择一种规范要优于多种规范混用。代码库中使用一致的规范，会帮助工程师节省时间，将精力放在其他更重要的事情上（指减少因为编码规范不统一导致的各种误解）。由于一致的代码风格可以高效的开发和使用工具组件，所以，一致性也可以提高自动化程度。在很多场景中，保持一致性可以归结为“（快速）选一个，然后就不要再担心它”，这种选择的灵活性做法，对比花费更多时间争论选择哪种规范来使用，更具潜在价值。&lt;/p&gt;
+&lt;h3 id="applesdksbeconsistentwithapplesdks"&gt;与Apple SDKs保持一致（Be consistent with Apple SDKs）&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Consistency with the way Apple SDKs use Objective-C has value for the same&lt;br&gt;
+reasons as consistency within our code base. If an Objective-C feature solves a&lt;br&gt;
+problem that's an argument for using it. However, sometimes language features&lt;br&gt;
+and idioms are flawed, or were just designed with assumptions that are not&lt;br&gt;
+universal. In those cases it is appropriate to constrain or ban language&lt;br&gt;
+features or idioms.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;与上面说的保持一致性一样，与苹果Objective-C SDKs保持一致性同样具有价值。如果一个Objective-C的功能特性解决了一个由于参数使用导致的问题。然而，有时语言的特性和惯用语法是有缺陷的，或者本来就被设计的不是通用的。此时，避免或者禁用这些特性或惯用语法往往更好。&lt;/p&gt;
+&lt;h3 id="stylerulesshouldpulltheirweight"&gt;风格规范要适度（Style rules(编码规范) should pull their weight）&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;The benefit of a style rule must be large enough to justify asking engineers to&lt;br&gt;
+remember it. The benefit is measured relative to the codebase we would get&lt;br&gt;
+without the rule, so a rule against a very harmful practice may still have a&lt;br&gt;
+small benefit if people are unlikely to do it anyway. This principle mostly&lt;br&gt;
+explains the rules we don’t have, rather than the rules we do: for example, goto&lt;br&gt;
+contravenes many of the following principles, but is not discussed due to its&lt;br&gt;
+extreme rarity.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;编码规范必须被证明足够有益，以便让工程师信服。这些收益是相对于我们拿一个完全没有规范的代码库来对比的，若工程师执行一个非常糟糕的编码规范，也比完全没有规范好一些。这一原则主要解释我们没有的规则，而不是我们已有的规则。例如，goto违反很多下述原则，但我们由于其极其少见，我们在此不讨论。&lt;/p&gt;
+&lt;h2 id="example"&gt;示例 (Example)&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;They say an example is worth a thousand words, so let's start off with an&lt;br&gt;
+example that should give you a feel for the style, spacing, naming, and so on.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Here is an example header file, demonstrating the correct commenting and spacing&lt;br&gt;
+for an &lt;code&gt;@interface&lt;/code&gt; declaration.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;俗话说，一个例子胜过千言万语，所以我们举个例子，来初步感受一下编码风格、空格空行布局、命名等等编码规范。&lt;/p&gt;
+&lt;p&gt;下面头文件的例子，演示如何声明一个&lt;code&gt;@interface&lt;/code&gt;正确的注释及代码空格空行编码风格。&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-objectivec"&gt;// GOOD:
+
+#import &amp;lt;Foundation/Foundation.h&amp;gt;
+
+@class Bar;
+
+/**
+ * A sample class demonstrating good Objective-C style. All interfaces,
+ * categories, and protocols (read: all non-trivial top-level declarations
+ * in a header) MUST be commented. Comments must also be adjacent to the
+ * object they're documenting.
+ */
+@interface Foo : NSObject
+
+/** The retained Bar. */
+@property(nonatomic) Bar *bar;
+
+/** The current drawing attributes. */
+@property(nonatomic, copy) NSDictionary&amp;lt;NSString *, NSNumber *&amp;gt; *attributes;
+
+/**
+ * Convenience creation method.
+ * See -initWithBar: for details about @c bar.
+ *
+ * @param bar The string for fooing.
+ * @return An instance of Foo.
+ */
++ (instancetype)fooWithBar:(Bar *)bar;
+
+/**
+ * Initializes and returns a Foo object using the provided Bar instance.
+ *
+ * @param bar A string that represents a thing that does a thing.
+ */
+- (instancetype)initWithBar:(Bar *)bar NS_DESIGNATED_INITIALIZER;
+
+/**
+ * Does some work with @c blah.
+ *
+ * @param blah
+ * @return YES if the work was completed; NO otherwise.
+ */
+- (BOOL)doWorkWithBlah:(NSString *)blah;
+
+@end
+&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;An example source file, demonstrating the correct commenting and spacing for the&lt;br&gt;
+&lt;code&gt;@implementation&lt;/code&gt; of an interface.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;实现一个&lt;code&gt;@implementation&lt;/code&gt; 的正确编码规范示例，展示正确的注释和间距（包括空行，回车，空格等）&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-objectivec"&gt;// GOOD:
+
+#import &amp;quot;Shared/Util/Foo.h&amp;quot;
+
+@implementation Foo {
+  /** The string used for displaying &amp;quot;hi&amp;quot;. */
+  NSString *_string;
+}
+
++ (instancetype)fooWithBar:(Bar *)bar {
+  return [[self alloc] initWithBar:bar];
+}
+
+- (instancetype)init {
+  // Classes with a custom designated initializer should always override
+  // the superclass's designated initializer.
+  return [self initWithBar:nil];
+}
+
+- (instancetype)initWithBar:(Bar *)bar {
+  self = [super init];
+  if (self) {
+    _bar = [bar copy];
+    _string = [[NSString alloc] initWithFormat:@&amp;quot;hi %d&amp;quot;, 3];
+    _attributes = @{
+      @&amp;quot;color&amp;quot; : [UIColor blueColor],
+      @&amp;quot;hidden&amp;quot; : @NO
+    };
+  }
+  return self;
+}
+
+- (BOOL)doWorkWithBlah:(NSString *)blah {
+  // Work should be done here.
+  return NO;
+}
+
+@end
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id="naming"&gt;命名（Naming）&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Names should be as descriptive as possible, within reason. Follow standard&lt;br&gt;
+&lt;a href="https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/CodingGuidelines/CodingGuidelines.html"&gt;Objective-C naming rules&lt;/a&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;命名需要自达意（即看到命名，即可清楚知道代表的意义）且合理，参照&lt;a href="https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/CodingGuidelines/CodingGuidelines.html"&gt;Objective-C naming rules&lt;/a&gt;.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Avoid non-standard abbreviations (including non-standard acronyms and&lt;br&gt;
+initialisms). Don't worry about saving horizontal space as it is far more&lt;br&gt;
+important to make your code immediately understandable by a new reader. For&lt;br&gt;
+example:&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;禁用非标准缩写（包括非标准首字母缩略词）。 相对节约横向空间来说，对于一个新的读者来说，能够立即理解意义会更为重要，例如：&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-objectivec"&gt;// GOOD:
+
+// Good names.
+int numberOfErrors = 0;
+int completedConnectionsCount = 0;
+tickets = [[NSMutableArray alloc] init];
+userInfo = [someObject object];
+port = [network port];
+NSDate *gAppLaunchDate;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class="language-objectivec"&gt;// AVOID:
+
+// Names to avoid.
+int w;
+int nerr;
+int nCompConns;
+tix = [[NSMutableArray alloc] init];
+obj = [someObject object];
+p = [network port];
+&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Any class, category, method, function, or variable name should use all capitals&lt;br&gt;
+for acronyms and &lt;a href="https://en.wikipedia.org/wiki/Initialism"&gt;initialisms&lt;/a&gt;&lt;br&gt;
+within the name. This follows Apple's standard of using all capitals within a&lt;br&gt;
+name for acronyms such as URL, ID, TIFF, and EXIF.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;任何类、扩展、方法、函数或者变量名，简称或者缩略语必须大写。对于名字，可参照苹果缩略语或简称大写字母标准，例如URL, ID, TIFF, EXIF。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Names of C functions and typedefs should be capitalized and use camel case as&lt;br&gt;
+appropriate for the surrounding code.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;C语言函数或者typedef命名须首字母大写，使用驼峰命名方式区分大小写；&lt;/p&gt;
+&lt;h3 id="filenames"&gt;文件命名（File Names）&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;File names should reflect the name of the class implementation that they&lt;br&gt;
+contain—including case.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;文件命名须与该文件中实现的类名保持一致，包括大小写；&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Follow the convention that your project uses.&lt;br&gt;
+File extensions should be as follows:&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;文件扩展名，约定如下：&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;扩展名（Extension）&lt;/th&gt;
+&lt;th&gt;类型（Type）&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;.h&lt;/td&gt;
+&lt;td&gt;C/C++/Objective-C头文件（C/C++/Objective-C header file）&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;.m&lt;/td&gt;
+&lt;td&gt;Objective-C（类）实现文件（Objective-C implementation file）&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;.mm&lt;/td&gt;
+&lt;td&gt;Objective-C++（类）实现文件（Objective-C++ implementation file）&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;.cc&lt;/td&gt;
+&lt;td&gt;纯C++实现文件（Pure C++ implementation file）&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;.c&lt;/td&gt;
+&lt;td&gt;C实现文件（C implementation file）&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Files containing code that may be shared across projects or used in a large&lt;br&gt;
+project should have a clearly unique name, typically including the project or&lt;br&gt;
+class &lt;a href="#prefixes"&gt;prefix&lt;/a&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;包含跨工程或者较大工程中共用的代码的文件，必须有一个清晰唯一的名字，一般包括工程或者类名作为前缀。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;File names for categories should include the name of the class being extended,&lt;br&gt;
+like GTMNSString+Utils.h or NSTextView+GTMAutocomplete.h&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;扩展类的文件名，须包含被扩展类的类名，例如GTMNSString+Utils.h or NSTextView+GTMAutocomplete.h&lt;/p&gt;
+&lt;h3 id="prefixes"&gt;前缀（Prefixes）&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Prefixes are commonly required in Objective-C to avoid naming collisions in a&lt;br&gt;
+global namespace. Classes, protocols, global functions, and global constants&lt;br&gt;
+should generally be named with a prefix that begins with a capital letter&lt;br&gt;
+followed by one or more capital letters or numbers.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;前缀被用来避免全局命名空间的命名冲突。类名、协议、全局方法和全局常量命名，要添加前缀，并且首字母大写，后面包含一个或几个数字或大写字母。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;WARNING: Apple reserves two-letter prefixes—see&lt;br&gt;
+&lt;a href="https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/ProgrammingWithObjectiveC/Conventions/Conventions.html"&gt;Conventions in Programming with Objective-C&lt;/a&gt;—so&lt;br&gt;
+prefixes with a minimum of three characters are considered best practice.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;警告：苹果使用两个字母的前缀，参考&lt;a href="https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/ProgrammingWithObjectiveC/Conventions/Conventions.html"&gt;Conventions in Programming with Objective-C&lt;/a&gt;，所以，建议最好使用最少三个字符的前缀。&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-objectivec"&gt;// GOOD:
+
+/** An example error domain. */
+extern NSString *GTMExampleErrorDomain;
+
+/** Gets the default time zone. */
+extern NSTimeZone *GTMGetDefaultTimeZone(void);
+
+/** An example delegate. */
+@protocol GTMExampleDelegate &amp;lt;NSObject&amp;gt;
+@end
+
+/** An example class. */
+@interface GTMExample : NSObject
+@end
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id="classnames"&gt;类命名（Class Names）&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Class names (along with category and protocol names) should start as uppercase&lt;br&gt;
+and use mixed case to delimit words.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;类命名（连同扩展和协议命名）需要使用首字母大写，大小写混合的方式来界定不同单词。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Classes and protocols in code shared across multiple applications must have an&lt;br&gt;
+appropriate &lt;a href="#prefixes"&gt;prefix&lt;/a&gt; (e.g. GTMSendMessage). Prefixes are recommended,&lt;br&gt;
+but not required, for other classes and protocols.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;跨应用使用的类和协议必须使用合适的前缀（例如：GTMSendMessage）。对于其他类和协议，前缀被推荐使用，但不是必须的。&lt;/p&gt;
+&lt;h3 id="categorycategorynaming"&gt;Category命名（Category Naming ）&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Category names should start with an appropriate &lt;a href="#prefixes"&gt;prefix&lt;/a&gt; identifying&lt;br&gt;
+the category as part of a project or open for general use.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Category名要使用合适的前缀，来表明该扩展是某一工程的一部分或可以通用。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Category source file names should begin with the class being extended followed&lt;br&gt;
+by a plus sign and the name of the category, e.g., &lt;code&gt;NSString+GTMParsing.h&lt;/code&gt;.&lt;br&gt;
+Methods in a category should be prefixed with a lowercase version of the prefix&lt;br&gt;
+used for the category name followed by an underscore (e.g.,&lt;br&gt;
+&lt;code&gt;gtm_myCategoryMethodOnAString:&lt;/code&gt;) in order to prevent collisions in&lt;br&gt;
+Objective-C's global namespace.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Category源文件名必须以被扩展类名开头，中间用+号衔接后面的扩展名字，例如：&lt;code&gt;NSString+GTMParsing.h&lt;/code&gt;。 扩展中的方法以小写的扩展名为前缀，中间用下划线衔接方法名（例如：&lt;code&gt;gtm_myCategoryMethodOnAString:&lt;/code&gt;），以便避免全局命名范围内的命名冲突。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;There should be a single space between the class name and the opening&lt;br&gt;
+parenthesis of the category.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;类名和扩展名的左圆括号之间，须添加一个空格。&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-objectivec"&gt;// GOOD:
+
+// UIViewController+GTMCrashReporting.h
+
+/** A category that adds metadata to include in crash reports to UIViewController. */
+@interface UIViewController (GTMCrashReporting)
+
+/** A unique identifier to represent the view controller in crash reports. */
+@property(nonatomic, setter=gtm_setUniqueIdentifier:) int gtm_uniqueIdentifier;
+
+/** Returns an encoded representation of the view controller's current state. */
+- (nullable NSData *)gtm_encodedState;
+
+@end
+&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;If a class is not shared with other projects, categories extending it may omit&lt;br&gt;
+name prefixes and method name prefixes.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;若类不被其他工程共用，扩展名和方法名可省略前缀。&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-objectivec"&gt;// GOOD:
+
+/** This category extends a class that is not shared with other projects. */
+@interface XYZDataObject (Storage)
+- (NSString *)storageIdentifier;
+@end
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id="ocobjectivecmethodnames"&gt;OC方法命名（Objective-C Method Names）&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Method and parameter names typically start as lowercase and then use mixed case.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;方法名和参数名以小写字母开头，中间夹杂大小写。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Proper capitalization should be respected, including at the beginning of names.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;包括首字母命名，可以考虑某些字母大写。&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-objectivec"&gt;// GOOD:
+
++ (NSURL *)URLWithString:(NSString *)URLString;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;The method name should read like a sentence if possible, meaning you should&lt;br&gt;
+choose parameter names that flow with the method name. Objective-C method names&lt;br&gt;
+tend to be very long, but this has the benefit that a block of code can almost&lt;br&gt;
+read like prose, thus rendering many implementation comments unnecessary.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;方法名应该尽量读起来像一个句子，告诉你这个方法后面应该传入的参数名。Objective-C方法名倾向于非常长，但是这样的好处就是一段block的代码读起来像散文，因此没必要再添加更多注释。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Use prepositions and conjunctions like &amp;quot;with&amp;quot;, &amp;quot;from&amp;quot;, and &amp;quot;to&amp;quot; in the second&lt;br&gt;
+and later parameter names only where necessary to clarify the meaning or&lt;br&gt;
+behavior of the method.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;只有在有必要说明方法意义或行为时，才在第二个参数名后，使用例如&amp;quot;with&amp;quot;, &amp;quot;from&amp;quot;, and &amp;quot;to&amp;quot;等介词和连词。&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-objectivec"&gt;// GOOD:
+
+- (void)addTarget:(id)target action:(SEL)action;                          // GOOD; no conjunction needed
+- (CGPoint)convertPoint:(CGPoint)point fromView:(UIView *)view;           // GOOD; conjunction clarifies parameter
+- (void)replaceCharactersInRange:(NSRange)aRange
+            withAttributedString:(NSAttributedString *)attributedString;  // GOOD.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;A method that returns an object should have a name beginning with a noun&lt;br&gt;
+identifying the object returned:&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;返回对象的方法名需要以名词开头，以表明返回的对象类型。&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-objectivec"&gt;// GOOD:
+
+- (Sandwich *)sandwich;      // GOOD.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class="language-objectivec"&gt;// AVOID:
+
+- (Sandwich *)makeSandwich;  // AVOID.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;An accessor method should be named the same as the object it's getting, but it&lt;br&gt;
+should not be prefixed with the word &lt;code&gt;get&lt;/code&gt;. For example:&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;访问器方法需要和对象的getting方法一致，但不可有&lt;code&gt;get&lt;/code&gt;前缀。例如：&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-objectivec"&gt;// GOOD:
+
+- (id)delegate;     // GOOD.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class="language-objectivec"&gt;// AVOID:
+
+- (id)getDelegate;  // AVOID.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Accessors that return the value of boolean adjectives have method names&lt;br&gt;
+beginning with &lt;code&gt;is&lt;/code&gt;, but property names for those methods omit the &lt;code&gt;is&lt;/code&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;返回布尔类型的方法，要以&lt;code&gt;is&lt;/code&gt;为开头，但属性名省略&lt;code&gt;is&lt;/code&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Dot notation is used only with property names, not with method names.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;点只用于属性获取，不可用于方法调用&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-objectivec"&gt;// GOOD:
+
+@property(nonatomic, getter=isGlorious) BOOL glorious;
+- (BOOL)isGlorious;
+
+BOOL isGood = object.glorious;      // GOOD.
+BOOL isGood = [object isGlorious];  // GOOD.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class="language-objectivec"&gt;// AVOID:
+
+BOOL isGood = object.isGlorious;    // AVOID.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class="language-objectivec"&gt;// GOOD:
+
+NSArray&amp;lt;Frog *&amp;gt; *frogs = [NSArray&amp;lt;Frog *&amp;gt; arrayWithObject:frog];
+NSEnumerator *enumerator = [frogs reverseObjectEnumerator];  // GOOD.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class="language-objectivec"&gt;// AVOID: 避免使用.来调用方法
+
+NSEnumerator *enumerator = frogs.reverseObjectEnumerator;    // AVOID.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;See &lt;a href="https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/CodingGuidelines/Articles/NamingMethods.html#//apple_ref/doc/uid/20001282-BCIGIJJF"&gt;Apple's Guide to Naming Methods&lt;/a&gt; for more details on Objective-C naming.&lt;/p&gt;
+&lt;p&gt;These guidelines are for Objective-C methods only. C++ method names continue to&lt;br&gt;
+follow the rules set in the C++ style guide.&lt;/p&gt;
+&lt;p&gt;更多命名相关内容，参考&lt;a href="https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/CodingGuidelines/Articles/NamingMethods.html#//apple_ref/doc/uid/20001282-BCIGIJJF"&gt;Apple's Guide to Naming Methods&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;以上规范只适用于Objective-C方法，C++方法命名请参考C++命名指南。&lt;/p&gt;
+&lt;h3 id="functionnames"&gt;函数命名（Function Names）&lt;/h3&gt;
+&lt;p&gt;Function names should start with a capital letter and have a capital letter for&lt;br&gt;
+each new word (a.k.a. &amp;quot;&lt;a href="https://en.wikipedia.org/wiki/Camel_case"&gt;camel case&lt;/a&gt;&amp;quot; or &amp;quot;Pascal case&amp;quot;).&lt;/p&gt;
+&lt;p&gt;函数名要首字母大写，之后使用驼峰命名法。&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-objectivec"&gt;// GOOD:
+
+static void AddTableEntry(NSString *tableEntry);
+static BOOL DeleteFile(const char *filename);
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Because Objective-C does not provide namespacing, non-static functions should&lt;br&gt;
+have a &lt;a href="#prefixes"&gt;prefix&lt;/a&gt; that minimizes the chance of a name collision.&lt;/p&gt;
+&lt;p&gt;由于Objective-C不支持命名空间，非静态函数要使用前缀，以最大程度减少命名冲突。&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-objectivec"&gt;// GOOD:
+
+extern NSTimeZone *GTMGetDefaultTimeZone(void);
+extern NSString *GTMGetURLScheme(NSURL *URL);
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id="variablenames"&gt;变量命名（Variable Names）&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Variable names typically start with a lowercase and use mixed case to delimit&lt;br&gt;
+words.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Instance variables have leading underscores. File scope or global variables have&lt;br&gt;
+a prefix &lt;code&gt;g&lt;/code&gt;. For example: &lt;code&gt;myLocalVariable&lt;/code&gt;, &lt;code&gt;_myInstanceVariable&lt;/code&gt;,&lt;br&gt;
+&lt;code&gt;gMyGlobalVariable&lt;/code&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;变量名首字母小写，采用驼峰命名法.&lt;/p&gt;
+&lt;p&gt;实例变量使用下划线前缀。文件范围或全局变量使用&lt;code&gt;g&lt;/code&gt;作为前缀。例如&lt;code&gt;myLocalVariable&lt;/code&gt;, &lt;code&gt;_myInstanceVariable&lt;/code&gt;, &lt;code&gt;gMyGlobalVariable&lt;/code&gt;.&lt;/p&gt;
+&lt;h4 id="commonvariablenames"&gt;一般变量命名（Common Variable Names）&lt;/h4&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Readers should be able to infer the variable type from the name, but do not use&lt;br&gt;
+Hungarian notation for syntactic attributes, such as the static type of a&lt;br&gt;
+variable (int or pointer).&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;代码读者应该能从命名中推导出变量所代表的含义，但是对于句法属性不要使用匈牙利表示法，例如，对于静态变量，不需要加&lt;code&gt;s&lt;/code&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;File scope or global variables (as opposed to constants) declared outside the&lt;br&gt;
+scope of a method or function should be rare, and should have the prefix g.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;声明在方法或函数外的文件作用域变量或全局变量（区别常量）比较少见，应该带有一个前缀&lt;code&gt;g&lt;/code&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-objectivec"&gt;// GOOD:
+
+static int gGlobalCounter;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id="instancevariables"&gt;实例变量（Instance Variables）&lt;/h4&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Instance variable names are mixed case and should be prefixed with an&lt;br&gt;
+underscore, like &lt;code&gt;_usernameTextField&lt;/code&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;示例变量前边以下划线&lt;code&gt;_&lt;/code&gt;开头，中间但是使用驼峰法区分大小写。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;NOTE: Google's previous convention for Objective-C ivars was a trailing&lt;br&gt;
+underscore. Existing projects may opt to continue using trailing underscores in&lt;br&gt;
+new code in order to maintain consistency within the project codebase.&lt;br&gt;
+Consistency of prefix or suffix underscores should be maintained within each&lt;br&gt;
+class.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;注意：Google之前对Objective-C变量的约定是使用尾部下划线。现有工程中，后续开发可能会选择继续使用实例变量尾部带有下划线的方式，以便与之前工程代码保持一致。在每个类中要保持前后缀下划线的一致性。&lt;/p&gt;
+&lt;h4 id="constants"&gt;常量（Constants）&lt;/h4&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Constant symbols (const global and static variables and constants created&lt;br&gt;
+with #define) should use mixed case to delimit words.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;常量标识符（包括全局常量、静态变量和使用#define定义的常量）需使用驼峰命名；&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Global and file scope constants should have an appropriate &lt;a href="#prefixes"&gt;prefix&lt;/a&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;全局和文件作用域常量要带有合适的前缀。&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-objectivec"&gt;// GOOD:
+
+extern NSString *const GTLServiceErrorDomain;
+
+typedef NS_ENUM(NSInteger, GTLServiceError) {
+  GTLServiceErrorQueryResultMissing = -3000,
+  GTLServiceErrorWaitTimedOut       = -3001,
+};
+&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Because Objective-C does not provide namespacing, constants with external&lt;br&gt;
+linkage should have a prefix that minimizes the chance of a name collision,&lt;br&gt;
+typically like &lt;code&gt;ClassNameConstantName&lt;/code&gt; or &lt;code&gt;ClassNameEnumName&lt;/code&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;由于Objective-C不支持命名空间，与外界关联的常量要使用前缀以最大程度避免命名冲突，常用方式例如&lt;code&gt;ClassNameConstantName&lt;/code&gt; or &lt;code&gt;ClassNameEnumName&lt;/code&gt;.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;For interoperability with Swift code, enumerated values should have names that&lt;br&gt;
+extend the typedef name:&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;与Swift有交互的Objective-C代码，枚举值变量要使用自定义类型名作为前缀：&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-objectivec"&gt;// GOOD:
+
+typedef NS_ENUM(NSInteger, DisplayTinge) {
+  DisplayTingeGreen = 1,
+  DisplayTingeBlue = 2,
+};
+&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;A lowercase k can be used as a standalone prefix for constants of static storage&lt;br&gt;
+duration declared within implementation files:&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;在实现文件中，小写字母k可以被用来作为声明独立的常量或者静态变量前缀：&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-objectivec"&gt;// GOOD:
+
+static const int kFileCount = 12;
+static NSString *const kUserKey = @&amp;quot;kUserKey&amp;quot;;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;NOTE: Previous convention was for public constant names to begin with a&lt;br&gt;
+lowercase k followed by a project-specific &lt;a href="#prefixes"&gt;prefix&lt;/a&gt;. This practice is&lt;br&gt;
+no longer recommended.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;提示：之前约定中，公共常量名使用小写k开头，以作为工程常量特有标识。该方式不再推荐使用。&lt;/p&gt;
+&lt;h2 id="typesanddeclarations"&gt;类型和声明（Types and Declarations ）&lt;/h2&gt;
+&lt;h3 id="methoddeclarations"&gt;方法声明（Method Declarations）&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;As shown in the &lt;a href="#Example"&gt;example&lt;/a&gt;, the recommended order&lt;br&gt;
+for declarations in an &lt;code&gt;@interface&lt;/code&gt; declaration are: properties, class methods,&lt;br&gt;
+initializers, and then finally instance methods. The class methods section&lt;br&gt;
+should begin with any convenience constructors.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;如示例所示，声明一个 &lt;code&gt;@interface&lt;/code&gt; 内容的推荐顺序为：属性，类方法，初始化方法，之后实例方法。类方法区域，把&lt;a href="https://zhuanlan.zhihu.com/p/35695874"&gt;便捷初始化方法&lt;/a&gt;放在前面。&lt;/p&gt;
+&lt;h3 id="localvariables"&gt;局部变量（Local Variables）&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Declare variables in the narrowest practical scopes, and close to their use.&lt;br&gt;
+Initialize variables in their declarations.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;在靠近需要使用该变量的地方声明变量，声明时完成初始化。&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-objectivec"&gt;// GOOD:
+
+CLLocation *location = [self lastKnownLocation];
+for (int meters = 1; meters &amp;lt; 10; meters++) {
+  reportFrogsWithinRadius(location, meters);
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Occasionally, efficiency will make it more appropriate to declare a variable&lt;br&gt;
+outside the scope of its use. This example declares meters separate from&lt;br&gt;
+initialization, and needlessly sends the lastKnownLocation message each time&lt;br&gt;
+through the loop:&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;有时出于效率考虑，把变量声明在作用域外更可取。这个例子声明meters变量，并没有初始化，每次循环时，没必要每次都需要对location进行赋值。&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-objectivec"&gt;// AVOID:
+
+int meters;                                         // AVOID.
+for (meters = 1; meters &amp;lt; 10; meters++) {
+  CLLocation *location = [self lastKnownLocation];  // AVOID.
+  reportFrogsWithinRadius(location, meters);
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Under Automatic Reference Counting, strong and weak pointers to Objective-C&lt;br&gt;
+objects are automatically initialized to &lt;code&gt;nil&lt;/code&gt;, so explicit initialization to&lt;br&gt;
+&lt;code&gt;nil&lt;/code&gt; is not required for those common cases. However, automatic initialization&lt;br&gt;
+does &lt;em&gt;not&lt;/em&gt; occur for many Objective-C pointer types, including object pointers&lt;br&gt;
+declared with the &lt;code&gt;__unsafe_unretained&lt;/code&gt; ownership qualifier and CoreFoundation&lt;br&gt;
+object pointer types. When in doubt, prefer to initialize all Objective-C&lt;br&gt;
+local variables.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;使用ARC时，Objective-C对象的强、弱指针会被自动会被初始化为&lt;code&gt;nil&lt;/code&gt;，所以通常不需要强制初始化为&lt;code&gt;nil&lt;/code&gt;。然而，包括利用&lt;code&gt;__unsafe_unretained&lt;/code&gt;声明的变量和CoreFoundation对象指针，很多Objective-C指针类型不会自动完成初始化。 当无法肯定时，建议所有Objective-C局部变量声明时进行初始化。&lt;/p&gt;
+&lt;h3 id="unsignedintegers"&gt;无符号整型 （Unsigned Integers）&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Avoid unsigned integers except when matching types used by system interfaces.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;除匹配系统接口调用外，避免使用无符号整型。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Subtle errors crop up when doing math or counting down to zero using unsigned&lt;br&gt;
+integers. Rely only on signed integers in math expressions except when matching&lt;br&gt;
+NSUInteger in system interfaces.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;使用无符号整型进行数学计算或出现倒数为0时，会出现微妙的错误。除匹配系统接口时使用NSUInteger外，数学计算时只使用带符号整型。&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-objectivec"&gt;// GOOD:
+
+NSUInteger numberOfObjects = array.count;
+for (NSInteger counter = numberOfObjects - 1; counter &amp;gt; 0; --counter)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class="language-objectivec"&gt;// AVOID:
+
+for (NSUInteger counter = numberOfObjects - 1; counter &amp;gt; 0; --counter)  // AVOID.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Unsigned integers may be used for flags and bitmasks, though often NS_OPTIONS or&lt;br&gt;
+NS_ENUM will be more appropriate.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;尽管推荐使用NS_OPTIONS或NS_ENUM，无符号整型可以被用来作为标志位或位运算掩码。&lt;/p&gt;
+&lt;h3 id="typeswithinconsistentsizes"&gt;字节宽度可变类型（Types with Inconsistent Sizes)&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Due to sizes that differ in 32- and 64-bit builds, avoid types long, NSInteger,&lt;br&gt;
+NSUInteger, and CGFloat except when matching system interfaces.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;由于long，NSInteger，NSUIInteger和CGFloat类型在32位和64位机上字节宽度不同，除必须匹配调用系统接口外，避免使用。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Types long, NSInteger, NSUInteger, and CGFloat vary in size between 32- and&lt;br&gt;
+64-bit builds. Use of these types is appropriate when handling values exposed by&lt;br&gt;
+system interfaces, but they should be avoided for most other computations.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;long, NSInteger, NSUInteger, and CGFloat类型在32位和64位环境下字节宽度可变。处理系统暴露的数据时，可以使用上述类型，但其他运算，避免使用。&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-objectivec"&gt;// GOOD:
+
+int32_t scalar1 = proto.intValue;
+
+int64_t scalar2 = proto.longValue;
+
+NSUInteger numberOfObjects = array.count;
+
+CGFloat offset = view.bounds.origin.x;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class="language-objectivec"&gt;// AVOID:
+
+NSInteger scalar2 = proto.longValue;  // AVOID.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;File and buffer sizes often exceed 32-bit limits, so they should be declared&lt;br&gt;
+using &lt;code&gt;int64_t&lt;/code&gt;, not with &lt;code&gt;long&lt;/code&gt;, &lt;code&gt;NSInteger&lt;/code&gt;, or &lt;code&gt;NSUInteger&lt;/code&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;文件或缓存区大小常常超过32位限制，所以应该使用&lt;code&gt;int64_t&lt;/code&gt;，而不是&lt;code&gt;long&lt;/code&gt;, &lt;code&gt;NSInteger&lt;/code&gt;,或 &lt;code&gt;NSUInteger&lt;/code&gt;。&lt;/p&gt;
+&lt;h2 id="comments"&gt;注释（Comments）&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Comments are absolutely vital to keeping our code readable. The following rules&lt;br&gt;
+describe what you should comment and where. But remember: while comments are&lt;br&gt;
+important, the best code is self-documenting. Giving sensible names to types and&lt;br&gt;
+variables is much better than using obscure names and then trying to explain&lt;br&gt;
+them through comments.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;注释对于保证代码可读性至关重要。以下规范说明在哪以及如何写注释。但请记住：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Pay attention to punctuation, spelling, and grammar; it is easier to read&lt;br&gt;
+well-written comments than badly written ones.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;注意（注释的）标点、拼写和语法；写的好的注释更易懂。（aka，注释要写的清楚明白，好好说话）&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Comments should be as readable as narrative text, with proper capitalization and&lt;br&gt;
+punctuation. In many cases, complete sentences are more readable than sentence&lt;br&gt;
+fragments. Shorter comments, such as comments at the end of a line of code, can&lt;br&gt;
+sometimes be less formal, but use a consistent style.&lt;br&gt;
+When writing your comments, write for your audience: the next contributor who will need to understand your code. Be generous—the next one may be you!&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;注释要读起来是叙事文字，需要使用合适的大小写和标点。很多场景中，完整的句子比一段段的文字更易懂。注释要简短，例如一行代码后的注释，可以是非正式的（句子），但请使用一致的风格。&lt;/p&gt;
+&lt;p&gt;当你写注释时，要为你的读者而写，也就是后面需要读你代码的合作者。要慷慨些，也许他之后读注释的就是你自己。&lt;/p&gt;
+&lt;h3 id="filecomments"&gt;文件注释（File Comments）&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;A file may optionally start with a description of its contents.&lt;br&gt;
+Every file may contain the following items, in order:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;License boilerplate if necessary. Choose the appropriate boilerplate for the license used by the project.&lt;/li&gt;
+&lt;li&gt;A basic description of the contents of the file if necessary.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;文件头部可以添加该文件的注释说明。文件注释可以包含这些内容，顺序如下：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;如有必要，添加许可。选择工程使用的合适的许可引用说明&lt;/li&gt;
+&lt;li&gt;文件内容简要说明&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;If you make significant changes to a file with an author line, consider deleting&lt;br&gt;
+the author line since revision history already provides a more detailed and&lt;br&gt;
+accurate record of authorship.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;如果对具有作者行的文件进行了重大更改，请考虑删除作者行，因为修订历史记录已提供更详细和准确的作者记录。&lt;/p&gt;
+&lt;h3 id="declarationcomments"&gt;声明注释（Declaration Comments）&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Every non-trivial interface, public and private, should have an accompanying&lt;br&gt;
+comment describing its purpose and how it fits into the larger picture.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;每个公开和私有的重要接口，要有附加的注释说明其作用和试用场景。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Comments should be used to document classes, properties, ivars, functions,&lt;br&gt;
+categories, protocol declarations, and enums.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;注释适用于要有文档说明的类、属性、成员变量、方法、扩展、协议声明及枚举。&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-objectivec"&gt;// GOOD:
+
+/**
+ * A delegate for NSApplication to handle notifications about app
+ * launch and shutdown. Owned by the main app controller.
+ */
+@interface MyAppDelegate : NSObject {
+  /**
+   * The background task in progress, if any. This is initialized
+   * to the value UIBackgroundTaskInvalid.
+   */
+  UIBackgroundTaskIdentifier _backgroundTaskID;
+}
+
+/** The factory that creates and manages fetchers for the app. */
+@property(nonatomic) GTMSessionFetcherService *fetcherService;
+
+@end
+&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Doxygen-style comments are encouraged for interfaces as they are parsed by Xcode&lt;br&gt;
+to display formatted documentation. There is a wide variety of Doxygen commands;&lt;br&gt;
+use them consistently within a project.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;接口推荐使用Doxygen风格注释，并可以利用xcode将注释原样转化为文档。Doxygen命令很多样，请在工程中保持一致，即使用同一套Doxygen命令&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;If you have already described an interface in detail in the comments at the top&lt;br&gt;
+of your file, feel free to simply state, &amp;quot;See comment at top of file for a&lt;br&gt;
+complete description&amp;quot;, but be sure to have some sort of comment.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;如果在文件顶部已经添加了对接口的详细说明，你可以轻松的指出：&amp;quot;请参考文件顶部的完整说明&amp;quot;，但一定要有类似说明，说明一下。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Additionally, each method should have a comment explaining its function,&lt;br&gt;
+arguments, return value, thread or queue assumptions, and any side effects.&lt;br&gt;
+Documentation comments should be in the header for public methods, or&lt;br&gt;
+immediately preceding the method for non-trivial private methods.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;另外，每个方法需要有注释解释其功能、参数、返回值、使用线程假设，以及副作用。文档化注释需要在公开方法的头文件中，或者紧挨着重要的私有方法前。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Use descriptive form (&amp;quot;Opens the file&amp;quot;) rather than imperative form (&amp;quot;Open the&lt;br&gt;
+file&amp;quot;) for method and function comments. The comment describes the function; it&lt;br&gt;
+does not tell the function what to do.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;对于方法和函数的注释使用描述性形式，而不是使用命令形式。注释描述其功能，而不是让函数去做什么。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Document the thread usage assumptions the class, properties, or methods make, if&lt;br&gt;
+any. If an instance of the class can be accessed by multiple threads, take extra&lt;br&gt;
+care to document the rules and invariants surrounding multithreaded use.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;对于类、属性、方法，如果需要，添加线程使用假设文档说明。若类的示例被多个线程访问使用，对此文档中要格外说明其在多线程中使用规范及不变式。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Any sentinel values for properties and ivars, such as &lt;code&gt;NULL&lt;/code&gt; or &lt;code&gt;-1&lt;/code&gt;, should be&lt;br&gt;
+documented in comments.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;任何属性或成员变量的临界值，例如&lt;code&gt;NULL&lt;/code&gt;或&lt;code&gt;-1&lt;/code&gt;, 都需要在文档中注释说明其代表的意义。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Declaration comments explain how a method or function is used. Comments&lt;br&gt;
+explaining how a method or function is implemented should be with the&lt;br&gt;
+implementation rather than with the declaration.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;声明注释用于解释方法或函数应该如何被使用。那些解释方法或函数是如何实现的注释，应该添加在实现处，而不是函数或方法的声明处。&lt;/p&gt;
+&lt;h3 id="implementationcomments"&gt;实现注释（Implementation Comments）&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Provide comments explaining tricky, subtle, or complicated sections of code.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;对刁钻、微妙或复杂的代码添加注释，解释其中奥妙。&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-objectivec"&gt;// GOOD:
+
+// Set the property to nil before invoking the completion handler to
+// avoid the risk of reentrancy leading to the callback being
+// invoked again.
+CompletionHandler handler = self.completionHandler;
+self.completionHandler = nil;
+handler();
+&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;When useful, also provide comments about implementation approaches that were&lt;br&gt;
+considered or abandoned.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;如果需要，也对一些考虑使用或放弃使用的方法实现添加注释。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;End-of-line comments should be separated from the code by at least 2 spaces. If&lt;br&gt;
+you have several comments on subsequent lines, it can often be more readable to&lt;br&gt;
+line them up.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;跟在代码行尾的注释需要至少用两个空格隔开代码与注释。如果你在随后的多行里有多个注释，更易读的办法是把他们（对齐）排好。&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-objectivec"&gt;// GOOD:
+
+[self doSomethingWithALongName];  // Two spaces before the comment.
+[self doSomethingShort];          // More spacing to align the comment.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id="disambiguatingsymbols"&gt;消除符号歧义（Disambiguating Symbols）&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Where needed to avoid ambiguity, use backticks or vertical bars to quote&lt;br&gt;
+variable names and symbols in comments in preference to using quotation marks&lt;br&gt;
+or naming the symbols inline.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;在需要避免歧义的地方，使用反引号或竖杠将注释中变量名字或符号引起来，要优于使用引号或内联命名符号。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;In Doxygen-style comments, prefer demarcating symbols with a monospace text&lt;br&gt;
+command, such as &lt;code&gt;@c&lt;/code&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;在Doxygen风格注释中，更建议使用等宽文本命令来划分标定符号，例如&lt;code&gt;@c&lt;/code&gt;。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Demarcation helps provide clarity when a symbol is a common word that might make&lt;br&gt;
+the sentence read like it was poorly constructed. A common example is the symbol&lt;br&gt;
+&lt;code&gt;count&lt;/code&gt;:&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;当一个符号命名是常用单词时，划定边界会使注释更清晰。若不划分，可能会使句子读起来不通顺。常见的例子如单词&lt;code&gt;count&lt;/code&gt;：&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-objectivec"&gt;// GOOD:
+
+// Sometimes `count` will be less than zero.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;or when quoting something which already contains quotes&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;或引用已经有引号的文字&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-objectivec"&gt;// GOOD:
+
+// Remember to call `StringWithoutSpaces(&amp;quot;foo bar baz&amp;quot;)`
+&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Backticks or vertical bars are not needed when a symbol is self-apparent.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;对于显而易见的文字不需要添加反引号或竖杠。&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-objectivec"&gt;// GOOD:
+
+// This class serves as a delegate to GTMDepthCharge.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Doxygen formatting is also suitable for identifying symbols.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Doxygen格式化同样适用标识符号。&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-objectivec"&gt;// GOOD:
+
+/** @param maximum The highest value for @c count. */
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id="objectownership"&gt;对象所有权（Object Ownership）&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;For objects not managed by ARC, make the pointer ownership model as explicit as&lt;br&gt;
+possible when it falls outside the most common Objective-C usage idioms.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;不在ARC管理下的对象，当这些对象的指针在常见的Objective-C常用用法之外时，需要尽可能明确的说明该对象的指针。&lt;/p&gt;
+&lt;h4 id="mrcmanualreferencecounting"&gt;MRC（Manual Reference Counting）&lt;/h4&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Instance variables for NSObject-derived objects are presumed to be retained; if&lt;br&gt;
+they are not retained, they should be either commented as weak or declared with&lt;br&gt;
+the &lt;code&gt;__weak&lt;/code&gt; lifetime qualifier.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;NSObject子类的所有示例对象都被假定为会被保留计数，若他们没有被保留计数，要么需要注释为弱引用，要么声明时使用为&lt;code&gt;__weak&lt;/code&gt;标识符。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;An exception is in Mac software for instance variables labeled as &lt;code&gt;@IBOutlets&lt;/code&gt;,&lt;br&gt;
+which are presumed to not be retained.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;在Mac软件中，被标示为 &lt;code&gt;@IBOutlets&lt;/code&gt;的实例变量是个例外，这些变量假定不会被保留计数。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Where instance variables are pointers to Core Foundation, C++, and other&lt;br&gt;
+non-Objective-C objects, they should always be declared with strong and weak&lt;br&gt;
+comments to indicate which pointers are and are not retained. Core Foundation&lt;br&gt;
+and other non-Objective-C object pointers require explicit memory management,&lt;br&gt;
+even when building for automatic reference counting.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;当实例变量指向Core Foundation，C++或其他非Objective-C对象，这些变量应该使用使用strong和weak，注释其哪些是被保留的，哪些不保留。Core Foundation和其他非Objective-C对象指针需要清晰明确的内存管理，即便使用ARC情况下也一样。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Examples of strong and weak declarations:&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;strong和weak声明示例&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-objectivec"&gt;// GOOD:
+
+@interface MyDelegate : NSObject
+
+@property(nonatomic) NSString *doohickey;
+@property(nonatomic, weak) NSString *parent;
+
+@end
+
+
+@implementation MyDelegate {
+  IBOutlet NSButton *_okButton;  // Normal NSControl; implicitly weak on Mac only
+
+  AnObjcObject *_doohickey;  // My doohickey
+  __weak MyObjcParent *_parent;  // To send messages back (owns this instance)
+
+  // non-NSObject pointers...
+  CWackyCPPClass *_wacky;  // Strong, some cross-platform object
+  CFDictionaryRef *_dict;  // Strong
+}
+@end
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id="arcautomaticreferencecounting"&gt;ARC （Automatic Reference Counting）&lt;/h4&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Object ownership and lifetime are explicit when using ARC, so no additional&lt;br&gt;
+comments are required for automatically retained objects.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;当使用ARC时，对象所有权和生命周期很清晰，所以不需要额外的注释来说明自动引用计数变量。&lt;/p&gt;
+&lt;h2 id="cclanguagefeatures"&gt;C语言特性（C Language Features）&lt;/h2&gt;
+&lt;h3 id="macros"&gt;宏（Macros）&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Avoid macros, especially where &lt;code&gt;const&lt;/code&gt; variables, enums, XCode snippets, or C&lt;br&gt;
+functions may be used instead.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;若能使用&lt;code&gt;const&lt;/code&gt;变量，枚举，Xcode代码片段，或C函数，请不要使用宏。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Macros make the code you see different from the code the compiler sees. Modern C&lt;br&gt;
+renders traditional uses of macros for constants and utility functions&lt;br&gt;
+unnecessary. Macros should only be used when there is no other solution&lt;br&gt;
+available.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;宏会使你看到的代码和编译器看到的代码不同。现代C使用宏的的传统用途不再是常量和工具函数。现在宏只有在没有其他解决方案时才被使用。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Where a macro is needed, use a unique name to avoid the risk of a symbol&lt;br&gt;
+collision in the compilation unit. If practical, keep the scope limited by&lt;br&gt;
+&lt;code&gt;#undefining&lt;/code&gt; the macro after its use.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;需要宏的地方，使用唯一的名字以避免在汇编时符号冲突。如果可行，使用&lt;code&gt;#undefining&lt;/code&gt;限制宏的使用范围。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Macro names should use &lt;code&gt;SHOUTY_SNAKE_CASE&lt;/code&gt;—all uppercase letters with&lt;br&gt;
+underscores between words. Function-like macros may use C function naming&lt;br&gt;
+practices. Do not define macros that appear to be C or Objective-C keywords.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;宏的名字应该使用&lt;code&gt;SHOUTY_SNAKE_CASE&lt;/code&gt;形式——所有字母大写，使用下划线链接不同单词。函数类的宏使用函数的命名规范。不要定义和C或Objective-C关键字同名的宏。&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-objectivec"&gt;// GOOD:
+
+#define GTM_EXPERIMENTAL_BUILD ...      // GOOD
+
+// Assert unless X &amp;gt; Y
+#define GTM_ASSERT_GT(X, Y) ...         // GOOD, macro style.
+
+// Assert unless X &amp;gt; Y
+#define GTMAssertGreaterThan(X, Y) ...  // GOOD, function style.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class="language-objectivec"&gt;// AVOID:
+
+#define kIsExperimentalBuild ...        // AVOID
+
+#define unless(X) if(!(X))              // AVOID
+&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Avoid macros that expand to unbalanced C or Objective-C constructs. Avoid macros&lt;br&gt;
+that introduce scope, or may obscure the capturing of values in blocks.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;em&gt;这一段突然不知道如何翻译&lt;/em&gt;，大意是：避免使用会导致C或Objective-C构造方法错乱的宏，避免使用会引入作用域或让block中变量持有者模糊（防止内存泄漏）的宏。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Avoid macros that generate class, property, or method definitions in&lt;br&gt;
+headers to be used as public API. These only make the code hard to&lt;br&gt;
+understand, and the language already has better ways of doing this.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;避免在公用API头文件中使用可以生成类，属性或方法定义的宏。这种用法会导致代码难懂，而且语言本身有相对此方法更好的实现方法。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Avoid macros that generate method implementations, or that generate declarations&lt;br&gt;
+of variables that are later used outside of the macro. Macros shouldn't make&lt;br&gt;
+code hard to understand by hiding where and how a variable is declared.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;避免使用生成方法实现的宏（比如生成单例方法的宏等）或者可生成变量声明，且该变量在宏外使用的宏。宏不能隐藏变量在何处以及如何被声明，这会导致代码晦涩难懂。&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-objectivec"&gt;// AVOID:
+
+#define ARRAY_ADDER(CLASS) \
+  -(void)add ## CLASS ## :(CLASS *)obj toArray:(NSMutableArray *)array
+
+ARRAY_ADDER(NSString) {
+  if (array.count &amp;gt; 5) {              // AVOID -- where is 'array' defined?
+    ...
+  }
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Examples of acceptable macro use include assertion and debug logging macros&lt;br&gt;
+that are conditionally compiled based on build settings—often, these are&lt;br&gt;
+not compiled into release builds.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;宏中使用assert或根据编译设置，进行debug有条件编译，这可以接受，一般情况下这些条件编译代码不会包含在release版本中。&lt;/p&gt;
+&lt;h3 id="nonstandardextensions"&gt;非标准扩展宏（Nonstandard Extensions）&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Nonstandard extensions to C/Objective-C may not be used unless otherwise&lt;br&gt;
+specified.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;C/Objective-C非标准扩展宏，除非特别说明，否则不可使用。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Compilers support various extensions that are not part of standard C. Examples&lt;br&gt;
+include compound statement expressions (e.g. &lt;code&gt;foo = ({ int x; Bar(&amp;amp;x); x })&lt;/code&gt;).&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;编译器支持大量的非标准C语言扩展宏。例如复合语句表达式(例如： &lt;code&gt;foo = ({ int x; Bar(&amp;amp;x); x })&lt;/code&gt;).&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;code&gt;__attribute__&lt;/code&gt; is an approved exception, as it is used in Objective-C API&lt;br&gt;
+specifications.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;code&gt;__attribute__&lt;/code&gt; 是一个在Objective-C API被认可和使用的扩展宏。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;The binary form of the conditional operator, &lt;code&gt;A ?: B&lt;/code&gt;, is an approved exception.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;对于三元运算符，&lt;code&gt;A ?: B&lt;/code&gt;这种用法是个例外，也被认可使用。&lt;/p&gt;
+&lt;h2 id="cocoaobjectiveccocoaandobjectivecfeatures"&gt;Cocoa&amp;amp;Objective-C特性 （Cocoa and Objective-C Features）&lt;/h2&gt;
+&lt;h3 id="identifydesignatedinitializer"&gt;明确特定初始化器（Identify Designated Initializer）&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Clearly identify your designated initializer.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;清晰指明你的特定初始化器（也可以理解成初始化方法）。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;It is important for those who might be subclassing your class that the&lt;br&gt;
+designated initializer be clearly identified. That way, they only need to&lt;br&gt;
+override a single initializer (of potentially several) to guarantee the&lt;br&gt;
+initializer of their subclass is called. It also helps those debugging your&lt;br&gt;
+class in the future understand the flow of initialization code if they need to&lt;br&gt;
+step through it. Identify the designated initializer using comments or the&lt;br&gt;
+&lt;code&gt;NS_DESIGNATED_INITIALIZER&lt;/code&gt; macro. If you use &lt;code&gt;NS_DESIGNATED_INITIALIZER&lt;/code&gt;, mark&lt;br&gt;
+unsupported initializers with &lt;code&gt;NS_UNAVAILABLE&lt;/code&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;清晰的指明你创建的类的特定初始化器，这一点在其他人创建继承自你的类时显得非常重要。这样的话，他们只需要重写某一个或几个初始化器就可以保证他们的子类初始化方法被调用。这也可以帮助后面可能调试代码的人，更清晰的了解你的类初始化流程。请使用注释或者&lt;code&gt;NS_DESIGNATED_INITIALIZER&lt;/code&gt; 宏指明你的特定初始化器。如果使用&lt;code&gt;NS_DESIGNATED_INITIALIZER&lt;/code&gt; 宏，请将其他不支持的初始化器用 &lt;code&gt;NS_UNAVAILABLE&lt;/code&gt;来标注。&lt;/p&gt;
+&lt;h3 id="overridedesignatedinitializer"&gt;重写指定初始化器（Override Designated Initializer）&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;When writing a subclass that requires an &lt;code&gt;init...&lt;/code&gt; method, make sure you&lt;br&gt;
+override the designated initializer of the superclass.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;若实现一个类需要 &lt;code&gt;init...&lt;/code&gt; 方法，必须重写父类的指定初始化器。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;If you fail to override the designated initializer of the superclass, your&lt;br&gt;
+initializer may not be called in all cases, leading to subtle and very difficult&lt;br&gt;
+to find bugs.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;如果不重写父类的指定初始化器，你自己的初始化器可能不会保证在所有情况下都被调用，这会导致bug很诡异，难以被发现。&lt;/p&gt;
+&lt;h3 id="nsobjectoverriddennsobjectmethodplacement"&gt;NSObject重写方法的放置位置（Overridden NSObject Method Placement)&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Put overridden methods of NSObject at the top of an &lt;code&gt;@implementation&lt;/code&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;将NSObject的重写方法置于&lt;code&gt;@implementation&lt;/code&gt;部分的顶部。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;This commonly applies to (but is not limited to) the &lt;code&gt;init...&lt;/code&gt;, &lt;code&gt;copyWithZone:&lt;/code&gt;,&lt;br&gt;
+and &lt;code&gt;dealloc&lt;/code&gt; methods. The &lt;code&gt;init...&lt;/code&gt; methods should be grouped together,&lt;br&gt;
+followed by other typical &lt;code&gt;NSObject&lt;/code&gt; methods such as &lt;code&gt;description&lt;/code&gt;, &lt;code&gt;isEqual:&lt;/code&gt;,&lt;br&gt;
+and &lt;code&gt;hash&lt;/code&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;这通常用于但不局限于 &lt;code&gt;init...&lt;/code&gt;, &lt;code&gt;copyWithZone:&lt;/code&gt;, &lt;code&gt;dealloc&lt;/code&gt;方法。 &lt;code&gt;init…&lt;/code&gt; 一类的方法要集合放置在一起，后面可以放置其他 &lt;code&gt;NSObject&lt;/code&gt; 常用方法，例如 &lt;code&gt;description&lt;/code&gt;, &lt;code&gt;isEqual:&lt;/code&gt;和 &lt;code&gt;hash&lt;/code&gt;。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Convenience class factory methods for creating instances may precede the&lt;br&gt;
+&lt;code&gt;NSObject&lt;/code&gt; methods.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;便捷的创建对象的工厂方法可以放置在&lt;code&gt;NSObject&lt;/code&gt; 之前。&lt;/p&gt;
+&lt;h3 id="initialization"&gt;初始化（Initialization）&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Don't initialize instance variables to &lt;code&gt;0&lt;/code&gt; or &lt;code&gt;nil&lt;/code&gt; in the &lt;code&gt;init&lt;/code&gt; method; doing&lt;br&gt;
+so is redundant.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;不必在 &lt;code&gt;init&lt;/code&gt; 方法中初始化实例变量为 &lt;code&gt;0&lt;/code&gt; 或 &lt;code&gt;nil&lt;/code&gt; ，多余！&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;All instance variables for a newly allocated object are &lt;a href="https://developer.apple.com/library/mac/documentation/General/Conceptual/CocoaEncyclopedia/ObjectAllocation/ObjectAllocation.html"&gt;initialized to&lt;/a&gt;&lt;br&gt;
+&lt;code&gt;0&lt;/code&gt; (except for isa), so don't clutter up the init method by re-initializing&lt;br&gt;
+variables to &lt;code&gt;0&lt;/code&gt; or &lt;code&gt;nil&lt;/code&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;所有新创建的实例变量都会被初始化为0（isa除外），所以不必散乱的在init初始化方法中将实例变量初始化为 &lt;code&gt;0&lt;/code&gt; 或 &lt;code&gt;nil&lt;/code&gt;。&lt;/p&gt;
+&lt;h3 id="protectedprivateinstancevariablesinheadersshouldbeprotectedorprivate"&gt;头文件中的实例变量的作用域应该是@protected或@private（Instance Variables In Headers Should Be @protected or @private）&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Instance variables should typically be declared in implementation files or&lt;br&gt;
+auto-synthesized by properties. When ivars are declared in a header file, they&lt;br&gt;
+should be marked &lt;code&gt;@protected&lt;/code&gt; or &lt;code&gt;@private&lt;/code&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;实例变量通常被放置在头文件中，或通过property被自动synthesize。若实例变量被声明在头文件中，这些成员变量需要被标记为 &lt;code&gt;@protected&lt;/code&gt; 或 &lt;code&gt;@private&lt;/code&gt;。&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-objectivec"&gt;// GOOD:
+
+@interface MyClass : NSObject {
+ @protected
+  id _myInstanceVariable;
+}
+@end
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id="newdonotusenew"&gt;不要使用+new（Do Not Use +new）&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Do not invoke the &lt;code&gt;NSObject&lt;/code&gt; class method &lt;code&gt;new&lt;/code&gt;, nor override it in a subclass.&lt;br&gt;
+&lt;code&gt;+new&lt;/code&gt; is rarely used and contrasts greatly with initializer usage. Instead, use&lt;br&gt;
+&lt;code&gt;+alloc&lt;/code&gt; and &lt;code&gt;-init&lt;/code&gt; methods to instantiate retained objects.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;不可调用NSObject的类方法&lt;code&gt;new&lt;/code&gt;或在子类中重写该方法。&lt;code&gt;+new&lt;/code&gt;方法很少使用，与初始化器的使用有很大的不同。相反，一般使用+alloc和-init方法来创建和初始化实例对象。&lt;/p&gt;
+&lt;h3 id="apikeepthepublicapisimple"&gt;公开API保持简单（Keep the Public API Simple）&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Keep your class simple; avoid &amp;quot;kitchen-sink&amp;quot; APIs. If a method doesn't need to&lt;br&gt;
+be public, keep it out of the public interface.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;保持类简单，避免“kitchen-sink”（激进现实主义）API。如果一个方法不需要作为公开方法，请不要暴露在公开接口中。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Unlike C++, Objective-C doesn't differentiate between public and private&lt;br&gt;
+methods; any message may be sent to an object. As a result, avoid placing&lt;br&gt;
+methods in the public API unless they are actually expected to be used by a&lt;br&gt;
+consumer of the class. This helps reduce the likelihood they'll be called when&lt;br&gt;
+you're not expecting it. This includes methods that are being overridden from&lt;br&gt;
+the parent class.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;和C++不同，Objective-C在公开方法和私有方法之间并没有什么太多区分，任何消息都可能被发送给对象。因此，只有使用者需要调用某一个方法时，才把这个方法放置在公开的API中。这样可以降低一些你不希望外界调用的方法被调用的可能性，这也包括重写的父类方法。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Since internal methods are not really private, it's easy to accidentally&lt;br&gt;
+override a superclass's &amp;quot;private&amp;quot; method, thus making a very difficult bug to&lt;br&gt;
+squash. In general, private methods should have a fairly unique name that will&lt;br&gt;
+prevent subclasses from unintentionally overriding them.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;因为内部方法并不是真正的私有方法，也容易碰巧重写一个父类的私有方法，这样会导致很难排除由此引起的bug。通常隐私方法需要有一个较为独特的名字，这样可以防止子类无意的重写这些方法。&lt;/p&gt;
+&lt;h3 id="importincludeimportandinclude"&gt;#import和#include（#import and #include）&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;code&gt;#import&lt;/code&gt; Objective-C and Objective-C++ headers, and &lt;code&gt;#include&lt;/code&gt; C/C++ headers.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;使用&lt;code&gt;#import&lt;/code&gt;引用Objective-C 和 Objective-C++头文件，用&lt;code&gt;#include&lt;/code&gt; C/C++头文件。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;C/C++ headers include other C/C++ headers using &lt;code&gt;#include&lt;/code&gt;. Using &lt;code&gt;#import&lt;/code&gt;&lt;br&gt;
+on C/C++ headers prevents future inclusions using &lt;code&gt;#include&lt;/code&gt; and could result in&lt;br&gt;
+unintended compilation behavior.&lt;br&gt;
+C/C++ headers should provide their own &lt;code&gt;#define&lt;/code&gt; guard.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;C/C++头文件中引用其他C/C++头文件使用&lt;code&gt;#include&lt;/code&gt;。使用&lt;code&gt;#import&lt;/code&gt;引用C/C++头文件，以避免后面使用 &lt;code&gt;#include&lt;/code&gt; 可能导致的头文件冲突和编译问题。&lt;/p&gt;
+&lt;p&gt;C/C++每个头文件中需要有自己&lt;code&gt;#define&lt;/code&gt;保护，（以防止头文件被重复引用导致的重复编译的问题）。&lt;/p&gt;
+&lt;h3 id="orderofincludes"&gt;头文件引用顺序（Order of Includes）&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;The standard order for header inclusion is the related header, operating system&lt;br&gt;
+headers, language library headers, and finally groups of headers for other&lt;br&gt;
+dependencies.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;标准头文件引用顺序为相关头文件、系统头文件、语言库头文件，最终是其他引用头文件。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;The related header precedes others to ensure it has no hidden dependencies.&lt;br&gt;
+For implementation files the related header is the header file.&lt;br&gt;
+For test files the related header is the header containing the tested interface.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;相关头文件放在其他头文件前，可以保证其他隐藏依赖。对于implementation文件，它的相关头文件就是它自己的头文件。对于测试文件，它的相关头文件就是包含被测试接口的头文件。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;A blank line may separate logically distinct groups of included headers.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;使用空行来区分不同类别的头文件。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Within each group the includes should be ordered alphabetically.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;不同类别的头文件，需要按字母顺序排列。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Import headers using their path relative to the project's source directory.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;以工程目录作为根目录，使用相对路径引用头文件。&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-objectivec"&gt;// GOOD:
+
+#import &amp;quot;ProjectX/BazViewController.h&amp;quot;
+
+#import &amp;lt;Foundation/Foundation.h&amp;gt;
+
+#include &amp;lt;unistd.h&amp;gt;
+#include &amp;lt;vector&amp;gt;
+
+#include &amp;quot;base/basictypes.h&amp;quot;
+#include &amp;quot;base/integral_types.h&amp;quot;
+#include &amp;quot;util/math/mathutil.h&amp;quot;
+
+#import &amp;quot;ProjectX/BazModel.h&amp;quot;
+#import &amp;quot;Shared/Util/Foo.h&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id="umbrellauseumbrellaheadersforsystemframeworks"&gt;使用系统库Umbrella头文件（Use Umbrella Headers for System Frameworks）&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Import umbrella headers for system frameworks and system libraries rather than&lt;br&gt;
+include individual files.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;引用系统库的umbrella头文件，而不是引用某几个单独的头文件。（关于umbrella头文件，更像是一个库中专门暴露出来，供外界使用者去引用的头文件，而不是引用库中的某些头文件，详细解析请Google）&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;While it may seem tempting to include individual system headers from a framework&lt;br&gt;
+such as Cocoa or Foundation, in fact it's less work on the compiler if you&lt;br&gt;
+include the top-level root framework. The root framework is generally&lt;br&gt;
+pre-compiled and can be loaded much more quickly. In addition, remember to use&lt;br&gt;
+&lt;code&gt;@import&lt;/code&gt; or &lt;code&gt;#import&lt;/code&gt; rather than &lt;code&gt;#include&lt;/code&gt; for Objective-C frameworks.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;人们似乎更倾向引用Cocoa或Foundation系统库中单独的头文件，这样看起来引用更简单，但事实上，引用系统库的顶层头文件会让编译器做更少的工作。根框架通常会预处理，从而加载速度更快。另外，对于Objective-C框架，记住使用&lt;code&gt;@import&lt;/code&gt;和&lt;code&gt;#import&lt;/code&gt;，而不使用 &lt;code&gt;#include&lt;/code&gt; 。&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-objectivec"&gt;// GOOD:
+
+@import UIKit;     // GOOD.
+#import &amp;lt;Foundation/Foundation.h&amp;gt;     // GOOD.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class="language-objectivec"&gt;// AVOID:
+
+#import &amp;lt;Foundation/NSArray.h&amp;gt;        // AVOID.
+#import &amp;lt;Foundation/NSString.h&amp;gt;
+...
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id="deallocavoidmessagingthecurrentobjectwithininitializersanddealloc"&gt;避免在初始化器或&lt;code&gt;-dealloc&lt;/code&gt;中给当前对象发消息（Avoid Messaging the Current Object Within Initializers and &lt;code&gt;-dealloc&lt;/code&gt;）&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Code in initializers and &lt;code&gt;-dealloc&lt;/code&gt; should avoid invoking instance methods.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;初始化器或 &lt;code&gt;-dealloc&lt;/code&gt;方法中，避免调用该类对象的实例方法。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Superclass initialization completes before subclass initialization. Until all&lt;br&gt;
+classes have had a chance to initialize their instance state any method&lt;br&gt;
+invocation on self may lead to a subclass operating on uninitialized instance&lt;br&gt;
+state.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;父类的初始化方法先于子类初始化方法执行。在所有类都被初始化，使该对象的所有属性被初始化之前调用该类的示例方法，都可能导致子类直接操作未初始化的属性。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;A similar issue exists for &lt;code&gt;-dealloc&lt;/code&gt;, where a method invocation may cause a&lt;br&gt;
+class to operate on state that has been deallocated.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;code&gt;-dealloc&lt;/code&gt;方法中也存在类似问题，例如在&lt;code&gt;-dealloc&lt;/code&gt;调用一些实例方法，这些方法操作的某些属性，可能早已被释放掉了。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;One case where this is less obvious is property accessors. These can be&lt;br&gt;
+overridden just like any other selector. Whenever practical, directly assign to&lt;br&gt;
+and release ivars in initializers and &lt;code&gt;-dealloc&lt;/code&gt;, rather than rely on accessors.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;属性访问是一种不太明显的案例。属性访问器可以像其他selector一样被重写。一旦切实可行，直接在初始化器和&lt;code&gt;-dealloc&lt;/code&gt;方法中对成员变量进行赋值和释放，而不是通过属性访问器来完成。&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-objectivec"&gt;// GOOD:
+
+- (instancetype)init {
+  self = [super init];
+  if (self) {
+    _bar = 23;  // GOOD.
+  }
+  return self;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Beware of factoring common initialization code into helper methods:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Methods can be overridden in subclasses, either deliberately, or&lt;br&gt;
+accidentally due to naming collisions.&lt;/li&gt;
+&lt;li&gt;When editing a helper method, it may not be obvious that the code is being&lt;br&gt;
+run from an initializer.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;拆解通用初始化代码为工具方法要谨慎！&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;工具方法可能会有意或无意的被子类重写，或者碰巧产生了命名冲突；&lt;/li&gt;
+&lt;li&gt;当编辑一个工具方法时，可能不会知晓这段代码是被初始化方法调用的；&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class="language-objectivec"&gt;// AVOID:
+
+- (instancetype)init {
+  self = [super init];
+  if (self) {
+    self.bar = 23;  // AVOID.
+    [self sharedMethod];  // AVOID. Fragile to subclassing or future extension.
+  }
+  return self;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class="language-objectivec"&gt;// GOOD:
+
+- (void)dealloc {
+  [_notifier removeObserver:self];  // GOOD.
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class="language-objectivec"&gt;// AVOID:
+
+- (void)dealloc {
+  [self removeNotifications];  // AVOID.
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id="setternsstringscopysetterscopynsstrings"&gt;Setter方法中NSStrings要Copy（Setters copy NSStrings）&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Setters taking an &lt;code&gt;NSString&lt;/code&gt; should always copy the string it accepts. This is&lt;br&gt;
+often also appropriate for collections like &lt;code&gt;NSArray&lt;/code&gt; and &lt;code&gt;NSDictionary&lt;/code&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Setter方法中对传入的&lt;code&gt;NSString&lt;/code&gt;参数必须copy一份再使用，同样，对于容器类参数，例如 &lt;code&gt;NSArray&lt;/code&gt;、 &lt;code&gt;NSDictionary&lt;/code&gt;，也需要copy再使用。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Never just retain the string, as it may be a &lt;code&gt;NSMutableString&lt;/code&gt;. This avoids the&lt;br&gt;
+caller changing it under you without your knowledge.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;永远不要只考虑是string类型，也可能（传入的）是&lt;code&gt;NSMutableString&lt;/code&gt;类型。这可以避免在你不知情的情况下，调用方修改该值。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Code receiving and holding collection objects should also consider that the&lt;br&gt;
+passed collection may be mutable, and thus the collection could be more safely&lt;br&gt;
+held as a copy or mutable copy of the original.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;持有容器对象参数也需要考虑该对象可能也是可变的，因此，使用该容器参数的复制对象，相对更安全。&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-objectivec"&gt;// GOOD:
+
+@property(nonatomic, copy) NSString *name;
+
+- (void)setZigfoos:(NSArray&amp;lt;Zigfoo *&amp;gt; *)zigfoos {
+  // Ensure that we're holding an immutable collection.
+  _zigfoos = [zigfoos copy];
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id="uselightweightgenericstodocumentcontainedtypes"&gt;用泛型标识元素类型（Use Lightweight Generics to Document Contained Types）&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;All projects compiling on Xcode 7 or newer versions should make use of the&lt;br&gt;
+Objective-C lightweight generics notation to type contained objects.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;在Xcode7或更新版本编译的工程，应该使用Objective-C轻量级泛型符号来标识其包含的对象类别。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Every &lt;code&gt;NSArray&lt;/code&gt;, &lt;code&gt;NSDictionary&lt;/code&gt;, or &lt;code&gt;NSSet&lt;/code&gt; reference should be declared using&lt;br&gt;
+lightweight generics for improved type safety and to explicitly document usage.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;code&gt;NSArray&lt;/code&gt;, &lt;code&gt;NSDictionary&lt;/code&gt;, 或 &lt;code&gt;NSSet&lt;/code&gt;对象都需要轻量级泛型符号标明，这可以改善类型安全以及明确文档使用说明。&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-objectivec"&gt;// GOOD:
+
+@property(nonatomic, copy) NSArray&amp;lt;Location *&amp;gt; *locations;
+@property(nonatomic, copy, readonly) NSSet&amp;lt;NSString *&amp;gt; *identifiers;
+
+NSMutableArray&amp;lt;MyLocation *&amp;gt; *mutableLocations = [otherObject.locations mutableCopy];
+&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;If the fully-annotated types become complex, consider using a typedef to&lt;br&gt;
+preserve readability.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;若要标识的泛型比较复杂，可以考虑使用typedef定义新类型，以保持可读性。&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-objectivec"&gt;// GOOD:
+
+typedef NSSet&amp;lt;NSDictionary&amp;lt;NSString *, NSDate *&amp;gt; *&amp;gt; TimeZoneMappingSet;
+TimeZoneMappingSet *timeZoneMappings = [TimeZoneMappingSet setWithObjects:...];
+&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Use the most descriptive common superclass or protocol available. In the most&lt;br&gt;
+generic case when nothing else is known, declare the collection to be explicitly&lt;br&gt;
+heterogenous using id.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;使用最具描述性的常用父类或协议。通常情况下，当不知道容器中对象类型时，使用id显式声明。&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-objectivec"&gt;// GOOD:
+
+@property(nonatomic, copy) NSArray&amp;lt;id&amp;gt; *unknowns;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id="avoidthrowingexceptions"&gt;避免抛异常（Avoid Throwing Exceptions）&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Don't &lt;code&gt;@throw&lt;/code&gt; Objective-C exceptions, but you should be prepared to catch them&lt;br&gt;
+from third-party or OS calls.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;不要使用&lt;code&gt;@throw&lt;/code&gt; 抛出Objective-C异常，但在使用第三库或系统调用时，你还必须要考虑如何捕获异常。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;This follows the recommendation to use error objects for error delivery in&lt;br&gt;
+&lt;a href="https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/Exceptions/Exceptions.html"&gt;Apple's Introduction to Exception Programming Topics for&lt;br&gt;
+Cocoa&lt;/a&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;这遵循关于错误对象错误传递的推荐说明文档：&lt;a href="https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/Exceptions/Exceptions.html"&gt;Apple's Introduction to Exception Programming Topics for&lt;br&gt;
+Cocoa&lt;/a&gt;.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;We do compile with &lt;code&gt;-fobjc-exceptions&lt;/code&gt; (mainly so we get &lt;code&gt;@synchronized&lt;/code&gt;), but&lt;br&gt;
+we don't &lt;code&gt;@throw&lt;/code&gt;. Use of &lt;code&gt;@try&lt;/code&gt;, &lt;code&gt;@catch&lt;/code&gt;, and &lt;code&gt;@finally&lt;/code&gt; are allowed when&lt;br&gt;
+required to properly use 3rd party code or libraries. If you do use them, please&lt;br&gt;
+document exactly which methods you expect to throw.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;我们编译时使用编译选项&lt;code&gt;-fobjc-exceptions&lt;/code&gt;（通常也用&lt;code&gt;@synchronized&lt;/code&gt;），但我们不使用&lt;code&gt;@throw&lt;/code&gt;。当使用第三方库或代码时， &lt;code&gt;@try&lt;/code&gt;, &lt;code&gt;@catch&lt;/code&gt;和 &lt;code&gt;@finally&lt;/code&gt; 是被允许使用的。如果确定使用了这些关键字，请清晰明确的指明哪些方法会抛出异常。&lt;/p&gt;
+&lt;h3 id="nilnilchecks"&gt;&lt;code&gt;nil&lt;/code&gt;检查 （&lt;code&gt;nil&lt;/code&gt; Checks）&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Avoid &lt;code&gt;nil&lt;/code&gt; pointer checks that exist only to prevent sending messages to &lt;code&gt;nil&lt;/code&gt;.&lt;br&gt;
+Sending a message to &lt;code&gt;nil&lt;/code&gt; &lt;a href="http://www.sealiesoftware.com/blog/archive/2012/2/29/objc_explain_return_value_of_message_to_nil.html"&gt;reliably returns&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;nil&lt;/code&gt; as a pointer, zero as an integer or floating-point value, structs initialized to &lt;code&gt;0&lt;/code&gt;, and &lt;code&gt;_Complex&lt;/code&gt; values equal to &lt;code&gt;{0, 0}&lt;/code&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;如果指针检查只是为了防止给nil对象发消息，那这部分检查不必添加。&lt;/p&gt;
+&lt;p&gt;给&lt;code&gt;nil&lt;/code&gt;发消息的返回值是可靠的&lt;/p&gt;
+&lt;p&gt;返回值是指针时，返回nil；返回值是整数或浮点数时，返回0；返回值是结构体时，返回0；返回值是&lt;code&gt;_Complex&lt;/code&gt;时，返回 &lt;code&gt;{0, 0}&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;(上面这句我也没读懂，我也不打算不懂装懂)&lt;/em&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-objectivec"&gt;// AVOID:
+
+if (dataSource) {  // AVOID.
+  [dataSource moveItemAtIndex:1 toIndex:0];
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class="language-objectivec"&gt;// GOOD:
+
+[dataSource moveItemAtIndex:1 toIndex:0];  // GOOD.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Note that this applies to &lt;code&gt;nil&lt;/code&gt; as a message target, not as a parameter value.&lt;br&gt;
+Individual methods may or may not safely handle &lt;code&gt;nil&lt;/code&gt; parameter values.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;注意：这适用于 &lt;code&gt;nil&lt;/code&gt; 作为消息接受者，而不是作为参数值。&lt;/p&gt;
+&lt;p&gt;个别方法可能会，也可能不会安全处理nil参数值。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Note too that this is distinct from checking C/C++ pointers and block pointers&lt;br&gt;
+against &lt;code&gt;NULL&lt;/code&gt;, which the runtime does not handle and will cause your&lt;br&gt;
+application to crash. You still need to make sure you do not dereference a&lt;br&gt;
+&lt;code&gt;NULL&lt;/code&gt; pointer.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;也请注意这区别于检查C/C++指针和block指针是否为&lt;code&gt;NULL&lt;/code&gt;, 这些运行时不会处理，这些会导致应用崩溃。你仍然需要检查指针不能为&lt;code&gt;NULL&lt;/code&gt;。&lt;/p&gt;
+&lt;h3 id="nullability"&gt;可空性（Nullability）&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Interfaces can be decorated with nullability annotations to describe how the&lt;br&gt;
+interface should be used and how it behaves. Use of nullability regions (e.g.,&lt;br&gt;
+&lt;code&gt;NS_ASSUME_NONNULL_BEGIN&lt;/code&gt; and &lt;code&gt;NS_ASSUME_NONNULL_END&lt;/code&gt;) and explicit nullability&lt;br&gt;
+annotations are both accepted. Prefer using the &lt;code&gt;_Nullable&lt;/code&gt; and &lt;code&gt;_Nonnull&lt;/code&gt;&lt;br&gt;
+keywords over the &lt;code&gt;__nullable&lt;/code&gt; and &lt;code&gt;__nonnull&lt;/code&gt; keywords. For Objective-C methods&lt;br&gt;
+and properties prefer using the context-sensitive, non-underscored keywords,&lt;br&gt;
+e.g., &lt;code&gt;nonnull&lt;/code&gt; and &lt;code&gt;nullable&lt;/code&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Interface中可以使用可空性注解来描述接口行为和如何使用。使用可控性作用域（例如&lt;code&gt;NS_ASSUME_NONNULL_BEGIN&lt;/code&gt; 和 &lt;code&gt;NS_ASSUME_NONNULL_END&lt;/code&gt;）或使用可控性注解，这两种方式都是可以的。相对 &lt;code&gt;__nullable&lt;/code&gt; 和 &lt;code&gt;__nonnull&lt;/code&gt; 关键字，更推荐使用 &lt;code&gt;_Nullable&lt;/code&gt;和 &lt;code&gt;_Nonnull&lt;/code&gt;。对于Objective-C方法和属性，推荐使用无下划线的关键字，例如&lt;code&gt;nonnull&lt;/code&gt; 和 &lt;code&gt;nullable&lt;/code&gt;。&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-objectivec"&gt;// GOOD:
+
+/** A class representing an owned book. */
+@interface GTMBook : NSObject
+
+/** The title of the book. */
+@property(readonly, copy, nonnull) NSString *title;
+
+/** The author of the book, if one exists. */
+@property(readonly, copy, nullable) NSString *author;
+
+/** The owner of the book. Setting nil resets to the default owner. */
+@property(copy, null_resettable) NSString *owner;
+
+/** Initializes a book with a title and an optional author. */
+- (nonnull instancetype)initWithTitle:(nonnull NSString *)title
+                               author:(nullable NSString *)author
+    NS_DESIGNATED_INITIALIZER;
+
+/** Returns nil because a book is expected to have a title. */
+- (nullable instancetype)init;
+
+@end
+
+/** Loads books from the file specified by the given path. */
+NSArray&amp;lt;GTMBook *&amp;gt; *_Nullable GTMLoadBooksFromFile(NSString *_Nonnull path);
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class="language-objectivec"&gt;// AVOID:
+
+NSArray&amp;lt;GTMBook *&amp;gt; *__nullable GTMLoadBooksFromTitle(NSString *__nonnull path);
+&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Be careful assuming that a pointer is not null based on a non-null qualifier&lt;br&gt;
+because the compiler may not guarantee that the pointer is not null.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;如果标识符标注某个指针不为空，也不要轻信，因为编译器可不能保证该指针不为空。&lt;/p&gt;
+&lt;h3 id="boolboolpitfalls"&gt;BOOL陷阱（BOOL Pitfalls）&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Be careful when converting general integral values to &lt;code&gt;BOOL&lt;/code&gt;. Avoid comparing&lt;br&gt;
+directly with &lt;code&gt;YES&lt;/code&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;将整型数值转换为&lt;code&gt;BOOL&lt;/code&gt;要小心。避免直接和 &lt;code&gt;YES&lt;/code&gt;直接进行比较。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;code&gt;BOOL&lt;/code&gt; in OS X and in 32-bit iOS builds is defined as a signed &lt;code&gt;char&lt;/code&gt;, so it may&lt;br&gt;
+have values other than &lt;code&gt;YES&lt;/code&gt; (&lt;code&gt;1&lt;/code&gt;) and &lt;code&gt;NO&lt;/code&gt; (&lt;code&gt;0&lt;/code&gt;). Do not cast or convert&lt;br&gt;
+general integral values directly to &lt;code&gt;BOOL&lt;/code&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;在OSX和32位iOS系统版本中，&lt;code&gt;BOOL&lt;/code&gt; 类型被定义为有符号&lt;code&gt;char&lt;/code&gt;类型，所以，它可以是除了&lt;code&gt;YES&lt;/code&gt; (&lt;code&gt;1&lt;/code&gt;) and &lt;code&gt;NO&lt;/code&gt; (&lt;code&gt;0&lt;/code&gt;)之外的其他值。切勿将整数值直接赋值或强制类型转换后赋值给&lt;code&gt;BOOL&lt;/code&gt;值。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Common mistakes include casting or converting an array's size, a pointer value,&lt;br&gt;
+or the result of a bitwise logic operation to a &lt;code&gt;BOOL&lt;/code&gt; that could, depending on&lt;br&gt;
+the value of the last byte of the integer value, still result in a &lt;code&gt;NO&lt;/code&gt; value.&lt;br&gt;
+When converting a general integral value to a &lt;code&gt;BOOL&lt;/code&gt;, use ternary operators to&lt;br&gt;
+return a &lt;code&gt;YES&lt;/code&gt; or &lt;code&gt;NO&lt;/code&gt; value.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;常见错误包括将强转或转换数组大小、指针值或者通过逻辑位运算结果赋值给&lt;code&gt;BOOL&lt;/code&gt;变量，根据整数最后一个字节的值，结果仍然有可能会产生&lt;code&gt;NO&lt;/code&gt;值。在将一个整数转换为&lt;code&gt;BOOL&lt;/code&gt;值时，需要使用三元运算符来保证返回值是&lt;code&gt;YES&lt;/code&gt; 或 &lt;code&gt;NO&lt;/code&gt;。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;You can safely interchange and convert &lt;code&gt;BOOL&lt;/code&gt;, &lt;code&gt;_Bool&lt;/code&gt; and &lt;code&gt;bool&lt;/code&gt; (see C++ Std&lt;br&gt;
+4.7.4, 4.12 and C99 Std 6.3.1.2). Use &lt;code&gt;BOOL&lt;/code&gt; in Objective-C method signatures.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Objective-C方法签名中使用&lt;code&gt;BOOL&lt;/code&gt;，你可以安全的来转换 &lt;code&gt;BOOL&lt;/code&gt;, &lt;code&gt;_Bool&lt;/code&gt; and &lt;code&gt;bool&lt;/code&gt;值（参考see C++ Std 4.7.4, 4.12 and C99 Std 6.3.1.2）。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Using logical operators (&lt;code&gt;&amp;amp;&amp;amp;&lt;/code&gt;, &lt;code&gt;||&lt;/code&gt; and &lt;code&gt;!&lt;/code&gt;) with &lt;code&gt;BOOL&lt;/code&gt; is also valid and will&lt;br&gt;
+return values that can be safely converted to &lt;code&gt;BOOL&lt;/code&gt; without the need for a&lt;br&gt;
+ternary operator.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;也可以使用逻辑运算符(&lt;code&gt;&amp;amp;&amp;amp;&lt;/code&gt;、 &lt;code&gt;||&lt;/code&gt;、 &lt;code&gt;!&lt;/code&gt;)来获取 &lt;code&gt;BOOL&lt;/code&gt; 值，这种方法也可以不使用三元运算符来安全转换 &lt;code&gt;BOOL&lt;/code&gt; 值。&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-objectivec"&gt;// AVOID:
+
+- (BOOL)isBold {
+  return [self fontTraits] &amp;amp; NSFontBoldTrait;  // AVOID.
+}
+- (BOOL)isValid {
+  return [self stringValue];  // AVOID.
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class="language-objectivec"&gt;// GOOD:
+
+- (BOOL)isBold {
+  return ([self fontTraits] &amp;amp; NSFontBoldTrait) ? YES : NO;
+}
+- (BOOL)isValid {
+  return [self stringValue] != nil;
+}
+- (BOOL)isEnabled {
+  return [self isValid] &amp;amp;&amp;amp; [self isBold];
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Also, don't directly compare &lt;code&gt;BOOL&lt;/code&gt; variables directly with &lt;code&gt;YES&lt;/code&gt;. Not only is&lt;br&gt;
+it harder to read for those well-versed in C, but the first point above&lt;br&gt;
+demonstrates that return values may not always be what you expect.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;同样，不要将 &lt;code&gt;BOOL&lt;/code&gt; 值和&lt;code&gt;YES&lt;/code&gt;进行直接比较。这样做不仅仅是因为对于精通C语言的人可能难以理解，而是返回值可能并不总是和预期一致（容易引起逻辑错误），这才是真正原因。&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-objectivec"&gt;// AVOID:
+
+BOOL great = [foo isGreat];
+if (great == YES) {  // AVOID.
+  // ...be great!
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class="language-objectivec"&gt;// GOOD:
+
+BOOL great = [foo isGreat];
+if (great) {         // GOOD.
+  // ...be great!
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id="interfaceinterfaceswithoutinstancevariables"&gt;无实例变量的Interface（Interfaces Without Instance Variables）&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Omit the empty set of braces on interfaces that do not declare any instance&lt;br&gt;
+variables.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;若interface不声明任何实例变量，省略空的大括号。&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-objectivec"&gt;// GOOD:
+
+@interface MyClass : NSObject
+// Does a lot of stuff.
+- (void)fooBarBam;
+@end
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class="language-objectivec"&gt;// AVOID:
+
+@interface MyClass : NSObject {
+}
+// Does a lot of stuff.
+- (void)fooBarBam;
+@end
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id="cocoacocoapatterns"&gt;Cocoa模式（Cocoa Patterns）&lt;/h2&gt;
+&lt;h3 id="delegatedelegatepattern"&gt;Delegate模式（Delegate Pattern）&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Delegates, target objects, and block pointers should not be retained when doing&lt;br&gt;
+so would create a retain cycle.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Delegate，target对象，block指针不可使用retain，不然会产生循环引用。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;To avoid causing a retain cycle, a delegate or target pointer should be released&lt;br&gt;
+as soon as it is clear there will no longer be a need to message the object.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;为避免引起循环引用，delegate或响应对象指针需要被及时清理，以便后续发送的消息不再被响应。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;If there is no clear time at which the delegate or target pointer is no longer&lt;br&gt;
+needed, the pointer should only be retained weakly.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;若delegate或响应对象指针在后续不被需要时，没有一个清晰的时间点，那么该delegate或响应对象指针应该被设置为弱引用。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Block pointers cannot be retained weakly. To avoid causing retain cycles in the&lt;br&gt;
+client code, block pointers should be used for callbacks only where they can be&lt;br&gt;
+explicitly released after they have been called or once they are no longer&lt;br&gt;
+needed. Otherwise, callbacks should be done via weak delegate or target&lt;br&gt;
+pointers.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Block指针不可使用弱引用。为避免在客户端代码中出现循环引用，block指针只有在被调用一次或者他们不被需要时会被明确的清理，才可以用于回调方法。否则，回调方法应该通过弱引用的delegate或者响应对象指针来实现。&lt;/p&gt;
+&lt;h2 id="objectivec"&gt;Objective-C++&lt;/h2&gt;
+&lt;h3 id="stylematchesthelanguage"&gt;代码风格与所用语言保持一致（Style Matches the Language）&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Within an Objective-C++ source file, follow the style for the language of the&lt;br&gt;
+function or method you're implementing. In order to minimize clashes between the&lt;br&gt;
+differing naming styles when mixing Cocoa/Objective-C and C++, follow the style&lt;br&gt;
+of the method being implemented.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;对于Objective-C++源码文件，遵守函数或方法实现语言的编码规范。为了将Cocoa/Objective-C、C++不同语言混合使用导致的命名风格冲突最小化，遵守源码中方法实现使用的编码风格。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;For code in an &lt;code&gt;@implementation&lt;/code&gt; block, use the Objective-C naming rules. For&lt;br&gt;
+code in a method of a C++ class, use the C++ naming rules.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;对于 &lt;code&gt;@implementation&lt;/code&gt;代码，使用Objective-C命名规范。对于C++类中方法代码，使用C++命名规范。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;For code in an Objective-C++ file outside of a class implementation, be&lt;br&gt;
+consistent within the file.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;对于Objective-C++文件类实现部分之外的代码，与该文件代码风格保持一致。&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-objectivec++"&gt;// GOOD:
+
+// file: cross_platform_header.h
+
+class CrossPlatformAPI {
+ public:
+  ...
+  int DoSomethingPlatformSpecific();  // impl on each platform
+ private:
+  int an_instance_var_;
+};
+
+// file: mac_implementation.mm
+#include &amp;quot;cross_platform_header.h&amp;quot;
+
+/** A typical Objective-C class, using Objective-C naming. */
+@interface MyDelegate : NSObject {
+ @private
+  int _instanceVar;
+  CrossPlatformAPI* _backEndObject;
+}
+
+- (void)respondToSomething:(id)something;
+
+@end
+
+@implementation MyDelegate
+
+- (void)respondToSomething:(id)something {
+  // bridge from Cocoa through our C++ backend
+  _instanceVar = _backEndObject-&amp;gt;DoSomethingPlatformSpecific();
+  NSString* tempString = [NSString stringWithFormat:@&amp;quot;%d&amp;quot;, _instanceVar];
+  NSLog(@&amp;quot;%@&amp;quot;, tempString);
+}
+
+@end
+
+/** The platform-specific implementation of the C++ class, using C++ naming. */
+int CrossPlatformAPI::DoSomethingPlatformSpecific() {
+  NSString* temp_string = [NSString stringWithFormat:@&amp;quot;%d&amp;quot;, an_instance_var_];
+  NSLog(@&amp;quot;%@&amp;quot;, temp_string);
+  return [temp_string intValue];
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Projects may opt to use an 80 column line length limit for consistency with&lt;br&gt;
+Google's C++ style guide.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;工程中可能选择使用80个字符列宽限制，以便和Google的C++代码规范保持一致。&lt;/p&gt;
+&lt;h2 id="spacingandformatting"&gt;空间布局和格式（Spacing and Formatting）&lt;/h2&gt;
+&lt;h3 id="vsspacesvstabs"&gt;空格 vs 制表符（Spaces vs. Tabs）&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Use only spaces, and indent 2 spaces at a time. We use spaces for indentation.&lt;br&gt;
+Do not use tabs in your code.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;只使用空格，缩进量为2个空格宽度。缩进时不使用制表符，只用空格。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;You should set your editor to emit spaces when you hit the tab key, and to trim&lt;br&gt;
+trailing spaces on lines.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;设置编辑器使用空格自动替换制表符，并消除行位空格。&lt;/p&gt;
+&lt;h3 id="linelength"&gt;行宽（Line Length）&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;The maximum line length for Objective-C files is 100 columns.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;You can make violations easier to spot by enabling &lt;em&gt;Preferences &amp;gt; Text Editing &amp;gt;&lt;br&gt;
+Page guide at column: 100&lt;/em&gt; in Xcode.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Objective-C最大行宽为100列（100字符宽度）。在xCode中，通过设置Preferences &amp;gt; Text Editing &amp;gt; Page guide at column:为100，可以轻松检查超宽地方。&lt;/p&gt;
+&lt;h3 id="methoddeclarationsanddefinitions"&gt;方法声明与定义（Method Declarations and Definitions）&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;One space should be used between the &lt;code&gt;-&lt;/code&gt; or &lt;code&gt;+&lt;/code&gt; and the return type, and no&lt;br&gt;
+spacing in the parameter list except between parameters.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;code&gt;-&lt;/code&gt; or &lt;code&gt;+&lt;/code&gt; 后与返回值之间须有一个空格，参数名与参数类型间无空格，参数列表不同参数间有一个空格；&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Methods should look like this:&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;方法示例如下：&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-objectivec"&gt;// GOOD:
+
+- (void)doSomethingWithString:(NSString *)theString {
+  ...
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;The spacing before the asterisk is optional. When adding new code, be consistent&lt;br&gt;
+with the surrounding file's style.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;星号前可以有一个空格。新添加的代码要与文件代码风格保持一致。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;If a method declaration does not fit on a single line, put each parameter on its&lt;br&gt;
+own line. All lines except the first should be indented at least four spaces.&lt;br&gt;
+Colons before parameters should be aligned on all lines. If the colon before the&lt;br&gt;
+parameter on the first line of a method declaration is positioned such that&lt;br&gt;
+colon alignment would cause indentation on a subsequent line to be less than&lt;br&gt;
+four spaces, then colon alignment is only required for all lines except the&lt;br&gt;
+first.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;如果一个方法声明一行放不下，需要将不同参数各占一行。除首行外，其余所有行都要至少缩进4个空格。不同参数前的冒号要对齐。如果方法声明第一行中参数前的冒号所在位置，对齐所有冒号后，后面的参数前面缩进的空格数少于4个，这种情况只需要将函数声明中第一行之外的其他行冒号对齐即可。&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-objectivec"&gt;// GOOD:
+
+- (void)doSomethingWithFoo:(GTMFoo *)theFoo
+                      rect:(NSRect)theRect
+                  interval:(float)theInterval {
+  ...
+}
+
+- (void)shortKeyword:(GTMFoo *)theFoo
+            longerKeyword:(NSRect)theRect
+    someEvenLongerKeyword:(float)theInterval
+                    error:(NSError **)theError {
+  ...
+}
+
+- (id&amp;lt;UIAdaptivePresentationControllerDelegate&amp;gt;)
+    adaptivePresentationControllerDelegateForViewController:(UIViewController *)viewController;
+
+- (void)presentWithAdaptivePresentationControllerDelegate:
+    (id&amp;lt;UIAdaptivePresentationControllerDelegate&amp;gt;)delegate;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id="functiondeclarationsanddefinitions"&gt;方法声明与定义（Function Declarations and Definitions）&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Prefer putting the return type on the same line as the function name and append&lt;br&gt;
+all parameters on the same line if they will fit. Wrap parameter lists which do&lt;br&gt;
+not fit on a single line as you would wrap arguments in a &lt;a href="#Function_Calls"&gt;function&lt;br&gt;
+call&lt;/a&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;将方法返回类型和方法名放于同一行，后面跟其他参数，如果一行能放下，则参数放于同一行。若一行放不下，就像函数调用一样，来包装参数列表。&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-objectivec"&gt;// GOOD:
+
+NSString *GTMVersionString(int majorVersion, minorVersion) {
+  ...
+}
+
+void GTMSerializeDictionaryToFileOnDispatchQueue(
+    NSDictionary&amp;lt;NSString *, NSString *&amp;gt; *dictionary,
+    NSString *filename,
+    dispatch_queue_t queue) {
+  ...
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Function declarations and definitions should also satisfy the following&lt;br&gt;
+conditions:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;The opening parenthesis must always be on the same line as the function&lt;br&gt;
+name.&lt;/li&gt;
+&lt;li&gt;If you cannot fit the return type and the function name on a single line,&lt;br&gt;
+break between them and do not indent the function name.&lt;/li&gt;
+&lt;li&gt;There should never be a space before the opening parenthesis.&lt;/li&gt;
+&lt;li&gt;There should never be a space between function parentheses and parameters.&lt;/li&gt;
+&lt;li&gt;The open curly brace is always on the end of the last line of the function&lt;br&gt;
+declaration, not the start of the next line.&lt;/li&gt;
+&lt;li&gt;The close curly brace is either on the last line by itself or on the same&lt;br&gt;
+line as the open curly brace.&lt;/li&gt;
+&lt;li&gt;There should be a space between the close parenthesis and the open curly&lt;br&gt;
+brace.&lt;/li&gt;
+&lt;li&gt;All parameters should be aligned if possible.&lt;/li&gt;
+&lt;li&gt;Function scopes should be indented 2 spaces.&lt;/li&gt;
+&lt;li&gt;Wrapped parameters should have a 4 space indent.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;函数声明和定义也需要满足以下条件：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;函数名后的左括号必须和函数名在同一行；&lt;/li&gt;
+&lt;li&gt;若返回值类型和函数名不能放在同一行，在他们之间换行，并且不缩进函数名；&lt;/li&gt;
+&lt;li&gt;函数名后的左括号前无空格；&lt;/li&gt;
+&lt;li&gt;函数括号和参数间无空格；&lt;/li&gt;
+&lt;li&gt;函数左大括号在函数声明后，不可另起一行；&lt;/li&gt;
+&lt;li&gt;函数右大括号在函数最后独占一行，或和左大括号同一行；&lt;/li&gt;
+&lt;li&gt;函数左大括号和函数参数右括号间，有一个空格；&lt;/li&gt;
+&lt;li&gt;所有参数尽量对齐（冒号对齐）；&lt;/li&gt;
+&lt;li&gt;函数作用域缩进2个空格；&lt;/li&gt;
+&lt;li&gt;封装参数缩进4个空格；&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="conditionals"&gt;条件判断（Conditionals）&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Include a space after &lt;code&gt;if&lt;/code&gt;, &lt;code&gt;while&lt;/code&gt;, &lt;code&gt;for&lt;/code&gt;, and &lt;code&gt;switch&lt;/code&gt;, and around comparison&lt;br&gt;
+operators.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;code&gt;if&lt;/code&gt;, &lt;code&gt;while&lt;/code&gt;, &lt;code&gt;for&lt;/code&gt;,  &lt;code&gt;switch&lt;/code&gt;后有一个空格，比较运算符两边有空格。&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-objectivec"&gt;// GOOD:
+
+for (int i = 0; i &amp;lt; 5; ++i) {
+}
+
+while (test) {};
+&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Braces may be omitted when a loop body or conditional statement fits on a single&lt;br&gt;
+line.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;若循环体或条件语句可放置一行中时，可以省略大括号；&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-objectivec"&gt;// GOOD:
+
+if (hasSillyName) LaughOutLoud();
+
+for (int i = 0; i &amp;lt; 10; i++) {
+  BlowTheHorn();
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class="language-objectivec"&gt;// AVOID:
+
+if (hasSillyName)
+  LaughOutLoud();               // AVOID.
+
+for (int i = 0; i &amp;lt; 10; i++)
+  BlowTheHorn();                // AVOID.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;If an &lt;code&gt;if&lt;/code&gt; clause has an &lt;code&gt;else&lt;/code&gt; clause, both clauses should use braces.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;若 &lt;code&gt;if&lt;/code&gt; 语句后有 &lt;code&gt;else&lt;/code&gt; 语句，两部分都需要使用大括号。&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-objectivec"&gt;// GOOD:
+
+if (hasBaz) {
+  foo();
+} else {  // The else goes on the same line as the closing brace.
+  bar();
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class="language-objectivec"&gt;// AVOID:
+
+if (hasBaz) foo();
+else bar();        // AVOID.
+
+if (hasBaz) {
+  foo();
+} else bar();      // AVOID.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Intentional fall-through to the next case should be documented with a comment&lt;br&gt;
+unless the case has no intervening code before the next case.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;除非两个case语句之间没有其他代码，有意添加的case连续执行情况，需要增加注释说明。&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-objectivec"&gt;// GOOD:
+
+switch (i) {
+  case 1:
+    ...
+    break;
+  case 2:
+    j++;
+    // Falls through.
+  case 3: {
+    int k;
+    ...
+    break;
+  }
+  case 4:
+  case 5:
+  case 6: break;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id="expressions"&gt;表达式（Expressions）&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Use a space around binary operators and assignments. Omit a space for a unary&lt;br&gt;
+operator. Do not add spaces inside parentheses.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;二进制运算符、赋值运算符左右两边都需要添加空格。一元运算符可以省略空格。圆括号（左括号右边、右括号左边）不用空格。&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-objectivec"&gt;// GOOD:
+
+x = 0;
+v = w * x + y / z;
+v = -y * (x + z);
+&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Factors in an expression may omit spaces.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;某些表达式运算符左右可能省略空格。&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-objectivec"&gt;// GOOD:
+
+v = w*x + y/z;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id="methodinvocations"&gt;方法调动（Method Invocations）&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Method invocations should be formatted much like method declarations.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;方法调用的格式应与方法声明一致。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;When there's a choice of formatting styles, follow the convention already used&lt;br&gt;
+in a given source file. Invocations should have all arguments on one line:&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;若源码中有现有的编码规范使用惯例，请保持一致继续使用。方法调用的所有参数都放在一行。&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-objectivec"&gt;// GOOD:
+
+[myObject doFooWith:arg1 name:arg2 error:arg3];
+&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;or have one argument per line, with colons aligned:&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;或每个参数放在单独一行，冒号对齐。&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-objectivec"&gt;// GOOD:
+
+[myObject doFooWith:arg1
+               name:arg2
+              error:arg3];
+&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Don't use any of these styles:&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;不要使用下列编码风格：&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-objectivec"&gt;// AVOID:
+
+[myObject doFooWith:arg1 name:arg2  // some lines with &amp;gt;1 arg
+              error:arg3];
+
+[myObject doFooWith:arg1
+               name:arg2 error:arg3];
+
+[myObject doFooWith:arg1
+          name:arg2  // aligning keywords instead of colons
+          error:arg3];
+&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;As with declarations and definitions, when the first keyword is shorter than the&lt;br&gt;
+others, indent the later lines by at least four spaces, maintaining colon&lt;br&gt;
+alignment:&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;与声明和定义一样，当第一个关键字比其他字段短，将后面的参数缩进至少4个空格，并将冒号对齐。&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-objectivec"&gt;// GOOD:
+
+[myObj short:arg1
+          longKeyword:arg2
+    evenLongerKeyword:arg3
+                error:arg4];
+&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Invocations containing multiple inlined blocks may have their parameter names&lt;br&gt;
+left-aligned at a four space indent.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;方法调用包含多个内嵌block时，将这些参数缩进4个空格，并左对齐。&lt;/p&gt;
+&lt;h3 id="functioncalls"&gt;函数调用（Function Calls）&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Function calls should include as many parameters as fit on each line, except&lt;br&gt;
+where shorter lines are needed for clarity or documentation of the parameters.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;函数调用要尽可能多的将参数填满每一行，如果某些参数需要说明参数含义或添加文档说明，将这行参数不填满整行。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Continuation lines for function parameters may be indented to align with the&lt;br&gt;
+opening parenthesis, or may have a four-space indent.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;换行后的参数需要与函数的左括号对齐，或者使用4个空格进行缩进。&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-objectivec"&gt;// GOOD:
+
+CFArrayRef array = CFArrayCreate(kCFAllocatorDefault, objects, numberOfObjects,
+                                 &amp;amp;kCFTypeArrayCallBacks);
+
+NSString *string = NSLocalizedStringWithDefaultValue(@&amp;quot;FEET&amp;quot;, @&amp;quot;DistanceTable&amp;quot;,
+    resourceBundle,  @&amp;quot;%@ feet&amp;quot;, @&amp;quot;Distance for multiple feet&amp;quot;);
+
+UpdateTally(scores[x] * y + bases[x],  // Score heuristic.
+            x, y, z);
+
+TransformImage(image,
+               x1, x2, x3,
+               y1, y2, y3,
+               z1, z2, z3);
+&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Use local variables with descriptive names to shorten function calls and reduce&lt;br&gt;
+nesting of calls.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;使用具有描述性名称的局部变量来缩短函数调用和减少内嵌调用。&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-objectivec"&gt;// GOOD:
+
+double scoreHeuristic = scores[x] * y + bases[x];
+UpdateTally(scoreHeuristic, x, y, z);
+
+// AVOID
+UpdateTally((scores[x] * y + bases[x]), x, y, z);
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id="exceptions"&gt;异常（Exceptions）&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Format exceptions with &lt;code&gt;@catch&lt;/code&gt; and &lt;code&gt;@finally&lt;/code&gt; labels on the same line as the&lt;br&gt;
+preceding &lt;code&gt;}&lt;/code&gt;. Add a space between the &lt;code&gt;@&lt;/code&gt; label and the opening brace (&lt;code&gt;{&lt;/code&gt;), as&lt;br&gt;
+well as between the &lt;code&gt;@catch&lt;/code&gt; and the caught object declaration. If you must use&lt;br&gt;
+Objective-C exceptions, format them as follows. However, see &lt;a href="#Avoid_Throwing_Exceptions"&gt;Avoid Throwing&lt;br&gt;
+Exceptions&lt;/a&gt; for reasons why you should not be using&lt;br&gt;
+exceptions.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;使用 &lt;code&gt;@catch&lt;/code&gt; 和 &lt;code&gt;@finally&lt;/code&gt; 标签要与左大括号在同一行。标签与左大括号之间添加一个空格， &lt;code&gt;@catch&lt;/code&gt; 与异常对象声明之间也添加一个空格。如果必须使用Objective-C异常类型，请按下面方式进行格式化。但是，请参考[避免抛异常（Avoid Throwing Exceptions）](#避免抛异常（Avoid Throwing Exceptions）) 以便了解避免抛出异常的原因。&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-objectivec"&gt;// GOOD:
+
+@try {
+  foo();
+} @catch (NSException *ex) {
+  bar(ex);
+} @finally {
+  baz();
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id="functionlength"&gt;函数长度（Function Length）&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Prefer small and focused functions.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;推荐小而功能专注的函数。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Long functions and methods are occasionally appropriate, so no hard limit is&lt;br&gt;
+placed on function length. If a function exceeds about 40 lines, think about&lt;br&gt;
+whether it can be broken up without harming the structure of the program.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;长方法或者函数某些情况下也是可以的，所以关于函数长度没有固定的限制。如果一个函数长度超过了40个字符，请考虑如何在不破坏代码结构的基础上，将它拆分。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Even if your long function works perfectly now, someone modifying it in a few&lt;br&gt;
+months may add new behavior. This could result in bugs that are hard to find.&lt;br&gt;
+Keeping your functions short and simple makes it easier for other people to read&lt;br&gt;
+and modify your code.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;即便你现在的长方法可以完美运行，可能几个月后的某些修改会给他添加新特性。这也导致出现问题难以发现。保持函数简练可以使代码易读，利于修改。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;When updating legacy code, consider also breaking long functions into smaller&lt;br&gt;
+and more manageable pieces.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;当更新遗留代码时，也需要考虑将长函数分解成更小更利于管理维护的部分。&lt;/p&gt;
+&lt;h3 id="verticalwhitespace"&gt;垂直空白（Vertical Whitespace）&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Use vertical whitespace sparingly.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;谨慎使用垂直空白。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;To allow more code to be easily viewed on a screen, avoid putting blank lines&lt;br&gt;
+just inside the braces of functions.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;为了让更多代码能够一屏展示，在函数大括号内，避免使用空行。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Limit blank lines to one or two between functions and between logical groups of&lt;br&gt;
+code.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;不同函数间或不同代码逻辑组之间，空行限制在1-2行。&lt;/p&gt;
+&lt;h2 id="objectivecobjectivecstyleexceptions"&gt;Objective-C风格异常（Objective-C Style Exceptions）&lt;/h2&gt;
+&lt;h3 id="indicatingstyleexceptions"&gt;指明风格异常（Indicating style exceptions）&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Lines of code that are not expected to adhere to these style recommendations&lt;br&gt;
+require &lt;code&gt;// NOLINT&lt;/code&gt; at the end of the line or &lt;code&gt;// NOLINTNEXTLINE&lt;/code&gt; at the end of&lt;br&gt;
+the previous line. Sometimes it is required that parts of Objective-C code must&lt;br&gt;
+ignore these style recommendations (for example code may be machine generated or&lt;br&gt;
+code constructs are such that its not possible to style correctly).&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;预计不符合这些规范的代码行，需要在行尾添加&lt;code&gt;// NOLINT&lt;/code&gt;或者在前一行添加 &lt;code&gt;// NOLINTNEXTLINE&lt;/code&gt; 标识。有时一部分代码需要忽略某些推荐的编码风格规范（例如某些机器生成的代码或者某些结构是不可能设置为正式样式的代码）。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;A &lt;code&gt;// NOLINT&lt;/code&gt; comment on that line or &lt;code&gt;// NOLINTNEXTLINE&lt;/code&gt; on the previous line&lt;br&gt;
+can be used to indicate to the reader that code is intentionally ignoring style&lt;br&gt;
+guidelines. In addition these annotations can also be picked up by automated&lt;br&gt;
+tools such as linters and handle code correctly. Note that there is a single&lt;br&gt;
+space between &lt;code&gt;//&lt;/code&gt; and &lt;code&gt;NOLINT*&lt;/code&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;一行中的 &lt;code&gt;// NOLINT&lt;/code&gt; 标注和前一行的 &lt;code&gt;// NOLINTNEXTLINE&lt;/code&gt; 标注可以被用来告诉读者，某些代码是故意忽略遵守使用编码规范的，此外，这些标注也可以让一些自动化工具（如linters）正确处理代码。&lt;/p&gt;
+&lt;p&gt;注意 &lt;code&gt;//&lt;/code&gt; 和 &lt;code&gt;NOLINT*&lt;/code&gt;之间有一个空格。&lt;/p&gt;
+&lt;/div&gt;</content:encoded></item><item><title>iOS端查看PDF文档实现方案</title><description>&lt;div class="kg-card-markdown"&gt;&lt;p&gt;文 · Mark&lt;/p&gt;
 &lt;p&gt;在不同端查看一些文档时，往往会展现出千奇百怪的格式，呈现给用户的也是不同的展示效果。为了保持原始文稿的格式，保证展现效果的统一，PDF文稿可以很好解决格式在不同端文稿展现格式差异，保持原始文稿的展现效果。&lt;/p&gt;
 &lt;p&gt;对于移动端的开发工作中，查看PDF也是常见的需求，本文针对iOS端查看PDF文档给出实现方案，包括通过网络端读取和本地读取两种方式查看PDF文档。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;读取方式&lt;/strong&gt;&lt;/p&gt;
