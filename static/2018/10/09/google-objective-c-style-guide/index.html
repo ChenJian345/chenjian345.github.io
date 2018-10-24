@@ -1,46 +1,76 @@
-
+<!DOCTYPE html>
+<html>
 <head>
-
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
     <title>Google Objective-C编码规范-中英对照</title>
-    <meta name="HandheldFriendly" content="True">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="翻译者：Mark C.J. 
 
-    <link rel="stylesheet" type="text/css" href="../../../../assets/built/screen.css?v=99e164b3a7">
+警告：文章原始版权归Google所有，本文档翻译部分归作者Mark所有，只供学习使用，禁止以营利为目的或其他商业使用！" />
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="apple-touch-icon" sizes="57x57" href="../../../../assets/img/favicons/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="../../../../assets/img/favicons/apple-touch-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="../../../../assets/img/favicons/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="../../../../assets/img/favicons/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="../../../../assets/img/favicons/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="../../../../assets/img/favicons/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="../../../../assets/img/favicons/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="../../../../assets/img/favicons/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../../assets/img/favicons/apple-touch-icon-180x180.png">
+    <link rel="icon" type="image/png" href="../../../../assets/img/favicons/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="../../../../assets/img/favicons/android-chrome-192x192.png" sizes="192x192">
+    <link rel="icon" type="image/png" href="../../../../assets/img/favicons/favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/png" href="../../../../assets/img/favicons/favicon-16x16.png" sizes="16x16">
+    <link rel="manifest" href="../../../../assets/img/favicons/manifest.json">
+    <link rel="mask-icon" href="../../../../assets/img/favicons/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="shortcut icon" href="../../../../assets/img/favicons/favicon.ico">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="msapplication-TileImage" content="/assets/img/favicons/mstile-144x144.png">
+    <meta name="msapplication-config" content="/assets/img/favicons/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="stylesheet" type="text/css" href="../../../../assets/css/screen.css?v=b76d770550" />
+    <link rel="stylesheet" type="text/css" href="../../../../assets/css/custom.css?v=b76d770550" />
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="../../../../assets/css/prism.css?v=b76d770550" />
+    <link rel="stylesheet" type="text/css" href="../../../../assets/css/rrssb.css?v=b76d770550" />
 
     <meta name="description" content="翻译者：Mark C.J. 
 
-警告：文章原始版权归Google所有，本文档翻译部分归作者Mark所有，只供学习使用，禁止以营利为目的或其他商业使用！">
-    <link rel="shortcut icon" href="../../../../favicon.png" type="image/png">
-    <link rel="canonical" href="index.html">
-    <meta name="referrer" content="no-referrer-when-downgrade">
-    <link rel="amphtml" href="amp/index.html">
+警告：文章原始版权归Google所有，本文档翻译部分归作者Mark所有，只供学习使用，禁止以营利为目的或其他商业使用！" />
+    <link rel="shortcut icon" href="../../../../favicon.png" type="image/png" />
+    <link rel="canonical" href="index.html" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
+    <link rel="amphtml" href="amp/index.html" />
     
-    <meta property="og:site_name" content="Crazy Mark">
-    <meta property="og:type" content="article">
-    <meta property="og:title" content="Google Objective-C编码规范-中英对照">
+    <meta property="og:site_name" content="Crazy Mark" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Google Objective-C编码规范-中英对照" />
     <meta property="og:description" content="翻译者：Mark C.J. 
 
-警告：文章原始版权归Google所有，本文档翻译部分归作者Mark所有，只供学习使用，禁止以营利为目的或其他商业使用！">
-    <meta property="og:url" content="http://localhost:2368/2018/10/09/google-objective-c-style-guide/">
-    <meta property="article:published_time" content="2018-10-09T12:00:00.000Z">
-    <meta property="article:modified_time" content="2018-10-10T01:58:04.000Z">
-    <meta property="article:tag" content="style guide">
-    <meta property="article:tag" content="iOS">
-    <meta property="article:tag" content="技术">
+警告：文章原始版权归Google所有，本文档翻译部分归作者Mark所有，只供学习使用，禁止以营利为目的或其他商业使用！" />
+    <meta property="og:url" content="http://localhost:2368/2018/10/09/google-objective-c-style-guide/" />
+    <meta property="article:published_time" content="2018-10-09T12:00:00.000Z" />
+    <meta property="article:modified_time" content="2018-10-10T01:58:04.000Z" />
+    <meta property="article:tag" content="style guide" />
+    <meta property="article:tag" content="iOS" />
+    <meta property="article:tag" content="技术" />
     
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Google Objective-C编码规范-中英对照">
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Google Objective-C编码规范-中英对照" />
     <meta name="twitter:description" content="翻译者：Mark C.J. 
 
-警告：文章原始版权归Google所有，本文档翻译部分归作者Mark所有，只供学习使用，禁止以营利为目的或其他商业使用！">
-    <meta name="twitter:url" content="http://localhost:2368/2018/10/09/google-objective-c-style-guide/">
-    <meta name="twitter:label1" content="Written by">
-    <meta name="twitter:data1" content="Mark Chen">
-    <meta name="twitter:label2" content="Filed under">
-    <meta name="twitter:data2" content="style guide, iOS, 技术">
+警告：文章原始版权归Google所有，本文档翻译部分归作者Mark所有，只供学习使用，禁止以营利为目的或其他商业使用！" />
+    <meta name="twitter:url" content="http://localhost:2368/2018/10/09/google-objective-c-style-guide/" />
+    <meta name="twitter:label1" content="Written by" />
+    <meta name="twitter:data1" content="Mark Chen" />
+    <meta name="twitter:label2" content="Filed under" />
+    <meta name="twitter:data2" content="style guide, iOS, 技术" />
     
     <script type="application/ld+json">
 {
@@ -83,15 +113,15 @@
 }
     </script>
 
-    <script type="text/javascript" src="../../../../public/ghost-sdk.js?v=99e164b3a7"></script>
+    <script type="text/javascript" src="../../../../public/ghost-sdk.js?v=b76d770550"></script>
 <script type="text/javascript">
 ghost.init({
 	clientId: "ghost-frontend",
 	clientSecret: "1cf83f774456"
 });
 </script>
-    <meta name="generator" content="Ghost 1.20">
-    <link rel="alternate" type="application/rss+xml" title="Crazy Mark" href="../../../../rss/index.html">
+    <meta name="generator" content="Ghost 1.20" />
+    <link rel="alternate" type="application/rss+xml" title="Crazy Mark" href="../../../../rss/index.html" />
     <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113294116-1"></script>
 <script>
@@ -101,52 +131,143 @@ ghost.init({
 
   gtag('config', 'UA-113294116-1');
 </script>
-
 </head>
 <body class="post-template tag-style-guide tag-ios tag-ji-zhu">
+
 
     <div class="site-wrapper">
 
         
 
-<header class="site-header outer">
-    <div class="inner">
-        <nav class="site-nav">
-    <div class="site-nav-left">
-                <a class="site-nav-logo" href="../../../../">Crazy Mark</a>
-            <ul class="nav" role="menu">
-    <li class="nav-home" role="menuitem"><a href="../../../../">Home</a></li>
-    <li class="nav-about-me" role="menuitem"><a href="http://markcj.cc/about-me/">About me</a></li>
-</ul>
 
-    </div>
-    <div class="site-nav-right">
-        <div class="social-links">
-        </div>
-            <a class="rss-button" href="http://cloud.feedly.com/#subscription/feed/http://localhost:2368/rss/" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24"><circle cx="6.18" cy="17.82" r="2.18"></circle><path d="M4 4.44v2.83c7.03 0 12.73 5.7 12.73 12.73h2.83c0-8.59-6.97-15.56-15.56-15.56zm0 5.66v2.83c3.9 0 7.07 3.17 7.07 7.07h2.83c0-5.47-4.43-9.9-9.9-9.9z"></path></svg>
-</a>
-    </div>
-</nav>
-    </div>
+<header class="main-header post-head no-cover">
+    <nav class="main-nav  clearfix">
+        <a class="back-button icon-arrow-left" href="../../../../index.html"> Home</a>
+        <a class="subscribe-button icon-feed" href="../../../../rss/index.html"> Subscribe</a>
+    </nav>
 </header>
 
+<main class="content" role="main">
+    <article class="post tag-style-guide tag-ios tag-ji-zhu featured">
 
-<main id="site-main" class="site-main outer" role="main">
-    <div class="inner">
+        <header class="post-header">
+            <h1 class="post-title">Google Objective-C Style Guide [中英对照]</h1>
+            <section class="post-meta">
+                <time class="post-date" datetime="2018-10-09">09 October 2018</time>  on <a href="../../../../tag/style-guide/index.html">style guide</a>, <a href="../../../../tag/ios/index.html">iOS</a>, <a href="../../../../tag/ji-zhu/index.html">技术</a>
+            </section>
+            <section class="social-share">
+                <ul class="rrssb-buttons clearfix">
+    <li class="rrssb-email">
 
-        <article class="post-full post tag-style-guide tag-ios tag-ji-zhu featured no-image">
+        <!-- Replace subject with your message using URL Endocding: http://meyerweb.com/eric/tools/dencoder/ -->
+        <a>
+            <span class="rrssb-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28">
+                    <path d="M20.11 26.147c-2.335 1.05-4.36 1.4-7.124 1.4C6.524 27.548.84 22.916.84 15.284.84 7.343 6.602.45 15.4.45c6.854 0 11.8 4.7 11.8 11.252 0 5.684-3.193 9.265-7.398 9.3-1.83 0-3.153-.934-3.347-2.997h-.077c-1.208 1.986-2.96 2.997-5.023 2.997-2.532 0-4.36-1.868-4.36-5.062 0-4.75 3.503-9.07 9.11-9.07 1.713 0 3.7.4 4.6.972l-1.17 7.203c-.387 2.298-.115 3.3 1 3.4 1.674 0 3.774-2.102 3.774-6.58 0-5.06-3.27-8.994-9.304-8.994C9.05 2.87 3.83 7.545 3.83 14.97c0 6.5 4.2 10.2 10 10.202 1.987 0 4.09-.43 5.647-1.245l.634 2.22zM16.647 10.1c-.31-.078-.7-.155-1.207-.155-2.572 0-4.596 2.53-4.596 5.53 0 1.5.7 2.4 1.9 2.4 1.44 0 2.96-1.83 3.31-4.088l.592-3.72z"
+                    />
+                </svg>
+            </span>
+            <span class="rrssb-text">email</span>
+        </a>
+    </li>
 
-            <header class="post-full-header">
-                <section class="post-full-meta">
-                    <time class="post-full-meta-date" datetime="2018-10-09">9 October 2018</time>
-                        <span class="date-divider">/</span> <a href="../../../../tag/style-guide/">style guide</a>
-                </section>
-                <h1 class="post-full-title">Google Objective-C Style Guide [中英对照]</h1>
-            </header>
+    <li class="rrssb-twitter">
+        <!-- Replace href with your Meta and URL information  -->
+        <a href="https://twitter.com/intent/tweet?text=Ridiculously%20Responsive%20Social%20Sharing%20Buttons%20by%20%40dbox%20and%20%40joshuatuscan%3A%20http%3A%2F%2Fkurtnoble.com%2Flabs%2Frrssb%20%7C%20http%3A%2F%2Fkurtnoble.com%2Flabs%2Frrssb%2Fmedia%2Frrssb-preview.png"
+        class="popup">
+            <span class="rrssb-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28">
+                    <path d="M24.253 8.756C24.69 17.08 18.297 24.182 9.97 24.62c-3.122.162-6.22-.646-8.86-2.32 2.702.18 5.375-.648 7.507-2.32-2.072-.248-3.818-1.662-4.49-3.64.802.13 1.62.077 2.4-.154-2.482-.466-4.312-2.586-4.412-5.11.688.276 1.426.408 2.168.387-2.135-1.65-2.73-4.62-1.394-6.965C5.574 7.816 9.54 9.84 13.802 10.07c-.842-2.738.694-5.64 3.434-6.48 2.018-.624 4.212.043 5.546 1.682 1.186-.213 2.318-.662 3.33-1.317-.386 1.256-1.248 2.312-2.4 2.942 1.048-.106 2.07-.394 3.02-.85-.458 1.182-1.343 2.15-2.48 2.71z"
+                    />
+                </svg>
+            </span>
+            <span class="rrssb-text">twitter</span>
+        </a>
+    </li>
+
+    <li class="rrssb-facebook">
+        <!--  Replace with your URL. For best results, make sure you page has the proper FB Open Graph tags in header:
+              https://developers.facebook.com/docs/opengraph/howtos/maximizing-distribution-media-content/ -->
+        <a class="popup">
+            <span class="rrssb-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 29 29">
+                    <path d="M26.4 0H2.6C1.714 0 0 1.715 0 2.6v23.8c0 .884 1.715 2.6 2.6 2.6h12.393V17.988h-3.996v-3.98h3.997v-3.062c0-3.746 2.835-5.97 6.177-5.97 1.6 0 2.444.173 2.845.226v3.792H21.18c-1.817 0-2.156.9-2.156 2.168v2.847h5.045l-.66 3.978h-4.386V29H26.4c.884 0 2.6-1.716 2.6-2.6V2.6c0-.885-1.716-2.6-2.6-2.6z"
+                    />
+                </svg>
+            </span>
+            <span class="rrssb-text">facebook</span>
+        </a>
+    </li>
+
+    <li class="rrssb-linkedin">
+        <!-- Replace href with your meta and URL information -->
+        <a class="popup">
+            <span class="rrssb-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28 28">
+                    <path d="M25.424 15.887v8.447h-4.896v-7.882c0-1.98-.71-3.33-2.48-3.33-1.354 0-2.158.91-2.514 1.802-.13.315-.162.753-.162 1.194v8.216h-4.9s.067-13.35 0-14.73h4.9v2.087c-.01.017-.023.033-.033.05h.032v-.05c.65-1.002 1.812-2.435 4.414-2.435 3.222 0 5.638 2.106 5.638 6.632zM5.348 2.5c-1.676 0-2.772 1.093-2.772 2.54 0 1.42 1.066 2.538 2.717 2.546h.032c1.71 0 2.77-1.132 2.77-2.546C8.056 3.593 7.02 2.5 5.344 2.5h.005zm-2.48 21.834h4.896V9.604H2.867v14.73z"
+                    />
+                </svg>
+            </span>
+            <span class="rrssb-text">linkedin</span>
+        </a>
+    </li>
 
 
-            <section class="post-full-content">
-                <div class="kg-card-markdown"><p><strong>注意：文章原始版权归Google所有，本文档翻译部分归作者Mark所有，只供学习使用，禁止以营利为目的或其他商业使用！</strong></p>
+    <li class="rrssb-reddit">
+        <a>
+            <span class="rrssb-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28">
+                    <path d="M11.794 15.316c0-1.03-.835-1.895-1.866-1.895-1.03 0-1.893.866-1.893 1.896s.863 1.9 1.9 1.9c1.023-.016 1.865-.916 1.865-1.9zM18.1 13.422c-1.03 0-1.895.864-1.895 1.895 0 1 .9 1.9 1.9 1.865 1.03 0 1.87-.836 1.87-1.865-.006-1.017-.875-1.917-1.875-1.895zM17.527 19.79c-.678.68-1.826 1.007-3.514 1.007h-.03c-1.686 0-2.834-.328-3.51-1.005-.264-.265-.693-.265-.958 0-.264.265-.264.7 0 1 .943.9 2.4 1.4 4.5 1.402.005 0 0 0 0 0 .005 0 0 0 0 0 2.066 0 3.527-.46 4.47-1.402.265-.264.265-.693.002-.958-.267-.334-.688-.334-.988-.043z"
+                    />
+                    <path d="M27.707 13.267c0-1.785-1.453-3.237-3.236-3.237-.792 0-1.517.287-2.08.76-2.04-1.294-4.647-2.068-7.44-2.218l1.484-4.69 4.062.955c.07 1.4 1.3 2.6 2.7 2.555 1.488 0 2.695-1.208 2.695-2.695C25.88 3.2 24.7 2 23.2 2c-1.06 0-1.98.616-2.42 1.508l-4.633-1.09c-.344-.082-.693.117-.803.454l-1.793 5.7C10.55 8.6 7.7 9.4 5.6 10.75c-.594-.45-1.3-.75-2.1-.72-1.785 0-3.237 1.45-3.237 3.2 0 1.1.6 2.1 1.4 2.69-.04.27-.06.55-.06.83 0 2.3 1.3 4.4 3.7 5.9 2.298 1.5 5.3 2.3 8.6 2.325 3.227 0 6.27-.825 8.57-2.325 2.387-1.56 3.7-3.66 3.7-5.917 0-.26-.016-.514-.05-.768.965-.465 1.577-1.565 1.577-2.698zm-4.52-9.912c.74 0 1.3.6 1.3 1.3 0 .738-.6 1.34-1.34 1.34s-1.343-.602-1.343-1.34c.04-.655.596-1.255 1.396-1.3zM1.646 13.3c0-1.038.845-1.882 1.883-1.882.31 0 .6.1.9.21-1.05.867-1.813 1.86-2.26 2.9-.338-.328-.57-.728-.57-1.26zm20.126 8.27c-2.082 1.357-4.863 2.105-7.83 2.105-2.968 0-5.748-.748-7.83-2.105-1.99-1.3-3.087-3-3.087-4.782 0-1.784 1.097-3.484 3.088-4.784 2.08-1.358 4.86-2.106 7.828-2.106 2.967 0 5.7.7 7.8 2.106 1.99 1.3 3.1 3 3.1 4.784C24.86 18.6 23.8 20.3 21.8 21.57zm4.014-6.97c-.432-1.084-1.19-2.095-2.244-2.977.273-.156.59-.245.928-.245 1.036 0 1.9.8 1.9 1.9-.016.522-.27 1.022-.57 1.327z"
+                    />
+                </svg>
+            </span>
+            <span class="rrssb-text">reddit</span>
+        </a>
+    </li>
+
+    <li class="rrssb-hackernews">
+        <a>
+            <span class="rrssb-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28">
+                    <path fill="#FFF" d="M14 13.626l-4.508-9.19H6.588l6.165 12.208v6.92h2.51v-6.92l6.15-12.21H18.69" />
+                </svg>
+            </span>
+            <span class="rrssb-text">hackernews</span>
+        </a>
+    </li>
+
+    <li class="rrssb-googleplus">
+        <!-- Replace href with your meta and URL information.  -->
+        <a class="popup">
+            <span class="rrssb-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                    <path d="M21 8.29h-1.95v2.6h-2.6v1.82h2.6v2.6H21v-2.6h2.6v-1.885H21V8.29zM7.614 10.306v2.925h3.9c-.26 1.69-1.755 2.925-3.9 2.925-2.34 0-4.29-2.016-4.29-4.354s1.885-4.353 4.29-4.353c1.104 0 2.014.326 2.794 1.105l2.08-2.08c-1.3-1.17-2.924-1.883-4.874-1.883C3.65 4.586.4 7.835.4 11.8s3.25 7.212 7.214 7.212c4.224 0 6.953-2.988 6.953-7.082 0-.52-.065-1.104-.13-1.624H7.614z"
+                    />
+                </svg>
+            </span>
+            <span class="rrssb-text">google+</span>
+        </a>
+    </li>
+    <li class="rrssb-pocket">
+        <a>
+            <span class="rrssb-icon">
+                <svg width="32" height="28" viewBox="0 0 32 28" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M28.782.002c2.03.002 3.193 1.12 3.182 3.106-.022 3.57.17 7.16-.158 10.7-1.09 11.773-14.588 18.092-24.6 11.573C2.72 22.458.197 18.313.057 12.937c-.09-3.36-.05-6.72-.026-10.08C.04 1.113 1.212.016 3.02.008 7.347-.006 11.678.004 16.006.002c4.258 0 8.518-.004 12.776 0zM8.65 7.856c-1.262.135-1.99.57-2.357 1.476-.392.965-.115 1.81.606 2.496 2.453 2.334 4.91 4.664 7.398 6.966 1.086 1.003 2.237.99 3.314-.013 2.407-2.23 4.795-4.482 7.17-6.747 1.203-1.148 1.32-2.468.365-3.426-1.01-1.014-2.302-.933-3.558.245-1.596 1.497-3.222 2.965-4.75 4.526-.706.715-1.12.627-1.783-.034-1.597-1.596-3.25-3.138-4.93-4.644-.47-.42-1.123-.647-1.478-.844z"
+                    />
+                </svg>
+            </span>
+            <span class="rrssb-text">pocket</span>
+        </a>
+    </li>
+
+</ul>
+            </section>
+        </header>
+
+        <section class="post-content">
+            <div class="kg-card-markdown"><p><strong>注意：文章原始版权归Google所有，本文档翻译部分归作者Mark所有，只供学习使用，禁止以营利为目的或其他商业使用！</strong></p>
 <blockquote>
 <p>Objective-C is a dynamic, object-oriented extension of C. It's designed to be<br>
 easy to use and read, while enabling sophisticated object-oriented design. It<br>
@@ -186,8 +307,8 @@ over mixed usage of multiple options. Using one style consistently throughout a<
 codebase lets engineers focus on other (more important) issues. Consistency also<br>
 enables better automation because consistent code allows more efficient<br>
 development and operation of tools that format or refactor code. In many cases,<br>
-rules that are attributed to "Be Consistent" boil down to "Just pick one and<br>
-stop worrying about it"; the potential value of allowing flexibility on these<br>
+rules that are attributed to &quot;Be Consistent&quot; boil down to &quot;Just pick one and<br>
+stop worrying about it&quot;; the potential value of allowing flexibility on these<br>
 points is outweighed by the cost of having people argue over them.</p>
 </blockquote>
 <p>当编码风格规范中提供规范供选择时，选择一种规范要优于多种规范混用。代码库中使用一致的规范，会帮助工程师节省时间，将精力放在其他更重要的事情上（指减少因为编码规范不统一导致的各种误解）。由于一致的代码风格可以高效的开发和使用工具组件，所以，一致性也可以提高自动化程度。在很多场景中，保持一致性可以归结为“（快速）选一个，然后就不要再担心它”，这种选择的灵活性做法，对比花费更多时间争论选择哪种规范来使用，更具潜在价值。</p>
@@ -276,10 +397,10 @@ for an <code>@interface</code> declaration.</p>
 <p>实现一个<code>@implementation</code> 的正确编码规范示例，展示正确的注释和间距（包括空行，回车，空格等）</p>
 <pre><code class="language-objectivec">// GOOD:
 
-#import "Shared/Util/Foo.h"
+#import &quot;Shared/Util/Foo.h&quot;
 
 @implementation Foo {
-  /** The string used for displaying "hi". */
+  /** The string used for displaying &quot;hi&quot;. */
   NSString *_string;
 }
 
@@ -297,10 +418,10 @@ for an <code>@interface</code> declaration.</p>
   self = [super init];
   if (self) {
     _bar = [bar copy];
-    _string = [[NSString alloc] initWithFormat:@"hi %d", 3];
+    _string = [[NSString alloc] initWithFormat:@&quot;hi %d&quot;, 3];
     _attributes = @{
-      @"color" : [UIColor blueColor],
-      @"hidden" : @NO
+      @&quot;color&quot; : [UIColor blueColor],
+      @&quot;hidden&quot; : @NO
     };
   }
   return self;
@@ -521,11 +642,11 @@ read like prose, thus rendering many implementation comments unnecessary.</p>
 </blockquote>
 <p>方法名应该尽量读起来像一个句子，告诉你这个方法后面应该传入的参数名。Objective-C方法名倾向于非常长，但是这样的好处就是一段block的代码读起来像散文，因此没必要再添加更多注释。</p>
 <blockquote>
-<p>Use prepositions and conjunctions like "with", "from", and "to" in the second<br>
+<p>Use prepositions and conjunctions like &quot;with&quot;, &quot;from&quot;, and &quot;to&quot; in the second<br>
 and later parameter names only where necessary to clarify the meaning or<br>
 behavior of the method.</p>
 </blockquote>
-<p>只有在有必要说明方法意义或行为时，才在第二个参数名后，使用例如"with", "from", and "to"等介词和连词。</p>
+<p>只有在有必要说明方法意义或行为时，才在第二个参数名后，使用例如&quot;with&quot;, &quot;from&quot;, and &quot;to&quot;等介词和连词。</p>
 <pre><code class="language-objectivec">// GOOD:
 
 - (void)addTarget:(id)target action:(SEL)action;                          // GOOD; no conjunction needed
@@ -596,7 +717,7 @@ follow the rules set in the C++ style guide.</p>
 <p>以上规范只适用于Objective-C方法，C++方法命名请参考C++命名指南。</p>
 <h3 id="functionnames">函数命名（Function Names）</h3>
 <p>Function names should start with a capital letter and have a capital letter for<br>
-each new word (a.k.a. "<a href="https://en.wikipedia.org/wiki/Camel_case">camel case</a>" or "Pascal case").</p>
+each new word (a.k.a. &quot;<a href="https://en.wikipedia.org/wiki/Camel_case">camel case</a>&quot; or &quot;Pascal case&quot;).</p>
 <p>函数名要首字母大写，之后使用驼峰命名法。</p>
 <pre><code class="language-objectivec">// GOOD:
 
@@ -698,7 +819,7 @@ duration declared within implementation files:</p>
 <pre><code class="language-objectivec">// GOOD:
 
 static const int kFileCount = 12;
-static NSString *const kUserKey = @"kUserKey";
+static NSString *const kUserKey = @&quot;kUserKey&quot;;
 </code></pre>
 <blockquote>
 <p>NOTE: Previous convention was for public constant names to begin with a<br>
@@ -890,10 +1011,10 @@ use them consistently within a project.</p>
 <p>接口推荐使用Doxygen风格注释，并可以利用xcode将注释原样转化为文档。Doxygen命令很多样，请在工程中保持一致，即使用同一套Doxygen命令</p>
 <blockquote>
 <p>If you have already described an interface in detail in the comments at the top<br>
-of your file, feel free to simply state, "See comment at top of file for a<br>
-complete description", but be sure to have some sort of comment.</p>
+of your file, feel free to simply state, &quot;See comment at top of file for a<br>
+complete description&quot;, but be sure to have some sort of comment.</p>
 </blockquote>
-<p>如果在文件顶部已经添加了对接口的详细说明，你可以轻松的指出："请参考文件顶部的完整说明"，但一定要有类似说明，说明一下。</p>
+<p>如果在文件顶部已经添加了对接口的详细说明，你可以轻松的指出：&quot;请参考文件顶部的完整说明&quot;，但一定要有类似说明，说明一下。</p>
 <blockquote>
 <p>Additionally, each method should have a comment explaining its function,<br>
 arguments, return value, thread or queue assumptions, and any side effects.<br>
@@ -902,8 +1023,8 @@ immediately preceding the method for non-trivial private methods.</p>
 </blockquote>
 <p>另外，每个方法需要有注释解释其功能、参数、返回值、使用线程假设，以及副作用。文档化注释需要在公开方法的头文件中，或者紧挨着重要的私有方法前。</p>
 <blockquote>
-<p>Use descriptive form ("Opens the file") rather than imperative form ("Open the<br>
-file") for method and function comments. The comment describes the function; it<br>
+<p>Use descriptive form (&quot;Opens the file&quot;) rather than imperative form (&quot;Open the<br>
+file&quot;) for method and function comments. The comment describes the function; it<br>
 does not tell the function what to do.</p>
 </blockquote>
 <p>对于方法和函数的注释使用描述性形式，而不是使用命令形式。注释描述其功能，而不是让函数去做什么。</p>
@@ -982,7 +1103,7 @@ the sentence read like it was poorly constructed. A common example is the symbol
 <p>或引用已经有引号的文字</p>
 <pre><code class="language-objectivec">// GOOD:
 
-// Remember to call `StringWithoutSpaces("foo bar baz")`
+// Remember to call `StringWithoutSpaces(&quot;foo bar baz&quot;)`
 </code></pre>
 <blockquote>
 <p>Backticks or vertical bars are not needed when a symbol is self-apparent.</p>
@@ -1236,7 +1357,7 @@ should be marked <code>@protected</code> or <code>@private</code>.</p>
 <p>不可调用NSObject的类方法<code>new</code>或在子类中重写该方法。<code>+new</code>方法很少使用，与初始化器的使用有很大的不同。相反，一般使用+alloc和-init方法来创建和初始化实例对象。</p>
 <h3 id="apikeepthepublicapisimple">公开API保持简单（Keep the Public API Simple）</h3>
 <blockquote>
-<p>Keep your class simple; avoid "kitchen-sink" APIs. If a method doesn't need to<br>
+<p>Keep your class simple; avoid &quot;kitchen-sink&quot; APIs. If a method doesn't need to<br>
 be public, keep it out of the public interface.</p>
 </blockquote>
 <p>保持类简单，避免“kitchen-sink”（激进现实主义）API。如果一个方法不需要作为公开方法，请不要暴露在公开接口中。</p>
@@ -1251,7 +1372,7 @@ the parent class.</p>
 <p>和C++不同，Objective-C在公开方法和私有方法之间并没有什么太多区分，任何消息都可能被发送给对象。因此，只有使用者需要调用某一个方法时，才把这个方法放置在公开的API中。这样可以降低一些你不希望外界调用的方法被调用的可能性，这也包括重写的父类方法。</p>
 <blockquote>
 <p>Since internal methods are not really private, it's easy to accidentally<br>
-override a superclass's "private" method, thus making a very difficult bug to<br>
+override a superclass's &quot;private&quot; method, thus making a very difficult bug to<br>
 squash. In general, private methods should have a fairly unique name that will<br>
 prevent subclasses from unintentionally overriding them.</p>
 </blockquote>
@@ -1296,19 +1417,19 @@ For test files the related header is the header containing the tested interface.
 <p>以工程目录作为根目录，使用相对路径引用头文件。</p>
 <pre><code class="language-objectivec">// GOOD:
 
-#import "ProjectX/BazViewController.h"
+#import &quot;ProjectX/BazViewController.h&quot;
 
 #import &lt;Foundation/Foundation.h&gt;
 
 #include &lt;unistd.h&gt;
 #include &lt;vector&gt;
 
-#include "base/basictypes.h"
-#include "base/integral_types.h"
-#include "util/math/mathutil.h"
+#include &quot;base/basictypes.h&quot;
+#include &quot;base/integral_types.h&quot;
+#include &quot;util/math/mathutil.h&quot;
 
-#import "ProjectX/BazModel.h"
-#import "Shared/Util/Foo.h"
+#import &quot;ProjectX/BazModel.h&quot;
+#import &quot;Shared/Util/Foo.h&quot;
 </code></pre>
 <h3 id="umbrellauseumbrellaheadersforsystemframeworks">使用系统库Umbrella头文件（Use Umbrella Headers for System Frameworks）</h3>
 <blockquote>
@@ -1719,7 +1840,7 @@ class CrossPlatformAPI {
 };
 
 // file: mac_implementation.mm
-#include "cross_platform_header.h"
+#include &quot;cross_platform_header.h&quot;
 
 /** A typical Objective-C class, using Objective-C naming. */
 @interface MyDelegate : NSObject {
@@ -1737,16 +1858,16 @@ class CrossPlatformAPI {
 - (void)respondToSomething:(id)something {
   // bridge from Cocoa through our C++ backend
   _instanceVar = _backEndObject-&gt;DoSomethingPlatformSpecific();
-  NSString* tempString = [NSString stringWithFormat:@"%d", _instanceVar];
-  NSLog(@"%@", tempString);
+  NSString* tempString = [NSString stringWithFormat:@&quot;%d&quot;, _instanceVar];
+  NSLog(@&quot;%@&quot;, tempString);
 }
 
 @end
 
 /** The platform-specific implementation of the C++ class, using C++ naming. */
 int CrossPlatformAPI::DoSomethingPlatformSpecific() {
-  NSString* temp_string = [NSString stringWithFormat:@"%d", an_instance_var_];
-  NSLog(@"%@", temp_string);
+  NSString* temp_string = [NSString stringWithFormat:@&quot;%d&quot;, an_instance_var_];
+  NSLog(@&quot;%@&quot;, temp_string);
   return [temp_string intValue];
 }
 </code></pre>
@@ -2056,8 +2177,8 @@ opening parenthesis, or may have a four-space indent.</p>
 CFArrayRef array = CFArrayCreate(kCFAllocatorDefault, objects, numberOfObjects,
                                  &amp;kCFTypeArrayCallBacks);
 
-NSString *string = NSLocalizedStringWithDefaultValue(@"FEET", @"DistanceTable",
-    resourceBundle,  @"%@ feet", @"Distance for multiple feet");
+NSString *string = NSLocalizedStringWithDefaultValue(@&quot;FEET&quot;, @&quot;DistanceTable&quot;,
+    resourceBundle,  @&quot;%@ feet&quot;, @&quot;Distance for multiple feet&quot;);
 
 UpdateTally(scores[x] * y + bases[x],  // Score heuristic.
             x, y, z);
@@ -2158,172 +2279,231 @@ space between <code>//</code> and <code>NOLINT*</code>.</p>
 <p>一行中的 <code>// NOLINT</code> 标注和前一行的 <code>// NOLINTNEXTLINE</code> 标注可以被用来告诉读者，某些代码是故意忽略遵守使用编码规范的，此外，这些标注也可以让一些自动化工具（如linters）正确处理代码。</p>
 <p>注意 <code>//</code> 和 <code>NOLINT*</code>之间有一个空格。</p>
 </div>
+        </section>
+
+        <section class="social-share">
+            <ul class="rrssb-buttons clearfix">
+    <li class="rrssb-email">
+
+        <!-- Replace subject with your message using URL Endocding: http://meyerweb.com/eric/tools/dencoder/ -->
+        <a>
+            <span class="rrssb-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28">
+                    <path d="M20.11 26.147c-2.335 1.05-4.36 1.4-7.124 1.4C6.524 27.548.84 22.916.84 15.284.84 7.343 6.602.45 15.4.45c6.854 0 11.8 4.7 11.8 11.252 0 5.684-3.193 9.265-7.398 9.3-1.83 0-3.153-.934-3.347-2.997h-.077c-1.208 1.986-2.96 2.997-5.023 2.997-2.532 0-4.36-1.868-4.36-5.062 0-4.75 3.503-9.07 9.11-9.07 1.713 0 3.7.4 4.6.972l-1.17 7.203c-.387 2.298-.115 3.3 1 3.4 1.674 0 3.774-2.102 3.774-6.58 0-5.06-3.27-8.994-9.304-8.994C9.05 2.87 3.83 7.545 3.83 14.97c0 6.5 4.2 10.2 10 10.202 1.987 0 4.09-.43 5.647-1.245l.634 2.22zM16.647 10.1c-.31-.078-.7-.155-1.207-.155-2.572 0-4.596 2.53-4.596 5.53 0 1.5.7 2.4 1.9 2.4 1.44 0 2.96-1.83 3.31-4.088l.592-3.72z"
+                    />
+                </svg>
+            </span>
+            <span class="rrssb-text">email</span>
+        </a>
+    </li>
+
+    <li class="rrssb-twitter">
+        <!-- Replace href with your Meta and URL information  -->
+        <a href="https://twitter.com/intent/tweet?text=Ridiculously%20Responsive%20Social%20Sharing%20Buttons%20by%20%40dbox%20and%20%40joshuatuscan%3A%20http%3A%2F%2Fkurtnoble.com%2Flabs%2Frrssb%20%7C%20http%3A%2F%2Fkurtnoble.com%2Flabs%2Frrssb%2Fmedia%2Frrssb-preview.png"
+        class="popup">
+            <span class="rrssb-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28">
+                    <path d="M24.253 8.756C24.69 17.08 18.297 24.182 9.97 24.62c-3.122.162-6.22-.646-8.86-2.32 2.702.18 5.375-.648 7.507-2.32-2.072-.248-3.818-1.662-4.49-3.64.802.13 1.62.077 2.4-.154-2.482-.466-4.312-2.586-4.412-5.11.688.276 1.426.408 2.168.387-2.135-1.65-2.73-4.62-1.394-6.965C5.574 7.816 9.54 9.84 13.802 10.07c-.842-2.738.694-5.64 3.434-6.48 2.018-.624 4.212.043 5.546 1.682 1.186-.213 2.318-.662 3.33-1.317-.386 1.256-1.248 2.312-2.4 2.942 1.048-.106 2.07-.394 3.02-.85-.458 1.182-1.343 2.15-2.48 2.71z"
+                    />
+                </svg>
+            </span>
+            <span class="rrssb-text">twitter</span>
+        </a>
+    </li>
+
+    <li class="rrssb-facebook">
+        <!--  Replace with your URL. For best results, make sure you page has the proper FB Open Graph tags in header:
+              https://developers.facebook.com/docs/opengraph/howtos/maximizing-distribution-media-content/ -->
+        <a class="popup">
+            <span class="rrssb-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 29 29">
+                    <path d="M26.4 0H2.6C1.714 0 0 1.715 0 2.6v23.8c0 .884 1.715 2.6 2.6 2.6h12.393V17.988h-3.996v-3.98h3.997v-3.062c0-3.746 2.835-5.97 6.177-5.97 1.6 0 2.444.173 2.845.226v3.792H21.18c-1.817 0-2.156.9-2.156 2.168v2.847h5.045l-.66 3.978h-4.386V29H26.4c.884 0 2.6-1.716 2.6-2.6V2.6c0-.885-1.716-2.6-2.6-2.6z"
+                    />
+                </svg>
+            </span>
+            <span class="rrssb-text">facebook</span>
+        </a>
+    </li>
+
+    <li class="rrssb-linkedin">
+        <!-- Replace href with your meta and URL information -->
+        <a class="popup">
+            <span class="rrssb-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28 28">
+                    <path d="M25.424 15.887v8.447h-4.896v-7.882c0-1.98-.71-3.33-2.48-3.33-1.354 0-2.158.91-2.514 1.802-.13.315-.162.753-.162 1.194v8.216h-4.9s.067-13.35 0-14.73h4.9v2.087c-.01.017-.023.033-.033.05h.032v-.05c.65-1.002 1.812-2.435 4.414-2.435 3.222 0 5.638 2.106 5.638 6.632zM5.348 2.5c-1.676 0-2.772 1.093-2.772 2.54 0 1.42 1.066 2.538 2.717 2.546h.032c1.71 0 2.77-1.132 2.77-2.546C8.056 3.593 7.02 2.5 5.344 2.5h.005zm-2.48 21.834h4.896V9.604H2.867v14.73z"
+                    />
+                </svg>
+            </span>
+            <span class="rrssb-text">linkedin</span>
+        </a>
+    </li>
+
+
+    <li class="rrssb-reddit">
+        <a>
+            <span class="rrssb-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28">
+                    <path d="M11.794 15.316c0-1.03-.835-1.895-1.866-1.895-1.03 0-1.893.866-1.893 1.896s.863 1.9 1.9 1.9c1.023-.016 1.865-.916 1.865-1.9zM18.1 13.422c-1.03 0-1.895.864-1.895 1.895 0 1 .9 1.9 1.9 1.865 1.03 0 1.87-.836 1.87-1.865-.006-1.017-.875-1.917-1.875-1.895zM17.527 19.79c-.678.68-1.826 1.007-3.514 1.007h-.03c-1.686 0-2.834-.328-3.51-1.005-.264-.265-.693-.265-.958 0-.264.265-.264.7 0 1 .943.9 2.4 1.4 4.5 1.402.005 0 0 0 0 0 .005 0 0 0 0 0 2.066 0 3.527-.46 4.47-1.402.265-.264.265-.693.002-.958-.267-.334-.688-.334-.988-.043z"
+                    />
+                    <path d="M27.707 13.267c0-1.785-1.453-3.237-3.236-3.237-.792 0-1.517.287-2.08.76-2.04-1.294-4.647-2.068-7.44-2.218l1.484-4.69 4.062.955c.07 1.4 1.3 2.6 2.7 2.555 1.488 0 2.695-1.208 2.695-2.695C25.88 3.2 24.7 2 23.2 2c-1.06 0-1.98.616-2.42 1.508l-4.633-1.09c-.344-.082-.693.117-.803.454l-1.793 5.7C10.55 8.6 7.7 9.4 5.6 10.75c-.594-.45-1.3-.75-2.1-.72-1.785 0-3.237 1.45-3.237 3.2 0 1.1.6 2.1 1.4 2.69-.04.27-.06.55-.06.83 0 2.3 1.3 4.4 3.7 5.9 2.298 1.5 5.3 2.3 8.6 2.325 3.227 0 6.27-.825 8.57-2.325 2.387-1.56 3.7-3.66 3.7-5.917 0-.26-.016-.514-.05-.768.965-.465 1.577-1.565 1.577-2.698zm-4.52-9.912c.74 0 1.3.6 1.3 1.3 0 .738-.6 1.34-1.34 1.34s-1.343-.602-1.343-1.34c.04-.655.596-1.255 1.396-1.3zM1.646 13.3c0-1.038.845-1.882 1.883-1.882.31 0 .6.1.9.21-1.05.867-1.813 1.86-2.26 2.9-.338-.328-.57-.728-.57-1.26zm20.126 8.27c-2.082 1.357-4.863 2.105-7.83 2.105-2.968 0-5.748-.748-7.83-2.105-1.99-1.3-3.087-3-3.087-4.782 0-1.784 1.097-3.484 3.088-4.784 2.08-1.358 4.86-2.106 7.828-2.106 2.967 0 5.7.7 7.8 2.106 1.99 1.3 3.1 3 3.1 4.784C24.86 18.6 23.8 20.3 21.8 21.57zm4.014-6.97c-.432-1.084-1.19-2.095-2.244-2.977.273-.156.59-.245.928-.245 1.036 0 1.9.8 1.9 1.9-.016.522-.27 1.022-.57 1.327z"
+                    />
+                </svg>
+            </span>
+            <span class="rrssb-text">reddit</span>
+        </a>
+    </li>
+
+    <li class="rrssb-hackernews">
+        <a>
+            <span class="rrssb-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28">
+                    <path fill="#FFF" d="M14 13.626l-4.508-9.19H6.588l6.165 12.208v6.92h2.51v-6.92l6.15-12.21H18.69" />
+                </svg>
+            </span>
+            <span class="rrssb-text">hackernews</span>
+        </a>
+    </li>
+
+    <li class="rrssb-googleplus">
+        <!-- Replace href with your meta and URL information.  -->
+        <a class="popup">
+            <span class="rrssb-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                    <path d="M21 8.29h-1.95v2.6h-2.6v1.82h2.6v2.6H21v-2.6h2.6v-1.885H21V8.29zM7.614 10.306v2.925h3.9c-.26 1.69-1.755 2.925-3.9 2.925-2.34 0-4.29-2.016-4.29-4.354s1.885-4.353 4.29-4.353c1.104 0 2.014.326 2.794 1.105l2.08-2.08c-1.3-1.17-2.924-1.883-4.874-1.883C3.65 4.586.4 7.835.4 11.8s3.25 7.212 7.214 7.212c4.224 0 6.953-2.988 6.953-7.082 0-.52-.065-1.104-.13-1.624H7.614z"
+                    />
+                </svg>
+            </span>
+            <span class="rrssb-text">google+</span>
+        </a>
+    </li>
+    <li class="rrssb-pocket">
+        <a>
+            <span class="rrssb-icon">
+                <svg width="32" height="28" viewBox="0 0 32 28" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M28.782.002c2.03.002 3.193 1.12 3.182 3.106-.022 3.57.17 7.16-.158 10.7-1.09 11.773-14.588 18.092-24.6 11.573C2.72 22.458.197 18.313.057 12.937c-.09-3.36-.05-6.72-.026-10.08C.04 1.113 1.212.016 3.02.008 7.347-.006 11.678.004 16.006.002c4.258 0 8.518-.004 12.776 0zM8.65 7.856c-1.262.135-1.99.57-2.357 1.476-.392.965-.115 1.81.606 2.496 2.453 2.334 4.91 4.664 7.398 6.966 1.086 1.003 2.237.99 3.314-.013 2.407-2.23 4.795-4.482 7.17-6.747 1.203-1.148 1.32-2.468.365-3.426-1.01-1.014-2.302-.933-3.558.245-1.596 1.497-3.222 2.965-4.75 4.526-.706.715-1.12.627-1.783-.034-1.597-1.596-3.25-3.138-4.93-4.644-.47-.42-1.123-.647-1.478-.844z"
+                    />
+                </svg>
+            </span>
+            <span class="rrssb-text">pocket</span>
+        </a>
+    </li>
+
+</ul>
+        </section>
+
+        <footer class="post-footer">
+
+
+
+            <section class="author">
+                <h4><a href="../../../../author/mark/index.html">Mark Chen</a></h4>
+
+                    <p>Read <a href="../../../../author/mark/index.html">more posts</a> by this author.</p>
+                <div class="author-meta">
+                    <span class="author-location icon-location">Beijing, China</span>
+                    <span class="author-link icon-link"><a href="http://markcj.cc">http://markcj.cc</a></span>
+                </div>
             </section>
 
 
-            <footer class="post-full-footer">
-
-                <section class="author-card">
-                        <img class="author-profile-image" src="../../../../content/images/2018/01/firemonkey.jpg" alt="Mark Chen">
-                    <section class="author-card-content">
-                        <h4 class="author-card-name"><a href="../../../../author/mark/">Mark Chen</a></h4>
-                            <p>Read <a href="../../../../author/mark/">more posts</a> by this author.</p>
-                    </section>
-                </section>
-                <div class="post-full-footer-right">
-                    <a class="author-card-button" href="../../../../author/mark/">Read More</a>
-                </div>
-
-            </footer>
 
 
-        </article>
+        <section class="post-comments">
+              <div id="disqus_thread"></div>
+              <script type="text/javascript">
+              // required: replace example with your forum shortname
+              if(disqus_shortname && typeof disqus_shortname === "string") {
+                  var disqus_identifier = '';
 
-    </div>
+                  /* * * DON'T EDIT BELOW THIS LINE * * */
+                  (function() {
+                  var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                  dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                  })();
+              }
+              </script>
+              <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        </section>
+
+        </footer>
+
+    </article>
 </main>
 
-<aside class="read-next outer">
-    <div class="inner">
-        <div class="read-next-feed">
-
-
-                <article class="post-card post no-image">
-    <div class="post-card-content">
-        <a class="post-card-content-link" href="../../../03/21/iosduan-cha-kan-pdfwen-dang-shi-xian-fang-an/">
-            <header class="post-card-header">
-                <h2 class="post-card-title">iOS端查看PDF文档实现方案</h2>
-            </header>
-            <section class="post-card-excerpt">
-                <p>文 · Mark 在不同端查看一些文档时，往往会展现出千奇百怪的格式，呈现给用户的也是不同的展示效果。为了保持原始文稿的格式，保证展现效果的统一，PDF文稿可以很好解决格式在不同端文稿展现格式差异，保持原始文稿的展现效果。 对于移动端的开发工作中，查看PDF也是常见的需求，本文针对iOS端查看PDF文档给出实现方案，包括通过网络端读取和本地读取两种方式查看PDF文档。 读取方式 网络读取 本地读取 测试文稿样本 Accessory Design Guidelines for Apple Devices 作者：Apple Inc. 分辨率：612 * 792 px 大小： 22.1</p>
-            </section>
-        </a>
-        <footer class="post-card-meta">
-                <img class="author-profile-image" src="../../../../content/images/2018/01/firemonkey.jpg" alt="Mark Chen">
-            <span class="post-card-author"><a href="../../../../author/mark/">Mark Chen</a></span>
-        </footer>
-    </div>
-</article>
-
-        </div>
-    </div>
+<aside class="read-next">
+    <a class="read-next-story prev no-cover" href="../../../03/21/iosduan-cha-kan-pdfwen-dang-shi-xian-fang-an/index.html">
+        <section class="post">
+            <h2>iOS端查看PDF文档实现方案</h2>
+            <p>文 · Mark 在不同端查看一些文档时，往往会展现出千奇百怪的格式，呈现给用户的也是不同的展示效果。为了保持原始文稿的格式，保证展现效果的统一，PDF文稿可以很好解决格式在不同端文稿展现格式差异，保持原始文稿的展现效果。 对于移动端的开发工作中，查看PDF也是常见的需求，本文针对iOS端查看PDF文档给出实现方案，包括通过网络端读取和本地读取两种方式查看PDF文档。 读取方式 网络读取 本地读取 测试文稿样本 Accessory Design&hellip;</p>
+        </section>
+    </a>
 </aside>
 
-<div class="floating-header">
-    <div class="floating-header-logo">
-        <a href="../../../../">
-                <img src="../../../../content/images/2018/01/fire-monkey-2.png" alt="Crazy Mark icon">
-            <span>Crazy Mark</span>
-        </a>
-    </div>
-    <span class="floating-header-divider">—</span>
-    <div class="floating-header-title">Google Objective-C Style Guide [中英对照]</div>
-    <div class="floating-header-share">
-        <div class="floating-header-share-label">Share this <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24">
-    <path d="M7.5 15.5V4a1.5 1.5 0 1 1 3 0v4.5h2a1 1 0 0 1 1 1h2a1 1 0 0 1 1 1H18a1.5 1.5 0 0 1 1.5 1.5v3.099c0 .929-.13 1.854-.385 2.748L17.5 23.5h-9c-1.5-2-5.417-8.673-5.417-8.673a1.2 1.2 0 0 1 1.76-1.605L7.5 15.5zm6-6v2m-3-3.5v3.5m6-1v2"></path>
-</svg>
-</div>
-        <a class="floating-header-share-tw" href="https://twitter.com/share?text=Google%20Objective-C%20Style%20Guide%20%5B%E4%B8%AD%E8%8B%B1%E5%AF%B9%E7%85%A7%5D&amp;url=http://localhost:2368/2018/10/09/google-objective-c-style-guide/" onclick="window.open(this.href, 'share-twitter', 'width=550,height=235');return false;">
-            <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 32 32"><path d="M30.063 7.313c-.813 1.125-1.75 2.125-2.875 2.938v.75c0 1.563-.188 3.125-.688 4.625a15.088 15.088 0 0 1-2.063 4.438c-.875 1.438-2 2.688-3.25 3.813a15.015 15.015 0 0 1-4.625 2.563c-1.813.688-3.75 1-5.75 1-3.25 0-6.188-.875-8.875-2.625.438.063.875.125 1.375.125 2.688 0 5.063-.875 7.188-2.5-1.25 0-2.375-.375-3.375-1.125s-1.688-1.688-2.063-2.875c.438.063.813.125 1.125.125.5 0 1-.063 1.5-.25-1.313-.25-2.438-.938-3.313-1.938a5.673 5.673 0 0 1-1.313-3.688v-.063c.813.438 1.688.688 2.625.688a5.228 5.228 0 0 1-1.875-2c-.5-.875-.688-1.813-.688-2.75 0-1.063.25-2.063.75-2.938 1.438 1.75 3.188 3.188 5.25 4.25s4.313 1.688 6.688 1.813a5.579 5.579 0 0 1 1.5-5.438c1.125-1.125 2.5-1.688 4.125-1.688s3.063.625 4.188 1.813a11.48 11.48 0 0 0 3.688-1.375c-.438 1.375-1.313 2.438-2.563 3.188 1.125-.125 2.188-.438 3.313-.875z"></path></svg>
-        </a>
-        <a class="floating-header-share-fb" href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:2368/2018/10/09/google-objective-c-style-guide/" onclick="window.open(this.href, 'share-facebook','width=580,height=296');return false;">
-            <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 32 32"><path d="M19 6h5V0h-5c-3.86 0-7 3.14-7 7v3H8v6h4v16h6V16h5l1-6h-6V7c0-.542.458-1 1-1z"></path></svg>
-        </a>
-    </div>
-    <progress class="progress" value="0">
-        <div class="progress-container">
-            <span class="progress-bar"></span>
-        </div>
-    </progress>
-</div>
 
 
 
-
-        <footer class="site-footer outer">
-            <div class="site-footer-content inner">
-                <section class="copyright"><a href="../../../../">Crazy Mark</a> © 2018</section>
-                <nav class="site-footer-nav">
-                    <a href="../../../../">Latest Posts</a>
-                    
-                    
-                    <a href="https://ghost.org" target="_blank" rel="noopener">Ghost</a>
-                </nav>
-            </div>
+        <footer class="site-footer clearfix">
+            <section class="copyright"><a href="../../../../index.html">Crazy Mark</a> &copy; 2018</section>
+            <section class="poweredby"><a href="https://github.com/h4t0n/odin">Odin</a> theme created by Andrea Tarquini (<a href="https://twitter.com/h4t0n">@h4t0n</a>). Proudly published with <a href="https://ghost.org">Ghost</a></section>
         </footer>
 
     </div>
 
-
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous">
-    </script>
-    <script type="text/javascript" src="../../../../assets/js/jquery.fitvids.js?v=99e164b3a7"></script>
-
-
-    <script>
-
-// NOTE: Scroll performance is poor in Safari
-// - this appears to be due to the events firing much more slowly in Safari.
-//   Dropping the scroll event and using only a raf loop results in smoother
-//   scrolling but continuous processing even when not scrolling
-$(document).ready(function () {
-    // Start fitVids
-    var $postContent = $(".post-full-content");
-    $postContent.fitVids();
-    // End fitVids
-
-    var progressBar = document.querySelector('progress');
-    var header = document.querySelector('.floating-header');
-    var title = document.querySelector('.post-full-title');
-
-    var lastScrollY = window.scrollY;
-    var lastWindowHeight = window.innerHeight;
-    var lastDocumentHeight = $(document).height();
-    var ticking = false;
-
-    function onScroll() {
-        lastScrollY = window.scrollY;
-        requestTick();
-    }
-
-    function onResize() {
-        lastWindowHeight = window.innerHeight;
-        lastDocumentHeight = $(document).height();
-        requestTick();
-    }
-
-    function requestTick() {
-        if (!ticking) {
-            requestAnimationFrame(update);
-        }
-        ticking = true;
-    }
-
-    function update() {
-        var trigger = title.getBoundingClientRect().top + window.scrollY;
-        var triggerOffset = title.offsetHeight + 35;
-        var progressMax = lastDocumentHeight - lastWindowHeight;
-
-        // show/hide floating header
-        if (lastScrollY >= trigger + triggerOffset) {
-            header.classList.add('floating-active');
-        } else {
-            header.classList.remove('floating-active');
-        }
-
-        progressBar.setAttribute('max', progressMax);
-        progressBar.setAttribute('value', lastScrollY);
-
-        ticking = false;
-    }
-
-    window.addEventListener('scroll', onScroll, {passive: true});
-    window.addEventListener('resize', onResize, false);
-
-    update();
-});
-</script>
-
-
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
     
 
+    <script type="text/javascript" src="../../../../assets/js/jquery.fitvids.js?v=b76d770550"></script>
+    <script type="text/javascript" src="../../../../assets/js/index.js?v=b76d770550"></script>
+    <script type="text/javascript" src="../../../../assets/js/prism.js?v=b76d770550"></script>
+    <script type="text/javascript" src="../../../../assets/js/rrssb.min.js?v=b76d770550"></script>
+
+    <script type="text/javascript">
+        jQuery(document).ready(function($) {
+
+            $('.rrssb-buttons').rrssb({
+                // required:
+                title: 'Google Objective-C Style Guide [中英对照]',
+                url: 'http://localhost:2368/2018/10/09/google-objective-c-style-guide/',
+
+                // optional:
+                 description: 'Google Objective-C Style Guide [中英对照]',
+                // emailBody: 'Usually email body is just the description + url, but you can customize it if you want'
+            });
+
+        });
+    </script>
+
+    <script>
+        // TO ACTIVATE ADD var ga_id = "your_ga_id" to ghost code injection header
+        if (window.ga_id) {
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+            ga('create', window.ga_id, 'auto');
+            ga('require', 'linkid', 'linkid.js');
+            ga('send', 'pageview');
+        }
+    </script>
+
+    <script>
+        if(window.social_link){
+            var url_regexp = /^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/
+            $.each(window.social_link,function(type, url){
+                if(typeof url ==="string" && url_regexp.test(url)){
+                    $('<li>').append($('<a>',{
+                                        html: '<i class="fa fa-'+type+'"></i>',
+                                        title: type,
+                                        href: url,
+                                        target: "_blank"
+                                    })
+                                ).appendTo('.social_link');
+
+                }
+            })
+        }
+    </script>
+
 </body>
+</html>
