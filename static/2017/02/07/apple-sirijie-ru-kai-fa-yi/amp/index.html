@@ -224,21 +224,21 @@
 <p>本次接入SiriKit开发中，采用Workout类应用，此处Workout并不是Apple WatchOS 3.0中新增的Workout App, 而是指一类运动锻炼相关应用，例如，Strava, Nike Run一类。由于Apple SiriKit中限制了7类不同的Domain，如果需要接入其他类别的应用，如天气，支付等，可以参考官方接入指南进行相关开发。</p>
 <h4 id="step1siricapability">Step1. 打开应用的Siri Capability</h4>
 <p>在Xcode8中，选中应用Target，选择Capability标签，打开Siri Capability打开，如图所示：<br></br>
-<amp-img src="http://okzqhpqwj.bkt.clouddn.com/201702072461357c303f4ab644135ea06285a.png" alt="201702072461357c303f4ab644135ea06285a.png" width="1938" height="750" layout="responsive"></amp-img></p>
+</p>
 <p>打开该属性后，工程文件的Entitlements文件会增加如下内容：<br></br>
-<amp-img src="http://okzqhpqwj.bkt.clouddn.com/201702071729357c303f4ab644135ea06285b.png" alt="201702071729357c303f4ab644135ea06285b.png" width="1372" height="272" layout="responsive"></amp-img></p>
+</p>
 <h4 id="step2siriintentsextension">Step2:  创建支持Siri的Intents Extension</h4>
 <p>首先选中App工程，为该App添加对Siri的Intents Extension支持的Target，如图：<br></br>
-<amp-img src="http://okzqhpqwj.bkt.clouddn.com/201702075782857c303f4ab644135ea062857.png" alt="201702075782857c303f4ab644135ea062857.png" width="1104" height="1032" layout="responsive"></amp-img></p>
+</p>
 <p>选择Intents Extension<br></br>
-<amp-img src="http://okzqhpqwj.bkt.clouddn.com/201702076878357c303f4ab644135ea062858.png" alt="201702076878357c303f4ab644135ea062858.png" width="1528" height="1104" layout="responsive"></amp-img></p>
+</p>
 <p>命名并选择是否UI Extension，可根据自我业务需求确定，本例中，对UI Extension不进行支持。<br></br>
-<amp-img src="http://okzqhpqwj.bkt.clouddn.com/20170207372957c303f4ab644135ea062859.png" alt="20170207372957c303f4ab644135ea062859.png" width="1528" height="1104" layout="responsive"></amp-img></p>
+</p>
 <p>创建完成后，Siri Intents Extension的target会显示在Target列表中。</p>
 <h3 id="step3intent">Step3: 定义所支持的Intent</h3>
 <p>该步骤相当于告诉Siri及iOS系统，本应用中所支持的Domain和Intents都有哪些，这样iOS系统及Siri就知道你的应用可以处理哪些请求，不能处理哪些请求。<br></br>
 打开Siri Intents Extension工程中的Info.plist文件，选中NSExtension，修改所支持的Intent类型，具体类型字符串可以查询开发文档，添加后的内容如下：<br></br>
-<amp-img src="http://okzqhpqwj.bkt.clouddn.com/201702076763357c30921ab644133ed0638de.png" alt="201702076763357c30921ab644133ed0638de.png" width="1218" height="516" layout="responsive"></amp-img></p>
+</p>
 <p>IntentsRestrictedWhileLocked是可选项，用来控制锁屏状态下，对不同命令的响应行为。</p>
 <h4 id="step4siri">Step4：添加对主应用Siri权限支持</h4>
 <p>在主应用Info.plist文件中添加NSSiriUsageDescription Key，该key用来标记应用与Extension所沟通的数据类型，用于告知用户，你的应用为何要支持Siri的描述信息，比如Workout类应用，我可以这么写：“健身锻炼的信息会发送到Siri，更快捷的记录健身数据”</p>
@@ -353,7 +353,7 @@ public func handle(endWorkoutintent:INEndWorkoutIntent,completion
         </article>
     </main>
     <footer class="site-footer clearfix">
-        <section class="copyright"><a href="../../../../../index.html">Crazy Mark</a> &copy; 2018</section>
+        <section class="copyright"><a href="../../../../../index.html">Crazy Mark</a> &copy; 2019</section>
         <section class="poweredby">Proudly published with <a href="https://ghost.org">Ghost</a></section>
     </footer>
 </body>

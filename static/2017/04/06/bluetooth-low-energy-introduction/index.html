@@ -31,12 +31,12 @@
     <meta name="msapplication-config" content="/assets/img/favicons/browserconfig.xml">
     <meta name="theme-color" content="#ffffff">
 
-    <link rel="stylesheet" type="text/css" href="../../../../assets/css/screen.css?v=b76d770550" />
-    <link rel="stylesheet" type="text/css" href="../../../../assets/css/custom.css?v=b76d770550" />
+    <link rel="stylesheet" type="text/css" href="../../../../assets/css/screen.css?v=729f2f09f4" />
+    <link rel="stylesheet" type="text/css" href="../../../../assets/css/custom.css?v=729f2f09f4" />
     <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="../../../../assets/css/prism.css?v=b76d770550" />
-    <link rel="stylesheet" type="text/css" href="../../../../assets/css/rrssb.css?v=b76d770550" />
+    <link rel="stylesheet" type="text/css" href="../../../../assets/css/prism.css?v=729f2f09f4" />
+    <link rel="stylesheet" type="text/css" href="../../../../assets/css/rrssb.css?v=729f2f09f4" />
 
     <link rel="shortcut icon" href="../../../../favicon.png" type="image/png" />
     <link rel="canonical" href="index.html" />
@@ -49,7 +49,7 @@
     <meta property="og:description" content="文 · Mark 关于BLE BLE，即Bluetooth Low Energy，也被称作Bluetooth Smart。相对于传统经典蓝牙，BLE是一个轻量级子集，在标准蓝牙协议4.0版本被引入。虽然和经典蓝牙协议有很多相似之处，但是实际上BLE和经典蓝牙的血统完全不同，BLE由Nokia进行研发，研发代号“Wibree”，而后来才被Bluetooth SIG所接受认可。 目前，有很多无线通信协议供工程师和产品设计师选择，但是能够轻松与众多移动平台（包括iOS、Android、Windows Phone等）连接并相互通信，才是BLE这么有趣的真正原因。尤其是你不用大费周折，申请各种认证，使你的产品支持苹果设备。 以下说明文档会快速为大家提供关于BLE的速览，例如低功耗蓝牙通信数据结构，蓝牙设备如何广播当前连接状态，以供连接并开始数据通信。 BLE平台支持 以下主流平台支持Bluetooth 4.0以及BLE： iOS 5+ （iOS7.0以上版本是首选版本） Android 4.3+ （相对来说Android 4.4会更稳定，" />
     <meta property="og:url" content="http://localhost:2368/2017/04/06/bluetooth-low-energy-introduction/" />
     <meta property="article:published_time" content="2017-04-06T13:03:57.000Z" />
-    <meta property="article:modified_time" content="2018-01-30T09:34:53.000Z" />
+    <meta property="article:modified_time" content="2019-07-04T13:45:01.000Z" />
     <meta property="article:tag" content="Ble" />
     
     <meta name="twitter:card" content="summary" />
@@ -92,7 +92,7 @@
     "headline": "Bluetooth Low Energy Introduction",
     "url": "http://localhost:2368/2017/04/06/bluetooth-low-energy-introduction/",
     "datePublished": "2017-04-06T13:03:57.000Z",
-    "dateModified": "2018-01-30T09:34:53.000Z",
+    "dateModified": "2019-07-04T13:45:01.000Z",
     "keywords": "Ble",
     "description": "文 · Mark 关于BLE BLE，即Bluetooth Low Energy，也被称作Bluetooth Smart。相对于传统经典蓝牙，BLE是一个轻量级子集，在标准蓝牙协议4.0版本被引入。虽然和经典蓝牙协议有很多相似之处，但是实际上BLE和经典蓝牙的血统完全不同，BLE由Nokia进行研发，研发代号“Wibree”，而后来才被Bluetooth SIG所接受认可。 目前，有很多无线通信协议供工程师和产品设计师选择，但是能够轻松与众多移动平台（包括iOS、Android、Windows Phone等）连接并相互通信，才是BLE这么有趣的真正原因。尤其是你不用大费周折，申请各种认证，使你的产品支持苹果设备。 以下说明文档会快速为大家提供关于BLE的速览，例如低功耗蓝牙通信数据结构，蓝牙设备如何广播当前连接状态，以供连接并开始数据通信。 BLE平台支持 以下主流平台支持Bluetooth 4.0以及BLE： iOS 5+ （iOS7.0以上版本是首选版本） Android 4.3+ （相对来说Android 4.4会更稳定，",
     "mainEntityOfPage": {
@@ -102,7 +102,7 @@
 }
     </script>
 
-    <script type="text/javascript" src="../../../../public/ghost-sdk.js?v=b76d770550"></script>
+    <script type="text/javascript" src="../../../../public/ghost-sdk.js?v=729f2f09f4"></script>
 <script type="text/javascript">
 ghost.init({
 	clientId: "ghost-frontend",
@@ -290,12 +290,12 @@ ghost.init({
 <p>两种方式最大可携带数据量为31字节，但是广播数据是必选的，因为无论如何，你必须让外界知道你的设备的存在。扫描应答数据是可选的，这部分应答数据一般用于需要在广播、扫描阶段进行简短的数据通信，例如，中心设备需要从属设备应答一部分设备信息，例如设备名、ID、验证码等信息。</p>
 <h2 id="">广播流程</h2>
 <p>下面图片可以很好的说明设备广播的流程，以及广播中的两种Payload，即<em>Advertising Data Payload</em>和<em>Scan Response Payload</em>是如何工作的。</p>
-<p><img src="http://okzqhpqwj.bkt.clouddn.com/2017040660712microcontrollers_Advertising2.png" alt="2017040660712microcontrollers_Advertising2.png"></p>
+<p><img src="http://pu4d7sa3m.bkt.clouddn.com/2017040660712microcontrollers_Advertising2.png" alt="2017040660712microcontrollers_Advertising2.png"></p>
 <p>广播数据可以设置发送间隔，即ADVERTISING INTERVAL，间隔越长越省电，越短被发现的越慢。</p>
 <p>如果扫描设备需要Scan Response Payload，那该设备可以请求SCAN RESPONSE Data，即发送Scan Response Request，从属设备会将Scan Response Payload数据回复给监听设备。</p>
 <h2 id="ble">BLE广播拓扑模型</h2>
 <p>一旦从属设备发起广播，并允许连接时，从属设备与中心设备会建立连接，广播拓扑模型如下：</p>
-<p><img src="http://okzqhpqwj.bkt.clouddn.com/201704066897microcontrollers_BroadcastTopology.png" alt="201704066897microcontrollers_BroadcastTopology.png"></p>
+<p><img src="http://pu4d7sa3m.bkt.clouddn.com/201704066897microcontrollers_BroadcastTopology.png" alt="201704066897microcontrollers_BroadcastTopology.png"></p>
 <p>这里的广播是BLE中的一对多数据传输，Apple的iBeacon原理与此类似。一旦Peripheral和Central设备建立连接，广播数据就会停止。</p>
 <p>注意，此时GATT开始要登场了。</p>
 <h2 id="gatt">GATT</h2>
@@ -305,17 +305,17 @@ ghost.init({
 </blockquote>
 <h3 id="gatt">GATT连接拓扑模型</h3>
 <p>一个从属设备同时只能连接一个中心设备，中心设备可以同时连接多个从属设备。</p>
-<p><img src="http://okzqhpqwj.bkt.clouddn.com/2017040628845microcontrollers_ConnectedTopology.png" alt="2017040628845microcontrollers_ConnectedTopology.png"></p>
+<p><img src="http://pu4d7sa3m.bkt.clouddn.com/2017040628845microcontrollers_ConnectedTopology.png" alt="2017040628845microcontrollers_ConnectedTopology.png"></p>
 <p>如果两个从属设备之间需要通信，通用的做法是Central设备用来做Mailbox系统，所有信息都会通过Central设备来进行中转。</p>
 <p>一旦建立了连接，通信就变成双向的了，注意，广播数据是单向的数据通信。</p>
 <h3 id="gatt">GATT通信事务</h3>
 <p>一旦两个设备建立起了连接，GATT 就开始起作用了，这也意味着，你已经完成了履行前面的 GAP 协议。这里需要说明的是，GATT 连接，必需先经过 GAP 协议。实际上，我们在 Android 开发中，可以直接使用设备的 MAC 地址，发起连接，可以不经过扫描的步骤。这并不意味不需要经过 GAP，实际上在芯片级别已经给你做好了，蓝牙芯片发起连接，总是先扫描设备，扫描到了才会发起连接。</p>
 <p>当连接简历完成之后，从属设备会主动发起确认一个**连接间隔‘Connection Interval’**的东西，这是一个GATT通信的连接间隔，这个间隔由从属设备建议，传输到中心设备，中心设备会按照这个时间不断查看从属设备中是否有新数据。当然，这个时间间隔由从属设备发起建议，中心设备可能也不会理会，会继续用自己的连接间隔做数据通信。</p>
-<p><img src="http://okzqhpqwj.bkt.clouddn.com/2017040615489microcontrollers_GattMasterSlaveTransactions.png" alt="2017040615489microcontrollers_GattMasterSlaveTransactions.png"></p>
+<p><img src="http://pu4d7sa3m.bkt.clouddn.com/2017040615489microcontrollers_GattMasterSlaveTransactions.png" alt="2017040615489microcontrollers_GattMasterSlaveTransactions.png"></p>
 <p>可以看到所有的数据通信请求每次都是由中心设备发起，从属设备进行应答。</p>
 <h3 id="gatt">GATT结构</h3>
 <p>GATT结构中主要有三个概念，如下</p>
-<p><img src="http://okzqhpqwj.bkt.clouddn.com/2017040689874microcontrollers_GattStructure.png" alt="2017040689874microcontrollers_GattStructure.png"></p>
+<p><img src="http://pu4d7sa3m.bkt.clouddn.com/2017040689874microcontrollers_GattStructure.png" alt="2017040689874microcontrollers_GattStructure.png"></p>
 <ul>
 <li>
 <p>Profile</p>
@@ -531,7 +531,7 @@ ghost.init({
 
 
         <footer class="site-footer clearfix">
-            <section class="copyright"><a href="../../../../index.html">Crazy Mark</a> &copy; 2018</section>
+            <section class="copyright"><a href="../../../../index.html">Crazy Mark</a> &copy; 2019</section>
             <section class="poweredby"><a href="https://github.com/h4t0n/odin">Odin</a> theme created by Andrea Tarquini (<a href="https://twitter.com/h4t0n">@h4t0n</a>). Proudly published with <a href="https://ghost.org">Ghost</a></section>
         </footer>
 
@@ -540,10 +540,10 @@ ghost.init({
     <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
     
 
-    <script type="text/javascript" src="../../../../assets/js/jquery.fitvids.js?v=b76d770550"></script>
-    <script type="text/javascript" src="../../../../assets/js/index.js?v=b76d770550"></script>
-    <script type="text/javascript" src="../../../../assets/js/prism.js?v=b76d770550"></script>
-    <script type="text/javascript" src="../../../../assets/js/rrssb.min.js?v=b76d770550"></script>
+    <script type="text/javascript" src="../../../../assets/js/jquery.fitvids.js?v=729f2f09f4"></script>
+    <script type="text/javascript" src="../../../../assets/js/index.js?v=729f2f09f4"></script>
+    <script type="text/javascript" src="../../../../assets/js/prism.js?v=729f2f09f4"></script>
+    <script type="text/javascript" src="../../../../assets/js/rrssb.min.js?v=729f2f09f4"></script>
 
     <script type="text/javascript">
         jQuery(document).ready(function($) {

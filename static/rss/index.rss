@@ -1,4 +1,4 @@
-<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" version="2.0"><channel><title>Crazy Mark</title><description>Thoughts &amp; Ideas.</description><link>http://localhost:2368/</link><image><url>http://localhost:2368/favicon.png</url><title>Crazy Mark</title><link>http://localhost:2368/</link></image><generator>Ghost 1.20</generator><lastBuildDate>Wed, 24 Oct 2018 06:34:07 GMT</lastBuildDate><atom:link href="http://localhost:2368/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title>Google Objective-C Style Guide [中英对照]</title><description>翻译者：Mark C.J. 
+<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" version="2.0"><channel><title>Crazy Mark</title><description>Thoughts &amp; Ideas.</description><link>http://localhost:2368/</link><image><url>http://localhost:2368/favicon.png</url><title>Crazy Mark</title><link>http://localhost:2368/</link></image><generator>Ghost 1.20</generator><lastBuildDate>Thu, 04 Jul 2019 13:45:48 GMT</lastBuildDate><atom:link href="http://localhost:2368/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title>Google Objective-C Style Guide [中英对照]</title><description>翻译者：Mark C.J. 
 
 警告：文章原始版权归Google所有，本文档翻译部分归作者Mark所有，只供学习使用，禁止以营利为目的或其他商业使用！</description><link>http://localhost:2368/2018/10/09/google-objective-c-style-guide/</link><guid isPermaLink="false">5bbc591c9e9f546e55266be0</guid><category>style guide</category><category>iOS</category><category>技术</category><dc:creator>Mark Chen</dc:creator><pubDate>Tue, 09 Oct 2018 12:00:00 GMT</pubDate><content:encoded>&lt;div class="kg-card-markdown"&gt;&lt;p&gt;&lt;strong&gt;注意：文章原始版权归Google所有，本文档翻译部分归作者Mark所有，只供学习使用，禁止以营利为目的或其他商业使用！&lt;/strong&gt;&lt;/p&gt;
 &lt;blockquote&gt;
@@ -2208,12 +2208,12 @@ NSURLRequest *urlRequest = [[NSURLRequest alloc] initWithURL:[NSURL URLWithStrin
 &lt;p&gt;两种方式最大可携带数据量为31字节，但是广播数据是必选的，因为无论如何，你必须让外界知道你的设备的存在。扫描应答数据是可选的，这部分应答数据一般用于需要在广播、扫描阶段进行简短的数据通信，例如，中心设备需要从属设备应答一部分设备信息，例如设备名、ID、验证码等信息。&lt;/p&gt;
 &lt;h2 id=""&gt;广播流程&lt;/h2&gt;
 &lt;p&gt;下面图片可以很好的说明设备广播的流程，以及广播中的两种Payload，即&lt;em&gt;Advertising Data Payload&lt;/em&gt;和&lt;em&gt;Scan Response Payload&lt;/em&gt;是如何工作的。&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://okzqhpqwj.bkt.clouddn.com/2017040660712microcontrollers_Advertising2.png" alt="2017040660712microcontrollers_Advertising2.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://pu4d7sa3m.bkt.clouddn.com/2017040660712microcontrollers_Advertising2.png" alt="2017040660712microcontrollers_Advertising2.png"&gt;&lt;/p&gt;
 &lt;p&gt;广播数据可以设置发送间隔，即ADVERTISING INTERVAL，间隔越长越省电，越短被发现的越慢。&lt;/p&gt;
 &lt;p&gt;如果扫描设备需要Scan Response Payload，那该设备可以请求SCAN RESPONSE Data，即发送Scan Response Request，从属设备会将Scan Response Payload数据回复给监听设备。&lt;/p&gt;
 &lt;h2 id="ble"&gt;BLE广播拓扑模型&lt;/h2&gt;
 &lt;p&gt;一旦从属设备发起广播，并允许连接时，从属设备与中心设备会建立连接，广播拓扑模型如下：&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://okzqhpqwj.bkt.clouddn.com/201704066897microcontrollers_BroadcastTopology.png" alt="201704066897microcontrollers_BroadcastTopology.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://pu4d7sa3m.bkt.clouddn.com/201704066897microcontrollers_BroadcastTopology.png" alt="201704066897microcontrollers_BroadcastTopology.png"&gt;&lt;/p&gt;
 &lt;p&gt;这里的广播是BLE中的一对多数据传输，Apple的iBeacon原理与此类似。一旦Peripheral和Central设备建立连接，广播数据就会停止。&lt;/p&gt;
 &lt;p&gt;注意，此时GATT开始要登场了。&lt;/p&gt;
 &lt;h2 id="gatt"&gt;GATT&lt;/h2&gt;
@@ -2223,17 +2223,17 @@ NSURLRequest *urlRequest = [[NSURLRequest alloc] initWithURL:[NSURL URLWithStrin
 &lt;/blockquote&gt;
 &lt;h3 id="gatt"&gt;GATT连接拓扑模型&lt;/h3&gt;
 &lt;p&gt;一个从属设备同时只能连接一个中心设备，中心设备可以同时连接多个从属设备。&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://okzqhpqwj.bkt.clouddn.com/2017040628845microcontrollers_ConnectedTopology.png" alt="2017040628845microcontrollers_ConnectedTopology.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://pu4d7sa3m.bkt.clouddn.com/2017040628845microcontrollers_ConnectedTopology.png" alt="2017040628845microcontrollers_ConnectedTopology.png"&gt;&lt;/p&gt;
 &lt;p&gt;如果两个从属设备之间需要通信，通用的做法是Central设备用来做Mailbox系统，所有信息都会通过Central设备来进行中转。&lt;/p&gt;
 &lt;p&gt;一旦建立了连接，通信就变成双向的了，注意，广播数据是单向的数据通信。&lt;/p&gt;
 &lt;h3 id="gatt"&gt;GATT通信事务&lt;/h3&gt;
 &lt;p&gt;一旦两个设备建立起了连接，GATT 就开始起作用了，这也意味着，你已经完成了履行前面的 GAP 协议。这里需要说明的是，GATT 连接，必需先经过 GAP 协议。实际上，我们在 Android 开发中，可以直接使用设备的 MAC 地址，发起连接，可以不经过扫描的步骤。这并不意味不需要经过 GAP，实际上在芯片级别已经给你做好了，蓝牙芯片发起连接，总是先扫描设备，扫描到了才会发起连接。&lt;/p&gt;
 &lt;p&gt;当连接简历完成之后，从属设备会主动发起确认一个**连接间隔‘Connection Interval’**的东西，这是一个GATT通信的连接间隔，这个间隔由从属设备建议，传输到中心设备，中心设备会按照这个时间不断查看从属设备中是否有新数据。当然，这个时间间隔由从属设备发起建议，中心设备可能也不会理会，会继续用自己的连接间隔做数据通信。&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://okzqhpqwj.bkt.clouddn.com/2017040615489microcontrollers_GattMasterSlaveTransactions.png" alt="2017040615489microcontrollers_GattMasterSlaveTransactions.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://pu4d7sa3m.bkt.clouddn.com/2017040615489microcontrollers_GattMasterSlaveTransactions.png" alt="2017040615489microcontrollers_GattMasterSlaveTransactions.png"&gt;&lt;/p&gt;
 &lt;p&gt;可以看到所有的数据通信请求每次都是由中心设备发起，从属设备进行应答。&lt;/p&gt;
 &lt;h3 id="gatt"&gt;GATT结构&lt;/h3&gt;
 &lt;p&gt;GATT结构中主要有三个概念，如下&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://okzqhpqwj.bkt.clouddn.com/2017040689874microcontrollers_GattStructure.png" alt="2017040689874microcontrollers_GattStructure.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://pu4d7sa3m.bkt.clouddn.com/2017040689874microcontrollers_GattStructure.png" alt="2017040689874microcontrollers_GattStructure.png"&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;Profile&lt;/p&gt;
