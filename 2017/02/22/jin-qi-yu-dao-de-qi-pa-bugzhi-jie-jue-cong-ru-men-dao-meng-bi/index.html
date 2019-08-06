@@ -1,0 +1,274 @@
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>近期遇到的奇葩Bug之解决从入门到懵逼</title>
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" type="text/css" href="../../../../assets/main/css/main.css?v=2950f496bc">
+
+    <link rel="shortcut icon" href="../../../../favicon.png" type="image/png">
+    <link rel="canonical" href="index.html">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <link rel="amphtml" href="amp/index.html">
+    
+    <meta property="og:site_name" content="Crazy Mark">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="近期遇到的奇葩Bug之解决从入门到懵逼">
+    <meta property="og:description" content="文• Mark
+
+&gt; 此事发生在2016年10月，后与朋友分享过，朋友希望能写下来分享。因当时较忙，暂未整理，一直拖到现在。清晨早醒，整理之，以飨读者。
+
+
+所谓Bug即软件中存在的小错误导致异常。奇葩Bug则是那些遇到时让人无所适从，解决时狂挠头发而不知所以，解决后又能仰天大笑，悲喜交加。
+
+以前知乎上搜到过一个朋友分享硬件开发中，把脚放在桌子上，Bug出现，把脚拿下来的就没事的奇葩Bug分享，当时也只是开心一笑。没想到，最近，我与我的同事们也遇到了一个奇葩Bug。
+
+此Bug，时间和空间因素都是诱因，但小勿入。
+
+硬件固件和App版本初发布，热心用户反馈无法同步数据，在此再次感谢🙏
+这些用户。但我们相关开发同事都清楚，数据同步部分都没有动过，怎么之前是好的，现在突然有问题了?
+Review版本修改，数据同步模块也没有做过任何修改，怪！但这种问题绝不能忍，遂与同事两人尝试模拟复现，这也是这次奇葩Bug之旅的主角。
+
+历程🐳🐳🐳
+第一天🐢
+复测一天均为复现，查找log也并无异常，茫然一天即将过去，晚上还在思考问题可能出在哪，不得解，第二天继续吧。此时下班时，测试设备一直开着…">
+    <meta property="og:url" content="http://localhost:2368/2017/02/22/jin-qi-yu-dao-de-qi-pa-bugzhi-jie-jue-cong-ru-men-dao-meng-bi/">
+    <meta property="article:published_time" content="2017-02-22T04:42:50.000Z">
+    <meta property="article:modified_time" content="2017-02-22T04:42:50.000Z">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="近期遇到的奇葩Bug之解决从入门到懵逼">
+    <meta name="twitter:description" content="文• Mark
+
+&gt; 此事发生在2016年10月，后与朋友分享过，朋友希望能写下来分享。因当时较忙，暂未整理，一直拖到现在。清晨早醒，整理之，以飨读者。
+
+
+所谓Bug即软件中存在的小错误导致异常。奇葩Bug则是那些遇到时让人无所适从，解决时狂挠头发而不知所以，解决后又能仰天大笑，悲喜交加。
+
+以前知乎上搜到过一个朋友分享硬件开发中，把脚放在桌子上，Bug出现，把脚拿下来的就没事的奇葩Bug分享，当时也只是开心一笑。没想到，最近，我与我的同事们也遇到了一个奇葩Bug。
+
+此Bug，时间和空间因素都是诱因，但小勿入。
+
+硬件固件和App版本初发布，热心用户反馈无法同步数据，在此再次感谢🙏
+这些用户。但我们相关开发同事都清楚，数据同步部分都没有动过，怎么之前是好的，现在突然有问题了?
+Review版本修改，数据同步模块也没有做过任何修改，怪！但这种问题绝不能忍，遂与同事两人尝试模拟复现，这也是这次奇葩Bug之旅的主角。
+
+历程🐳🐳🐳
+第一天🐢
+复测一天均为复现，查找log也并无异常，茫然一天即将过去，晚上还在思考问题可能出在哪，不得解，第二天继续吧。此时下班时，测试设备一直开着…">
+    <meta name="twitter:url" content="http://localhost:2368/2017/02/22/jin-qi-yu-dao-de-qi-pa-bugzhi-jie-jue-cong-ru-men-dao-meng-bi/">
+    <meta name="twitter:label1" content="Written by">
+    <meta name="twitter:data1" content="Mark C.J.">
+    
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "Crazy Mark",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "http://localhost:2368/favicon.png",
+            "width": 60,
+            "height": 60
+        }
+    },
+    "author": {
+        "@type": "Person",
+        "name": "Mark C.J.",
+        "url": "http://localhost:2368/author/mark/",
+        "sameAs": []
+    },
+    "headline": "近期遇到的奇葩Bug之解决从入门到懵逼",
+    "url": "http://localhost:2368/2017/02/22/jin-qi-yu-dao-de-qi-pa-bugzhi-jie-jue-cong-ru-men-dao-meng-bi/",
+    "datePublished": "2017-02-22T04:42:50.000Z",
+    "dateModified": "2017-02-22T04:42:50.000Z",
+    "description": "文• Mark\n\n&gt; 此事发生在2016年10月，后与朋友分享过，朋友希望能写下来分享。因当时较忙，暂未整理，一直拖到现在。清晨早醒，整理之，以飨读者。\n\n\n所谓Bug即软件中存在的小错误导致异常。奇葩Bug则是那些遇到时让人无所适从，解决时狂挠头发而不知所以，解决后又能仰天大笑，悲喜交加。\n\n以前知乎上搜到过一个朋友分享硬件开发中，把脚放在桌子上，Bug出现，把脚拿下来的就没事的奇葩Bug分享，当时也只是开心一笑。没想到，最近，我与我的同事们也遇到了一个奇葩Bug。\n\n此Bug，时间和空间因素都是诱因，但小勿入。\n\n硬件固件和App版本初发布，热心用户反馈无法同步数据，在此再次感谢🙏\n这些用户。但我们相关开发同事都清楚，数据同步部分都没有动过，怎么之前是好的，现在突然有问题了?\nReview版本修改，数据同步模块也没有做过任何修改，怪！但这种问题绝不能忍，遂与同事两人尝试模拟复现，这也是这次奇葩Bug之旅的主角。\n\n历程🐳🐳🐳\n第一天🐢\n复测一天均为复现，查找log也并无异常，茫然一天即将过去，晚上还在思考问题可能出在哪，不得解，第二天继续吧。此时下班时，测试设备一直开着…",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:2368/"
+    }
+}
+    </script>
+
+    <meta name="generator" content="Ghost 2.26">
+    <link rel="alternate" type="application/rss+xml" title="Crazy Mark" href="../../../../rss/index.html">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-113294116-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-113294116-1');
+</script>
+
+</head>
+<body class="is-preload post-template">
+
+    <div id="wrapper">
+        <main id="main">
+            <div class="inner">
+
+                <header id="header">
+                        <a href="../../../../" class="logo">Crazy Mark</a>
+                    <ul class="icons">
+                        <li><a href="https://feedly.com/i/subscription/feed/http://localhost:2368/rss/" class="icon fa-rss" target="_blank" rel="noopener"><span class="label" title="RSS">RSS</span></a></li>
+                    </ul>
+                </header>
+
+                
+<section>
+
+    <header class="main content">
+        <span class="date">February 22, 2017</span>
+        <h1>近期遇到的奇葩Bug之解决从入门到懵逼</h1>
+    </header>
+
+
+    <div class="content">
+        <!--kg-card-begin: markdown--><!--kg-card-begin: markdown--><p>文• Mark</p>
+<blockquote>
+<p>此事发生在2016年10月，后与朋友分享过，朋友希望能写下来分享。因当时较忙，暂未整理，一直拖到现在。清晨早醒，整理之，以飨读者。</p>
+</blockquote>
+<p>所谓Bug即软件中存在的小错误导致异常。奇葩Bug则是那些遇到时让人无所适从，解决时狂挠头发而不知所以，解决后又能仰天大笑，悲喜交加。</p>
+<p>以前知乎上搜到过一个朋友分享硬件开发中，把脚放在桌子上，Bug出现，把脚拿下来的就没事的奇葩Bug分享，当时也只是开心一笑。没想到，最近，我与我的同事们也遇到了一个奇葩Bug。</p>
+<p>此Bug，时间和空间因素都是诱因，但小勿入。</p>
+<p>硬件固件和App版本初发布，热心用户反馈无法同步数据，在此再次感谢🙏 这些用户。但我们相关开发同事都清楚，数据同步部分都没有动过，怎么之前是好的，现在突然有问题了? Review版本修改，数据同步模块也没有做过任何修改，怪！但这种问题绝不能忍，遂与同事两人尝试模拟复现，这也是这次奇葩Bug之旅的主角。</p>
+<h1 id="">历程🐳🐳🐳</h1>
+<h3 id="">第一天🐢</h3>
+<p>复测一天均为复现，查找log也并无异常，茫然一天即将过去，晚上还在思考问题可能出在哪，不得解，第二天继续吧。此时下班时，测试设备一直开着…说实话是忘关了。</p>
+<h3 id="">第二天🦀️</h3>
+<p>早晨上班，一个同事说不能同步了，但再次尝试开启新纪录又可以同步数据，只好继续留意观察。晩上下班我们有意把测试设备保持昨晩的状态，跑一晚明天再看是不是还能复现</p>
+<h3 id="">第三天🐚</h3>
+<p>早晨上班，还是这个同事，突然触电般跳起来说：擦，不能数据同步了，什么鬼？！👹 顿时神经紧绷，召集硬件同事保持信息同步，但硬件同事也百思不得姐。</p>
+<p>会不会是因为模拟跑一晚，距离很长，点数太多就会复现？但测一次要一晚，太久不能忍😁，机智的我们🤓 🤔 打算改造 它，在保证硬件性能可以Hold住的情况下， 提高数据采集频率10倍，提高速度10倍， 保证每两次数据采集距离相同，点数相同，但 所花的时间缩小十倍，以快速排除上述怀疑。</p>
+<p>改造完成，但Bug并未复现.</p>
+<p>茫然...🤕 🤒 🤥</p>
+<h5 id="">下午</h5>
+<p>硬件同事告诉我们，他好像发现了什么，室外貌似可以模拟复现。赶快试一下，果然。但晚上室内复现的那两次又如何解释呢？激动不已，内取满面！</p>
+<p>那么，现在这个Bug不仅和时间维度相关， 还和空间维度相关了！😓 🔯 ⏱</p>
+<p>一口老血 💣 💣 💣</p>
+<p>室内和室外的差别就是室外可以接收到并处理GPS信号，看看GPS处理模块在搞什么鬼， 果然．有个地方出问题了。</p>
+<p><img src="https://ww1.sinaimg.cn/large/006tKfTcly1fcz593e6bcj30gs037q3b.jpg" alt=""></p>
+<p>这也解释了为什么这个Bug只在10月出现👩🏼‍🚒</p>
+<p>那两个晚上测试出现的结果如何解释呢？🌶</p>
+<p>👉 办公室白天人多，干扰多，GPS信号飘不进来，模拟测试设备接收不到GPS信号，所以Bug不出现！<br>
+👉 办公室晚上人少，干扰少，GPS信号可以飘进来，模拟测试设备可以接收到GPS信号，Bug出现！</p>
+<h3 id="bug">Bug亮点🌋🌋🌋</h3>
+<ul>
+<li>室内夜深人静时出现</li>
+<li>只在10月出现</li>
+<li>空旷室外可出现</li>
+</ul>
+<p>搞定！又可以出去浪啦！🏔🗽⛲️🗼🗻🏜</p>
+<h3 id="">感受💡</h3>
+<ul>
+<li>硬件相关要注意其物理环境因素</li>
+<li>感谢勇于面对和解决问题的同事，向你们致敬！</li>
+<li>鄙视遇到问题退缩没有担当的菜鸡</li>
+<li>时间和空间维度因素都可能是诱因</li>
+<li>测试很重要，感谢测试同事</li>
+</ul>
+<p>总有一些曾经让你感到痛苦的事情，会在若干时间后，笑着讲出来！</p>
+<p>文笔不好，多指正！</p>
+<p>ENJOY~</p>
+<!--kg-card-end: markdown--><!--kg-card-end: markdown-->
+    </div>
+
+
+    <footer class="post-footer">
+
+        <div class="authors">
+            <a class="author-box" href="../../../../author/mark/">
+                <section class="author-box-content">
+                    <div class="author-box-label">Author</div>
+                    <h5 class="author-box-name">Mark C.J.</h5>
+                    <p>Read more posts by this author.</p>
+                </section>
+            </a>
+        </div>
+
+    </footer>
+
+
+</section>
+
+<script>
+    var images = document.querySelectorAll('.kg-gallery-image img');
+    images.forEach(function (image) {
+        var container = image.closest('.kg-gallery-image');
+        var width = image.attributes.width.value;
+        var height = image.attributes.height.value;
+        var ratio = width / height;
+        container.style.flex = ratio + ' 1 0%';
+    })
+</script>
+
+
+            </div>
+        </main>
+
+        <div id="sidebar">
+    <div class="inner">
+
+            <nav id="menu">
+    <header class="major">
+        <h2>Menu</h2>
+    </header>
+    <ul class="links">
+        <li class="nav-home "><a href="../../../../">Home</a></li>
+        <li class="nav-about-me "><a href="../../../../about-me/">About me</a></li>
+    </ul>
+</nav>
+
+        <section>
+            <header class="major">
+                <h2>Recent Posts</h2>
+            </header>
+            <div class="mini-posts">
+                    <article>
+                        <h3><a href="../../../../2019/07/10/wwdc19-ios-related-session-list/">WWDC19 iOS Related Session List</a></h3>
+                        <p>SwiftUI Introducing SwiftUI: Building Your First App See SwiftUI in action! Watch as engineers from</p>
+                    </article>
+                    <article>
+                        <h3><a href="../../../../2018/10/09/google-objective-c-style-guide/">Google Objective-C Style Guide [中英对照]</a></h3>
+                        <p>注意：文章原始版权归Google所有，本文档翻译部分归作者Mark所有，只供学习使用，禁止以营利为目的或其他商业使用！ Objective-C is a dynamic, object-oriented extension of C. It's designed</p>
+                    </article>
+                    <article>
+                        <h3><a href="../../../../2018/03/21/iosduan-cha-kan-pdfwen-dang-shi-xian-fang-an/">iOS端查看PDF文档实现方案</a></h3>
+                        <p>文 · Mark 在不同端查看一些文档时，往往会展现出千奇百怪的格式，呈现给用户的也是不同的展示效果。为了保持原始文稿的格式，保证展现效果的统一，PDF文稿可以很好解决格式在不同端文稿展现格式差异，保持原始文稿的展现效果。 对于移动端的开发工作中，查看PDF也是常见的需求，本文针对iOS端查看PDF文档给出实现方案，包括通过网络端读取和本地读取两种方式查看PDF文档。 读取方式 网络读取</p>
+                    </article>
+            </div>
+        </section>
+
+
+        <footer id="footer">
+            <p class="copyright">© Crazy Mark - All rights reserved<br>
+            Design: <a href="https://html5up.net" target="_blank" rel="noopener">HTML5 UP</a>, Published with <a href="https://ghost.org" target="_blank" rel="noopener">Ghost</a></p>
+        </footer>
+
+    </div>
+</div>
+
+    </div>
+
+    <script src="../../../../assets/main/js/jquery.min.js?v=2950f496bc"></script>
+    <script src="../../../../assets/main/js/browser.min.js?v=2950f496bc"></script>
+    <script src="../../../../assets/main/js/breakpoints.min.js?v=2950f496bc"></script>
+    <script src="../../../../assets/main/js/util.js?v=2950f496bc"></script>
+    <script src="../../../../assets/main/js/main.js?v=2950f496bc"></script>
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({
+          google_ad_client: "ca-pub-8998210359913715",
+          enable_page_level_ads: true
+     });
+</script>
+
+</body>
