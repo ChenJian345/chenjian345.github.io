@@ -1,7 +1,5 @@
 (function () {
-    'use strict';
-
-    var apiUrl = '//localhost:2368/ghost/api/v0.1/',
+        var apiUrl = '//localhost:2368/ghost/api/v0.1/',
         clientId,
         clientSecret,
         url,
