@@ -8,7 +8,7 @@
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" type="text/css" href="../../../../assets/main/css/main.css?v=09cad3faa5">
+    <link rel="stylesheet" type="text/css" href="../../../../assets/main/css/main.css?v=db5bd3ff41">
 
     <link rel="shortcut icon" href="../../../../favicon.png" type="image/png">
     <link rel="canonical" href="index.html">
@@ -18,20 +18,7 @@
     <meta property="og:site_name" content="Crazy Mark">
     <meta property="og:type" content="article">
     <meta property="og:title" content="Apple Siri接入开发（一）">
-    <meta property="og:description" content="&gt; 随着iOS10.0发布脚步的临近，作为开发者，相信很多人也和我一样，可以提前体验一些新系统的新功能，也更关注新版iOS系统带来的技术开发方面的新特性。
-
-
-对新事物，尤其是软件开发新技术的好奇心驱使我最近尝试了一些iOS10.0推出的新特性的开发，其中就包括本次iOS系统更新开发的SiriKit接入。下面，我就详细讲述一下SiriKit接入的相关开发过程及注意事项，个人见解，如有错误，欢迎大家交流指正。
-
-关于SiriKit
-SiriKit是Apple历经4年时间，不断打磨优化，第一次开发给开发者的一份关于Siri功能的礼物。利用SiriKit，第三方开发者可以像一些系统应用一样，通过语音完成第三方应用希望完成的一些功能，比如用户可以直接通过语音直接告诉Siri打车、锻炼、寻找美食、寻找相册中的照片、甚至付给朋友AA的账单费用，以及控制家里智能家居等。
-
-概念概览
- * Domain - 被苹果划分的不同业务领域，每个领域中可以执行不同的任务
- * Intent - 领域中的任务或意图指令
-
-实现机制
-和Android的语音接入Service类似，SiriKit中，将不同的类型的需">
+    <meta property="og:description" content="随着iOS10.0发布脚步的临近，作为开发者，相信很多人也和我一样，可以提前体验一些新系统的新功能，也更关注新版iOS系统带来的技术开发方面的新特性。  对新事物，尤其是软件开发新技术的好奇心驱使我最近尝试了一些iOS10.0推出的新特性的开发，其中就包括本次iOS系统更新开发的SiriKit接入。下面，我就详细讲述一下SiriKit接入的相关开发过程及注意事项，个人见解，如有错误，欢迎大家交流指正。  关于SiriKit SiriKit是Apple历经4年时间，不断打磨优化，第一次开发给开发者的一份关于Siri功能的礼物。利用SiriKit，第三方开发者可以像一些系统应用一样，通过语音完成第三方应用希望完成的一些功能，比如用户可以直接通过语音直接告诉Siri打车、锻炼、寻找美食、寻找相册中的照片、甚至付给朋友AA的账单费用，以及控制家里智能家居等。  概念概览 Domain - 被苹果划分的不同业务领域，每个领域中可以执行不同的任务 Intent - 领域中的任务或意图指令 实现机制 和Android的语音接入Service类似，SiriKit中，将不同的类型的需求统一汇总为若干个Domain，然后在每个Domain中再次细分为不同的Intent。系统通过语音识别获取到的Domain信息以及Intent信息，下发到已注册的Domain中进行处理，然后用户解析处理不同的Intent，来实现自定义的操作。  SiriKit的接入方式和Watch OS的接入有相似之处，都是以Extension形式存在，该Extension会声明本应用所能处理的Domain内容及Intent种类，告知Siri该应用所能处理的功能范畴.">
     <meta property="og:url" content="http://localhost:2368/2017/02/07/apple-sirijie-ru-kai-fa-yi/">
     <meta property="article:published_time" content="2017-02-07T06:34:23.000Z">
     <meta property="article:modified_time" content="2017-02-07T07:23:19.000Z">
@@ -42,20 +29,7 @@ SiriKit是Apple历经4年时间，不断打磨优化，第一次开发给开发�
     
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="Apple Siri接入开发（一）">
-    <meta name="twitter:description" content="&gt; 随着iOS10.0发布脚步的临近，作为开发者，相信很多人也和我一样，可以提前体验一些新系统的新功能，也更关注新版iOS系统带来的技术开发方面的新特性。
-
-
-对新事物，尤其是软件开发新技术的好奇心驱使我最近尝试了一些iOS10.0推出的新特性的开发，其中就包括本次iOS系统更新开发的SiriKit接入。下面，我就详细讲述一下SiriKit接入的相关开发过程及注意事项，个人见解，如有错误，欢迎大家交流指正。
-
-关于SiriKit
-SiriKit是Apple历经4年时间，不断打磨优化，第一次开发给开发者的一份关于Siri功能的礼物。利用SiriKit，第三方开发者可以像一些系统应用一样，通过语音完成第三方应用希望完成的一些功能，比如用户可以直接通过语音直接告诉Siri打车、锻炼、寻找美食、寻找相册中的照片、甚至付给朋友AA的账单费用，以及控制家里智能家居等。
-
-概念概览
- * Domain - 被苹果划分的不同业务领域，每个领域中可以执行不同的任务
- * Intent - 领域中的任务或意图指令
-
-实现机制
-和Android的语音接入Service类似，SiriKit中，将不同的类型的需">
+    <meta name="twitter:description" content="随着iOS10.0发布脚步的临近，作为开发者，相信很多人也和我一样，可以提前体验一些新系统的新功能，也更关注新版iOS系统带来的技术开发方面的新特性。  对新事物，尤其是软件开发新技术的好奇心驱使我最近尝试了一些iOS10.0推出的新特性的开发，其中就包括本次iOS系统更新开发的SiriKit接入。下面，我就详细讲述一下SiriKit接入的相关开发过程及注意事项，个人见解，如有错误，欢迎大家交流指正。  关于SiriKit SiriKit是Apple历经4年时间，不断打磨优化，第一次开发给开发者的一份关于Siri功能的礼物。利用SiriKit，第三方开发者可以像一些系统应用一样，通过语音完成第三方应用希望完成的一些功能，比如用户可以直接通过语音直接告诉Siri打车、锻炼、寻找美食、寻找相册中的照片、甚至付给朋友AA的账单费用，以及控制家里智能家居等。  概念概览 Domain - 被苹果划分的不同业务领域，每个领域中可以执行不同的任务 Intent - 领域中的任务或意图指令 实现机制 和Android的语音接入Service类似，SiriKit中，将不同的类型的需求统一汇总为若干个Domain，然后在每个Domain中再次细分为不同的Intent。系统通过语音识别获取到的Domain信息以及Intent信息，下发到已注册的Domain中进行处理，然后用户解析处理不同的Intent，来实现自定义的操作。  SiriKit的接入方式和Watch OS的接入有相似之处，都是以Extension形式存在，该Extension会声明本应用所能处理的Domain内容及Intent种类，告知Siri该应用所能处理的功能范畴.">
     <meta name="twitter:url" content="http://localhost:2368/2017/02/07/apple-sirijie-ru-kai-fa-yi/">
     <meta name="twitter:label1" content="Written by">
     <meta name="twitter:data1" content="Mark C.J.">
@@ -95,7 +69,7 @@ SiriKit是Apple历经4年时间，不断打磨优化，第一次开发给开发�
 }
     </script>
 
-    <meta name="generator" content="Ghost 2.26">
+    <meta name="generator" content="Ghost 3.2">
     <link rel="alternate" type="application/rss+xml" title="Crazy Mark" href="../../../../rss/index.html">
     <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113294116-1"></script>
@@ -140,7 +114,7 @@ SiriKit是Apple历经4年时间，不断打磨优化，第一次开发给开发�
 
 
     <div class="content">
-        <!--kg-card-begin: markdown--><!--kg-card-begin: markdown--><blockquote>
+        <!--kg-card-begin: markdown--><blockquote>
 <p>随着iOS10.0发布脚步的临近，作为开发者，相信很多人也和我一样，可以提前体验一些新系统的新功能，也更关注新版iOS系统带来的技术开发方面的新特性。</p>
 </blockquote>
 <p>对新事物，尤其是软件开发新技术的好奇心驱使我最近尝试了一些iOS10.0推出的新特性的开发，其中就包括本次iOS系统更新开发的SiriKit接入。下面，我就详细讲述一下SiriKit接入的相关开发过程及注意事项，个人见解，如有错误，欢迎大家交流指正。</p>
@@ -378,7 +352,7 @@ public func handle(endWorkoutintent:INEndWorkoutIntent,completion
 <ul>
 <li><a href="https://developer.apple.com/library/prerelease/content/documentation/Intents/Conceptual/SiriIntegrationGuide/">Apple SiriKit Programming Guide</a></li>
 </ul>
-<!--kg-card-end: markdown--><!--kg-card-end: markdown-->
+<!--kg-card-end: markdown-->
     </div>
 
 
@@ -434,15 +408,15 @@ public func handle(endWorkoutintent:INEndWorkoutIntent,completion
             <div class="mini-posts">
                     <article>
                         <h3><a href="../../../../2019/07/10/wwdc19-ios-related-session-list/">WWDC19 iOS Related Session List</a></h3>
-                        <p>SwiftUI Introducing SwiftUI: Building Your First App See SwiftUI in action! Watch as engineers from</p>
+                        <p>SwiftUI Introducing SwiftUI: Building Your First App  See SwiftUI in action! Watch as engineers from</p>
                     </article>
                     <article>
                         <h3><a href="../../../../2018/10/09/google-objective-c-style-guide/">Google Objective-C Style Guide [中英对照]</a></h3>
-                        <p>注意：文章原始版权归Google所有，本文档翻译部分归作者Mark所有，只供学习使用，禁止以营利为目的或其他商业使用！ Objective-C is a dynamic, object-oriented extension of C. It's designed</p>
+                        <p>注意：文章原始版权归Google所有，本文档翻译部分归作者Mark所有，只供学习使用，禁止以营利为目的或其他商业使用！  Objective-C is a dynamic, object-oriented extension of C. It's designed</p>
                     </article>
                     <article>
                         <h3><a href="../../../../2018/03/21/iosduan-cha-kan-pdfwen-dang-shi-xian-fang-an/">iOS端查看PDF文档实现方案</a></h3>
-                        <p>文 · Mark 在不同端查看一些文档时，往往会展现出千奇百怪的格式，呈现给用户的也是不同的展示效果。为了保持原始文稿的格式，保证展现效果的统一，PDF文稿可以很好解决格式在不同端文稿展现格式差异，保持原始文稿的展现效果。 对于移动端的开发工作中，查看PDF也是常见的需求，本文针对iOS端查看PDF文档给出实现方案，包括通过网络端读取和本地读取两种方式查看PDF文档。 读取方式 网络读取</p>
+                        <p>文 · Mark  在不同端查看一些文档时，往往会展现出千奇百怪的格式，呈现给用户的也是不同的展示效果。为了保持原始文稿的格式，保证展现效果的统一，PDF文稿可以很好解决格式在不同端文稿展现格式差异，保持原始文稿的展现效果。  对于移动端的开发工作中，查看PDF也是常见的需求，本文针对iOS端查看PDF文档给出实现方案，包括通过网络端读取和本地读取两种方式查看PDF文档。  读取方式  网络读取</p>
                     </article>
             </div>
         </section>
@@ -458,12 +432,12 @@ public func handle(endWorkoutintent:INEndWorkoutIntent,completion
 
     </div>
 
-    <script src="../../../../assets/main/js/jquery.min.js?v=09cad3faa5"></script>
-    <script src="../../../../assets/main/js/browser.min.js?v=09cad3faa5"></script>
-    <script src="../../../../assets/main/js/breakpoints.min.js?v=09cad3faa5"></script>
-    <script src="../../../../assets/main/js/util.js?v=09cad3faa5"></script>
-    <script src="../../../../assets/main/js/main.js?v=09cad3faa5"></script>
+    <script src="../../../../assets/main/js/jquery.min.js?v=db5bd3ff41"></script>
+    <script src="../../../../assets/main/js/browser.min.js?v=db5bd3ff41"></script>
+    <script src="../../../../assets/main/js/breakpoints.min.js?v=db5bd3ff41"></script>
+    <script src="../../../../assets/main/js/util.js?v=db5bd3ff41"></script>
+    <script src="../../../../assets/main/js/main.js?v=db5bd3ff41"></script>
 
-    <style>.bmc-button img{width: 35px !important;margin-bottom: 1px !important;box-shadow: none !important;border: none !important;vertical-align: middle !important;}.bmc-button{padding: 7px 10px 7px 10px !important;line-height: 35px !important;height:51px !important;min-width:217px !important;text-decoration: none !important;display:inline-flex !important;color:#FFFFFF !important;background-color:#FF813F !important;border-radius: 5px !important;border: 1px solid transparent !important;padding: 7px 10px 7px 10px !important;font-size: 22px !important;letter-spacing: 0.6px !important;box-shadow: 0px 1px 2px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;margin: 0 auto !important;font-family:'Cookie', cursive !important;-webkit-box-sizing: border-box !important;box-sizing: border-box !important;-o-transition: 0.3s all linear !important;-webkit-transition: 0.3s all linear !important;-moz-transition: 0.3s all linear !important;-ms-transition: 0.3s all linear !important;transition: 0.3s all linear !important;}.bmc-button:hover, .bmc-button:active, .bmc-button:focus {-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;text-decoration: none !important;box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;opacity: 0.85 !important;color:#FFFFFF !important;}</style><link href="https://fonts.googleapis.com/css?family=Cookie" rel="stylesheet"><a class="bmc-button" target="_blank" href="https://www.buymeacoffee.com/eyzU2NJ"><img src="https://cdn.buymeacoffee.com/buttons/bmc-new-btn-logo.svg" alt="Buy me a coffee"><span style="margin-left:15px;font-size:28px !important;">Buy me a coffee</span></a>
+    
 
 </body>

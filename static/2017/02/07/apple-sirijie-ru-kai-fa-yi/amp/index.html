@@ -14,20 +14,7 @@
     <meta property="og:site_name" content="Crazy Mark">
     <meta property="og:type" content="article">
     <meta property="og:title" content="Apple Siri接入开发（一）">
-    <meta property="og:description" content="&gt; 随着iOS10.0发布脚步的临近，作为开发者，相信很多人也和我一样，可以提前体验一些新系统的新功能，也更关注新版iOS系统带来的技术开发方面的新特性。
-
-
-对新事物，尤其是软件开发新技术的好奇心驱使我最近尝试了一些iOS10.0推出的新特性的开发，其中就包括本次iOS系统更新开发的SiriKit接入。下面，我就详细讲述一下SiriKit接入的相关开发过程及注意事项，个人见解，如有错误，欢迎大家交流指正。
-
-关于SiriKit
-SiriKit是Apple历经4年时间，不断打磨优化，第一次开发给开发者的一份关于Siri功能的礼物。利用SiriKit，第三方开发者可以像一些系统应用一样，通过语音完成第三方应用希望完成的一些功能，比如用户可以直接通过语音直接告诉Siri打车、锻炼、寻找美食、寻找相册中的照片、甚至付给朋友AA的账单费用，以及控制家里智能家居等。
-
-概念概览
- * Domain - 被苹果划分的不同业务领域，每个领域中可以执行不同的任务
- * Intent - 领域中的任务或意图指令
-
-实现机制
-和Android的语音接入Service类似，SiriKit中，将不同的类型的需">
+    <meta property="og:description" content="随着iOS10.0发布脚步的临近，作为开发者，相信很多人也和我一样，可以提前体验一些新系统的新功能，也更关注新版iOS系统带来的技术开发方面的新特性。  对新事物，尤其是软件开发新技术的好奇心驱使我最近尝试了一些iOS10.0推出的新特性的开发，其中就包括本次iOS系统更新开发的SiriKit接入。下面，我就详细讲述一下SiriKit接入的相关开发过程及注意事项，个人见解，如有错误，欢迎大家交流指正。  关于SiriKit SiriKit是Apple历经4年时间，不断打磨优化，第一次开发给开发者的一份关于Siri功能的礼物。利用SiriKit，第三方开发者可以像一些系统应用一样，通过语音完成第三方应用希望完成的一些功能，比如用户可以直接通过语音直接告诉Siri打车、锻炼、寻找美食、寻找相册中的照片、甚至付给朋友AA的账单费用，以及控制家里智能家居等。  概念概览 Domain - 被苹果划分的不同业务领域，每个领域中可以执行不同的任务 Intent - 领域中的任务或意图指令 实现机制 和Android的语音接入Service类似，SiriKit中，将不同的类型的需求统一汇总为若干个Domain，然后在每个Domain中再次细分为不同的Intent。系统通过语音识别获取到的Domain信息以及Intent信息，下发到已注册的Domain中进行处理，然后用户解析处理不同的Intent，来实现自定义的操作。  SiriKit的接入方式和Watch OS的接入有相似之处，都是以Extension形式存在，该Extension会声明本应用所能处理的Domain内容及Intent种类，告知Siri该应用所能处理的功能范畴.">
     <meta property="og:url" content="http://localhost:2368/2017/02/07/apple-sirijie-ru-kai-fa-yi/">
     <meta property="article:published_time" content="2017-02-07T06:34:23.000Z">
     <meta property="article:modified_time" content="2017-02-07T07:23:19.000Z">
@@ -38,20 +25,7 @@ SiriKit是Apple历经4年时间，不断打磨优化，第一次开发给开发�
     
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="Apple Siri接入开发（一）">
-    <meta name="twitter:description" content="&gt; 随着iOS10.0发布脚步的临近，作为开发者，相信很多人也和我一样，可以提前体验一些新系统的新功能，也更关注新版iOS系统带来的技术开发方面的新特性。
-
-
-对新事物，尤其是软件开发新技术的好奇心驱使我最近尝试了一些iOS10.0推出的新特性的开发，其中就包括本次iOS系统更新开发的SiriKit接入。下面，我就详细讲述一下SiriKit接入的相关开发过程及注意事项，个人见解，如有错误，欢迎大家交流指正。
-
-关于SiriKit
-SiriKit是Apple历经4年时间，不断打磨优化，第一次开发给开发者的一份关于Siri功能的礼物。利用SiriKit，第三方开发者可以像一些系统应用一样，通过语音完成第三方应用希望完成的一些功能，比如用户可以直接通过语音直接告诉Siri打车、锻炼、寻找美食、寻找相册中的照片、甚至付给朋友AA的账单费用，以及控制家里智能家居等。
-
-概念概览
- * Domain - 被苹果划分的不同业务领域，每个领域中可以执行不同的任务
- * Intent - 领域中的任务或意图指令
-
-实现机制
-和Android的语音接入Service类似，SiriKit中，将不同的类型的需">
+    <meta name="twitter:description" content="随着iOS10.0发布脚步的临近，作为开发者，相信很多人也和我一样，可以提前体验一些新系统的新功能，也更关注新版iOS系统带来的技术开发方面的新特性。  对新事物，尤其是软件开发新技术的好奇心驱使我最近尝试了一些iOS10.0推出的新特性的开发，其中就包括本次iOS系统更新开发的SiriKit接入。下面，我就详细讲述一下SiriKit接入的相关开发过程及注意事项，个人见解，如有错误，欢迎大家交流指正。  关于SiriKit SiriKit是Apple历经4年时间，不断打磨优化，第一次开发给开发者的一份关于Siri功能的礼物。利用SiriKit，第三方开发者可以像一些系统应用一样，通过语音完成第三方应用希望完成的一些功能，比如用户可以直接通过语音直接告诉Siri打车、锻炼、寻找美食、寻找相册中的照片、甚至付给朋友AA的账单费用，以及控制家里智能家居等。  概念概览 Domain - 被苹果划分的不同业务领域，每个领域中可以执行不同的任务 Intent - 领域中的任务或意图指令 实现机制 和Android的语音接入Service类似，SiriKit中，将不同的类型的需求统一汇总为若干个Domain，然后在每个Domain中再次细分为不同的Intent。系统通过语音识别获取到的Domain信息以及Intent信息，下发到已注册的Domain中进行处理，然后用户解析处理不同的Intent，来实现自定义的操作。  SiriKit的接入方式和Watch OS的接入有相似之处，都是以Extension形式存在，该Extension会声明本应用所能处理的Domain内容及Intent种类，告知Siri该应用所能处理的功能范畴.">
     <meta name="twitter:url" content="http://localhost:2368/2017/02/07/apple-sirijie-ru-kai-fa-yi/">
     <meta name="twitter:label1" content="Written by">
     <meta name="twitter:data1" content="Mark C.J.">
@@ -91,7 +65,7 @@ SiriKit是Apple历经4年时间，不断打磨优化，第一次开发给开发�
 }
     </script>
 
-    <meta name="generator" content="Ghost 2.26">
+    <meta name="generator" content="Ghost 3.2">
     <link rel="alternate" type="application/rss+xml" title="Crazy Mark" href="../../../../../rss/index.html">
 
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic%7COpen+Sans:700,600,400">
