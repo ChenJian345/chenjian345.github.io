@@ -1,0 +1,110 @@
+---
+title: "Bluetooth Low Energy Introduction"
+pubDate: "2017-04-06"
+slug: "bluetooth-low-energy-introduction"
+tags: ["Ble"]
+---
+
+<p>文 · Mark</p>
+<h2 id="ble">关于BLE</h2>
+<p>BLE，即Bluetooth Low Energy，也被称作Bluetooth Smart。相对于传统经典蓝牙，BLE是一个轻量级子集，在标准蓝牙协议4.0版本被引入。虽然和经典蓝牙协议有很多相似之处，但是实际上BLE和经典蓝牙的血统完全不同，BLE由Nokia进行研发，研发代号“Wibree”，而后来才被Bluetooth SIG所接受认可。</p>
+<p>目前，有很多无线通信协议供工程师和产品设计师选择，但是能够轻松与众多移动平台（包括iOS、Android、Windows Phone等）连接并相互通信，才是BLE这么有趣的真正原因。尤其是你不用大费周折，申请各种认证，使你的产品支持苹果设备。</p>
+<p>以下说明文档会快速为大家提供关于BLE的速览，例如低功耗蓝牙通信数据结构，蓝牙设备如何广播当前连接状态，以供连接并开始数据通信。</p>
+<h2 id="ble">BLE平台支持</h2>
+<p>以下主流平台支持Bluetooth 4.0以及BLE：</p>
+<ul>
+<li>iOS 5+ （iOS7.0以上版本是首选版本）</li>
+<li>Android 4.3+ （相对来说Android 4.4会更稳定，所以首选4.4）</li>
+<li>Apple OS X 10.6+</li>
+<li>Windows 8 (<em>XP, Vista, Windows 7只支持蓝牙2.1协议，注意！</em>)</li>
+<li>GNU / Linux Vanilla BlueZ 4.93+</li>
+</ul>
+<h2 id="gap">GAP</h2>
+<p>这不是你经常买的那个衣服牌子。</p>
+<p>GAP是Generic Access Profile协议，它用来控制BLE设备广播和连接。GAP让你的设备被外界可见，也就是可以被搜索到，也决定连接后的两个设备如何进行交互，同时也定义了设备的角色。例如，iBeacon设备只进行信息广播，是不能进行连接的，而野兽智能设备可以为外界所知，可以被手机平台连接。</p>
+<h3 id="">设备角色</h3>
+<p>GAP定义了很多种设备角色，关键两个是Central和Peripheral</p>
+<ul>
+<li>
+<p><strong>Central</strong></p>
+<p>中心设备，通常是移动设备，包括手机、平板等，中心设备可以连接附属设备，内存及处理能力也比附属设备强大的多。</p>
+</li>
+<li>
+<p><strong>Peripheral</strong></p>
+<p>从属设备，一般常见的都体积较小，低功耗，自由比较有限（内存，处理能力等），这个角色的设备可以被其他一些处理能力更强大的设备所连接。</p>
+</li>
+</ul>
+<h2 id="">广播与扫描数据</h2>
+<p>通过GAP可以使用两种方式将广播数据广播出来，一种是广播数据<em>Advertising Data Payload</em>，另一种是扫描应答数据<em>Scan Response Payload</em>；</p>
+<p>两种方式最大可携带数据量为31字节，但是广播数据是必选的，因为无论如何，你必须让外界知道你的设备的存在。扫描应答数据是可选的，这部分应答数据一般用于需要在广播、扫描阶段进行简短的数据通信，例如，中心设备需要从属设备应答一部分设备信息，例如设备名、ID、验证码等信息。</p>
+<h2 id="">广播流程</h2>
+<p>下面图片可以很好的说明设备广播的流程，以及广播中的两种Payload，即<em>Advertising Data Payload</em>和<em>Scan Response Payload</em>是如何工作的。</p>
+<p><img src="http://pu4d7sa3m.bkt.clouddn.com/2017040660712microcontrollers_Advertising2.png" alt="2017040660712microcontrollers_Advertising2.png"></p>
+<p>广播数据可以设置发送间隔，即ADVERTISING INTERVAL，间隔越长越省电，越短被发现的越慢。</p>
+<p>如果扫描设备需要Scan Response Payload，那该设备可以请求SCAN RESPONSE Data，即发送Scan Response Request，从属设备会将Scan Response Payload数据回复给监听设备。</p>
+<h2 id="ble">BLE广播拓扑模型</h2>
+<p>一旦从属设备发起广播，并允许连接时，从属设备与中心设备会建立连接，广播拓扑模型如下：</p>
+<p><img src="http://pu4d7sa3m.bkt.clouddn.com/201704066897microcontrollers_BroadcastTopology.png" alt="201704066897microcontrollers_BroadcastTopology.png"></p>
+<p>这里的广播是BLE中的一对多数据传输，Apple的iBeacon原理与此类似。一旦Peripheral和Central设备建立连接，广播数据就会停止。</p>
+<p>注意，此时GATT开始要登场了。</p>
+<h2 id="gatt">GATT</h2>
+<p>BLE蓝牙连接都建立在GATT（Generic Attribute Profile）协议栈之上。关于GATT，官方的介绍如下：</p>
+<blockquote>
+<p>GATT is an acronym for the Generic Attribute Profile, and it defines the way that two Bluetooth Low Energy devices transfer data back and forth using concepts called <strong>Services</strong> and <strong>Characteristics</strong>. It makes use of a generic data protocol called the <strong>Attribute Protocol (ATT)</strong>, which is used to store Services, Characteristics and related data in a simple lookup table using 16-bit IDs for each entry in the table.</p>
+</blockquote>
+<h3 id="gatt">GATT连接拓扑模型</h3>
+<p>一个从属设备同时只能连接一个中心设备，中心设备可以同时连接多个从属设备。</p>
+<p><img src="http://pu4d7sa3m.bkt.clouddn.com/2017040628845microcontrollers_ConnectedTopology.png" alt="2017040628845microcontrollers_ConnectedTopology.png"></p>
+<p>如果两个从属设备之间需要通信，通用的做法是Central设备用来做Mailbox系统，所有信息都会通过Central设备来进行中转。</p>
+<p>一旦建立了连接，通信就变成双向的了，注意，广播数据是单向的数据通信。</p>
+<h3 id="gatt">GATT通信事务</h3>
+<p>一旦两个设备建立起了连接，GATT 就开始起作用了，这也意味着，你已经完成了履行前面的 GAP 协议。这里需要说明的是，GATT 连接，必需先经过 GAP 协议。实际上，我们在 Android 开发中，可以直接使用设备的 MAC 地址，发起连接，可以不经过扫描的步骤。这并不意味不需要经过 GAP，实际上在芯片级别已经给你做好了，蓝牙芯片发起连接，总是先扫描设备，扫描到了才会发起连接。</p>
+<p>当连接简历完成之后，从属设备会主动发起确认一个**连接间隔‘Connection Interval’**的东西，这是一个GATT通信的连接间隔，这个间隔由从属设备建议，传输到中心设备，中心设备会按照这个时间不断查看从属设备中是否有新数据。当然，这个时间间隔由从属设备发起建议，中心设备可能也不会理会，会继续用自己的连接间隔做数据通信。</p>
+<p><img src="http://pu4d7sa3m.bkt.clouddn.com/2017040615489microcontrollers_GattMasterSlaveTransactions.png" alt="2017040615489microcontrollers_GattMasterSlaveTransactions.png"></p>
+<p>可以看到所有的数据通信请求每次都是由中心设备发起，从属设备进行应答。</p>
+<h3 id="gatt">GATT结构</h3>
+<p>GATT结构中主要有三个概念，如下</p>
+<p><img src="http://pu4d7sa3m.bkt.clouddn.com/2017040689874microcontrollers_GattStructure.png" alt="2017040689874microcontrollers_GattStructure.png"></p>
+<ul>
+<li>
+<p>Profile</p>
+<p>Profile 并不是实际存在于 BLE 外设上的，它只是一个被 Bluetooth SIG 或者外设设计者预先定义的 Service 的集合。例如<a href="https://developer.bluetooth.org/TechnologyOverview/Pages/HRP.aspx">心率Profile（Heart Rate Profile）</a>就是结合了 Heart Rate Service 和 Device Information Service。所有官方通过 GATT Profile 的列表可以从<a href="http://developer.bluetooth.org/TechnologyOverview/Pages/Profiles.aspx#GATT">这里</a>找到；</p>
+<p>一个设备中可以包含多个Profile；</p>
+</li>
+<li>
+<p>Service</p>
+<p>Service把数据分成一个个的独立逻辑项，它包含一个或者多个 Characteristic。每个 Service 有一个 UUID 唯一标识。 UUID 有 16 bit 的，或者 128 bit 的。16 bit 的 UUID 是官方通过认证的，需要花钱购买，128 bit 是自定义的，这个就可以自己随便设置。</p>
+<p><a href="https://www.bluetooth.com/specifications/gatt/services">官方预置的Service列表</a>中，可以看到心率Service的UUID为0x180D，<a href="https://www.bluetooth.com/specifications/gatt/viewer?attributeXmlFile=org.bluetooth.service.cycling_speed_and_cadence.xml">Cycling Speed and Cadence</a>的UUID为0x1816，其他类似。</p>
+</li>
+<li>
+<p>Characteristic</p>
+<p>Characteristic是GATT事务划分中最底层的逻辑单元，属于叶子节点。Characteristic从属于Service，一个Service可以包含多个Characteristic。每个Characteristic都有一个唯一的UUID作为标识符，16bit是Bluetooth SIG预置的（<a href="https://developer.bluetooth.org/gatt/characteristics/Pages/CharacteristicsHome.aspx">standard characteristics defined by the Bluetooth SIG</a>），128bit可自定义.</p>
+<p>例如，心率Service中的<a href="https://developer.bluetooth.org/gatt/characteristics/Pages/CharacteristicViewer.aspx?u=org.bluetooth.characteristic.heart_rate_measurement.xml">Heart Rate Measurement characteristic</a>是该Service强制要求必须要有的，UUID是0x2A37，其中的数据字段参考具体说明。</p>
+<p><a href="https://www.bluetooth.com/specifications/gatt/viewer?attributeXmlFile=org.bluetooth.service.cycling_speed_and_cadence.xml">骑行踏频及速度Characteristic官方说明</a>供参考。</p>
+<p>我们在做蓝牙数据通信时，Characteristic是最经常用到的一个概念。不论是Peripheral还是Central中，都会涉及到Characteristic，用来传输数据，你可以从Characteristic读数据，也可以向Characteristic中写数据。</p>
+</li>
+</ul>
+<h2 id="">传输速度</h2>
+<p>每个Characteristic中的数据包最大长度是20字节，根据蓝牙BLE协议， 物理层physical layer的传输速率是1Mbps，相当于每秒125K字节。事实上，其只是基准传输速率，协议规定BLE不能连续不断地传输数据包，否则就不能称为低功耗蓝牙了。连续传输自然会带来高功耗。所以，蓝牙的最高传输速率并不由物理层的工作频率决定的。</p>
+<p>在实际的操作过程中，如果主机连线不断地发送数据包，要么丢包严重要么连接出现异常而断开。</p>
+<p>在BLE里面，传输速度受其连接参数所影响。连接参数定义如下：</p>
+<ul>
+<li><strong>连接间隔</strong>，蓝牙基带是跳频工作的，主机和从机会商定多长时间进行跳频连接，连接上才能进行数据传输。这个连接和广播状态和连接状态的连接不是一样的意思。主机在从机广播时进行连接是应用层的主动软件行为。而跳频过程中的连接是蓝牙基带协议的规定，完全由硬件控制，对应用层透明。明显，如果这个连接间隔时间越短，那么传输的速度就增大。连接上传完数据后，蓝牙基带即进入休眠状态，保证低功耗。其是1.25毫秒一个单位。</li>
+<li><strong>连接延迟</strong> 其是为了低功耗考虑，允许从机在跳频过程中不理会主机的跳频指令，继续睡眠一段时间。而主机不能因为从机睡眠而认为其断开连接了。其是1.25毫秒一个单位。明显，这个数值越小，传输速度也高。</li>
+</ul>
+<p>蓝牙BLE协议规定连接参数最小是5，即7.25毫秒；而<a href="http://lib.csdn.net/base/android">Android</a>手机规定连接参数最小是8，即10毫秒。<a href="http://lib.csdn.net/base/ios">iOS</a>规定是16，即20毫秒。</p>
+<p>连接参数完全由主机决定，但从机可以发出更新参数申请，主机可以接受也可以拒绝。Android手机一部接受，而ios比较严格，拒绝的概率比较高。</p>
+<p>​	一般场景，连接参数设置16，即20毫秒，一般的传输速率是50* 20 = 1000字节/每秒。如果每个连接事件传输更多的包，可以获得更高的传输速率。</p>
+<h2 id="">参考文献</h2>
+<h3 id="bluetoothsigresources">Bluetooth SIG Resources</h3>
+<ul>
+<li><a href="https://www.bluetooth.com/specifications/gatt">Bluetooth GATT Specifications</a></li>
+<li>官方通过的 <a href="https://developer.bluetooth.org/TechnologyOverview/Pages/Profiles.aspx#GATT">BLE Profile</a></li>
+<li>官方通过的 <a href="https://developer.bluetooth.org/gatt/services/Pages/ServicesHome.aspx">BLE Service</a></li>
+<li>官方通过的 <a href="https://developer.bluetooth.org/gatt/characteristics/Pages/CharacteristicsHome.aspx">BLE Characteristic</a></li>
+</ul>
+<h3 id="adafruitresources">Adafruit Resources</h3>
+<ul>
+<li><a href="https://learn.adafruit.com/introduction-to-bluetooth-low-energy?view=all">BLE Introduction</a></li>
+<li><a href="https://developer.android.com/guide/topics/connectivity/bluetooth-le.html">Android BLE Guide</a></li>
+</ul>

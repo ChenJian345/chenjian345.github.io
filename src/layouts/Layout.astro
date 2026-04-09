@@ -1,0 +1,62 @@
+---
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = 'Crazy Mark - Software Developer Blog' } = Astro.props;
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+---
+
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <title>{title}</title>
+    <link rel="canonical" href={canonicalURL} />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="alternate" type="application/rss+xml" title="Crazy Mark" href="/rss.xml" />
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113294116-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-113294116-1');
+    </script>
+
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8998210359913715"
+            crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="inner">
+        <a href="/" class="site-logo">Crazy Mark</a>
+        <nav class="site-nav">
+          <a href="/">文章</a>
+          <a href="/about">关于</a>
+          <a href="/rss.xml">RSS</a>
+        </nav>
+      </div>
+    </header>
+
+    <div class="site-wrapper">
+      <main class="site-main">
+        <slot />
+      </main>
+    </div>
+
+    <footer class="site-footer">
+      <p>© 2016–{new Date().getFullYear()} Mark Chen · <a href="https://github.com/ChenJian345">GitHub</a></p>
+      <p style="margin-top: 0.3rem; font-size: 0.78rem;">Powered by <a href="https://astro.build">Astro</a></p>
+    </footer>
+  </body>
+</html>
+
+<style is:global>
+  @import '../styles/global.css';
+</style>

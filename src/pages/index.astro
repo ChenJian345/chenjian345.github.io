@@ -1,0 +1,36 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('blog')).sort(
+  (a, b) => new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime()
+);
+
+function formatDate(dateStr: string) {
+  return new Date(dateStr).toLocaleDateString('zh-CN', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+  });
+}
+---
+
+<Layout title="Crazy Mark - 技术博客">
+  <div class="post-list">
+    {posts.map(post => (
+      <div class="post-item">
+        <h2 class="post-title">
+          <a href={`/blog/${post.slug}/`}>{post.data.title}</a>
+        </h2>
+        <div class="post-meta">
+          <time datetime={post.data.pubDate}>{formatDate(post.data.pubDate)}</time>
+        </div>
+        {post.data.tags.length > 0 && (
+          <div class="post-tags">
+            {post.data.tags.map(tag => <span class="tag">{tag}</span>)}
+          </div>
+        )}
+      </div>
+    ))}
+  </div>
+</Layout>
