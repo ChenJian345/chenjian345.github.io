@@ -17,8 +17,6 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <title>{title}</title>
     <link rel="canonical" href={canonicalURL} />
     <link rel="icon" type="image/png" href="/favicon.png" />
-    <link rel="alternate" type="application/rss+xml" title="Crazy Mark" href="/rss.xml" />
-
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113294116-1"></script>
     <script>
@@ -39,7 +37,6 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
         <nav class="site-nav">
           <a href="/">文章</a>
           <a href="/about">关于</a>
-          <a href="/rss.xml">RSS</a>
         </nav>
       </div>
     </header>
