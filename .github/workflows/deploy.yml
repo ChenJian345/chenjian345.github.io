@@ -33,7 +33,10 @@ jobs:
         run: npm install
 
       - name: Build
-        run: node ./node_modules/astro/astro.js build
+        env:
+          ASTRO_TELEMETRY_DISABLED: 1
+          CI: true
+        run: npm run build
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
