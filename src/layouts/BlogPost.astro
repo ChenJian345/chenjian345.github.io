@@ -1,0 +1,40 @@
+---
+import Layout from './Layout.astro';
+
+interface Props {
+  title: string;
+  pubDate: string;
+  tags?: string[];
+  description?: string;
+}
+
+const { title, pubDate, tags = [], description } = Astro.props;
+
+const formattedDate = new Date(pubDate).toLocaleDateString('zh-CN', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
+---
+
+<Layout title={`${title} - Crazy Mark`} description={description}>
+  <a href="/" class="back-link">← 返回首页</a>
+
+  <article>
+    <div class="article-header">
+      <h1>{title}</h1>
+      <div class="post-meta">
+        <time datetime={pubDate}>{formattedDate}</time>
+        {tags.length > 0 && (
+          <div class="post-tags">
+            {tags.map(tag => <span class="tag">{tag}</span>)}
+          </div>
+        )}
+      </div>
+    </div>
+
+    <div class="article-content">
+      <slot />
+    </div>
+  </article>
+</Layout>
