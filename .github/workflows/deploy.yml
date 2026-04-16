@@ -25,29 +25,12 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: npm
-
-      - name: Setup Pages
-        uses: actions/configure-pages@v5
 
       - name: Install dependencies
-        run: npm ci
-
-      - name: Debug environment
-        run: |
-          echo "=== PATH ==="
-          echo "$PATH"
-          echo "=== Node/NPM versions ==="
-          node --version
-          npm --version
-          echo "=== Checking astro binary ==="
-          ls -la node_modules/.bin/astro || echo "astro binary not found"
-          ls -la node_modules/astro/astro.js || echo "astro.js not found"
-          echo "=== Package.json scripts ==="
-          cat package.json | grep -A 6 '"scripts"'
+        run: npm install
 
       - name: Build
-        run: npx astro build
+        run: node ./node_modules/astro/astro.js build
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
