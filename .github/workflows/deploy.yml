@@ -26,20 +26,14 @@ jobs:
         with:
           node-version: 20
 
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
       - name: Install dependencies
         run: npm install
 
       - name: Build
-        run: |
-          node ./node_modules/astro/astro.js build 2>&1 | tee build.log
-          exit_code=${PIPESTATUS[0]}
-          if [ $exit_code -ne 0 ]; then
-            echo "### Build failed with exit code $exit_code" >> $GITHUB_STEP_SUMMARY
-            echo '```' >> $GITHUB_STEP_SUMMARY
-            tail -n 80 build.log >> $GITHUB_STEP_SUMMARY
-            echo '```' >> $GITHUB_STEP_SUMMARY
-          fi
-          exit $exit_code
+        run: node ./node_modules/astro/astro.js build
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
