@@ -6,6 +6,8 @@ const blog = defineCollection({
     title: z.string(),
     pubDate: z.string(),
     tags: z.array(z.string()).default([]),
+    category: z.string().default('技术'),
+    excerpt: z.string().optional(),
     description: z.string().optional(),
   }),
 });

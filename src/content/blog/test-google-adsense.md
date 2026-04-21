@@ -3,6 +3,8 @@ title: "Test Google AdSense"
 pubDate: "2019-08-07"
 slug: "test-google-adsense"
 tags: []
+category: "技术"
+excerpt: "Here should be an ad banner below. (adsbygoogle = window.adsbygoogle || []).push({}); --- 垂直广告 (adsbygoogle = window.ads..."
 ---
 
 Here should be an ad banner below.

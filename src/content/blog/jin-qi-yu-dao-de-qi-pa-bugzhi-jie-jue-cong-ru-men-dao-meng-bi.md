@@ -3,6 +3,8 @@ title: "近期遇到的奇葩Bug之解决从入门到懵逼"
 pubDate: "2017-02-22"
 slug: "jin-qi-yu-dao-de-qi-pa-bugzhi-jie-jue-cong-ru-men-dao-meng-bi"
 tags: []
+category: "技术"
+excerpt: "文• Mark 此事发生在2016年10月，后与朋友分享过，朋友希望能写下来分享。因当时较忙，暂未整理，一直拖到现在。清晨早醒，整理之，以飨读者。 所谓Bug即软件中存在的小错误导致异常。奇葩Bug则是那些遇到时让人无所适从，解决时狂挠头发..."
 ---
 
 <p>文• Mark</p>

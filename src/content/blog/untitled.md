@@ -3,6 +3,8 @@ title: "地图导航SDK调研"
 pubDate: "2016-12-08"
 slug: "untitled"
 tags: ["技术", "技术调研"]
+category: "技术调研"
+excerpt: "文 · Mark 百度地图SDK 免费 国内地图SDK，国内使用普遍 支持路线规划，不支持Turn-by-Turn导航 Pass 国际化很难(据悉在扩展海外国际化，时间不可预估) Pass 支持iOS/Android/Web; 提供离线地图..."
 ---
 
 <p>文 · Mark</p>

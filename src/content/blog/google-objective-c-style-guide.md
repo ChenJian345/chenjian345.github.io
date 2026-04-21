@@ -3,6 +3,8 @@ title: "Google Objective-C编码规范-中英对照"
 pubDate: "2018-10-09"
 slug: "google-objective-c-style-guide"
 tags: ["style guide", "iOS", "技术"]
+category: "iOS"
+excerpt: "注意：文章原始版权归Google所有，本文档翻译部分归作者Mark所有，只供学习使用，禁止以营利为目的或其他商业使用！ Objective-C is a dynamic, object-oriented extension of C. It..."
 ---
 
 <p><strong>注意：文章原始版权归Google所有，本文档翻译部分归作者Mark所有，只供学习使用，禁止以营利为目的或其他商业使用！</strong></p>

@@ -3,6 +3,8 @@ title: "iOS-LZMA类压缩算法使用"
 pubDate: "2016-12-18"
 slug: "ios-lzmalei-ya-suo-suan-fa-shi-yong"
 tags: ["iOS", "技术", "技术调研"]
+category: "iOS"
+excerpt: "LZMA（Lempel-Ziv-Markov chain-Algorithm的缩写）是2001年以来得到发展的一个数据压缩算法，它用于7-Zip归档工具中的7z格式和 Unix-like 下的 xz 格式。它使用类似于LZ77的字典编码机制..."
 ---
 
 <blockquote>

@@ -1,0 +1,61 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import PostCard from '../../components/PostCard.astro';
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+  const categories = [...new Set(posts.map(p => p.data.category))];
+  return categories.map(cat => ({
+    params: { cat },
+    props: { category: cat },
+  }));
+}
+
+const { category } = Astro.props;
+const posts = (await getCollection('blog'))
+  .filter(p => p.data.category === category)
+  .sort((a, b) => new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime());
+---
+
+<Layout title={`${category} - Crazy Mark`}>
+  <a href="/" class="back-link">← 返回首页</a>
+  <h1 class="page-title">{category}</h1>
+  <p class="page-count">共 {posts.length} 篇文章</p>
+  <div class="category-grid">
+    {posts.map(post => (
+      <PostCard
+        title={post.data.title}
+        slug={post.slug}
+        pubDate={post.data.pubDate}
+        excerpt={post.data.excerpt}
+        category={post.data.category}
+        tags={post.data.tags}
+      />
+    ))}
+  </div>
+</Layout>
+
+<style>
+  .page-title {
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin: 0.5rem 0 0.25rem;
+    color: #111;
+  }
+  .page-count {
+    color: #888;
+    font-size: 0.9rem;
+    margin: 0 0 1.5rem;
+  }
+  .category-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1rem;
+  }
+  @media (max-width: 640px) {
+    .category-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

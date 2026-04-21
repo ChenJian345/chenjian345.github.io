@@ -3,6 +3,8 @@ title: "Beacon初识"
 pubDate: "2018-01-30"
 slug: "beacon"
 tags: ["设计", "Beacon", "Ble"]
+category: "设计"
+excerpt: "文 · Mark 什么是Beacon Beacon ['biːk(ə)n] 这个单词的中文意思是信号浮标、灯塔，此文所说的Beacon其特点如下： 采用BLE技术发射信号的小设备 运算能力几乎为零，但功耗很低，续航持久 有效范围几十厘米到几..."
 ---
 
 <p>文 · Mark</p>

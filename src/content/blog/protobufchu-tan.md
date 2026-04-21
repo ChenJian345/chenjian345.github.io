@@ -3,6 +3,8 @@ title: "Protobuf初探"
 pubDate: "2016-12-08"
 slug: "protobufchu-tan"
 tags: ["Android", "iOS", "C++", "技术调研"]
+category: "iOS"
+excerpt: "文 · Mark 对于软件开发者，尤其是移动端（Android &amp; iOS）开发者来说，XML和JSON两种文件传输格式并不陌生，尤其是JSON，仅在上述两种开发领域中就广泛应用。随之而来的，是各种JSON的解析库，此文中，笔者不想..."
 ---
 
 <p>文 · Mark</p>

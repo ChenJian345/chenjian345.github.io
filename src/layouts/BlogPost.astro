@@ -5,10 +5,11 @@ interface Props {
   title: string;
   pubDate: string;
   tags?: string[];
+  category?: string;
   description?: string;
 }
 
-const { title, pubDate, tags = [], description } = Astro.props;
+const { title, pubDate, tags = [], category = '技术', description } = Astro.props;
 
 const formattedDate = new Date(pubDate).toLocaleDateString('zh-CN', {
   year: 'numeric',
@@ -22,6 +23,7 @@ const formattedDate = new Date(pubDate).toLocaleDateString('zh-CN', {
 
   <article>
     <div class="article-header">
+      <a href={`/category/${category}/`} class="article-category">{category}</a>
       <h1>{title}</h1>
       <div class="post-meta">
         <time datetime={pubDate}>{formattedDate}</time>
@@ -38,3 +40,20 @@ const formattedDate = new Date(pubDate).toLocaleDateString('zh-CN', {
     </div>
   </article>
 </Layout>
+
+<style>
+  .article-category {
+    display: inline-block;
+    background: #f0f4ff;
+    color: #3b5bdb;
+    padding: 0.2rem 0.7rem;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    margin-bottom: 0.75rem;
+    text-decoration: none;
+  }
+  .article-category:hover {
+    background: #e0e7ff;
+  }
+</style>

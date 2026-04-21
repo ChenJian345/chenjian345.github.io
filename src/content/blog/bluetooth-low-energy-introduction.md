@@ -3,6 +3,8 @@ title: "Bluetooth Low Energy Introduction"
 pubDate: "2017-04-06"
 slug: "bluetooth-low-energy-introduction"
 tags: ["Ble"]
+category: "技术"
+excerpt: "文 · Mark 关于BLE BLE，即Bluetooth Low Energy，也被称作Bluetooth Smart。相对于传统经典蓝牙，BLE是一个轻量级子集，在标准蓝牙协议4.0版本被引入。虽然和经典蓝牙协议有很多相似之处，但是实际..."
 ---
 
 <p>文 · Mark</p>

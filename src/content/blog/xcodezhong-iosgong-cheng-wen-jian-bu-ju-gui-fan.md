@@ -3,6 +3,8 @@ title: "XCode中iOS工程文件布局规范"
 pubDate: "2017-02-07"
 slug: "xcodezhong-iosgong-cheng-wen-jian-bu-ju-gui-fan"
 tags: ["xCode", "iOS", "技术"]
+category: "iOS"
+excerpt: "以下是iOS工程中关于文件的布局规范参考链接，仅供备忘参考. Limboy - iOS项目的目录结构和开发流程 Apple iOS Dev Document - App Programming Guide for iOS 乐源移动开发团队 ..."
 ---
 
 <p>以下是iOS工程中关于文件的布局规范参考链接，仅供备忘参考.</p>

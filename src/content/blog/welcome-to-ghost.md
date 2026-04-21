@@ -3,6 +3,8 @@ title: "Homebrew常用Cheatsheet"
 pubDate: "2016-12-08"
 slug: "welcome-to-ghost"
 tags: ["技术", "工具"]
+category: "工具"
+excerpt: "Homebrew 常用命令速查：安装、搜索、查询、升级、清理等操作备忘"
 ---
 
 <h3 id="homebrew">安装Homebrew</h3>

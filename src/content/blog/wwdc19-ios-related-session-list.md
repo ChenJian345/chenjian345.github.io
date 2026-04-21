@@ -3,6 +3,8 @@ title: "WWDC19 iOS Related Session List"
 pubDate: "2019-07-10"
 slug: "wwdc19-ios-related-session-list"
 tags: []
+category: "技术"
+excerpt: "SwiftUI Introducing SwiftUI: Building Your First App See SwiftUI in action! Watch as engineers from the SwiftUI team bui..."
 ---
 
 <h3 id="swiftui">SwiftUI</h3>

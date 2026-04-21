@@ -1,0 +1,92 @@
+---
+interface Props {
+  title: string;
+  slug: string;
+  pubDate: string;
+  excerpt?: string;
+  category?: string;
+  tags?: string[];
+}
+
+const { title, slug, pubDate, excerpt, category = '技术', tags = [] } = Astro.props;
+
+const formattedDate = new Date(pubDate).toLocaleDateString('zh-CN', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
+---
+
+<a href={`/blog/${slug}/`} class="post-card">
+  <div class="post-card-header">
+    <span class="post-category">{category}</span>
+    <time datetime={pubDate}>{formattedDate}</time>
+  </div>
+  <h3 class="post-card-title">{title}</h3>
+  {excerpt && <p class="post-card-excerpt">{excerpt}</p>}
+  {tags.length > 0 && (
+    <div class="post-card-tags">
+      {tags.map(tag => <span class="tag">{tag}</span>)}
+    </div>
+  )}
+</a>
+
+<style>
+  .post-card {
+    display: block;
+    background: #fff;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 1.5rem;
+    text-decoration: none;
+    color: inherit;
+    transition: box-shadow 0.2s, transform 0.2s;
+  }
+  .post-card:hover {
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    transform: translateY(-2px);
+  }
+  .post-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.75rem;
+    font-size: 0.8rem;
+  }
+  .post-category {
+    background: #f0f4ff;
+    color: #3b5bdb;
+    padding: 0.15rem 0.6rem;
+    border-radius: 4px;
+    font-weight: 500;
+  }
+  .post-card-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin: 0 0 0.5rem;
+    color: #111;
+    line-height: 1.4;
+  }
+  .post-card-excerpt {
+    font-size: 0.9rem;
+    color: #666;
+    line-height: 1.6;
+    margin: 0 0 0.75rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .post-card-tags {
+    display: flex;
+    gap: 0.3rem;
+    flex-wrap: wrap;
+  }
+  .tag {
+    background: #f3f4f6;
+    color: #6b7280;
+    padding: 0.1rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.75rem;
+  }
+</style>

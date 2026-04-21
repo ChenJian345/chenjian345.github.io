@@ -1,36 +1,116 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import PostCard from '../components/PostCard.astro';
 import { getCollection } from 'astro:content';
 
 const posts = (await getCollection('blog')).sort(
   (a, b) => new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime()
 );
 
-function formatDate(dateStr: string) {
-  return new Date(dateStr).toLocaleDateString('zh-CN', {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric',
-  });
-}
+// 最新 3 篇作为"头条"
+const featured = posts.slice(0, 3);
+
+// 其余文章
+const rest = posts.slice(3);
+
+// 按分类分组
+const categories = [...new Set(posts.map(p => p.data.category))];
 ---
 
 <Layout title="Crazy Mark - 技术博客">
-  <div class="post-list">
-    {posts.map(post => (
-      <div class="post-item">
-        <h2 class="post-title">
-          <a href={`/blog/${post.slug}/`}>{post.data.title}</a>
-        </h2>
-        <div class="post-meta">
-          <time datetime={post.data.pubDate}>{formatDate(post.data.pubDate)}</time>
-        </div>
-        {post.data.tags.length > 0 && (
-          <div class="post-tags">
-            {post.data.tags.map(tag => <span class="tag">{tag}</span>)}
-          </div>
-        )}
+  <!-- 头条区 -->
+  <section class="featured-section">
+    <h2 class="section-title">最新文章</h2>
+    <div class="featured-grid">
+      {featured.map(post => (
+        <PostCard
+          title={post.data.title}
+          slug={post.slug}
+          pubDate={post.data.pubDate}
+          excerpt={post.data.excerpt}
+          category={post.data.category}
+          tags={post.data.tags}
+        />
+      ))}
+    </div>
+  </section>
+
+  <!-- 其余文章 -->
+  {rest.length > 0 && (
+    <section class="more-section">
+      <h2 class="section-title">更多文章</h2>
+      <div class="more-grid">
+        {rest.map(post => (
+          <PostCard
+            title={post.data.title}
+            slug={post.slug}
+            pubDate={post.data.pubDate}
+            excerpt={post.data.excerpt}
+            category={post.data.category}
+            tags={post.data.tags}
+          />
+        ))}
       </div>
-    ))}
-  </div>
+    </section>
+  )}
+
+  <!-- 分类区块（如果分类数 > 1） -->
+  {categories.length > 1 && categories.map(cat => {
+    const catPosts = posts.filter(p => p.data.category === cat).slice(0, 3);
+    if (catPosts.length === 0) return null;
+    return (
+      <section class="category-section">
+        <div class="category-header">
+          <h2 class="section-title">{cat}</h2>
+        </div>
+        <div class="category-grid">
+          {catPosts.map(post => (
+            <PostCard
+              title={post.data.title}
+              slug={post.slug}
+              pubDate={post.data.pubDate}
+              excerpt={post.data.excerpt}
+              category={post.data.category}
+              tags={post.data.tags}
+            />
+          ))}
+        </div>
+      </section>
+    );
+  })}
 </Layout>
+
+<style>
+  .section-title {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin: 2rem 0 1rem;
+    color: #111;
+  }
+  .featured-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1rem;
+  }
+  .more-section {
+    margin-top: 1rem;
+  }
+  .more-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1rem;
+  }
+  .category-section {
+    margin-top: 1rem;
+  }
+  .category-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1rem;
+  }
+  @media (max-width: 640px) {
+    .featured-grid, .more-grid, .category-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

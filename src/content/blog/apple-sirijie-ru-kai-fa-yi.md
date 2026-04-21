@@ -3,6 +3,8 @@ title: "Apple Siri接入开发（一）"
 pubDate: "2017-02-07"
 slug: "apple-sirijie-ru-kai-fa-yi"
 tags: ["iOS", "技术", "技术调研", "Siri"]
+category: "iOS"
+excerpt: "随着iOS10.0发布脚步的临近，作为开发者，相信很多人也和我一样，可以提前体验一些新系统的新功能，也更关注新版iOS系统带来的技术开发方面的新特性。 对新事物，尤其是软件开发新技术的好奇心驱使我最近尝试了一些iOS10.0推出的新特性的开..."
 ---
 
 <blockquote>

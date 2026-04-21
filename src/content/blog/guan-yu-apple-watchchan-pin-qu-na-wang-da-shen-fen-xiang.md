@@ -3,6 +3,8 @@ title: "Apple Watch产品设计经验 FROM 去哪网"
 pubDate: "2017-02-07"
 slug: "guan-yu-apple-watchchan-pin-qu-na-wang-da-shen-fen-xiang"
 tags: ["iOS", "Apple watchOS", "产品", "设计", "技术"]
+category: "iOS"
+excerpt: "在参与2016WWDC过程中，听取了【去哪网】某位从业人员的关于Apple Watch产品设计技术相关的分享，将要点整理如下，作为学习提纲之用，供参考 文中Apple WatchOS应该是基于WatchOS 2.0版本，但某些设计和产品经验..."
 ---
 
 <blockquote>

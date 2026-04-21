@@ -3,6 +3,8 @@ title: "iOS端查看PDF文档实现方案"
 pubDate: "2018-03-21"
 slug: "iosduan-cha-kan-pdfwen-dang-shi-xian-fang-an"
 tags: []
+category: "技术"
+excerpt: "文 · Mark 在不同端查看一些文档时，往往会展现出千奇百怪的格式，呈现给用户的也是不同的展示效果。为了保持原始文稿的格式，保证展现效果的统一，PDF文稿可以很好解决格式在不同端文稿展现格式差异，保持原始文稿的展现效果。 对于移动端的开发..."
 ---
 
 <p>文 · Mark</p>

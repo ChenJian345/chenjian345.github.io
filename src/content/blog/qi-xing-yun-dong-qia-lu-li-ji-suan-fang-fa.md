@@ -3,6 +3,8 @@ title: "Contact"
 pubDate: "2017-03-01"
 slug: "qi-xing-yun-dong-qia-lu-li-ji-suan-fang-fa"
 tags: ["工具"]
+category: "工具"
+excerpt: "文 · Mark 卡路里（简称卡，缩写为cal），由英文Calorie音译而来，其定义为在1个大气压下，将1克水提升1摄氏度所需要的热量； 卡路里（calorie）是能量单位，现在仍被广泛使用在营养计量和健身手册上，国际标准的能量单位是焦耳..."
 ---
 
 <p>文 · Mark</p>
