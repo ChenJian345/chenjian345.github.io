@@ -15,11 +15,21 @@ const formattedDate = new Date(pubDate).toLocaleDateString('zh-CN', {
   month: 'long',
   day: 'numeric',
 });
+
+// 分类配色
+const categoryColors: Record<string, { bg: string; text: string }> = {
+  'iOS': { bg: '#f0fdf4', text: '#15803d' },
+  '技术': { bg: '#eff6ff', text: '#2563eb' },
+  '设计': { bg: '#fdf4ff', text: '#a21caf' },
+  '工具': { bg: '#fff7ed', text: '#c2410c' },
+  '技术调研': { bg: '#f0f4ff', text: '#4f46e5' },
+};
+const catStyle = categoryColors[category] || categoryColors['技术'];
 ---
 
 <a href={`/blog/${slug}/`} class="post-card">
   <div class="post-card-header">
-    <span class="post-category">{category}</span>
+    <span class="post-category" style={`background:${catStyle.bg};color:${catStyle.text}`}>{category}</span>
     <time datetime={pubDate}>{formattedDate}</time>
   </div>
   <h3 class="post-card-title">{title}</h3>
@@ -35,7 +45,7 @@ const formattedDate = new Date(pubDate).toLocaleDateString('zh-CN', {
   .post-card {
     display: block;
     background: #fff;
-    border: 1px solid #e5e7eb;
+    border: 1px solid #e2e8f0;
     border-radius: 12px;
     padding: 1.5rem;
     text-decoration: none;
@@ -43,8 +53,8 @@ const formattedDate = new Date(pubDate).toLocaleDateString('zh-CN', {
     transition: box-shadow 0.2s, transform 0.2s;
   }
   .post-card:hover {
-    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+    transform: translateY(-3px);
   }
   .post-card-header {
     display: flex;
@@ -54,22 +64,21 @@ const formattedDate = new Date(pubDate).toLocaleDateString('zh-CN', {
     font-size: 0.8rem;
   }
   .post-category {
-    background: #f0f4ff;
-    color: #3b5bdb;
-    padding: 0.15rem 0.6rem;
-    border-radius: 4px;
-    font-weight: 500;
+    padding: 0.2rem 0.7rem;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 0.78rem;
   }
   .post-card-title {
     font-size: 1.2rem;
     font-weight: 600;
     margin: 0 0 0.5rem;
-    color: #111;
+    color: #0f172a;
     line-height: 1.4;
   }
   .post-card-excerpt {
     font-size: 0.9rem;
-    color: #666;
+    color: #64748b;
     line-height: 1.6;
     margin: 0 0 0.75rem;
     display: -webkit-box;
@@ -83,8 +92,8 @@ const formattedDate = new Date(pubDate).toLocaleDateString('zh-CN', {
     flex-wrap: wrap;
   }
   .tag {
-    background: #f3f4f6;
-    color: #6b7280;
+    background: #f1f5f9;
+    color: #64748b;
     padding: 0.1rem 0.5rem;
     border-radius: 4px;
     font-size: 0.75rem;

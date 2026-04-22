@@ -84,9 +84,12 @@ for an <code>@interface</code> declaration.</p>
 </blockquote>
 <p>俗话说，一个例子胜过千言万语，所以我们举个例子，来初步感受一下编码风格、空格空行布局、命名等等编码规范。</p>
 <p>下面头文件的例子，演示如何声明一个<code>@interface</code>正确的注释及代码空格空行编码风格。</p>
-<pre><code class="language-objectivec">// GOOD:
 
-#import &lt;Foundation/Foundation.h&gt;
+```objc
+
+// GOOD:
+
+#import <Foundation/Foundation.h>
 
 @class Bar;
 
@@ -102,7 +105,7 @@ for an <code>@interface</code> declaration.</p>
 @property(nonatomic) Bar *bar;
 
 /** The current drawing attributes. */
-@property(nonatomic, copy) NSDictionary&lt;NSString *, NSNumber *&gt; *attributes;
+@property(nonatomic, copy) NSDictionary<NSString *, NSNumber *> *attributes;
 
 /**
  * Convenience creation method.
@@ -129,13 +132,18 @@ for an <code>@interface</code> declaration.</p>
 - (BOOL)doWorkWithBlah:(NSString *)blah;
 
 @end
-</code></pre>
+
+```
+
 <blockquote>
 <p>An example source file, demonstrating the correct commenting and spacing for the<br>
 <code>@implementation</code> of an interface.</p>
 </blockquote>
 <p>实现一个<code>@implementation</code> 的正确编码规范示例，展示正确的注释和间距（包括空行，回车，空格等）</p>
-<pre><code class="language-objectivec">// GOOD:
+
+```objc
+
+// GOOD:
 
 #import "Shared/Util/Foo.h"
 
@@ -173,7 +181,9 @@ for an <code>@interface</code> declaration.</p>
 }
 
 @end
-</code></pre>
+
+```
+
 <h2 id="naming">命名（Naming）</h2>
 <blockquote>
 <p>Names should be as descriptive as possible, within reason. Follow standard<br>
@@ -187,7 +197,10 @@ important to make your code immediately understandable by a new reader. For<br>
 example:</p>
 </blockquote>
 <p>禁用非标准缩写（包括非标准首字母缩略词）。 相对节约内存空间来说，对于一个新的读者来说，能够立即理解意义会更为重要，例如：</p>
-<pre><code class="language-objectivec">// GOOD:
+
+```objc
+
+// GOOD:
 
 // Good names.
 int numberOfErrors = 0;
@@ -196,8 +209,12 @@ tickets = [[NSMutableArray alloc] init];
 userInfo = [someObject object];
 port = [network port];
 NSDate *gAppLaunchDate;
-</code></pre>
-<pre><code class="language-objectivec">// AVOID:
+
+```
+
+```objc
+
+// AVOID:
 
 // Names to avoid.
 int w;
@@ -206,7 +223,9 @@ int nCompConns;
 tix = [[NSMutableArray alloc] init];
 obj = [someObject object];
 p = [network port];
-</code></pre>
+
+```
+
 <blockquote>
 <p>Any class, category, method, function, or variable name should use all capitals<br>
 for acronyms and <a href="https://en.wikipedia.org/wiki/Initialism">initialisms</a><br>
@@ -285,7 +304,10 @@ followed by one or more capital letters or numbers.</p>
 prefixes with a minimum of three characters are considered best practice.</p>
 </blockquote>
 <p>警告：苹果使用两个字母的前缀，参考<a href="https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/ProgrammingWithObjectiveC/Conventions/Conventions.html">Conventions in Programming with Objective-C</a>，所以，建议最好使用最少三个字符的前缀。</p>
-<pre><code class="language-objectivec">// GOOD:
+
+```objc
+
+// GOOD:
 
 /** An example error domain. */
 extern NSString *GTMExampleErrorDomain;
@@ -294,14 +316,15 @@ extern NSString *GTMExampleErrorDomain;
 extern NSTimeZone *GTMGetDefaultTimeZone(void);
 
 /** An example delegate. */
-@protocol GTMExampleDelegate &lt;NSObject&gt;
+@protocol GTMExampleDelegate <NSObject>
 @end
 
 /** An example class. */
 @interface GTMExample : NSObject
 @end
 
-</code></pre>
+```
+
 <h3 id="classnames">类命名（Class Names）</h3>
 <blockquote>
 <p>Class names (along with category and protocol names) should start as uppercase<br>
@@ -334,7 +357,10 @@ Objective-C's global namespace.</p>
 parenthesis of the category.</p>
 </blockquote>
 <p>类名和扩展名的左圆括号之间，须添加一个空格。</p>
-<pre><code class="language-objectivec">// GOOD:
+
+```objc
+
+// GOOD:
 
 // UIViewController+GTMCrashReporting.h
 
@@ -348,19 +374,26 @@ parenthesis of the category.</p>
 - (nullable NSData *)gtm_encodedState;
 
 @end
-</code></pre>
+
+```
+
 <blockquote>
 <p>If a class is not shared with other projects, categories extending it may omit<br>
 name prefixes and method name prefixes.</p>
 </blockquote>
 <p>若类不被其他工程共用，扩展名和方法名可省略前缀。</p>
-<pre><code class="language-objectivec">// GOOD:
+
+```objc
+
+// GOOD:
 
 /** This category extends a class that is not shared with other projects. */
 @interface XYZDataObject (Storage)
 - (NSString *)storageIdentifier;
 @end
-</code></pre>
+
+```
+
 <h3 id="ocobjectivecmethodnames">OC方法命名（Objective-C Method Names）</h3>
 <blockquote>
 <p>Method and parameter names typically start as lowercase and then use mixed case.</p>
@@ -370,10 +403,15 @@ name prefixes and method name prefixes.</p>
 <p>Proper capitalization should be respected, including at the beginning of names.</p>
 </blockquote>
 <p>包括首字母命名，可以考虑某些字母大写。</p>
-<pre><code class="language-objectivec">// GOOD:
+
+```objc
+
+// GOOD:
 
 + (NSURL *)URLWithString:(NSString *)URLString;
-</code></pre>
+
+```
+
 <blockquote>
 <p>The method name should read like a sentence if possible, meaning you should<br>
 choose parameter names that flow with the method name. Objective-C method names<br>
@@ -387,39 +425,62 @@ and later parameter names only where necessary to clarify the meaning or<br>
 behavior of the method.</p>
 </blockquote>
 <p>只有在有必要说明方法意义或行为时，才在第二个参数名后，使用例如"with", "from", and "to"等介词和连词。</p>
-<pre><code class="language-objectivec">// GOOD:
+
+```objc
+
+// GOOD:
 
 - (void)addTarget:(id)target action:(SEL)action;                          // GOOD; no conjunction needed
 - (CGPoint)convertPoint:(CGPoint)point fromView:(UIView *)view;           // GOOD; conjunction clarifies parameter
 - (void)replaceCharactersInRange:(NSRange)aRange
             withAttributedString:(NSAttributedString *)attributedString;  // GOOD.
-</code></pre>
+
+```
+
 <blockquote>
 <p>A method that returns an object should have a name beginning with a noun<br>
 identifying the object returned:</p>
 </blockquote>
 <p>返回对象的方法名需要以名词开头，以表明返回的对象类型。</p>
-<pre><code class="language-objectivec">// GOOD:
+
+```objc
+
+// GOOD:
 
 - (Sandwich *)sandwich;      // GOOD.
-</code></pre>
-<pre><code class="language-objectivec">// AVOID:
+
+```
+
+```objc
+
+// AVOID:
 
 - (Sandwich *)makeSandwich;  // AVOID.
-</code></pre>
+
+```
+
 <blockquote>
 <p>An accessor method should be named the same as the object it's getting, but it<br>
 should not be prefixed with the word <code>get</code>. For example:</p>
 </blockquote>
 <p>访问器方法需要和对象的getting方法一致，但不可有<code>get</code>前缀。例如：</p>
-<pre><code class="language-objectivec">// GOOD:
+
+```objc
+
+// GOOD:
 
 - (id)delegate;     // GOOD.
-</code></pre>
-<pre><code class="language-objectivec">// AVOID:
+
+```
+
+```objc
+
+// AVOID:
 
 - (id)getDelegate;  // AVOID.
-</code></pre>
+
+```
+
 <blockquote>
 <p>Accessors that return the value of boolean adjectives have method names<br>
 beginning with <code>is</code>, but property names for those methods omit the <code>is</code>.</p>
@@ -429,27 +490,44 @@ beginning with <code>is</code>, but property names for those methods omit the <c
 <p>Dot notation is used only with property names, not with method names.</p>
 </blockquote>
 <p>点只用于属性获取，不可用于方法调用</p>
-<pre><code class="language-objectivec">// GOOD:
+
+```objc
+
+// GOOD:
 
 @property(nonatomic, getter=isGlorious) BOOL glorious;
 - (BOOL)isGlorious;
 
 BOOL isGood = object.glorious;      // GOOD.
 BOOL isGood = [object isGlorious];  // GOOD.
-</code></pre>
-<pre><code class="language-objectivec">// AVOID:
+
+```
+
+```objc
+
+// AVOID:
 
 BOOL isGood = object.isGlorious;    // AVOID.
-</code></pre>
-<pre><code class="language-objectivec">// GOOD:
 
-NSArray&lt;Frog *&gt; *frogs = [NSArray&lt;Frog *&gt; arrayWithObject:frog];
+```
+
+```objc
+
+// GOOD:
+
+NSArray<Frog *> *frogs = [NSArray<Frog *> arrayWithObject:frog];
 NSEnumerator *enumerator = [frogs reverseObjectEnumerator];  // GOOD.
-</code></pre>
-<pre><code class="language-objectivec">// AVOID: 避免使用.来调用方法
+
+```
+
+```objc
+
+// AVOID: 避免使用.来调用方法
 
 NSEnumerator *enumerator = frogs.reverseObjectEnumerator;    // AVOID.
-</code></pre>
+
+```
+
 <p>See <a href="https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/CodingGuidelines/Articles/NamingMethods.html#//apple_ref/doc/uid/20001282-BCIGIJJF">Apple's Guide to Naming Methods</a> for more details on Objective-C naming.</p>
 <p>These guidelines are for Objective-C methods only. C++ method names continue to<br>
 follow the rules set in the C++ style guide.</p>
@@ -459,19 +537,29 @@ follow the rules set in the C++ style guide.</p>
 <p>Function names should start with a capital letter and have a capital letter for<br>
 each new word (a.k.a. "<a href="https://en.wikipedia.org/wiki/Camel_case">camel case</a>" or "Pascal case").</p>
 <p>函数名要首字母大写，之后使用驼峰命名法。</p>
-<pre><code class="language-objectivec">// GOOD:
+
+```objc
+
+// GOOD:
 
 static void AddTableEntry(NSString *tableEntry);
 static BOOL DeleteFile(const char *filename);
-</code></pre>
+
+```
+
 <p>Because Objective-C does not provide namespacing, non-static functions should<br>
 have a <a href="index.html#prefixes">prefix</a> that minimizes the chance of a name collision.</p>
 <p>由于Objective-C不支持命名空间，非静态函数要使用前缀，以最大程度减少命名冲突。</p>
-<pre><code class="language-objectivec">// GOOD:
+
+```objc
+
+// GOOD:
 
 extern NSTimeZone *GTMGetDefaultTimeZone(void);
 extern NSString *GTMGetURLScheme(NSURL *URL);
-</code></pre>
+
+```
+
 <h3 id="variablenames">变量命名（Variable Names）</h3>
 <blockquote>
 <p>Variable names typically start with a lowercase and use mixed case to delimit<br>
@@ -496,10 +584,15 @@ variable (int or pointer).</p>
 scope of a method or function should be rare, and should have the prefix g.</p>
 </blockquote>
 <p>声明在方法或函数外的文件作用域变量或全局变量（区别常量）比较少见，应该带有一个前缀<code>g</code></p>
-<pre><code class="language-objectivec">// GOOD:
+
+```objc
+
+// GOOD:
 
 static int gGlobalCounter;
-</code></pre>
+
+```
+
 <h4 id="instancevariables">实例变量（Instance Variables）</h4>
 <blockquote>
 <p>Instance variable names are mixed case and should be prefixed with an<br>
@@ -524,7 +617,10 @@ with #define) should use mixed case to delimit words.</p>
 <p>Global and file scope constants should have an appropriate <a href="index.html#prefixes">prefix</a>.</p>
 </blockquote>
 <p>全局和文件作用域常量要带有合适的前缀。</p>
-<pre><code class="language-objectivec">// GOOD:
+
+```objc
+
+// GOOD:
 
 extern NSString *const GTLServiceErrorDomain;
 
@@ -532,7 +628,9 @@ typedef NS_ENUM(NSInteger, GTLServiceError) {
   GTLServiceErrorQueryResultMissing = -3000,
   GTLServiceErrorWaitTimedOut       = -3001,
 };
-</code></pre>
+
+```
+
 <blockquote>
 <p>Because Objective-C does not provide namespacing, constants with external<br>
 linkage should have a prefix that minimizes the chance of a name collision,<br>
@@ -544,23 +642,33 @@ typically like <code>ClassNameConstantName</code> or <code>ClassNameEnumName</co
 extend the typedef name:</p>
 </blockquote>
 <p>与Swift有交互的Objective-C代码，枚举值变量要使用自定义类型名作为前缀：</p>
-<pre><code class="language-objectivec">// GOOD:
+
+```objc
+
+// GOOD:
 
 typedef NS_ENUM(NSInteger, DisplayTinge) {
   DisplayTingeGreen = 1,
   DisplayTingeBlue = 2,
 };
-</code></pre>
+
+```
+
 <blockquote>
 <p>A lowercase k can be used as a standalone prefix for constants of static storage<br>
 duration declared within implementation files:</p>
 </blockquote>
 <p>在实现文件中，小写字母k可以被用来作为声明独立的常量或者静态变量前缀：</p>
-<pre><code class="language-objectivec">// GOOD:
+
+```objc
+
+// GOOD:
 
 static const int kFileCount = 12;
 static NSString *const kUserKey = @"kUserKey";
-</code></pre>
+
+```
+
 <blockquote>
 <p>NOTE: Previous convention was for public constant names to begin with a<br>
 lowercase k followed by a project-specific <a href="index.html#prefixes">prefix</a>. This practice is<br>
@@ -582,13 +690,18 @@ should begin with any convenience constructors.</p>
 Initialize variables in their declarations.</p>
 </blockquote>
 <p>在靠近需要使用该变量的地方声明变量，声明时完成初始化。</p>
-<pre><code class="language-objectivec">// GOOD:
+
+```objc
+
+// GOOD:
 
 CLLocation *location = [self lastKnownLocation];
-for (int meters = 1; meters &lt; 10; meters++) {
+for (int meters = 1; meters < 10; meters++) {
   reportFrogsWithinRadius(location, meters);
 }
-</code></pre>
+
+```
+
 <blockquote>
 <p>Occasionally, efficiency will make it more appropriate to declare a variable<br>
 outside the scope of its use. This example declares meters separate from<br>
@@ -596,14 +709,19 @@ initialization, and needlessly sends the lastKnownLocation message each time<br>
 through the loop:</p>
 </blockquote>
 <p>有时出于效率考虑，把变量声明在作用域外更可取。这个例子声明meters变量，并没有初始化，每次循环时，没必要每次都需要对location进行赋值。</p>
-<pre><code class="language-objectivec">// AVOID:
+
+```objc
+
+// AVOID:
 
 int meters;                                         // AVOID.
-for (meters = 1; meters &lt; 10; meters++) {
+for (meters = 1; meters < 10; meters++) {
   CLLocation *location = [self lastKnownLocation];  // AVOID.
   reportFrogsWithinRadius(location, meters);
 }
-</code></pre>
+
+```
+
 <blockquote>
 <p>Under Automatic Reference Counting, strong and weak pointers to Objective-C<br>
 objects are automatically initialized to <code>nil</code>, so explicit initialization to<br>
@@ -625,15 +743,24 @@ integers. Rely only on signed integers in math expressions except when matching<
 NSUInteger in system interfaces.</p>
 </blockquote>
 <p>使用无符号整型进行数学计算或出现倒数为0时，会出现微妙的错误。除匹配系统接口时使用NSUInteger外，数学计算时只使用带符号整型。</p>
-<pre><code class="language-objectivec">// GOOD:
+
+```objc
+
+// GOOD:
 
 NSUInteger numberOfObjects = array.count;
-for (NSInteger counter = numberOfObjects - 1; counter &gt; 0; --counter)
-</code></pre>
-<pre><code class="language-objectivec">// AVOID:
+for (NSInteger counter = numberOfObjects - 1; counter > 0; --counter)
 
-for (NSUInteger counter = numberOfObjects - 1; counter &gt; 0; --counter)  // AVOID.
-</code></pre>
+```
+
+```objc
+
+// AVOID:
+
+for (NSUInteger counter = numberOfObjects - 1; counter > 0; --counter)  // AVOID.
+
+```
+
 <blockquote>
 <p>Unsigned integers may be used for flags and bitmasks, though often NS_OPTIONS or<br>
 NS_ENUM will be more appropriate.</p>
@@ -651,7 +778,10 @@ NSUInteger, and CGFloat except when matching system interfaces.</p>
 system interfaces, but they should be avoided for most other computations.</p>
 </blockquote>
 <p>long, NSInteger, NSUInteger, and CGFloat类型在32位和64位环境下字节宽度可变。处理系统暴露的数据时，可以使用上述类型，但其他运算，避免使用。</p>
-<pre><code class="language-objectivec">// GOOD:
+
+```objc
+
+// GOOD:
 
 int32_t scalar1 = proto.intValue;
 
@@ -660,11 +790,17 @@ int64_t scalar2 = proto.longValue;
 NSUInteger numberOfObjects = array.count;
 
 CGFloat offset = view.bounds.origin.x;
-</code></pre>
-<pre><code class="language-objectivec">// AVOID:
+
+```
+
+```objc
+
+// AVOID:
 
 NSInteger scalar2 = proto.longValue;  // AVOID.
-</code></pre>
+
+```
+
 <blockquote>
 <p>File and buffer sizes often exceed 32-bit limits, so they should be declared<br>
 using <code>int64_t</code>, not with <code>long</code>, <code>NSInteger</code>, or <code>NSUInteger</code>.</p>
@@ -724,7 +860,10 @@ comment describing its purpose and how it fits into the larger picture.</p>
 categories, protocol declarations, and enums.</p>
 </blockquote>
 <p>注释适用于要有文档说明的类、属性、成员变量、方法、扩展、协议声明及枚举。</p>
-<pre><code class="language-objectivec">// GOOD:
+
+```objc
+
+// GOOD:
 
 /**
  * A delegate for NSApplication to handle notifications about app
@@ -742,7 +881,9 @@ categories, protocol declarations, and enums.</p>
 @property(nonatomic) GTMSessionFetcherService *fetcherService;
 
 @end
-</code></pre>
+
+```
+
 <blockquote>
 <p>Doxygen-style comments are encouraged for interfaces as they are parsed by Xcode<br>
 to display formatted documentation. There is a wide variety of Doxygen commands;<br>
@@ -790,7 +931,10 @@ implementation rather than with the declaration.</p>
 <p>Provide comments explaining tricky, subtle, or complicated sections of code.</p>
 </blockquote>
 <p>对刁钻、微妙或复杂的代码添加注释，解释其中奥妙。</p>
-<pre><code class="language-objectivec">// GOOD:
+
+```objc
+
+// GOOD:
 
 // Set the property to nil before invoking the completion handler to
 // avoid the risk of reentrancy leading to the callback being
@@ -798,7 +942,9 @@ implementation rather than with the declaration.</p>
 CompletionHandler handler = self.completionHandler;
 self.completionHandler = nil;
 handler();
-</code></pre>
+
+```
+
 <blockquote>
 <p>When useful, also provide comments about implementation approaches that were<br>
 considered or abandoned.</p>
@@ -810,11 +956,16 @@ you have several comments on subsequent lines, it can often be more readable to<
 line them up.</p>
 </blockquote>
 <p>跟在代码行尾的注释需要至少用两个空格隔开代码与注释。如果你在随后的多行里有多个注释，更易读的办法是把他们（对齐）排好。</p>
-<pre><code class="language-objectivec">// GOOD:
+
+```objc
+
+// GOOD:
 
 [self doSomethingWithALongName];  // Two spaces before the comment.
 [self doSomethingShort];          // More spacing to align the comment.
-</code></pre>
+
+```
+
 <h3 id="disambiguatingsymbols">消除符号歧义（Disambiguating Symbols）</h3>
 <blockquote>
 <p>Where needed to avoid ambiguity, use backticks or vertical bars to quote<br>
@@ -833,34 +984,54 @@ the sentence read like it was poorly constructed. A common example is the symbol
 <code>count</code>:</p>
 </blockquote>
 <p>当一个符号命名是常用单词时，划定边界会使注释更清晰。若不划分，可能会使句子读起来不通顺。常见的例子如单词<code>count</code>：</p>
-<pre><code class="language-objectivec">// GOOD:
+
+```objc
+
+// GOOD:
 
 // Sometimes `count` will be less than zero.
-</code></pre>
+
+```
+
 <blockquote>
 <p>or when quoting something which already contains quotes</p>
 </blockquote>
 <p>或引用已经有引号的文字</p>
-<pre><code class="language-objectivec">// GOOD:
+
+```objc
+
+// GOOD:
 
 // Remember to call `StringWithoutSpaces("foo bar baz")`
-</code></pre>
+
+```
+
 <blockquote>
 <p>Backticks or vertical bars are not needed when a symbol is self-apparent.</p>
 </blockquote>
 <p>对于显而易见的文字不需要添加反引号或竖杠。</p>
-<pre><code class="language-objectivec">// GOOD:
+
+```objc
+
+// GOOD:
 
 // This class serves as a delegate to GTMDepthCharge.
-</code></pre>
+
+```
+
 <blockquote>
 <p>Doxygen formatting is also suitable for identifying symbols.</p>
 </blockquote>
 <p>Doxygen格式化同样适用标识符号。</p>
-<pre><code class="language-objectivec">// GOOD:
+
+```objc
+
+// GOOD:
 
 /** @param maximum The highest value for @c count. */
-</code></pre>
+
+```
+
 <h3 id="objectownership">对象所有权（Object Ownership）</h3>
 <blockquote>
 <p>For objects not managed by ARC, make the pointer ownership model as explicit as<br>
@@ -891,7 +1062,10 @@ even when building for automatic reference counting.</p>
 <p>Examples of strong and weak declarations:</p>
 </blockquote>
 <p>strong和weak声明示例</p>
-<pre><code class="language-objectivec">// GOOD:
+
+```objc
+
+// GOOD:
 
 @interface MyDelegate : NSObject
 
@@ -912,7 +1086,9 @@ even when building for automatic reference counting.</p>
   CFDictionaryRef *_dict;  // Strong
 }
 @end
-</code></pre>
+
+```
+
 <h4 id="arcautomaticreferencecounting">ARC （Automatic Reference Counting）</h4>
 <blockquote>
 <p>Object ownership and lifetime are explicit when using ARC, so no additional<br>
@@ -945,22 +1121,31 @@ underscores between words. Function-like macros may use C function naming<br>
 practices. Do not define macros that appear to be C or Objective-C keywords.</p>
 </blockquote>
 <p>宏的名字应该使用<code>SHOUTY_SNAKE_CASE</code>形式——所有字母大写，使用下划线链接不同单词。函数类的宏使用函数的命名规范。不要定义和C或Objective-C关键字同名的宏。</p>
-<pre><code class="language-objectivec">// GOOD:
+
+```objc
+
+// GOOD:
 
 #define GTM_EXPERIMENTAL_BUILD ...      // GOOD
 
-// Assert unless X &gt; Y
+// Assert unless X > Y
 #define GTM_ASSERT_GT(X, Y) ...         // GOOD, macro style.
 
-// Assert unless X &gt; Y
+// Assert unless X > Y
 #define GTMAssertGreaterThan(X, Y) ...  // GOOD, function style.
-</code></pre>
-<pre><code class="language-objectivec">// AVOID:
+
+```
+
+```objc
+
+// AVOID:
 
 #define kIsExperimentalBuild ...        // AVOID
 
 #define unless(X) if(!(X))              // AVOID
-</code></pre>
+
+```
+
 <blockquote>
 <p>Avoid macros that expand to unbalanced C or Objective-C constructs. Avoid macros<br>
 that introduce scope, or may obscure the capturing of values in blocks.</p>
@@ -978,17 +1163,22 @@ of variables that are later used outside of the macro. Macros shouldn't make<br>
 code hard to understand by hiding where and how a variable is declared.</p>
 </blockquote>
 <p>避免使用生成方法实现的宏（比如生成单例方法的宏等）或者可生成变量声明，且该变量在宏外使用的宏。宏不能隐藏变量在何处以及如何被声明，这会导致代码晦涩难懂。</p>
-<pre><code class="language-objectivec">// AVOID:
+
+```objc
+
+// AVOID:
 
 #define ARRAY_ADDER(CLASS) \
   -(void)add ## CLASS ## :(CLASS *)obj toArray:(NSMutableArray *)array
 
 ARRAY_ADDER(NSString) {
-  if (array.count &gt; 5) {              // AVOID -- where is 'array' defined?
+  if (array.count > 5) {              // AVOID -- where is 'array' defined?
     ...
   }
 }
-</code></pre>
+
+```
+
 <blockquote>
 <p>Examples of acceptable macro use include assertion and debug logging macros<br>
 that are conditionally compiled based on build settings—often, these are<br>
@@ -1080,14 +1270,19 @@ auto-synthesized by properties. When ivars are declared in a header file, they<b
 should be marked <code>@protected</code> or <code>@private</code>.</p>
 </blockquote>
 <p>实例变量通常被放置在头文件中，或通过property被自动synthesize。若实例变量被声明在头文件中，这些成员变量需要被标记为 <code>@protected</code> 或 <code>@private</code>。</p>
-<pre><code class="language-objectivec">// GOOD:
+
+```objc
+
+// GOOD:
 
 @interface MyClass : NSObject {
  @protected
   id _myInstanceVariable;
 }
 @end
-</code></pre>
+
+```
+
 <h3 id="newdonotusenew">不要使用+new（Do Not Use +new）</h3>
 <blockquote>
 <p>Do not invoke the <code>NSObject</code> class method <code>new</code>, nor override it in a subclass.<br>
@@ -1155,14 +1350,17 @@ For test files the related header is the header containing the tested interface.
 <p>Import headers using their path relative to the project's source directory.</p>
 </blockquote>
 <p>以工程目录作为根目录，使用相对路径引用头文件。</p>
-<pre><code class="language-objectivec">// GOOD:
+
+```objc
+
+// GOOD:
 
 #import "ProjectX/BazViewController.h"
 
-#import &lt;Foundation/Foundation.h&gt;
+#import <Foundation/Foundation.h>
 
-#include &lt;unistd.h&gt;
-#include &lt;vector&gt;
+#include <unistd.h>
+#include <vector>
 
 #include "base/basictypes.h"
 #include "base/integral_types.h"
@@ -1170,7 +1368,9 @@ For test files the related header is the header containing the tested interface.
 
 #import "ProjectX/BazModel.h"
 #import "Shared/Util/Foo.h"
-</code></pre>
+
+```
+
 <h3 id="umbrellauseumbrellaheadersforsystemframeworks">使用系统库Umbrella头文件（Use Umbrella Headers for System Frameworks）</h3>
 <blockquote>
 <p>Import umbrella headers for system frameworks and system libraries rather than<br>
@@ -1185,17 +1385,26 @@ pre-compiled and can be loaded much more quickly. In addition, remember to use<b
 <code>@import</code> or <code>#import</code> rather than <code>#include</code> for Objective-C frameworks.</p>
 </blockquote>
 <p>人们似乎更倾向引用Cocoa或Foundation系统库中单独的头文件，这样看起来引用更简单，但事实上，引用系统库的顶层头文件会让编译器做更少的工作。根框架通常会预处理，从而加载速度更快。另外，对于Objective-C框架，记住使用<code>@import</code>和<code>#import</code>，而不使用 <code>#include</code> 。</p>
-<pre><code class="language-objectivec">// GOOD:
+
+```objc
+
+// GOOD:
 
 @import UIKit;     // GOOD.
-#import &lt;Foundation/Foundation.h&gt;     // GOOD.
-</code></pre>
-<pre><code class="language-objectivec">// AVOID:
+#import <Foundation/Foundation.h>     // GOOD.
 
-#import &lt;Foundation/NSArray.h&gt;        // AVOID.
-#import &lt;Foundation/NSString.h&gt;
+```
+
+```objc
+
+// AVOID:
+
+#import <Foundation/NSArray.h>        // AVOID.
+#import <Foundation/NSString.h>
 ...
-</code></pre>
+
+```
+
 <h3 id="deallocavoidmessagingthecurrentobjectwithininitializersanddealloc">避免在初始化器或<code>-dealloc</code>中给当前对象发消息（Avoid Messaging the Current Object Within Initializers and <code>-dealloc</code>）</h3>
 <blockquote>
 <p>Code in initializers and <code>-dealloc</code> should avoid invoking instance methods.</p>
@@ -1219,7 +1428,10 @@ overridden just like any other selector. Whenever practical, directly assign to<
 and release ivars in initializers and <code>-dealloc</code>, rather than rely on accessors.</p>
 </blockquote>
 <p>属性访问是一种不太明显的案例。属性访问器可以像其他selector一样被重写。一旦切实可行，直接在初始化器和<code>-dealloc</code>方法中对成员变量进行赋值和释放，而不是通过属性访问器来完成。</p>
-<pre><code class="language-objectivec">// GOOD:
+
+```objc
+
+// GOOD:
 
 - (instancetype)init {
   self = [super init];
@@ -1228,7 +1440,9 @@ and release ivars in initializers and <code>-dealloc</code>, rather than rely on
   }
   return self;
 }
-</code></pre>
+
+```
+
 <blockquote>
 <p>Beware of factoring common initialization code into helper methods:</p>
 <ul>
@@ -1243,7 +1457,10 @@ run from an initializer.</li>
 <li>工具方法可能会有意或无意的被子类重写，或者碰巧产生了命名冲突；</li>
 <li>当编辑一个工具方法时，可能不会知晓这段代码是被初始化方法调用的；</li>
 </ul>
-<pre><code class="language-objectivec">// AVOID:
+
+```objc
+
+// AVOID:
 
 - (instancetype)init {
   self = [super init];
@@ -1253,19 +1470,29 @@ run from an initializer.</li>
   }
   return self;
 }
-</code></pre>
-<pre><code class="language-objectivec">// GOOD:
+
+```
+
+```objc
+
+// GOOD:
 
 - (void)dealloc {
   [_notifier removeObserver:self];  // GOOD.
 }
-</code></pre>
-<pre><code class="language-objectivec">// AVOID:
+
+```
+
+```objc
+
+// AVOID:
 
 - (void)dealloc {
   [self removeNotifications];  // AVOID.
 }
-</code></pre>
+
+```
+
 <h3 id="setternsstringscopysetterscopynsstrings">Setter方法中NSStrings要Copy（Setters copy NSStrings）</h3>
 <blockquote>
 <p>Setters taking an <code>NSString</code> should always copy the string it accepts. This is<br>
@@ -1283,15 +1510,20 @@ passed collection may be mutable, and thus the collection could be more safely<b
 held as a copy or mutable copy of the original.</p>
 </blockquote>
 <p>持有容器对象参数也需要考虑该对象可能也是可变的，因此，使用该容器参数的复制对象，相对更安全。</p>
-<pre><code class="language-objectivec">// GOOD:
+
+```objc
+
+// GOOD:
 
 @property(nonatomic, copy) NSString *name;
 
-- (void)setZigfoos:(NSArray&lt;Zigfoo *&gt; *)zigfoos {
+- (void)setZigfoos:(NSArray<Zigfoo *> *)zigfoos {
   // Ensure that we're holding an immutable collection.
   _zigfoos = [zigfoos copy];
 }
-</code></pre>
+
+```
+
 <h3 id="uselightweightgenericstodocumentcontainedtypes">用泛型标识元素类型（Use Lightweight Generics to Document Contained Types）</h3>
 <blockquote>
 <p>All projects compiling on Xcode 7 or newer versions should make use of the<br>
@@ -1303,33 +1535,48 @@ Objective-C lightweight generics notation to type contained objects.</p>
 lightweight generics for improved type safety and to explicitly document usage.</p>
 </blockquote>
 <p><code>NSArray</code>, <code>NSDictionary</code>, 或 <code>NSSet</code>对象都需要轻量级泛型符号标明，这可以改善类型安全以及明确文档使用说明。</p>
-<pre><code class="language-objectivec">// GOOD:
 
-@property(nonatomic, copy) NSArray&lt;Location *&gt; *locations;
-@property(nonatomic, copy, readonly) NSSet&lt;NSString *&gt; *identifiers;
+```objc
 
-NSMutableArray&lt;MyLocation *&gt; *mutableLocations = [otherObject.locations mutableCopy];
-</code></pre>
+// GOOD:
+
+@property(nonatomic, copy) NSArray<Location *> *locations;
+@property(nonatomic, copy, readonly) NSSet<NSString *> *identifiers;
+
+NSMutableArray<MyLocation *> *mutableLocations = [otherObject.locations mutableCopy];
+
+```
+
 <blockquote>
 <p>If the fully-annotated types become complex, consider using a typedef to<br>
 preserve readability.</p>
 </blockquote>
 <p>若要标识的泛型比较复杂，可以考虑使用typedef定义新类型，以保持可读性。</p>
-<pre><code class="language-objectivec">// GOOD:
 
-typedef NSSet&lt;NSDictionary&lt;NSString *, NSDate *&gt; *&gt; TimeZoneMappingSet;
+```objc
+
+// GOOD:
+
+typedef NSSet<NSDictionary<NSString *, NSDate *> *> TimeZoneMappingSet;
 TimeZoneMappingSet *timeZoneMappings = [TimeZoneMappingSet setWithObjects:...];
-</code></pre>
+
+```
+
 <blockquote>
 <p>Use the most descriptive common superclass or protocol available. In the most<br>
 generic case when nothing else is known, declare the collection to be explicitly<br>
 heterogenous using id.</p>
 </blockquote>
 <p>使用最具描述性的常用父类或协议。通常情况下，当不知道容器中对象类型时，使用id显式声明。</p>
-<pre><code class="language-objectivec">// GOOD:
 
-@property(nonatomic, copy) NSArray&lt;id&gt; *unknowns;
-</code></pre>
+```objc
+
+// GOOD:
+
+@property(nonatomic, copy) NSArray<id> *unknowns;
+
+```
+
 <h3 id="avoidthrowingexceptions">避免抛异常（Avoid Throwing Exceptions）</h3>
 <blockquote>
 <p>Don't <code>@throw</code> Objective-C exceptions, but you should be prepared to catch them<br>
@@ -1360,16 +1607,25 @@ Sending a message to <code>nil</code> <a href="http://www.sealiesoftware.com/blo
 <p>给<code>nil</code>发消息的返回值是可靠的</p>
 <p>返回值是指针时，返回nil；返回值是整数或浮点数时，返回0；返回值是结构体时，返回0；返回值是<code>_Complex</code>时，返回 <code>{0, 0}</code>。</p>
 <p><em>(上面这句我也没读懂，我也不打算不懂装懂)</em></p>
-<pre><code class="language-objectivec">// AVOID:
+
+```objc
+
+// AVOID:
 
 if (dataSource) {  // AVOID.
   [dataSource moveItemAtIndex:1 toIndex:0];
 }
-</code></pre>
-<pre><code class="language-objectivec">// GOOD:
+
+```
+
+```objc
+
+// GOOD:
 
 [dataSource moveItemAtIndex:1 toIndex:0];  // GOOD.
-</code></pre>
+
+```
+
 <blockquote>
 <p>Note that this applies to <code>nil</code> as a message target, not as a parameter value.<br>
 Individual methods may or may not safely handle <code>nil</code> parameter values.</p>
@@ -1394,7 +1650,10 @@ and properties prefer using the context-sensitive, non-underscored keywords,<br>
 e.g., <code>nonnull</code> and <code>nullable</code>.</p>
 </blockquote>
 <p>Interface中可以使用可空性注解来描述接口行为和如何使用。使用可控性作用域（例如<code>NS_ASSUME_NONNULL_BEGIN</code> 和 <code>NS_ASSUME_NONNULL_END</code>）或使用可控性注解，这两种方式都是可以的。相对 <code>__nullable</code> 和 <code>__nonnull</code> 关键字，更推荐使用 <code>_Nullable</code>和 <code>_Nonnull</code>。对于Objective-C方法和属性，推荐使用无下划线的关键字，例如<code>nonnull</code> 和 <code>nullable</code>。</p>
-<pre><code class="language-objectivec">// GOOD:
+
+```objc
+
+// GOOD:
 
 /** A class representing an owned book. */
 @interface GTMBook : NSObject
@@ -1419,12 +1678,18 @@ e.g., <code>nonnull</code> and <code>nullable</code>.</p>
 @end
 
 /** Loads books from the file specified by the given path. */
-NSArray&lt;GTMBook *&gt; *_Nullable GTMLoadBooksFromFile(NSString *_Nonnull path);
-</code></pre>
-<pre><code class="language-objectivec">// AVOID:
+NSArray<GTMBook *> *_Nullable GTMLoadBooksFromFile(NSString *_Nonnull path);
 
-NSArray&lt;GTMBook *&gt; *__nullable GTMLoadBooksFromTitle(NSString *__nonnull path);
-</code></pre>
+```
+
+```objc
+
+// AVOID:
+
+NSArray<GTMBook *> *__nullable GTMLoadBooksFromTitle(NSString *__nonnull path);
+
+```
+
 <blockquote>
 <p>Be careful assuming that a pointer is not null based on a non-null qualifier<br>
 because the compiler may not guarantee that the pointer is not null.</p>
@@ -1461,68 +1726,95 @@ return values that can be safely converted to <code>BOOL</code> without the need
 ternary operator.</p>
 </blockquote>
 <p>也可以使用逻辑运算符(<code>&amp;&amp;</code>、 <code>||</code>、 <code>!</code>)来获取 <code>BOOL</code> 值，这种方法也可以不使用三元运算符来安全转换 <code>BOOL</code> 值。</p>
-<pre><code class="language-objectivec">// AVOID:
+
+```objc
+
+// AVOID:
 
 - (BOOL)isBold {
-  return [self fontTraits] &amp; NSFontBoldTrait;  // AVOID.
+  return [self fontTraits] & NSFontBoldTrait;  // AVOID.
 }
 - (BOOL)isValid {
   return [self stringValue];  // AVOID.
 }
-</code></pre>
-<pre><code class="language-objectivec">// GOOD:
+
+```
+
+```objc
+
+// GOOD:
 
 - (BOOL)isBold {
-  return ([self fontTraits] &amp; NSFontBoldTrait) ? YES : NO;
+  return ([self fontTraits] & NSFontBoldTrait) ? YES : NO;
 }
 - (BOOL)isValid {
   return [self stringValue] != nil;
 }
 - (BOOL)isEnabled {
-  return [self isValid] &amp;&amp; [self isBold];
+  return [self isValid] && [self isBold];
 }
-</code></pre>
+
+```
+
 <blockquote>
 <p>Also, don't directly compare <code>BOOL</code> variables directly with <code>YES</code>. Not only is<br>
 it harder to read for those well-versed in C, but the first point above<br>
 demonstrates that return values may not always be what you expect.</p>
 </blockquote>
 <p>同样，不要将 <code>BOOL</code> 值和<code>YES</code>进行直接比较。这样做不仅仅是因为对于精通C语言的人可能难以理解，而是返回值可能并不总是和预期一致（容易引起逻辑错误），这才是真正原因。</p>
-<pre><code class="language-objectivec">// AVOID:
+
+```objc
+
+// AVOID:
 
 BOOL great = [foo isGreat];
 if (great == YES) {  // AVOID.
   // ...be great!
 }
-</code></pre>
-<pre><code class="language-objectivec">// GOOD:
+
+```
+
+```objc
+
+// GOOD:
 
 BOOL great = [foo isGreat];
 if (great) {         // GOOD.
   // ...be great!
 }
-</code></pre>
+
+```
+
 <h3 id="interfaceinterfaceswithoutinstancevariables">无实例变量的Interface（Interfaces Without Instance Variables）</h3>
 <blockquote>
 <p>Omit the empty set of braces on interfaces that do not declare any instance<br>
 variables.</p>
 </blockquote>
 <p>若interface不声明任何实例变量，省略空的大括号。</p>
-<pre><code class="language-objectivec">// GOOD:
+
+```objc
+
+// GOOD:
 
 @interface MyClass : NSObject
 // Does a lot of stuff.
 - (void)fooBarBam;
 @end
-</code></pre>
-<pre><code class="language-objectivec">// AVOID:
+
+```
+
+```objc
+
+// AVOID:
 
 @interface MyClass : NSObject {
 }
 // Does a lot of stuff.
 - (void)fooBarBam;
 @end
-</code></pre>
+
+```
+
 <h2 id="cocoacocoapatterns">Cocoa模式（Cocoa Patterns）</h2>
 <h3 id="delegatedelegatepattern">Delegate模式（Delegate Pattern）</h3>
 <blockquote>
@@ -1567,7 +1859,10 @@ code in a method of a C++ class, use the C++ naming rules.</p>
 consistent within the file.</p>
 </blockquote>
 <p>对于Objective-C++文件类实现部分之外的代码，与该文件代码风格保持一致。</p>
-<pre><code class="language-objectivec++">// GOOD:
+
+```objc++
+
+// GOOD:
 
 // file: cross_platform_header.h
 
@@ -1597,7 +1892,7 @@ class CrossPlatformAPI {
 
 - (void)respondToSomething:(id)something {
   // bridge from Cocoa through our C++ backend
-  _instanceVar = _backEndObject-&gt;DoSomethingPlatformSpecific();
+  _instanceVar = _backEndObject->DoSomethingPlatformSpecific();
   NSString* tempString = [NSString stringWithFormat:@"%d", _instanceVar];
   NSLog(@"%@", tempString);
 }
@@ -1610,7 +1905,9 @@ int CrossPlatformAPI::DoSomethingPlatformSpecific() {
   NSLog(@"%@", temp_string);
   return [temp_string intValue];
 }
-</code></pre>
+
+```
+
 <blockquote>
 <p>Projects may opt to use an 80 column line length limit for consistency with<br>
 Google's C++ style guide.</p>
@@ -1647,12 +1944,17 @@ spacing in the parameter list except between parameters.</p>
 <p>Methods should look like this:</p>
 </blockquote>
 <p>方法示例如下：</p>
-<pre><code class="language-objectivec">// GOOD:
+
+```objc
+
+// GOOD:
 
 - (void)doSomethingWithString:(NSString *)theString {
   ...
 }
-</code></pre>
+
+```
+
 <blockquote>
 <p>The spacing before the asterisk is optional. When adding new code, be consistent<br>
 with the surrounding file's style.</p>
@@ -1668,7 +1970,10 @@ four spaces, then colon alignment is only required for all lines except the<br>
 first.</p>
 </blockquote>
 <p>如果一个方法声明一行放不下，需要将不同参数各占一行。除首行外，其余所有行都要至少缩进4个空格。不同参数前的冒号要对齐。如果方法声明第一行中参数前的冒号所在位置，对齐所有冒号后，后面的参数前面缩进的空格数少于4个，这种情况只需要将函数声明中第一行之外的其他行冒号对齐即可。</p>
-<pre><code class="language-objectivec">// GOOD:
+
+```objc
+
+// GOOD:
 
 - (void)doSomethingWithFoo:(GTMFoo *)theFoo
                       rect:(NSRect)theRect
@@ -1683,12 +1988,14 @@ first.</p>
   ...
 }
 
-- (id&lt;UIAdaptivePresentationControllerDelegate&gt;)
+- (id<UIAdaptivePresentationControllerDelegate>)
     adaptivePresentationControllerDelegateForViewController:(UIViewController *)viewController;
 
 - (void)presentWithAdaptivePresentationControllerDelegate:
-    (id&lt;UIAdaptivePresentationControllerDelegate&gt;)delegate;
-</code></pre>
+    (id<UIAdaptivePresentationControllerDelegate>)delegate;
+
+```
+
 <h3 id="functiondeclarationsanddefinitions">方法声明与定义（Function Declarations and Definitions）</h3>
 <blockquote>
 <p>Prefer putting the return type on the same line as the function name and append<br>
@@ -1697,19 +2004,24 @@ not fit on a single line as you would wrap arguments in a <a href="index.html#Fu
 call</a>.</p>
 </blockquote>
 <p>将方法返回类型和方法名放于同一行，后面跟其他参数，如果一行能放下，则参数放于同一行。若一行放不下，就像函数调用一样，来包装参数列表。</p>
-<pre><code class="language-objectivec">// GOOD:
+
+```objc
+
+// GOOD:
 
 NSString *GTMVersionString(int majorVersion, minorVersion) {
   ...
 }
 
 void GTMSerializeDictionaryToFileOnDispatchQueue(
-    NSDictionary&lt;NSString *, NSString *&gt; *dictionary,
+    NSDictionary<NSString *, NSString *> *dictionary,
     NSString *filename,
     dispatch_queue_t queue) {
   ...
 }
-</code></pre>
+
+```
+
 <blockquote>
 <p>Function declarations and definitions should also satisfy the following<br>
 conditions:</p>
@@ -1750,47 +2062,68 @@ brace.</li>
 operators.</p>
 </blockquote>
 <p><code>if</code>, <code>while</code>, <code>for</code>,  <code>switch</code>后有一个空格，比较运算符两边有空格。</p>
-<pre><code class="language-objectivec">// GOOD:
 
-for (int i = 0; i &lt; 5; ++i) {
+```objc
+
+// GOOD:
+
+for (int i = 0; i < 5; ++i) {
 }
 
 while (test) {};
-</code></pre>
+
+```
+
 <blockquote>
 <p>Braces may be omitted when a loop body or conditional statement fits on a single<br>
 line.</p>
 </blockquote>
 <p>若循环体或条件语句可放置一行中时，可以省略大括号；</p>
-<pre><code class="language-objectivec">// GOOD:
+
+```objc
+
+// GOOD:
 
 if (hasSillyName) LaughOutLoud();
 
-for (int i = 0; i &lt; 10; i++) {
+for (int i = 0; i < 10; i++) {
   BlowTheHorn();
 }
-</code></pre>
-<pre><code class="language-objectivec">// AVOID:
+
+```
+
+```objc
+
+// AVOID:
 
 if (hasSillyName)
   LaughOutLoud();               // AVOID.
 
-for (int i = 0; i &lt; 10; i++)
+for (int i = 0; i < 10; i++)
   BlowTheHorn();                // AVOID.
-</code></pre>
+
+```
+
 <blockquote>
 <p>If an <code>if</code> clause has an <code>else</code> clause, both clauses should use braces.</p>
 </blockquote>
 <p>若 <code>if</code> 语句后有 <code>else</code> 语句，两部分都需要使用大括号。</p>
-<pre><code class="language-objectivec">// GOOD:
+
+```objc
+
+// GOOD:
 
 if (hasBaz) {
   foo();
 } else {  // The else goes on the same line as the closing brace.
   bar();
 }
-</code></pre>
-<pre><code class="language-objectivec">// AVOID:
+
+```
+
+```objc
+
+// AVOID:
 
 if (hasBaz) foo();
 else bar();        // AVOID.
@@ -1798,13 +2131,18 @@ else bar();        // AVOID.
 if (hasBaz) {
   foo();
 } else bar();      // AVOID.
-</code></pre>
+
+```
+
 <blockquote>
 <p>Intentional fall-through to the next case should be documented with a comment<br>
 unless the case has no intervening code before the next case.</p>
 </blockquote>
 <p>除非两个case语句之间没有其他代码，有意添加的case连续执行情况，需要增加注释说明。</p>
-<pre><code class="language-objectivec">// GOOD:
+
+```objc
+
+// GOOD:
 
 switch (i) {
   case 1:
@@ -1822,27 +2160,39 @@ switch (i) {
   case 5:
   case 6: break;
 }
-</code></pre>
+
+```
+
 <h3 id="expressions">表达式（Expressions）</h3>
 <blockquote>
 <p>Use a space around binary operators and assignments. Omit a space for a unary<br>
 operator. Do not add spaces inside parentheses.</p>
 </blockquote>
 <p>二进制运算符、赋值运算符左右两边都需要添加空格。一元运算符可以省略空格。圆括号（左括号右边、右括号左边）不用空格。</p>
-<pre><code class="language-objectivec">// GOOD:
+
+```objc
+
+// GOOD:
 
 x = 0;
 v = w * x + y / z;
 v = -y * (x + z);
-</code></pre>
+
+```
+
 <blockquote>
 <p>Factors in an expression may omit spaces.</p>
 </blockquote>
 <p>某些表达式运算符左右可能省略空格。</p>
-<pre><code class="language-objectivec">// GOOD:
+
+```objc
+
+// GOOD:
 
 v = w*x + y/z;
-</code></pre>
+
+```
+
 <h3 id="methodinvocations">方法调动（Method Invocations）</h3>
 <blockquote>
 <p>Method invocations should be formatted much like method declarations.</p>
@@ -1853,27 +2203,40 @@ v = w*x + y/z;
 in a given source file. Invocations should have all arguments on one line:</p>
 </blockquote>
 <p>若源码中有现有的编码规范使用惯例，请保持一致继续使用。方法调用的所有参数都放在一行。</p>
-<pre><code class="language-objectivec">// GOOD:
+
+```objc
+
+// GOOD:
 
 [myObject doFooWith:arg1 name:arg2 error:arg3];
-</code></pre>
+
+```
+
 <blockquote>
 <p>or have one argument per line, with colons aligned:</p>
 </blockquote>
 <p>或每个参数放在单独一行，冒号对齐。</p>
-<pre><code class="language-objectivec">// GOOD:
+
+```objc
+
+// GOOD:
 
 [myObject doFooWith:arg1
                name:arg2
               error:arg3];
-</code></pre>
+
+```
+
 <blockquote>
 <p>Don't use any of these styles:</p>
 </blockquote>
 <p>不要使用下列编码风格：</p>
-<pre><code class="language-objectivec">// AVOID:
 
-[myObject doFooWith:arg1 name:arg2  // some lines with &gt;1 arg
+```objc
+
+// AVOID:
+
+[myObject doFooWith:arg1 name:arg2  // some lines with >1 arg
               error:arg3];
 
 [myObject doFooWith:arg1
@@ -1882,20 +2245,27 @@ in a given source file. Invocations should have all arguments on one line:</p>
 [myObject doFooWith:arg1
           name:arg2  // aligning keywords instead of colons
           error:arg3];
-</code></pre>
+
+```
+
 <blockquote>
 <p>As with declarations and definitions, when the first keyword is shorter than the<br>
 others, indent the later lines by at least four spaces, maintaining colon<br>
 alignment:</p>
 </blockquote>
 <p>与声明和定义一样，当第一个关键字比其他字段短，将后面的参数缩进至少4个空格，并将冒号对齐。</p>
-<pre><code class="language-objectivec">// GOOD:
+
+```objc
+
+// GOOD:
 
 [myObj short:arg1
           longKeyword:arg2
     evenLongerKeyword:arg3
                 error:arg4];
-</code></pre>
+
+```
+
 <blockquote>
 <p>Invocations containing multiple inlined blocks may have their parameter names<br>
 left-aligned at a four space indent.</p>
@@ -1912,10 +2282,13 @@ where shorter lines are needed for clarity or documentation of the parameters.</
 opening parenthesis, or may have a four-space indent.</p>
 </blockquote>
 <p>换行后的参数需要与函数的左括号对齐，或者使用4个空格进行缩进。</p>
-<pre><code class="language-objectivec">// GOOD:
+
+```objc
+
+// GOOD:
 
 CFArrayRef array = CFArrayCreate(kCFAllocatorDefault, objects, numberOfObjects,
-                                 &amp;kCFTypeArrayCallBacks);
+                                 &kCFTypeArrayCallBacks);
 
 NSString *string = NSLocalizedStringWithDefaultValue(@"FEET", @"DistanceTable",
     resourceBundle,  @"%@ feet", @"Distance for multiple feet");
@@ -1927,20 +2300,27 @@ TransformImage(image,
                x1, x2, x3,
                y1, y2, y3,
                z1, z2, z3);
-</code></pre>
+
+```
+
 <blockquote>
 <p>Use local variables with descriptive names to shorten function calls and reduce<br>
 nesting of calls.</p>
 </blockquote>
 <p>使用具有描述性名称的局部变量来缩短函数调用和减少内嵌调用。</p>
-<pre><code class="language-objectivec">// GOOD:
+
+```objc
+
+// GOOD:
 
 double scoreHeuristic = scores[x] * y + bases[x];
 UpdateTally(scoreHeuristic, x, y, z);
 
 // AVOID
 UpdateTally((scores[x] * y + bases[x]), x, y, z);
-</code></pre>
+
+```
+
 <h3 id="exceptions">异常（Exceptions）</h3>
 <blockquote>
 <p>Format exceptions with <code>@catch</code> and <code>@finally</code> labels on the same line as the<br>
@@ -1951,7 +2331,10 @@ Exceptions</a> for reasons why you should not be using<br>
 exceptions.</p>
 </blockquote>
 <p>使用 <code>@catch</code> 和 <code>@finally</code> 标签要与左大括号在同一行。标签与左大括号之间添加一个空格， <code>@catch</code> 与异常对象声明之间也添加一个空格。如果必须使用Objective-C异常类型，请按下面方式进行格式化。但是，请参考[避免抛异常（Avoid Throwing Exceptions）](#避免抛异常（Avoid Throwing Exceptions）) 以便了解避免抛出异常的原因。</p>
-<pre><code class="language-objectivec">// GOOD:
+
+```objc
+
+// GOOD:
 
 @try {
   foo();
@@ -1960,7 +2343,9 @@ exceptions.</p>
 } @finally {
   baz();
 }
-</code></pre>
+
+```
+
 <h3 id="functionlength">函数长度（Function Length）</h3>
 <blockquote>
 <p>Prefer small and focused functions.</p>

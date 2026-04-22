@@ -8,7 +8,9 @@ export default defineConfig({
     },
   },
   markdown: {
-    remarkPlugins: [],
-    rehypePlugins: [],
+    shikiConfig: {
+      theme: 'github-dark',
+      wrap: true,
+    },
   },
 });

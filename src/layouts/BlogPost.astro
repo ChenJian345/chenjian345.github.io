@@ -16,6 +16,16 @@ const formattedDate = new Date(pubDate).toLocaleDateString('zh-CN', {
   month: 'long',
   day: 'numeric',
 });
+
+// 分类配色
+const categoryColors: Record<string, { bg: string; text: string }> = {
+  'iOS': { bg: '#f0fdf4', text: '#15803d' },
+  '技术': { bg: '#eff6ff', text: '#2563eb' },
+  '设计': { bg: '#fdf4ff', text: '#a21caf' },
+  '工具': { bg: '#fff7ed', text: '#c2410c' },
+  '技术调研': { bg: '#f0f4ff', text: '#4f46e5' },
+};
+const catStyle = categoryColors[category] || categoryColors['技术'];
 ---
 
 <Layout title={`${title} - Crazy Mark`} description={description}>
@@ -23,7 +33,7 @@ const formattedDate = new Date(pubDate).toLocaleDateString('zh-CN', {
 
   <article>
     <div class="article-header">
-      <a href={`/category/${category}/`} class="article-category">{category}</a>
+      <a href={`/category/${category}/`} class="article-category" style={`background:${catStyle.bg};color:${catStyle.text}`}>{category}</a>
       <h1>{title}</h1>
       <div class="post-meta">
         <time datetime={pubDate}>{formattedDate}</time>
@@ -44,16 +54,14 @@ const formattedDate = new Date(pubDate).toLocaleDateString('zh-CN', {
 <style>
   .article-category {
     display: inline-block;
-    background: #f0f4ff;
-    color: #3b5bdb;
-    padding: 0.2rem 0.7rem;
-    border-radius: 4px;
+    padding: 0.25rem 0.75rem;
+    border-radius: 6px;
     font-size: 0.85rem;
-    font-weight: 500;
+    font-weight: 600;
     margin-bottom: 0.75rem;
     text-decoration: none;
   }
   .article-category:hover {
-    background: #e0e7ff;
+    filter: brightness(0.95);
   }
 </style>

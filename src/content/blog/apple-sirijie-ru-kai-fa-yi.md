@@ -145,21 +145,34 @@ excerpt: "随着iOS10.0发布脚步的临近，作为开发者，相信很多人
 <h4 id="step5">Step5. 添加逻辑</h4>
 <p>OK，到此为止，我们已经把所有接入Siri Intents Extension的前期准备工作都已经完成，现在我们要进入正题，实现相应的逻辑处理代码编写工作。<br>
 修改IntentHandling.swift文件，根据需要，修改所需要实现的协议内容：</p>
-<pre><code class="language-objective-c">class  IntentHandler:INExtension,INStartWorkoutIntentHandling,INPauseWorkoutIntentHandling,INResumeWorkoutIntentHandling,INEndWorkoutIntentHandling{
+
+```objc
+
+class  IntentHandler:INExtension,INStartWorkoutIntentHandling,INPauseWorkoutIntentHandling,INResumeWorkoutIntentHandling,INEndWorkoutIntentHandling{
 	...
 }
-</code></pre>
+
+```
+
 <p>OK，到此为止，我们已经把所有接入Siri Intents Extension的前期准备工作都已经完成，现在我们要进入正题，实现相应的逻辑处理代码编写工作。<br>
 修改IntentHandling.swift文件，根据需要，修改所需要实现的协议内容：</p>
-<pre><code class="language-objective-c">class IntentHandler:INExtension,INStartWorkoutIntentHandling
+
+```objc
+
+class IntentHandler:INExtension,INStartWorkoutIntentHandling
     ,INPauseWorkoutIntentHandling,INResumeWorkoutIntentHandling
     ,INEndWorkoutIntentHandling{
 	...
 }
-</code></pre>
+
+```
+
 <p>修改所需要实现的﻿不同场景下的逻辑回调部分，调用所在iOS App的相关业务逻辑，满足产品需求，例如</p>
 <p>开始锻炼</p>
-<pre><code>/*!
+
+```
+
+/*!
 @briefhandlingmethod
 @abstractExecutethetaskrepresentedbytheINStartWorkoutIntentthat
     'spassedin
@@ -172,12 +185,17 @@ excerpt: "随着iOS10.0发布脚步的临近，作为开发者，相信很多人
 @seeINStartWorkoutIntentResponse
 */
 public func handle(startWorkoutintent:INStartWorkoutIntent,completion
-    :@escaping(INStartWorkoutIntentResponse)-&gt;Swift.Void){
+    :@escaping(INStartWorkoutIntentResponse)->Swift.Void){
 	print("HereisStartworkoutcalledbySiri");
 }
-</code></pre>
+
+```
+
 <p>暂停锻炼</p>
-<pre><code>//MARK:-INPauseWorkoutIntentHandling
+
+```
+
+//MARK:-INPauseWorkoutIntentHandling
 /*!
 @briefhandlingmethod
 @abstractExecutethetaskrepresentedbytheINPauseWorkoutIntentthat
@@ -191,12 +209,17 @@ public func handle(startWorkoutintent:INStartWorkoutIntent,completion
 @seeINPauseWorkoutIntentResponse
 */
 public func handle(pauseWorkoutintent:INPauseWorkoutIntent,completion
-    :@escaping(INPauseWorkoutIntentResponse)-&gt;Swift.Void){
+    :@escaping(INPauseWorkoutIntentResponse)->Swift.Void){
 	print("HereisPauseworkoutcalledbySiri");
 }
-</code></pre>
+
+```
+
 <p>恢复锻炼</p>
-<pre><code>//MARK:-INResumeWorkoutIntentHandling
+
+```
+
+//MARK:-INResumeWorkoutIntentHandling
 /*!
 @briefhandlingmethod
 @abstractExecutethetaskrepresentedbytheINResumeWorkoutIntenttha
@@ -210,12 +233,17 @@ public func handle(pauseWorkoutintent:INPauseWorkoutIntent,completion
 @seeINResumeWorkoutIntentResponse
 */
 public func handle(resumeWorkoutintent:INResumeWorkoutIntent
-    ,completion:@escaping(INResumeWorkoutIntentResponse)-&gt;Swift.Void){
+    ,completion:@escaping(INResumeWorkoutIntentResponse)->Swift.Void){
 	print("HereisResumeworkoutcalledbySiri");
 }
-</code></pre>
+
+```
+
 <p>结束锻炼</p>
-<pre><code>//MARK:-INEndWorkoutIntentHandling
+
+```
+
+//MARK:-INEndWorkoutIntentHandling
 /*!
 @briefhandlingmethod
 @abstractExecutethetaskrepresentedbytheINEndWorkoutIntentthat's
@@ -229,10 +257,12 @@ public func handle(resumeWorkoutintent:INResumeWorkoutIntent
 @seeINEndWorkoutIntentResponse
 */
 public func handle(endWorkoutintent:INEndWorkoutIntent,completion
-    :@escaping(INEndWorkoutIntentResponse)-&gt;Swift.Void){
+    :@escaping(INEndWorkoutIntentResponse)->Swift.Void){
 	print("HereisEndworkoutcalledbySiri");
 }
-</code></pre>
+
+```
+
 <h3 id="">总结</h3>
 <p>以上就完成了所有接入SiriKit的工作，剩余的应用就是测试成果，此处有一些技巧，</p>
 <ul>
