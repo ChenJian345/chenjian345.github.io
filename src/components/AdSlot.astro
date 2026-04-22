@@ -1,0 +1,46 @@
+---
+// Google AdSense 广告位组件
+// 使用说明：
+// 1. 登录 Google AdSense 后台 (https://www.google.com/adsense/)
+// 2. 创建新的"展示广告"单元
+// 3. 将生成的 ad-client 和 ad-slot 替换下面的占位符
+// 4. 等待 AdSense 审核通过（新域名通常需要 1-2 周）
+
+const AD_CLIENT = 'ca-pub-8998210359913715'; // 替换为你的 AdSense 发布商 ID
+const AD_SLOT = '3036245817';                  // 替换为新的广告单元 ID
+---
+
+<div class="ad-container">
+  <span class="ad-label">赞助内容</span>
+  <ins class="adsbygoogle"
+    style="display:block; text-align:center;"
+    data-ad-client={AD_CLIENT}
+    data-ad-slot={AD_SLOT}
+    data-ad-format="auto"
+    data-full-width-responsive="true"
+  ></ins>
+</div>
+
+<script is:inline>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+<style>
+  .ad-container {
+    margin: 2rem 0 1rem;
+    padding: 1rem;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    min-height: 120px;
+  }
+  .ad-label {
+    display: block;
+    text-align: center;
+    font-size: 0.7rem;
+    color: #94a3b8;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+</style>

@@ -10,7 +10,10 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^4.16.19",
-    "@astrojs/rss": "^4.0.0"
+    "@astrojs/rss": "^4.0.0",
+    "astro": "^4.16.19"
+  },
+  "devDependencies": {
+    "tinacms": "^3.7.2"
   }
 }

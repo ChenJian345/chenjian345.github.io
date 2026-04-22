@@ -1,5 +1,6 @@
 ---
 import Layout from './Layout.astro';
+import AdSlot from '../components/AdSlot.astro';
 
 interface Props {
   title: string;
@@ -48,6 +49,8 @@ const catStyle = categoryColors[category] || categoryColors['技术'];
     <div class="article-content">
       <slot />
     </div>
+
+    <AdSlot />
   </article>
 </Layout>
 
