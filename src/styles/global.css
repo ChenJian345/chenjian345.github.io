@@ -91,42 +91,6 @@ a:hover {
   padding: 2.5rem 0;
 }
 
-/* Post list (home page) */
-.post-list {
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-}
-
-.post-item {
-  background: #fff;
-  border: 1px solid #e2e8f0;
-  border-radius: 12px;
-  padding: 1.5rem;
-  margin-bottom: 1rem;
-  transition: box-shadow 0.2s, transform 0.2s;
-}
-
-.post-item:hover {
-  box-shadow: 0 4px 16px rgba(0,0,0,0.06);
-  transform: translateY(-1px);
-}
-
-.post-item .post-title {
-  font-size: 1.2rem;
-  font-weight: 600;
-  margin: 0 0 0.4rem;
-}
-
-.post-item .post-title a {
-  color: #0f172a;
-}
-
-.post-item .post-title a:hover {
-  color: #2563eb;
-  text-decoration: none;
-}
-
 .post-meta {
   font-size: 0.85rem;
   color: #64748b;

@@ -1,5 +1,5 @@
 ---
-title: "Contact"
+title: "骑行运动卡路里计算方法"
 pubDate: "2017-03-01"
 slug: "qi-xing-yun-dong-qia-lu-li-ji-suan-fang-fa"
 tags: ["工具"]
@@ -53,7 +53,7 @@ excerpt: "文 · Mark 卡路里（简称卡，缩写为cal），由英文Calorie
 </code></pre>
 <p><strong>BMR计算公式</strong></p>
 <pre><code>Women: BMR = 655.1 + (9.563 × weight in kg) + (1.850 × height in cm) – (4.676 × age in years)
- 
+
 Men: BMR = 66.5 + (13.75 × weight in kg) + (5.003 × height in cm) – (6.755 × age in years)
 </code></pre>
 <p><strong>METs表</strong></p>
