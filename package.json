@@ -7,16 +7,10 @@
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro",
-    "tina": "tinacms dev",
-    "tina:build": "tinacms build"
+    "astro": "astro"
   },
   "dependencies": {
     "@astrojs/rss": "^4.0.0",
-    "astro": "^4.16.19",
-    "tinacms": "^2.7.2"
-  },
-  "devDependencies": {
-    "@tinacms/cli": "^1.9.2"
+    "astro": "^4.16.19"
   }
 }
