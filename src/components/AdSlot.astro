@@ -6,16 +6,26 @@
 // 3. 将生成的 ad-client 和 ad-slot 替换下面的占位符
 // 4. 等待 AdSense 审核通过（新域名通常需要 1-2 周）
 
-const AD_CLIENT = 'ca-pub-8998210359913715'; // 替换为你的 AdSense 发布商 ID
-const AD_SLOT = '3036245817';                  // 替换为新的广告单元 ID
+interface Props {
+  variant?: 'inline' | 'bottom';
+  adSlot?: string;
+}
+
+const { variant = 'bottom', adSlot } = Astro.props;
+
+const AD_CLIENT = 'ca-pub-8998210359913715';
+const DEFAULT_SLOT = '3036245817';
+const INLINE_SLOT = '3036245818'; // 建议去 AdSense 后台创建一个新的广告单元，替换这里
+
+const slot = adSlot || (variant === 'inline' ? INLINE_SLOT : DEFAULT_SLOT);
 ---
 
-<div class="ad-container">
+<div class={`ad-container ad-${variant}`}>
   <span class="ad-label">赞助内容</span>
   <ins class="adsbygoogle"
     style="display:block; text-align:center;"
     data-ad-client={AD_CLIENT}
-    data-ad-slot={AD_SLOT}
+    data-ad-slot={slot}
     data-ad-format="auto"
     data-full-width-responsive="true"
   ></ins>
@@ -27,12 +37,17 @@ const AD_SLOT = '3036245817';                  // 替换为新的广告单元 ID
 
 <style>
   .ad-container {
-    margin: 2rem 0 1rem;
     padding: 1rem;
     background: #f8fafc;
     border: 1px solid #e2e8f0;
     border-radius: 8px;
     min-height: 120px;
+  }
+  .ad-inline {
+    margin: 2rem 0;
+  }
+  .ad-bottom {
+    margin: 2rem 0 1rem;
   }
   .ad-label {
     display: block;
