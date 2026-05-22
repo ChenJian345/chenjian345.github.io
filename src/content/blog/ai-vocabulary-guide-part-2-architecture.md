@@ -14,7 +14,7 @@ description: "AI 模型架构与训练方法科普：Transformer、Self-Attentio
 
 ---
 
-## 一、Transformer / 变形金刚
+## 一、Transformer / 变换器
 
 Transformer 是当今几乎所有大模型的**基石架构**。GPT、Claude、文心一言、通义千问，底层都是 Transformer。
 
