@@ -1,6 +1,6 @@
 ---
 title: "AI 常见词汇科普（二）：模型架构与训练方法"
-pubDate: "2026-05-21"
+pubDate: "2026-05-22T08:23:00+08:00"
 slug: "ai-vocabulary-guide-part-2-architecture"
 tags: ["AI", "科普", "大模型", "术语", "Transformer", "Attention", "Embedding", "Fine-tuning", "LoRA", "MoE", "Token", "Temperature"]
 category: "技术"
