@@ -140,6 +140,45 @@ GPT-4 的词汇表大约有 10 万个 token。中文通常 1-2 个字符对应 1
 
 要让模型变成 ChatGPT 那样的助手，还需要后续的 **Fine-tuning（微调）** 和 **RLHF（人类反馈强化学习）**。
 
+### 4.3 预训练产出了什么？
+
+预训练结束后，你得到的不是"一个聪明的程序"，而是**一个巨大的权重文件**。
+
+**这个文件本质上是什么？**
+
+想象一下，你有一个超级厚的字典（词汇表），里面每个词后面都跟着几百到几千个数字：
+
+```
+词汇表（10 万个 token）
+├── "我" → [0.023, -0.015, 0.008, ...]     （768 个数字）
+├── "喜欢" → [-0.003, 0.012, -0.009, ...]  （768 个数字）
+├── "苹果" → [0.2, -0.5, 0.8, ...]         （768 个数字）
+├── ...
+└── "量子力学" → [0.1, 0.3, -0.2, ...]      （768 个数字）
+```
+
+这个"词 → 数字向量"的映射表，就是 **Embedding 层**，它是权重文件的一部分。
+
+除此之外，文件里还有：
+- **Attention 层的权重**：决定"聚光灯"怎么打
+- **前馈网络的权重**：决定如何进一步加工信息
+- **输出层的权重**：决定最终预测哪个 token
+
+**文件有多大？**
+
+| 模型 | 参数量 | 文件大小 |
+|------|--------|---------|
+| GPT-3 | 1750 亿 | 约 350 GB（FP16） |
+| Llama-3-8B | 80 亿 | 约 16 GB |
+| Llama-3-70B | 700 亿 | 约 140 GB |
+
+**存储格式：**
+- `.bin`（PyTorch 格式）
+- `.safetensors`（Hugging Face 安全格式）
+- `.gguf`（量化压缩格式，适合本地部署）
+
+**一句话：训练产出的就是一个大文件，里面存着几百亿个数字。这些数字决定了模型看到"你好"时，会输出"你好"还是"今天天气不错"。**
+
 **一句话记住：** 预训练就是给模型"读遍互联网"，让它学会语言的基本规律和常识。
 
 ---
@@ -167,6 +206,158 @@ Fine-tuning 需要：
 
 **一句话记住：** Fine-tuning 是给通才模型上"专业课"，让它在特定领域表现更好。
 
+### 5.3 过拟合（Overfitting）
+
+**过拟合是机器学习中一个核心问题，指模型"死记硬背"训练数据，而不是学习通用规律。**
+
+#### 通俗理解
+
+想象一个学生准备考试：
+
+- **正常学习** = 理解知识点，能应对各种变体题目
+- **过拟合** = 只背下了练习题答案，题目换个数字就不会了
+
+模型也一样：
+- **正常训练** = 学到"猫有四条腿、会喵喵叫"的通用特征
+- **过拟合** = 只记住了训练集中的那 1000 张猫的照片，遇到新照片就认不出来
+
+#### 为什么会过拟合？
+
+1. **训练数据太少**：模型把有限的数据当成了全部世界
+2. **训练轮次太多**：模型把训练集中的噪声和特例也当成了规律
+3. **模型太复杂**：参数太多，有足够的能力去"背诵"每一个训练样本
+
+#### 具体例子
+
+**例子 1：图像识别**
+
+你训练一个模型识别"猫"：
+- 训练集：1000 张猫的照片，其中 80% 是橘猫
+- 过拟合的模型：认为"橘色 = 猫"，看到橘色的狐狸也认为是猫
+- 正常的模型：学到"尖耳朵、胡须、肉垫"等通用特征
+
+**例子 2：语言模型微调**
+
+你用 500 条客服对话微调模型：
+- 训练数据中所有好评回复都以"感谢您的支持！"结尾
+- 过拟合的模型：无论用户说什么，结尾都加"感谢您的支持！"
+- 正常的模型：学会根据语境选择合适的结束语
+
+**例子 3：学生成绩预测**
+
+用历史数据预测学生期末成绩：
+- 训练数据中发现"穿红色衣服的学生成绩更好"
+- 过拟合的模型：把"红色衣服"当成预测特征
+- 正常的模型：发现真正相关的是"出勤率"和"作业完成度"
+
+#### 如何发现和防止过拟合？
+
+**发现方法：**
+
+把数据分成两部分：
+- **训练集**（80%）：用来训练模型
+- **验证集**（20%）：用来测试模型表现
+
+如果模型在训练集上表现很好（准确率 95%），但在验证集上表现很差（准确率 60%），就是过拟合了。
+
+**防止方法：**
+
+| 方法 | 原理 | 类比 |
+|------|------|------|
+| **早停（Early Stopping）** | 验证集性能不再提升时就停止训练 | 不要复习到大脑麻木 |
+| **增加数据** | 让模型看到更多样化的样本 | 多做不同类型的练习题 |
+| **Dropout** | 随机忽略一部分神经元，防止依赖特定路径 | 考试时不能带小抄 |
+| **正则化** | 惩罚过大的参数值，让模型保持简单 | 不要想得太复杂 |
+| **降低模型复杂度** | 用更小的模型 | 小学生不要学大学课程 |
+
+**一句话记住：** 过拟合就是模型"背答案"而不是"学方法"，遇到新题目就露馅。
+
+### 5.4 各种 Training 的关系图
+
+下面这张图展示了从预训练到最终部署的完整训练链路：
+
+<table style="width:100%; border-collapse: collapse; margin: 20px 0; font-size: 14px;">
+  <tr>
+    <td colspan="2" style="text-align: center; padding: 12px; background: #1e40af; color: white; border-radius: 8px; font-weight: bold; font-size: 16px;">
+      📚 预训练（Pre-training）
+    </td>
+  </tr>
+  <tr><td colspan="2" style="height: 4px;"></td></tr>
+  <tr>
+    <td colspan="2" style="padding: 10px; background: #eff6ff; border-radius: 6px; text-align: center; color: #1e40af; font-size: 13px;">
+      海量无标注文本 → 预测下一个 token → 基础权重文件（如 Llama-3-8B-base）
+    </td>
+  </tr>
+  <tr><td colspan="2" style="height: 8px;"></td></tr>
+  <tr>
+    <td colspan="2" style="text-align: center; color: #94a3b8; font-size: 20px;">↓ 基础模型诞生</td>
+  </tr>
+  <tr><td colspan="2" style="height: 8px;"></td></tr>
+  <tr>
+    <td colspan="2" style="text-align: center; padding: 12px; background: #166534; color: white; border-radius: 8px; font-weight: bold; font-size: 16px;">
+      🎓 Post-training（后训练）
+    </td>
+  </tr>
+  <tr><td colspan="2" style="height: 4px;"></td></tr>
+  <tr>
+    <td colspan="2" style="padding: 10px; background: #f0fdf4; border-radius: 6px; text-align: center; color: #166534; font-size: 13px;">
+      SFT + RLHF/DPO → 教礼仪、学对话 → 对话模型（如 Llama-3-8B-Instruct）
+    </td>
+  </tr>
+  <tr><td colspan="2" style="height: 8px;"></td></tr>
+  <tr>
+    <td colspan="2" style="text-align: center; color: #94a3b8; font-size: 20px;">↓ 通用助手就绪</td>
+  </tr>
+  <tr><td colspan="2" style="height: 8px;"></td></tr>
+  <tr>
+    <td style="width: 50%; vertical-align: top; padding: 8px;">
+      <div style="background: #fef3c7; border: 2px solid #f59e0b; border-radius: 8px; padding: 12px; height: 100%;">
+        <div style="font-weight: bold; color: #92400e; margin-bottom: 8px; text-align: center;">🔧 Fine-tuning（全量微调）</div>
+        <ul style="margin: 0; padding-left: 16px; color: #78350f; line-height: 1.8; font-size: 13px;">
+          <li>修改全部参数</li>
+          <li>需要：A100 GPU + 大量数据</li>
+          <li>适合：大公司、核心场景</li>
+        </ul>
+      </div>
+    </td>
+    <td style="width: 50%; vertical-align: top; padding: 8px;">
+      <div style="background: #e0e7ff; border: 2px solid #6366f1; border-radius: 8px; padding: 12px; height: 100%;">
+        <div style="font-weight: bold; color: #3730a3; margin-bottom: 8px; text-align: center;">⚡ LoRA（低秩适配）</div>
+        <ul style="margin: 0; padding-left: 16px; color: #312e81; line-height: 1.8; font-size: 13px;">
+          <li>只训练新增小模块</li>
+          <li>需要：RTX 4090 + 少量数据</li>
+          <li>适合：个人开发者、快速实验</li>
+        </ul>
+      </div>
+    </td>
+  </tr>
+  <tr><td colspan="2" style="height: 8px;"></td></tr>
+  <tr>
+    <td colspan="2" style="text-align: center; color: #94a3b8; font-size: 20px;">↓ 最终产物</td>
+  </tr>
+  <tr><td colspan="2" style="height: 8px;"></td></tr>
+  <tr>
+    <td colspan="2" style="text-align: center; padding: 12px; background: #1e293b; color: white; border-radius: 8px; font-weight: bold; font-size: 16px;">
+      🚀 部署到生产环境（API 服务 / 本地运行 / 边缘设备）
+    </td>
+  </tr>
+</table>
+
+**关系总结：**
+
+| 训练类型 | 修改范围 | 数据需求 | 算力需求 | 最终产物 |
+|---------|---------|---------|---------|---------|
+| **预训练** | 从零训练全部参数 | 数千亿 token | 数千张 GPU | 基础模型（Base） |
+| **Post-training** | 全量微调 | 几十万~几百万条 | 几十~几百张 GPU | 对话模型（Instruct） |
+| **Fine-tuning** | 全量微调 | 几千~几万条 | 1~8 张 A100 | 领域专用模型 |
+| **LoRA** | 只训练新增模块 | 几百~几千条 | 1 张 RTX 4090 | LoRA 适配器文件 |
+
+**关键理解：**
+- **预训练**是"打地基"，决定了模型的知识储备和语言能力
+- **Post-training**是"精装修"，决定了模型能否听懂人话、是否安全
+- **Fine-tuning / LoRA**是"个性化定制"，让通用模型适应特定场景
+- 越往后的阶段，**数据需求越少、算力需求越低、针对性越强**
+
 ---
 
 ## 六、LoRA / 低秩适配（Low-Rank Adaptation）
@@ -177,15 +368,113 @@ Fine-tuning 的一个主要问题是：需要调整的参数太多了。GPT-3 �
 
 ### 6.1 LoRA 的原理
 
-LoRA 的核心思想来自线性代数中的"低秩分解"。它假设：模型参数的变化可以用一个低秩矩阵来近似表示。
+#### 什么是 Low-Rank（低秩）？
 
-具体来说：
-1. 冻结预训练模型的所有参数（不修改）
-2. 在每一层旁边新增两个小矩阵 A 和 B
-3. 只训练 A 和 B，让它们学习当前任务的特征
-4. 推理时，把 A 和 B 的结果加到原有输出上
+**Rank（秩）是线性代数中的一个概念，描述一个矩阵包含多少"独立信息"。**
 
-这样，需要训练的参数量从原来的数百亿降到了几百万甚至几十万，显存需求也大幅降低。
+举个直观的例子：
+
+**高秩矩阵**（信息丰富）：
+```
+┌───┬───┬───┐
+│ 1 │ 2 │ 3 │    每一行都是独立的，无法互相推导
+├───┼───┼───┤
+│ 4 │ 5 │ 6 │    秩 = 2（有2行独立信息）
+├───┼───┼───┤
+│ 7 │ 8 │ 9 │
+└───┴───┴───┘
+```
+
+**低秩矩阵**（信息冗余）：
+```
+┌───┬───┬───┐
+│ 1 │ 2 │ 3 │    第2行 = 第1行 × 2
+├───┼───┼───┤
+│ 2 │ 4 │ 6 │    第3行 = 第1行 × 3
+├───┼───┼───┤    虽然看起来有9个数字，但本质只有1行信息
+│ 3 │ 6 │ 9 │    秩 = 1（只有1行独立信息）
+└───┴───┴───┘
+```
+
+**关键洞察**：低秩矩阵可以用两个更小的矩阵相乘来表示。
+
+比如上面的 3×3 低秩矩阵，可以拆成：
+```
+┌───┬───┬───┐   ┌───┐   ┌───┬───┬───┐
+│ 1 │ 2 │ 3 │   │ 1 │   │ 1 │ 2 │ 3 │
+├───┼───┼───┤ = │ 2 │ × │   │   │   │
+│ 2 │ 4 │ 6 │   │ 3 │   └───┴───┴───┘
+├───┼───┼───┤   └───┘
+│ 3 │ 6 │ 9 │
+└───┴───┴───┘
+  (3×3)        (3×1)      (1×3)
+```
+
+原来需要存 9 个数字，现在只需要存 3 + 3 = 6 个数字。
+
+#### LoRA 如何利用低秩？
+
+LoRA 的核心假设：**模型参数的变化（ΔW）是低秩的**。
+
+也就是说，当你微调一个模型时，参数的实际变化不需要修改全部数百亿个数字——只需要一个"低秩近似"就够了。
+
+**具体实现：**
+
+```
+原始权重矩阵 W（比如 4096×4096 = 1600万参数）
+    ↓
+冻结 W，不修改
+    ↓
+新增两个小子矩阵：
+  - A: 4096 × r  （r 通常 = 8 或 16）
+  - B: r × 4096
+    ↓
+只训练 A 和 B，总共只需要训练 4096×8 + 8×4096 = 65536 参数
+    ↓
+推理时：新输出 = W×输入 + A×B×输入
+```
+
+**r（秩）的选择：**
+- r = 8：适合简单任务，参数量最少
+- r = 16：通用选择，平衡效果和效率
+- r = 32+：复杂任务，效果接近全量微调
+
+r 越小，训练的参数越少，但表达能力也受限。r 越大，越接近全量微调的效果。
+
+**一句话：Low-Rank 就是"用少量关键信息代替全部信息"。LoRA 利用这个原理，用两个小子矩阵代替修改整个大矩阵，从而大幅降低微调成本。**
+
+#### LoRA 直观对比图
+
+<table style="width:100%; border-collapse: collapse; margin: 20px 0; font-size: 14px;">
+  <tr>
+    <td style="width: 50%; vertical-align: top; padding: 8px;">
+      <div style="background: #fee2e2; border: 2px solid #ef4444; border-radius: 8px; padding: 12px; height: 100%;">
+        <div style="font-weight: bold; color: #991b1b; margin-bottom: 8px; text-align: center;">❌ 全量 Fine-tuning</div>
+        <ul style="margin: 0; padding-left: 16px; color: #7f1d1d; line-height: 1.8; font-size: 13px;">
+          <li>修改全部 175B 参数</li>
+          <li>需要 8×A100 GPU</li>
+          <li>训练时间：数天</li>
+          <li>存储：数百 GB</li>
+          <li>💸 成本极高</li>
+        </ul>
+      </div>
+    </td>
+    <td style="width: 50%; vertical-align: top; padding: 8px;">
+      <div style="background: #dcfce7; border: 2px solid #22c55e; border-radius: 8px; padding: 12px; height: 100%;">
+        <div style="font-weight: bold; color: #166534; margin-bottom: 8px; text-align: center;">✅ LoRA</div>
+        <ul style="margin: 0; padding-left: 16px; color: #14532d; line-height: 1.8; font-size: 13px;">
+          <li>只训练 0.1% 新增参数</li>
+          <li>1×RTX 4090 即可</li>
+          <li>训练时间：几小时</li>
+          <li>存储：几十 MB</li>
+          <li>💰 成本极低</li>
+        </ul>
+      </div>
+    </td>
+  </tr>
+</table>
+
+**核心原理一句话：**  frozen W（冻结大矩阵） +  train A×B（训练小子矩阵） =  低成本微调大模型
 
 ### 6.2 LoRA 的优势
 
@@ -230,6 +519,39 @@ GPT-4、Mixtral 8x7B、Qwen2-57B 都采用了 MoE 架构。比如 Mixtral 8x7B �
 
 **一句话记住：** MoE 是"按需激活"的架构，让大模型在保持能力的同时大幅降低推理成本。
 
+### 7.3 MoE 直观对比图
+
+<table style="width:100%; border-collapse: collapse; margin: 20px 0; font-size: 14px;">
+  <tr>
+    <td style="width: 50%; vertical-align: top; padding: 8px;">
+      <div style="background: #fee2e2; border: 2px solid #ef4444; border-radius: 8px; padding: 12px; height: 100%;">
+        <div style="font-weight: bold; color: #991b1b; margin-bottom: 8px; text-align: center;">❌ 传统 Dense 模型</div>
+        <ul style="margin: 0; padding-left: 16px; color: #7f1d1d; line-height: 1.8; font-size: 13px;">
+          <li>所有参数全部激活</li>
+          <li>每次推理用 1.8T 参数</li>
+          <li>成本高、速度慢</li>
+          <li>像全科医生看所有病</li>
+          <li>💸 推理成本极高</li>
+        </ul>
+      </div>
+    </td>
+    <td style="width: 50%; vertical-align: top; padding: 8px;">
+      <div style="background: #dcfce7; border: 2px solid #22c55e; border-radius: 8px; padding: 12px; height: 100%;">
+        <div style="font-weight: bold; color: #166534; margin-bottom: 8px; text-align: center;">✅ MoE 模型</div>
+        <ul style="margin: 0; padding-left: 16px; color: #14532d; line-height: 1.8; font-size: 13px;">
+          <li>只激活部分专家</li>
+          <li>每次推理用 ~13B 参数</li>
+          <li>成本低、速度快</li>
+          <li>像专科医生按需会诊</li>
+          <li>💰 推理成本大幅降低</li>
+        </ul>
+      </div>
+    </td>
+  </tr>
+</table>
+
+**核心原理一句话：**  门控网络（分诊台）→ 选择 2 个最相关专家 → 只计算这 2 个专家 → 输出结果
+
 ---
 
 ## 八、Temperature / Top-p / Top-k
@@ -265,6 +587,56 @@ Top-p 比 Temperature 更智能，因为它会根据当前语境动态调整候�
 比如 Top-k = 50：只考虑概率最高的 50 个词，其他的全部忽略。
 
 **一句话记住：** Temperature 控制"创意程度"，Top-p 控制"考虑范围"，两者配合可以让模型既有创意又不胡说八道。
+
+### 8.4 Temperature 直观对比图
+
+<table style="width:100%; border-collapse: collapse; margin: 20px 0; font-size: 14px;">
+  <tr>
+    <td style="width: 33%; vertical-align: top; padding: 8px;">
+      <div style="background: #dbeafe; border: 2px solid #3b82f6; border-radius: 8px; padding: 12px; height: 100%;">
+        <div style="font-weight: bold; color: #1e40af; margin-bottom: 8px; text-align: center;">🧊 Temperature = 0</div>
+        <ul style="margin: 0; padding-left: 16px; color: #1e3a8a; line-height: 1.8; font-size: 13px;">
+          <li>最确定、最保守</li>
+          <li>每次输出都一样</li>
+          <li>适合：代码生成、数学计算</li>
+          <li>🤖 像严格执行的机器人</li>
+        </ul>
+      </div>
+    </td>
+    <td style="width: 33%; vertical-align: top; padding: 8px;">
+      <div style="background: #dcfce7; border: 2px solid #22c55e; border-radius: 8px; padding: 12px; height: 100%;">
+        <div style="font-weight: bold; color: #166534; margin-bottom: 8px; text-align: center;">🌡️ Temperature = 0.7（推荐）</div>
+        <ul style="margin: 0; padding-left: 16px; color: #14532d; line-height: 1.8; font-size: 13px;">
+          <li>既有创意又合理</li>
+          <li>每次输出略有不同</li>
+          <li>适合：对话、写作、头脑风暴</li>
+          <li>👨‍🍳 像有经验的厨师</li>
+        </ul>
+      </div>
+    </td>
+    <td style="width: 33%; vertical-align: top; padding: 8px;">
+      <div style="background: #fef3c7; border: 2px solid #f59e0b; border-radius: 8px; padding: 12px; height: 100%;">
+        <div style="font-weight: bold; color: #92400e; margin-bottom: 8px; text-align: center;">🔥 Temperature = 1.0+</div>
+        <ul style="margin: 0; padding-left: 16px; color: #78350f; line-height: 1.8; font-size: 13px;">
+          <li>很有创意但可能胡说</li>
+          <li>输出随机性很大</li>
+          <li>适合：诗歌、创意写作</li>
+          <li>🎨 像疯狂的艺术家</li>
+        </ul>
+      </div>
+    </td>
+  </tr>
+</table>
+
+**实际效果对比：**
+
+| 温度 | 输入 | 输出 |
+|------|------|------|
+| **0** | "描述一只猫" | "猫是一种小型哺乳动物，属于猫科动物。" |
+| **0.7** | "描述一只猫" | "一只橘色的猫咪正懒洋洋地躺在窗台上，尾巴轻轻摇晃。" |
+| **1.2** | "描述一只猫" | "月光下，一只银灰色的猫影掠过屋顶，眼中闪烁着星辰的光芒。" |
+
+**一句话：** Temperature 越低越"老实"，越高越"放飞"。日常用 0.7 最合适。
 
 ---
 
