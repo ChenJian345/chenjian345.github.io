@@ -86,6 +86,21 @@ a:hover {
   border-bottom-color: #2563eb;
 }
 
+.site-nav-support {
+  padding: 0.35rem 0.7rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 999px;
+  background: linear-gradient(180deg, #ffffff, #f8fafc);
+  color: #0f172a !important;
+  border-bottom-color: #cbd5e1 !important;
+}
+
+.site-nav-support:hover {
+  border-bottom-color: #94a3b8;
+  color: #0f172a !important;
+  background: linear-gradient(180deg, #ffffff, #eef2ff);
+}
+
 /* Main content area */
 .site-main {
   padding: 2.5rem 0;
@@ -265,6 +280,10 @@ a:hover {
   font-size: 0.85rem;
   background: #fff;
   margin-top: 2rem;
+}
+
+.site-footer a {
+  color: #2563eb;
 }
 
 /* About page */
