@@ -25,7 +25,7 @@ const categories = [...new Set(posts.map(p => p.data.category))];
       {featured.map(post => (
         <PostCard
           title={post.data.title}
-          slug={post.slug}
+          slug={post.data.slug}
           pubDate={post.data.pubDate}
           excerpt={post.data.excerpt}
           category={post.data.category}
@@ -43,7 +43,7 @@ const categories = [...new Set(posts.map(p => p.data.category))];
         {rest.map(post => (
           <PostCard
             title={post.data.title}
-            slug={post.slug}
+            slug={post.data.slug}
             pubDate={post.data.pubDate}
             excerpt={post.data.excerpt}
             category={post.data.category}
@@ -67,7 +67,7 @@ const categories = [...new Set(posts.map(p => p.data.category))];
           {catPosts.map(post => (
             <PostCard
               title={post.data.title}
-              slug={post.slug}
+              slug={post.data.slug}
               pubDate={post.data.pubDate}
               excerpt={post.data.excerpt}
               category={post.data.category}

@@ -16,7 +16,7 @@ export const GET: APIRoute = async () => {
   ];
 
   const postEntries = posts.map(post => ({
-    url: `/blog/${post.slug}/`,
+    url: `/blog/${post.data.slug}/`,
     lastmod: new Date(post.data.pubDate).toISOString(),
     priority: '0.8',
   }));
