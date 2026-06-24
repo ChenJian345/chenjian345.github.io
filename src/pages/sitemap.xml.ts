@@ -3,7 +3,7 @@ import { getCollection } from 'astro:content';
 
 export const GET: APIRoute = async () => {
   const posts = await getCollection('blog');
-  const site = 'https://markcj.cc';
+  const site = 'https://chenjian345.github.io';
 
   const pages = [
     { url: '/', lastmod: new Date().toISOString(), priority: '1.0' },

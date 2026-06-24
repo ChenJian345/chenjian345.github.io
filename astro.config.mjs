@@ -1,7 +1,7 @@
 import { defineConfig } from 'astro/config';
 
 export default defineConfig({
-  site: 'https://markcj.cc',
+  site: 'https://chenjian345.github.io',
   image: {
     service: {
       entrypoint: 'astro/assets/services/noop',
