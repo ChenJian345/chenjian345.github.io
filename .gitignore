@@ -9,3 +9,6 @@ node_modules/
 
 # Logs
 npm-debug.log*
+
+# Local agent/workflow state
+.healthdevkit/

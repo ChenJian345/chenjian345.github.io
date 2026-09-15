@@ -29,9 +29,6 @@ const categoryColors: Record<string, { bg: string; text: string }> = {
   '技术调研': { bg: '#f0f4ff', text: '#4f46e5' },
 };
 const catStyle = categoryColors[category] || categoryColors['技术'];
-
-// 为文章生成目录锚点（基于 h2 标题）
-const tocId = 'article-toc';
 ---
 
 <Layout 
