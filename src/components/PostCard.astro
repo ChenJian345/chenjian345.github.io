@@ -47,13 +47,14 @@ const catStyle = categoryColors[category] || categoryColors['技术'];
     display: block;
     background: #fff;
     border: 1px solid #e2e8f0;
-    border-radius: 12px;
+    border-radius: 8px;
     padding: 1.5rem;
     text-decoration: none;
     color: inherit;
-    transition: box-shadow 0.2s, transform 0.2s;
+    transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
   }
   .post-card:hover {
+    border-color: #cbd5e1;
     box-shadow: 0 8px 30px rgba(0,0,0,0.08);
     transform: translateY(-3px);
   }

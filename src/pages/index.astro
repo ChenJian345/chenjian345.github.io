@@ -7,18 +7,21 @@ const posts = (await getCollection('blog')).sort(
   (a, b) => new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime()
 );
 
-// 最新 3 篇作为"头条"
+// 最新文章单独强调，其余文章按时间继续展示。
 const featured = posts.slice(0, 3);
-
-// 其余文章
 const rest = posts.slice(3);
-
-// 按分类分组
-const categories = [...new Set(posts.map(p => p.data.category))];
+const categories = Array.from(
+  posts.reduce((counts, post) => counts.set(post.data.category, (counts.get(post.data.category) || 0) + 1), new Map<string, number>())
+);
 ---
 
 <Layout title="Crazy Mark - 技术博客">
-  <!-- 头条区 -->
+  <section class="intro-section">
+    <p class="intro-eyebrow">MARK CHEN</p>
+    <h1>技术实践、AI 学习与长期积累</h1>
+    <p>记录软件开发中的问题、解决过程和值得反复回看的知识。</p>
+  </section>
+
   <section class="featured-section">
     <h2 class="section-title">最新文章</h2>
     <div class="featured-grid">
@@ -35,10 +38,9 @@ const categories = [...new Set(posts.map(p => p.data.category))];
     </div>
   </section>
 
-  <!-- 其余文章 -->
   {rest.length > 0 && (
     <section class="more-section">
-      <h2 class="section-title">更多文章</h2>
+      <h2 class="section-title">全部文章</h2>
       <div class="more-grid">
         {rest.map(post => (
           <PostCard
@@ -54,33 +56,44 @@ const categories = [...new Set(posts.map(p => p.data.category))];
     </section>
   )}
 
-  <!-- 分类区块（如果分类数 > 1） -->
-  {categories.length > 1 && categories.map(cat => {
-    const catPosts = posts.filter(p => p.data.category === cat).slice(0, 3);
-    if (catPosts.length === 0) return null;
-    return (
-      <section class="category-section">
-        <div class="category-header">
-          <h2 class="section-title">{cat}</h2>
-        </div>
-        <div class="category-grid">
-          {catPosts.map(post => (
-            <PostCard
-              title={post.data.title}
-              slug={post.data.slug}
-              pubDate={post.data.pubDate}
-              excerpt={post.data.excerpt}
-              category={post.data.category}
-              tags={post.data.tags}
-            />
-          ))}
-        </div>
-      </section>
-    );
-  })}
+  {categories.length > 1 && (
+    <section class="category-section" id="categories">
+      <h2 class="section-title">分类浏览</h2>
+      <div class="category-list">
+        {categories.map(([category, count]) => (
+          <a href={`/category/${category}/`} class="category-link">
+            <span>{category}</span>
+            <span>{count} 篇</span>
+          </a>
+        ))}
+      </div>
+    </section>
+  )}
 </Layout>
 
 <style>
+  .intro-section {
+    padding: 1rem 0 1.5rem;
+    border-bottom: 1px solid #e2e8f0;
+  }
+  .intro-eyebrow {
+    margin: 0 0 0.5rem;
+    color: #2563eb;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+  }
+  .intro-section h1 {
+    max-width: 24ch;
+    margin: 0;
+    color: #0f172a;
+    font-size: 2rem;
+    line-height: 1.25;
+  }
+  .intro-section p:not(.intro-eyebrow) {
+    margin: 0.75rem 0 0;
+    color: #64748b;
+  }
   .section-title {
     font-size: 1.3rem;
     font-weight: 600;
@@ -101,15 +114,40 @@ const categories = [...new Set(posts.map(p => p.data.category))];
     gap: 1rem;
   }
   .category-section {
-    margin-top: 1rem;
+    margin-top: 2.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #e2e8f0;
   }
-  .category-grid {
+  .category-list {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 0.5rem 1rem;
+  }
+  .category-link {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 0.7rem 0;
+    color: #334155;
+    border-bottom: 1px solid #e2e8f0;
+    text-decoration: none;
+  }
+  .category-link span:last-child {
+    color: #94a3b8;
+    font-size: 0.82rem;
+  }
+  .category-link:hover {
+    color: #2563eb;
+    border-bottom-color: #93c5fd;
   }
   @media (max-width: 640px) {
-    .featured-grid, .more-grid, .category-grid {
+    .intro-section {
+      padding-top: 0;
+    }
+    .intro-section h1 {
+      font-size: 1.65rem;
+    }
+    .featured-grid, .more-grid {
       grid-template-columns: 1fr;
     }
   }

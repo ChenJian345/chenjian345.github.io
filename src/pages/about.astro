@@ -4,9 +4,38 @@ import Layout from '../layouts/Layout.astro';
 
 <Layout title="关于我 - Crazy Mark" description="关于 Mark Chen - Software Developer">
   <div class="about-content">
-    <h1>关于我 About Me</h1>
-    <p><strong>Mark Chen</strong></p>
-    <p>Software Developer. <a href="https://github.com/ChenJian345">GitHub</a><br />Living in BeiJing, China</p>
-    <p><a href="/support">支持我</a></p>
+    <p class="about-kicker">ABOUT</p>
+    <h1>Mark Chen</h1>
+    <p class="about-lead">一名软件开发者，生活在北京。</p>
+    <p>这里记录技术实践、AI 学习过程，以及那些值得沉淀下来的工具与方法。</p>
+    <div class="about-links">
+      <a href="https://github.com/ChenJian345">GitHub</a>
+      <a href="/support">支持我</a>
+    </div>
   </div>
 </Layout>
+
+<style>
+  .about-kicker {
+    margin: 0 0 0.6rem;
+    color: #2563eb;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+  }
+  .about-content h1 {
+    margin-bottom: 0.5rem;
+  }
+  .about-lead {
+    margin: 0;
+    color: #64748b;
+  }
+  .about-links {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1.5rem;
+  }
+  .about-links a {
+    font-weight: 600;
+  }
+</style>

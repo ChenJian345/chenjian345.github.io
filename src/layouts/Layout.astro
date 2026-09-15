@@ -24,6 +24,7 @@ const {
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const ogImageURL = new URL(image, Astro.site).toString();
 const supportPageURL = '/support';
+const currentPath = Astro.url.pathname;
 ---
 
 <!doctype html>
@@ -131,11 +132,10 @@ const supportPageURL = '/support';
       <div class="inner">
         <a href="/" class="site-logo">Crazy Mark</a>
         <nav class="site-nav">
-          <a href="/">文章</a>
-          <a href="/about">关于</a>
-          <a href="/category/iOS">iOS</a>
-          <a href="/category/技术">技术</a>
-          <a href={supportPageURL} class="site-nav-support">支持我</a>
+          <a href="/" class:list={{ active: currentPath === '/' }}>文章</a>
+          <a href="/#categories">分类</a>
+          <a href="/about" class:list={{ active: currentPath === '/about' }}>关于</a>
+          <a href={supportPageURL} class:list={{ 'site-nav-support': true, active: currentPath === supportPageURL }}>支持我</a>
         </nav>
       </div>
     </header>
