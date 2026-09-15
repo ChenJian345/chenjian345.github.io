@@ -40,7 +40,7 @@ const catStyle = categoryColors[category] || categoryColors['技术'];
 >
   <a href="/" class="back-link">← 返回首页</a>
 
-  <article itemscope itemtype="https://schema.org/TechArticle">
+  <article class="article" itemscope itemtype="https://schema.org/TechArticle">
     <div class="article-header">
       <a href={`/category/${category}/`} class="article-category" style={`background:${catStyle.bg};color:${catStyle.text}`}>{category}</a>
       <h1 itemprop="headline">{title}</h1>
@@ -61,10 +61,11 @@ const catStyle = categoryColors[category] || categoryColors['技术'];
     <!-- 文章底部广告 -->
     <AdSlot variant="bottom" />
 
-    <!-- 文章底部相关推荐占位 -->
     <div class="article-footer">
+      <p>这篇文章对你有帮助？欢迎支持我继续写作。</p>
       <div class="article-nav">
-        <a href="/" class="back-home">← 查看更多文章</a>
+        <a href="/support" class="support-link">支持我</a>
+        <a href="/" class="back-home">查看更多文章</a>
       </div>
     </div>
   </article>
@@ -84,9 +85,14 @@ const catStyle = categoryColors[category] || categoryColors['技术'];
     filter: brightness(0.95);
   }
   .article-footer {
-    margin-top: 3rem;
-    padding-top: 2rem;
+    margin-top: 2.5rem;
+    padding-top: 1.25rem;
     border-top: 1px solid #e2e8f0;
+  }
+  .article-footer p {
+    margin: 0 0 0.75rem;
+    color: #64748b;
+    font-size: 0.9rem;
   }
   .article-nav {
     display: flex;
@@ -94,11 +100,25 @@ const catStyle = categoryColors[category] || categoryColors['技术'];
     align-items: center;
   }
   .back-home {
-    color: #4f46e5;
+    color: #475569;
     text-decoration: none;
     font-weight: 500;
   }
   .back-home:hover {
     text-decoration: underline;
+  }
+  .support-link {
+    color: #ea580c;
+    font-weight: 600;
+    text-decoration: none;
+  }
+  .support-link:hover {
+    color: #c2410c;
+    text-decoration: underline;
+  }
+  @media (max-width: 640px) {
+    .article-footer {
+      margin-top: 2rem;
+    }
   }
 </style>

@@ -44,7 +44,9 @@ const catStyle = categoryColors[category] || categoryColors['技术'];
 
 <style>
   .post-card {
-    display: block;
+    display: flex;
+    flex-direction: column;
+    min-height: 220px;
     background: #fff;
     border: 1px solid #e2e8f0;
     border-radius: 8px;
@@ -64,6 +66,7 @@ const catStyle = categoryColors[category] || categoryColors['技术'];
     align-items: center;
     margin-bottom: 0.75rem;
     font-size: 0.8rem;
+    color: #64748b;
   }
   .post-category {
     padding: 0.2rem 0.7rem;
@@ -92,6 +95,8 @@ const catStyle = categoryColors[category] || categoryColors['技术'];
     display: flex;
     gap: 0.3rem;
     flex-wrap: wrap;
+    margin-top: auto;
+    padding-top: 0.35rem;
   }
   .tag {
     background: #f1f5f9;
@@ -99,5 +104,14 @@ const catStyle = categoryColors[category] || categoryColors['技术'];
     padding: 0.1rem 0.5rem;
     border-radius: 4px;
     font-size: 0.75rem;
+  }
+  @media (max-width: 640px) {
+    .post-card {
+      min-height: 0;
+      padding: 1.15rem;
+    }
+    .post-card-title {
+      font-size: 1.1rem;
+    }
   }
 </style>
