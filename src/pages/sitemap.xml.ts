@@ -8,6 +8,8 @@ export const GET: APIRoute = async () => {
   const pages = [
     { url: '/', lastmod: new Date().toISOString(), priority: '1.0' },
     { url: '/about', lastmod: '2024-01-01', priority: '0.5' },
+    { url: '/support', lastmod: new Date().toISOString(), priority: '0.4' },
+    { url: '/rss.xml', lastmod: new Date().toISOString(), priority: '0.4' },
     { url: '/category/iOS', lastmod: new Date().toISOString(), priority: '0.6' },
     { url: '/category/技术', lastmod: new Date().toISOString(), priority: '0.6' },
     { url: '/category/设计', lastmod: new Date().toISOString(), priority: '0.6' },
