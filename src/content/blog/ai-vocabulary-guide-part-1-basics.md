@@ -10,7 +10,9 @@ description: "AI 基础概念科普：LLM、AIGC、Prompt Engineering、RAG、Ag
 
 AI 领域的术语在过去两年经历了爆炸式增长。**LLM**、**AIGC**、**Prompt**、**RAG**、**Agent**……这些词在技术文章、产品发布会、甚至日常对话里频繁出现，但真能讲清楚每个词含义和边界的人，其实不多。
 
-这篇文章的目标很简单：**把最基础、最常见的 AI 词汇，用工程师能理解的方式讲透**。不堆砌定义，不制造焦虑，帮你建立一个清晰的概念坐标系。后续还会有两篇，分别覆盖[模型架构与训练方法](/blog/ai-vocabulary-guide-part-2-architecture)（Transformer、Attention、Embedding、Fine-tuning、LoRA 等）、以及[工程落地与生态工具](/blog/ai-vocabulary-guide-part-3-engineering)（LangChain、向量数据库、模型部署、API 设计等）。
+这篇文章的目标很简单：**把最基础、最常见的 AI 词汇，用工程师能理解的方式讲透**。不堆砌定义，不制造焦虑，帮你建立一个清晰的概念坐标系。后续文章分别覆盖[模型架构与训练方法](/blog/ai-vocabulary-guide-part-2-architecture)（Transformer、Attention、Embedding、Fine-tuning、LoRA 等）、[工程落地与生态工具](/blog/ai-vocabulary-guide-part-3-engineering)（LangChain、向量数据库、模型部署、API 设计等），以及[上下文、工具调用与 MCP](/blog/ai-vocabulary-guide-part-4-context-tools)。
+
+![AI 基础概念定位图：LLM 是语言能力核心；Prompt 决定表达，RAG 补充资料，工具带来行动能力，Agent 负责协调多步任务](/images/ai-vocabulary/ai-concepts-map.svg)
 
 ---
 

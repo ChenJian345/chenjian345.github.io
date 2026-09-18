@@ -12,6 +12,8 @@ description: "AI 模型架构与训练方法科普：Transformer、Self-Attentio
 
 这篇文章的目标：**把 Transformer、Attention、Embedding、Fine-tuning、LoRA 等架构和训练相关的核心术语，用工程师能理解的方式讲清楚**。不需要懂数学，不需要会推导，建立直觉就够了。
 
+![大模型知识定位图：Embedding 解决输入表示，Transformer 和 Attention 是模型骨架，预训练和微调决定能力来源，采样参数影响输出风格](/images/ai-vocabulary/ai-transformer-flow.svg)
+
 ---
 
 ## 一、Transformer / 变换器
@@ -82,15 +84,15 @@ GPT-3 有 96 个注意力头，GPT-4 更多。每个头学习不同的语言模�
 
 ### 3.1 为什么 Embedding 有效？
 
-Embedding 有一个神奇的特性：**语义相近的词，在向量空间中的距离也相近。**
+专门为语义检索训练的 Embedding，通常会让语义相近的文本在向量空间中更接近；但这不是所有模型内部向量都保证具备的性质。
 
 比如：
-- "国王" - "男人" + "女人" ≈ "女王"
+- “国王” - “男人” + “女人” ≈ “女王”（经典词向量实验中的直观例子）
 - "北京" 和 "中国首都" 的向量非常接近
 - "开心" 和 "高兴" 的向量距离很近
 - "开心" 和 "悲伤" 的向量距离很远
 
-这不是人为设定的，而是模型在训练过程中自动学习到的。通过在海量文本上训练，模型发现"国王"和"女王"经常出现在相似的语境中，所以它们的向量表示也很相似。
+这些关系由训练目标和数据分布共同塑造。它适合帮助理解检索 embedding 的直觉，但不能把某个内部 token 向量直接当成可解释的“语义坐标”。
 
 ### 3.2 Token Embedding
 
@@ -111,15 +113,15 @@ GPT-4 的词汇表大约有 10 万个 token。中文通常 1-2 个字符对应 1
 
 预训练是大模型"学知识"的过程，也是整个训练中最耗资源、最耗时的阶段。
 
-**预训练是在海量无标注文本上，让模型学习语言的统计规律和通用知识的过程。** 核心任务只有一个：预测下一个 token。
+**预训练是在海量无标注文本上，让模型学习语言统计规律和通用知识的过程。** 对 GPT 一类自回归 LLM，常见目标是预测下一个 token；也有模型采用遮住部分内容再预测的掩码语言模型目标，两者不要混为同一流程。
 
 ### 4.1 预测下一个字
 
 预训练的过程简单粗暴：
 
 1. 从互联网、书籍、论文、代码中收集数千亿 token 的文本
-2. 随机遮住句子的一部分，让模型预测被遮住的部分是什么
-3. 如果预测对了，奖励模型；预测错了，惩罚模型
+2. 把前文作为条件，让模型预测下一个 token
+3. 根据预测误差更新参数，让正确答案的概率更高
 4. 重复数万亿次
 
 比如：
@@ -325,7 +327,7 @@ Fine-tuning 需要：
         <div style="font-weight: bold; color: #3730a3; margin-bottom: 8px; text-align: center;">⚡ LoRA（低秩适配）</div>
         <ul style="margin: 0; padding-left: 16px; color: #312e81; line-height: 1.8; font-size: 13px;">
           <li>只训练新增小模块</li>
-          <li>需要：RTX 4090 + 少量数据</li>
+          <li>硬件需求取决于模型和配置</li>
           <li>适合：个人开发者、快速实验</li>
         </ul>
       </div>
@@ -348,14 +350,14 @@ Fine-tuning 需要：
 | 训练类型 | 修改范围 | 数据需求 | 算力需求 | 最终产物 |
 |---------|---------|---------|---------|---------|
 | **预训练** | 从零训练全部参数 | 数千亿 token | 数千张 GPU | 基础模型（Base） |
-| **Post-training** | 全量微调 | 几十万~几百万条 | 几十~几百张 GPU | 对话模型（Instruct） |
-| **Fine-tuning** | 全量微调 | 几千~几万条 | 1~8 张 A100 | 领域专用模型 |
-| **LoRA** | 只训练新增模块 | 几百~几千条 | 1 张 RTX 4090 | LoRA 适配器文件 |
+| **Post-training** | 广义后训练阶段，可包含 SFT、偏好优化等 | 视目标而定 | 视模型与方法而定 | 对话或任务模型 |
+| **Fine-tuning** | 对已有模型继续训练 | 视任务而定 | 视模型、batch 与策略而定 | 领域专用模型 |
+| **LoRA** | 微调的一种参数高效实现 | 视任务而定 | 常显著降低显存，但需按模型估算 | LoRA 适配器文件 |
 
 **关键理解：**
 - **预训练**是"打地基"，决定了模型的知识储备和语言能力
 - **Post-training**是"精装修"，决定了模型能否听懂人话、是否安全
-- **Fine-tuning / LoRA**是"个性化定制"，让通用模型适应特定场景
+- **Fine-tuning**是“个性化定制”，而 **LoRA** 是实现这类微调的常见高效方法
 - 越往后的阶段，**数据需求越少、算力需求越低、针对性越强**
 
 ---
@@ -451,8 +453,8 @@ r 越小，训练的参数越少，但表达能力也受限。r 越大，越接�
       <div style="background: #fee2e2; border: 2px solid #ef4444; border-radius: 8px; padding: 12px; height: 100%;">
         <div style="font-weight: bold; color: #991b1b; margin-bottom: 8px; text-align: center;">❌ 全量 Fine-tuning</div>
         <ul style="margin: 0; padding-left: 16px; color: #7f1d1d; line-height: 1.8; font-size: 13px;">
-          <li>修改全部 175B 参数</li>
-          <li>需要 8×A100 GPU</li>
+          <li>更新全部模型参数</li>
+          <li>显存与算力需求很高</li>
           <li>训练时间：数天</li>
           <li>存储：数百 GB</li>
           <li>💸 成本极高</li>
@@ -464,8 +466,8 @@ r 越小，训练的参数越少，但表达能力也受限。r 越大，越接�
         <div style="font-weight: bold; color: #166534; margin-bottom: 8px; text-align: center;">✅ LoRA</div>
         <ul style="margin: 0; padding-left: 16px; color: #14532d; line-height: 1.8; font-size: 13px;">
           <li>只训练 0.1% 新增参数</li>
-          <li>1×RTX 4090 即可</li>
-          <li>训练时间：几小时</li>
+          <li>通常显著降低显存需求</li>
+          <li>具体配置取决于模型和量化</li>
           <li>存储：几十 MB</li>
           <li>💰 成本极低</li>
         </ul>
@@ -485,7 +487,7 @@ r 越小，训练的参数越少，但表达能力也受限。r 越大，越接�
 
 ### 6.3 QLoRA
 
-**QLoRA 是 LoRA 的升级版，进一步降低了显存需求。** 它把模型权重从 16 位浮点数压缩到 4 位（量化），然后再加 LoRA 适配层。这样可以在 24GB 显存的显卡上微调 70B 参数的模型。
+**QLoRA 是 LoRA 的一种量化训练方案，进一步降低了显存需求。** 它以低比特量化加载基础模型，再训练 LoRA 适配层。具体能微调多大的模型取决于量化方式、上下文长度、batch、优化器和硬件；应先按实际配置做显存估算。
 
 **一句话记住：** LoRA 是"小改动大效果"的微调方法，用少量新增参数让大模型适应新任务，省钱又高效。
 
@@ -499,7 +501,7 @@ MoE 是 2024 年以来大模型领域最热门的架构创新之一。
 
 ### 7.1 为什么需要 MoE？
 
-大模型的一个核心矛盾是：**模型越大效果越好，但推理成本也越高。** GPT-4 据说有 1.8 万亿参数，每次生成答案都需要进行数万亿次计算，成本极高。
+大模型的一个核心矛盾是：**模型越大效果越好，但推理成本也越高。** 闭源模型的具体架构与参数规模通常没有公开确认，不宜据传闻下结论。
 
 MoE 的解决方案：不激活全部参数，只激活最相关的部分。
 
@@ -515,7 +517,7 @@ MoE 的解决方案：不激活全部参数，只激活最相关的部分。
 3. 只有被选中的专家参与计算，其他专家休眠
 4. 最后把选中专家的输出加权组合
 
-GPT-4、Mixtral 8x7B、Qwen2-57B 都采用了 MoE 架构。比如 Mixtral 8x7B 有 8 个专家，总参数量 47B，但每次只激活 2 个专家（约 13B 参数），推理速度和 13B 模型相当，效果却接近 47B 模型。
+Mixtral 等公开模型采用了 MoE 架构。以 Mixtral 8x7B 为例，它有 8 个专家、每个 token 选择其中 2 个；实际速度仍会受到路由、通信、显存与实现方式影响，不能简单等同于某个稠密模型。
 
 **一句话记住：** MoE 是"按需激活"的架构，让大模型在保持能力的同时大幅降低推理成本。
 
@@ -528,7 +530,7 @@ GPT-4、Mixtral 8x7B、Qwen2-57B 都采用了 MoE 架构。比如 Mixtral 8x7B �
         <div style="font-weight: bold; color: #991b1b; margin-bottom: 8px; text-align: center;">❌ 传统 Dense 模型</div>
         <ul style="margin: 0; padding-left: 16px; color: #7f1d1d; line-height: 1.8; font-size: 13px;">
           <li>所有参数全部激活</li>
-          <li>每次推理用 1.8T 参数</li>
+          <li>每次推理使用全部参数</li>
           <li>成本高、速度慢</li>
           <li>像全科医生看所有病</li>
           <li>💸 推理成本极高</li>
@@ -563,7 +565,7 @@ GPT-4、Mixtral 8x7B、Qwen2-57B 都采用了 MoE 架构。比如 Mixtral 8x7B �
 **Temperature 控制模型输出的随机程度。** 它是一个 0 到 2 之间的数值（通常用 0.0 - 1.0）。
 
 - **Temperature = 0**：模型总是选择概率最高的词，输出最确定、最保守
-- **Temperature = 0.7**：模型会在高概率词中随机选择，输出既有创意又保持合理（默认推荐值）
+- **Temperature = 0.7**：一种中等随机性的常见起点；不同模型和任务应通过测试确定
 - **Temperature = 1.0+**：模型更倾向于选择低概率词，输出更有创意但也更可能胡说八道
 
 类比：Temperature 就像厨师的"创意程度"。温度低 = 严格按照菜谱做；温度高 = 自由发挥，可能惊喜也可能翻车。
@@ -586,7 +588,7 @@ Top-p 比 Temperature 更智能，因为它会根据当前语境动态调整候�
 
 比如 Top-k = 50：只考虑概率最高的 50 个词，其他的全部忽略。
 
-**一句话记住：** Temperature 控制"创意程度"，Top-p 控制"考虑范围"，两者配合可以让模型既有创意又不胡说八道。
+**一句话记住：** Temperature、Top-p 和 Top-k 只是在调节采样分布；事实可靠性仍要靠检索、验证与评估，而不是靠某个“万能参数”。
 
 ### 8.4 Temperature 直观对比图
 
@@ -605,7 +607,7 @@ Top-p 比 Temperature 更智能，因为它会根据当前语境动态调整候�
     </td>
     <td style="width: 33%; vertical-align: top; padding: 8px;">
       <div style="background: #dcfce7; border: 2px solid #22c55e; border-radius: 8px; padding: 12px; height: 100%;">
-        <div style="font-weight: bold; color: #166534; margin-bottom: 8px; text-align: center;">🌡️ Temperature = 0.7（推荐）</div>
+        <div style="font-weight: bold; color: #166534; margin-bottom: 8px; text-align: center;">🌡️ Temperature = 0.7（常见起点）</div>
         <ul style="margin: 0; padding-left: 16px; color: #14532d; line-height: 1.8; font-size: 13px;">
           <li>既有创意又合理</li>
           <li>每次输出略有不同</li>
@@ -691,8 +693,8 @@ Top-p 比 Temperature 更智能，因为它会根据当前语境动态调整候�
 **推荐阅读：**
 
 - 还没看第一篇？→ 《[AI 常见词汇科普（一）：基础概念篇](/blog/ai-vocabulary-guide-part-1-basics)》
-- 想了解工程落地？→ 关注本系列第三篇（即将发布）
+- 想了解工程落地？→ 《[AI 常见词汇科普（三）：工程落地与生态工具](/blog/ai-vocabulary-guide-part-3-engineering)》
 
 ---
 
-*本系列持续更新中，第三篇将深入讲解工程落地与生态工具。*
+*本系列持续更新中，下一篇会聚焦上下文、工具调用与 MCP。*

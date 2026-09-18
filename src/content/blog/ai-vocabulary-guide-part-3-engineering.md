@@ -12,6 +12,8 @@ description: "AI 工程落地工具链科普：LangChain、LlamaIndex、向量�
 
 但知道原理不等于能干活。这篇文章聚焦**工程落地**——从 Prompt 调优到 RAG 搭建、从 Agent 框架到模型部署，把 AI 从"玩具"变成"生产力工具"。
 
+![AI 工程选型地图：Prompt 解决表达问题，RAG 解决私有知识问题，Agent 解决多步行动问题；部署和评估让能力可上线、可衡量](/images/ai-vocabulary/ai-rag-agent-flow.svg)
+
 ---
 
 ## 一、提示词工程进阶（Prompt Engineering）
@@ -87,7 +89,7 @@ description: "AI 工程落地工具链科普：LangChain、LlamaIndex、向量�
 
 ### 2.1 RAG 不是万能药
 
-RAG 能解决"知识过时"和"胡说八道"的问题，但也有局限：
+当知识库及时、检索正确且模型遵循资料时，RAG 能缓解“知识过时”和“胡说八道”；它不是万能药：
 
 | RAG 能解决的问题 | RAG 解决不了的问题 |
 |-----------------|------------------|
@@ -189,28 +191,27 @@ AI 回答："根据《员工手册》[1]，正式员工每年享有 15 天带薪
 **一个简单的 LangChain Chain：**
 
 ```python
-from langchain import OpenAI, PromptTemplate, LLMChain
+from langchain_core.prompts import ChatPromptTemplate
+from langchain_openai import ChatOpenAI
 
 # 定义模板
 template = """
 你是一位{role}，请用{style}的风格回答以下问题：
 {question}
 """
-prompt = PromptTemplate(
-    input_variables=["role", "style", "question"],
-    template=template
-)
+prompt = ChatPromptTemplate.from_template(template)
 
 # 创建 Chain
-llm = OpenAI(temperature=0.7)
-chain = LLMChain(llm=llm, prompt=prompt)
+llm = ChatOpenAI(model="gpt-5", temperature=0.7)
+chain = prompt | llm
 
 # 执行
-result = chain.run({
+result = chain.invoke({
     "role": "资深程序员",
     "style": "通俗易懂",
     "question": "什么是递归？"
 })
+print(result.content)
 ```
 
 **LangChain 的优缺点：**
@@ -223,7 +224,7 @@ result = chain.run({
 
 ### 3.2 LlamaIndex
 
-**定位：** 专注"数据 + LLM"的连接，RAG 场景的首选。
+**定位：** 专注“数据 + LLM”的连接，尤其适合 RAG 场景；它并非唯一选择。
 
 **核心概念：**
 
@@ -239,14 +240,14 @@ result = chain.run({
 | 维度 | LlamaIndex | LangChain |
 |------|-----------|-----------|
 | **专注点** | 数据连接与检索 | 通用 AI 应用编排 |
-| **RAG 能力** | ⭐⭐⭐⭐⭐ | ⭐⭐⭐ |
-| **Agent 能力** | ⭐⭐⭐ | ⭐⭐⭐⭐⭐ |
+| **RAG 能力** | 数据连接与索引能力更突出 | 可通过组件组合实现 |
+| **Agent 能力** | 也支持工作流与 Agent | 通用编排能力更突出 |
 | **上手难度** | 中等 | 较简单 |
 | **最佳场景** | 知识库问答 | 多步骤工作流 |
 
 **实践建议：**
-- 纯 RAG 项目 → LlamaIndex
-- 复杂 Agent 工作流 → LangChain
+- 数据连接和索引是重点 → 优先评估 LlamaIndex
+- 通用编排是重点 → 优先评估 LangChain
 - 两者可以混用（LlamaIndex 做检索，LangChain 做编排）
 
 ---
@@ -255,7 +256,7 @@ result = chain.run({
 
 ### 4.1 为什么需要向量数据库？
 
-传统数据库按**关键词**搜索（搜"猫"只能找到含"猫"字的文档）。
+传统数据库常见的是精确查询和全文检索；要做语义检索，则需要 Embedding 与向量索引。
 
 向量数据库按**语义**搜索（搜"猫"还能找到"kitten"、"喵星人"、"橘橘"）。
 
@@ -298,14 +299,14 @@ result = chain.run({
 
 普通 AI 是"问答机"：你问一句，它答一句。
 
-Agent 是"能干活的人"：你给目标，它自己规划步骤、调用工具、完成任务。
+Agent 是面向目标的多步工作流：它会根据中间结果决定下一步。单次工具调用不等于 Agent。
 
 **核心能力：**
 
 1. **规划（Planning）**：把大目标拆成小步骤
-2. **记忆（Memory）**：记住对话历史和上下文
-3. **工具调用（Tool Use）**：调用外部 API 获取信息或执行操作
-4. **反思（Reflection）**：检查输出对不对，错了就改
+2. **状态管理**：保存必要的上下文和中间结果
+3. **工具调用（Tool Use）**：在授权范围内请求外部 API
+4. **评估或校验**：在需要时检查结果并调整下一步
 
 ### 5.2 Agent 执行循环
 
@@ -374,13 +375,14 @@ Agent 观察 2：回答已生成
 ### 6.2 API 调用（最常用）
 
 ```python
-import openai
+from openai import OpenAI
 
-response = openai.ChatCompletion.create(
-    model="gpt-4",
-    messages=[{"role": "user", "content": "你好"}]
+client = OpenAI()
+response = client.responses.create(
+    model="gpt-5",
+    input="你好"
 )
-print(response.choices[0].message.content)
+print(response.output_text)
 ```
 
 **主流 API 提供商：**
@@ -546,7 +548,8 @@ AI 模型的输出不像传统软件有"对/错"，需要专门的评估方法�
 **推荐阅读：**
 
 - 还没看前两篇？→ 《[AI 常见词汇科普（一）：基础概念篇](/blog/ai-vocabulary-guide-part-1-basics)》、《[AI 常见词汇科普（二）：模型架构与训练方法](/blog/ai-vocabulary-guide-part-2-architecture)》
+- 继续读下一篇？→ 《[AI 常见词汇科普（四）：上下文、工具调用与 MCP](/blog/ai-vocabulary-guide-part-4-context-tools)》
 
 ---
 
-*本系列完结。如果对你有帮助，欢迎分享给也在学 AI 的朋友。*
+*本系列持续更新中。如果对你有帮助，欢迎分享给也在学 AI 的朋友。*
