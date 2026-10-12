@@ -34,7 +34,7 @@ Preflight without committing or pushing:
 npm run deploy -- --dry-run
 ```
 
-The script fetches `origin/master`, rejects divergent history or hidden extra changes, builds locally, pushes `HEAD:master`, waits for GitHub Pages, and verifies affected article and asset URLs. Use it instead of rediscovering the deployment workflow.
+The script fetches `origin/master`, rejects divergent history or hidden extra changes, builds locally, pushes `HEAD:master`, waits until `/deploy.txt` reports the pushed commit, and verifies affected article and asset URLs. Use it instead of rediscovering the deployment workflow.
 
 ## Content Conventions
 

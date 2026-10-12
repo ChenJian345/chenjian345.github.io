@@ -165,59 +165,28 @@ repo_slug="$(printf '%s' "$remote_url" | sed -E 's#^git@github\.com:##; s#^ssh:/
 workflow="${DEPLOY_WORKFLOW:-$DEFAULT_WORKFLOW}"
 timeout_seconds="${DEPLOY_TIMEOUT_SECONDS:-$DEFAULT_TIMEOUT_SECONDS}"
 site_url="${SITE_URL:-$DEFAULT_SITE_URL}"
-api_base="https://api.github.com/repos/$repo_slug"
+site_url="${site_url%/}"
+action_url="https://github.com/$repo_slug/actions/workflows/$workflow"
+marker_url="$site_url/deploy.txt"
 
-parse_run_list() {
-  node -e '
-    let input = "";
-    process.stdin.on("data", chunk => input += chunk);
-    process.stdin.on("end", () => {
-      const data = JSON.parse(input);
-      const run = data.workflow_runs.find(item => item.head_sha === process.argv[1]);
-      if (run) process.stdout.write([run.id, run.status, run.conclusion || "", run.html_url].join("|"));
-    });
-  ' "$head_sha"
-}
-
-parse_run() {
-  node -e '
-    let input = "";
-    process.stdin.on("data", chunk => input += chunk);
-    process.stdin.on("end", () => {
-      const run = JSON.parse(input);
-      process.stdout.write([run.status, run.conclusion || "", run.html_url].join("|"));
-    });
-  '
-}
-
-printf '==> Waiting for GitHub Pages workflow\n'
-run_id=""
-run_url=""
-for _ in 1 2 3 4 5 6 7 8 9 10; do
-  run_data="$(curl --fail --silent --show-error --location \
-    "$api_base/actions/workflows/$workflow/runs?branch=master&event=push&per_page=20" | parse_run_list)"
-  if [[ -n "$run_data" ]]; then
-    IFS='|' read -r run_id _ _ run_url <<< "$run_data"
-    break
-  fi
-  sleep 3
-done
-[[ -n "$run_id" ]] || fail "GitHub Actions run did not appear for $head_sha"
-
+printf '==> Waiting for GitHub Pages deployment marker\n'
 started_at="$(date +%s)"
+attempt=0
 while true; do
-  run_data="$(curl --fail --silent --show-error --location \
-    "$api_base/actions/runs/$run_id" | parse_run)"
-  IFS='|' read -r run_status run_conclusion run_url <<< "$run_data"
-  printf '    workflow: %s%s\n' "$run_status" "${run_conclusion:+ ($run_conclusion)}"
+  attempt=$((attempt + 1))
+  deployed_sha="$(curl --fail --silent --location \
+    --header 'Cache-Control: no-cache' \
+    "$marker_url?deploy=$head_sha&attempt=$attempt" 2>/dev/null || true)"
 
-  if [[ "$run_status" == "completed" ]]; then
-    [[ "$run_conclusion" == "success" ]] || fail "deployment failed: $run_url"
+  if [[ "$deployed_sha" == "$head_sha" ]]; then
+    printf '    deployed: %s\n' "${head_sha:0:8}"
     break
   fi
 
   now="$(date +%s)"
-  (( now - started_at < timeout_seconds )) || fail "deployment timed out: $run_url"
+  (( now - started_at < timeout_seconds )) || \
+    fail "deployment marker timed out; check $action_url"
+  printf '    waiting: %s\n' "${deployed_sha:-marker unavailable}"
   sleep 15
 done
 
@@ -244,5 +213,5 @@ done
 
 printf '==> Deployment complete\n'
 printf '    commit: %s\n' "$head_sha"
-printf '    action: %s\n' "$run_url"
+printf '    action: %s\n' "$action_url"
 printf '    site:   %s\n' "$site_url"
