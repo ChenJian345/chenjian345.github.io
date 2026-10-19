@@ -6,41 +6,56 @@ const supportURL = 'https://buymeacoffee.com/eyzU2NJ';
 
 <Layout title="支持我 - Crazy Mark" description="支持 Crazy Mark 继续写作和分享技术内容">
   <div class="support-page">
-    <div class="support-card">
+    <section class="support-intro">
       <p class="support-kicker">支持我</p>
       <h1>请我喝杯咖啡</h1>
       <p class="support-copy">
-        如果你喜欢这里的文章、笔记或工具分享，欢迎通过 Buy Me a Coffee 支持我。
-        这会直接帮助我继续更新内容。
+        如果这里的文章、笔记或工具分享对你有帮助，欢迎选择你方便的方式支持我。
+        每一份支持都会帮助我继续更新内容。
       </p>
+    </section>
 
-      <a href={supportURL} target="_blank" rel="noreferrer noopener" class="support-button">
-        打开 Buy Me a Coffee
-      </a>
+    <section class="support-methods" aria-label="支持方式">
+      <article class="support-method support-method-online">
+        <p class="support-method-label">海外读者</p>
+        <h2>Buy Me a Coffee</h2>
+        <p>通过 Buy Me a Coffee 完成支持。</p>
+        <a href={supportURL} target="_blank" rel="noreferrer noopener" class="support-button">
+          打开 Buy Me a Coffee
+        </a>
+      </article>
 
-      <p class="support-note">
-        支持页面会跳转到第三方服务。
-      </p>
-    </div>
+      <article class="support-method">
+        <p class="support-method-label">中国大陆</p>
+        <h2>微信支付</h2>
+        <p>扫码支持。正式收款码即将更新。</p>
+        <img src="/payment-code-placeholder.svg" alt="微信支付收款码占位图，暂不可用于付款" class="payment-code" />
+        <p class="payment-pending">收款码待更新</p>
+      </article>
+
+      <article class="support-method">
+        <p class="support-method-label">中国大陆</p>
+        <h2>支付宝</h2>
+        <p>扫码支持。正式收款码即将更新。</p>
+        <img src="/payment-code-placeholder.svg" alt="支付宝收款码占位图，暂不可用于付款" class="payment-code" />
+        <p class="payment-pending">收款码待更新</p>
+      </article>
+    </section>
+
+    <p class="support-note">支持为自愿行为，不提供商品或服务。第三方支付将跳转至对应平台。</p>
   </div>
 </Layout>
 
 <style>
   .support-page {
-    min-height: calc(100vh - 220px);
-    display: grid;
-    place-items: center;
-    padding: 1rem 0 2rem;
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 1.5rem 0 2rem;
   }
 
-  .support-card {
-    width: 100%;
-    max-width: 640px;
-    background: #fff;
-    border: 1px solid #e2e8f0;
-    border-radius: 8px;
-    padding: 2.2rem;
-    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.05);
+  .support-intro {
+    max-width: 620px;
+    margin-bottom: 2rem;
   }
 
   .support-kicker {
@@ -52,7 +67,7 @@ const supportURL = 'https://buymeacoffee.com/eyzU2NJ';
     text-transform: uppercase;
   }
 
-  .support-card h1 {
+  .support-intro h1 {
     margin: 0;
     font-size: 2rem;
     line-height: 1.2;
@@ -60,10 +75,50 @@ const supportURL = 'https://buymeacoffee.com/eyzU2NJ';
   }
 
   .support-copy {
-    margin: 1rem 0 1.5rem;
+    margin: 1rem 0 0;
     color: #475569;
     line-height: 1.8;
     max-width: 52ch;
+  }
+
+  .support-methods {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+  }
+
+  .support-method {
+    display: flex;
+    min-height: 310px;
+    flex-direction: column;
+    padding: 1.25rem;
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+  }
+
+  .support-method-label {
+    margin: 0 0 0.5rem;
+    color: #64748b;
+    font-size: 0.78rem;
+    font-weight: 600;
+  }
+
+  .support-method h2 {
+    margin: 0;
+    color: #0f172a;
+    font-size: 1.15rem;
+  }
+
+  .support-method > p:not(.support-method-label, .payment-pending) {
+    margin: 0.5rem 0 1rem;
+    color: #64748b;
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+
+  .support-method-online {
+    border-color: #fed7aa;
   }
 
   .support-button {
@@ -78,6 +133,7 @@ const supportURL = 'https://buymeacoffee.com/eyzU2NJ';
     text-decoration: none;
     border: 1px solid transparent;
     transition: transform 0.15s ease, background 0.15s ease;
+    margin-top: auto;
   }
 
   .support-button:hover {
@@ -87,18 +143,45 @@ const supportURL = 'https://buymeacoffee.com/eyzU2NJ';
   }
 
   .support-note {
-    margin: 0.9rem 0 0;
+    margin: 1.25rem 0 0;
     color: #94a3b8;
     font-size: 0.82rem;
   }
 
+  .payment-code {
+    display: block;
+    width: 100%;
+    max-width: 154px;
+    margin: auto auto 0;
+    aspect-ratio: 1;
+  }
+
+  .payment-pending {
+    margin: 0.55rem 0 0;
+    color: #94a3b8;
+    font-size: 0.78rem;
+    text-align: center;
+  }
+
   @media (max-width: 640px) {
-    .support-card {
-      padding: 1.4rem;
+    .support-page {
+      padding-top: 0;
     }
 
-    .support-card h1 {
+    .support-intro h1 {
       font-size: 1.6rem;
+    }
+
+    .support-methods {
+      grid-template-columns: 1fr;
+    }
+
+    .support-method {
+      min-height: 0;
+    }
+
+    .support-method-online {
+      min-height: 190px;
     }
   }
 </style>
