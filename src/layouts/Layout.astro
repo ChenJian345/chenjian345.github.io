@@ -41,9 +41,7 @@ const currentPath = Astro.url.pathname;
     <link rel="alternate" type="application/rss+xml" title="Crazy Mark RSS" href="/rss.xml" />
 
     <!-- DNS Prefetch & Preconnect -->
-    <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
     <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com" />
-    <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin />
     <link rel="preconnect" href="https://pagead2.googlesyndication.com" crossorigin />
 
     <!-- Robots -->
@@ -119,13 +117,10 @@ const currentPath = Astro.url.pathname;
       })} />
     )}
     
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113294116-1"></script>
+    <!-- 51.LA: anonymous page, source, and content-module analytics. -->
+    <script charset="UTF-8" id="LA_COLLECT" src="https://sdk.51.la/js-sdk-pro.min.js"></script>
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'UA-113294116-1');
+      LA.init({ id: '3RYbte6ixwVQbuDc', ck: '3RYbte6ixwVQbuDc' });
     </script>
 
     <!-- Google AdSense -->
